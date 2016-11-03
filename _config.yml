@@ -3,12 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: liyang's blog
+subtitle: 离你最近的人，如何一步步成为你羡慕嫉妒的那种人
 description:
-author: John Doe
-language:
+author: liyang
+language: zh-Hans	
 timezone:
+avatar: http://ofyose6ar.bkt.clouddn.com/2016110101.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -64,7 +65,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 plugins: hexo-generator-cname
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
