@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>liyang&#39;s blog</title>
-  <subtitle>离你最近的人，如何一步步成为你羡慕嫉妒的那种人</subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ermao.cf/"/>
-  <updated>2016-11-03T05:54:05.488Z</updated>
+  <updated>2016-11-04T11:00:31.425Z</updated>
   <id>https://ermao.cf/</id>
   
   <author>
@@ -16,51 +16,163 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="https://ermao.cf/2016/11/02/test/"/>
-    <id>https://ermao.cf/2016/11/02/test/</id>
-    <published>2016-11-02T05:52:31.000Z</published>
-    <updated>2016-11-03T05:54:05.488Z</updated>
+    <title>建站日记</title>
+    <link href="https://ermao.cf/2016/11/03/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
+    <id>https://ermao.cf/2016/11/03/建站日记/</id>
+    <published>2016-11-03T15:44:59.000Z</published>
+    <updated>2016-11-04T11:00:31.425Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="这是一个测试件"><a href="#这是一个测试件" class="headerlink" title="这是一个测试件"></a>这是一个测试件</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;这是一个测试件&quot;&gt;&lt;a href=&quot;#这是一个测试件&quot; class=&quot;headerlink&quot; title=&quot;这是一个测试件&quot;&gt;&lt;/a&gt;这是一个测试件&lt;/h1&gt;
-    
-    </summary>
-    
-      <category term="test" scheme="https://ermao.cf/categories/test/"/>
-    
-    
-      <category term="test" scheme="https://ermao.cf/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://ermao.cf/2016/11/02/hello-world/"/>
-    <id>https://ermao.cf/2016/11/02/hello-world/</id>
-    <published>2016-11-02T03:54:12.065Z</published>
-    <updated>2016-11-02T05:28:25.118Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<blockquote>
+<p>本来想着用一个单独的页面来记录建站的过程，后来想了想还是用文章记录吧。</p>
+</blockquote>
+<h3 id="最初-Typecho"><a href="#最初-Typecho" class="headerlink" title="最初: Typecho"></a>最初: Typecho</h3><ul>
+<li>20160409：建立Tyecho的blog,域名： <strong>liyang.one</strong></li>
+</ul>
+<h3 id="目前：Hexo-github-coding"><a href="#目前：Hexo-github-coding" class="headerlink" title="目前：Hexo+github/coding"></a>目前：Hexo+github/coding</h3><ul>
+<li>20161102：hexo的搭建与基本配置，域名暂为：<strong>ermao.cf</strong></li>
+<li>20161103：更改主题next、增加评论、背景动画、统计。</li>
+<li>20161104：文章的迁移、留言页、公益404。</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;blockquote&gt;
+&lt;p&gt;本来想着用一个单独的页面来记录建站的过程，后来想了想还是用文章记录吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;最初-Typecho&quot;&gt;&lt;a href=&quot;#最初-Typecho&quot; class=&quot;headerlink&quot; title=&quot;最初
     
     </summary>
     
+      <category term="建站日记" scheme="https://ermao.cf/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
+    
+    
+      <category term="日记" scheme="https://ermao.cf/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="建站日记" scheme="https://ermao.cf/tags/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="建站" scheme="https://ermao.cf/tags/%E5%BB%BA%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog：Typecho迁移到Hexo</title>
+    <link href="https://ermao.cf/2016/11/02/Blog%EF%BC%9ATypecho%E8%BF%81%E7%A7%BB%E5%88%B0Hexo/"/>
+    <id>https://ermao.cf/2016/11/02/Blog：Typecho迁移到Hexo/</id>
+    <published>2016-11-02T05:52:31.000Z</published>
+    <updated>2016-11-03T11:39:29.991Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>迁移的第一天，写个文章助助兴</p>
+</blockquote>
+<p>&emsp;&emsp;不知不觉已经工作三年了，毕业两年，实习一年。从2016年04月09日搭建博客到现在一共更新了2篇文章。哈哈哈，虽然建了很久但是确实是几乎没怎么维护。</p>
+<p>&emsp;&emsp;为什么要blog呢？在<a href="https://www.zhihu.com/question/20962496" target="_blank" rel="external">知乎</a>上面看到了一段话：</p>
+<pre><code>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。  
+第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。  
+第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。
+</code></pre><ul>
+<li>算是技术的一个积累吧，大脑是CPU不是硬盘，缓存就那么大装不了多少的。</li>
+<li>方便查询，有些问题自己解决了，当别人问你的时候方便别人。也方便自己，温故知新。</li>
+<li>无聊</li>
+</ul>
+<p>&ensp;&ensp;差不多就这么多吧，以后多多更新技术文档。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;迁移的第一天，写个文章助助兴&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;不知不觉已经工作三年了，毕业两年，实习一年。从2016年04月09日搭建博客到现在一共更新了2篇文章。哈哈哈，虽然建了很久但是确实是几乎没怎么维护。&lt;/
+    
+    </summary>
+    
+      <category term="随想" scheme="https://ermao.cf/categories/%E9%9A%8F%E6%83%B3/"/>
+    
+    
+      <category term="随想" scheme="https://ermao.cf/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+      <category term="迁移" scheme="https://ermao.cf/tags/%E8%BF%81%E7%A7%BB/"/>
+    
+      <category term="typecho" scheme="https://ermao.cf/tags/typecho/"/>
+    
+      <category term="hexo" scheme="https://ermao.cf/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给程序员忠告-自勉</title>
+    <link href="https://ermao.cf/2016/08/17/%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%A0%E5%91%8A-%E8%87%AA%E5%8B%89/"/>
+    <id>https://ermao.cf/2016/08/17/给程序员忠告-自勉/</id>
+    <published>2016-08-17T11:01:00.000Z</published>
+    <updated>2016-11-04T11:00:03.377Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、生在屌丝家，逆袭靠自己"><a href="#一、生在屌丝家，逆袭靠自己" class="headerlink" title="一、生在屌丝家，逆袭靠自己"></a>一、生在屌丝家，逆袭靠自己</h3><p>&emsp;&emsp;从事我们这一行的父母多是农村或者城市底层，他们给我们的爱跟富人给他们孩子的爱没有任何差别。你父母让你今天能四肢健全、健健康康、大脑灵光的来到大城市打工挣钱。你父母给了你今生最大的本钱，如果自己活得像个废柴，别怨出身，检讨自己是大脑不好使还是身体懒惰。&gt;从事我们这一行的父母多是农村或者城市底层，他们给我们的爱跟富人给他们孩子的爱没有任何差别。你父母让你今天能四肢健全、健健康康、大脑灵光的来到大城市打工挣钱。你父母给了你今生最大的本钱，如果自己活得像个废柴，别怨出身，检讨自己是大脑不好使还是身体懒惰。<br>&emsp;&emsp;如果你不是富二代，就要想办法成为富二代他爹。</p>
+<h3 id="二、看到这个行业的闪光面"><a href="#二、看到这个行业的闪光面" class="headerlink" title="二、看到这个行业的闪光面"></a>二、看到这个行业的闪光面</h3><p>&emsp;&emsp;很少有哪个行业像IT业一样有那么多就业机会，每年批量的制造白领。能给二十多岁就会写几段代码其他能力都是白纸的进城务工人员开那么高的工资。自己拍着良心想想，如果自己换到机器、化工及其他工科专业，甚至文科专业，有多少就业机会，对刚工作几年的开多高的工资？能不能给你那么多的跳槽机会让你频繁更换老板去追逐更高的收入。</p>
+<h3 id="三、多行动少抱怨"><a href="#三、多行动少抱怨" class="headerlink" title="三、多行动少抱怨"></a>三、多行动少抱怨</h3><p>&emsp;&emsp;每天进步千分之一，一年后你就是现在1.44倍，十年以后你的水平是现在的38.4倍。刚出道强你几倍的人都会被你像蚂蚁一样踩在脚下。只要你能做严格要求自己，你总会成为让老板器重对手害怕的人。<br>&emsp;&emsp;每天退步千分之一，一年后你就剩下现在的69.4%，十年后你就剩下现在的2.59%，无论是出道时候有多了不起的人，混日子都能将他混成废柴中的极品。<br>&emsp;&emsp;老板们愿意为岁月历练出来的精英开高价，却不会施舍半口饭给高龄的战五渣。</p>
+<h3 id="四、明白自己不是世界中心"><a href="#四、明白自己不是世界中心" class="headerlink" title="四、明白自己不是世界中心"></a>四、明白自己不是世界中心</h3><p>&emsp;&emsp;这个世界运行的法则，一靠资本、二靠创新，最后才是靠技术。有钱的才是爷，你就是个伺候爷换钱养家的人。有本事自己做老板，没本事就别摆知识分子的臭架子，老老实实做好的孙子。实在不爽就换老板，但千万不要让自己现在伺候的老板不爽。</p>
+<h3 id="五、站在更高的角度思考问题"><a href="#五、站在更高的角度思考问题" class="headerlink" title="五、站在更高的角度思考问题"></a>五、站在更高的角度思考问题</h3><p>&emsp;&emsp;这个世界每个人的境界是不一样的，佛的境界最高在天上，老板的境界比你高在山顶上，你的境界在地上仅仅比程序代码高那么一点点。<br>&emsp;&emsp;不要抱怨老板为什么老改需求，而是要用心去想老板为什么要改需求。老板是站在山顶上看大局的人，你是山下那个种地的只见自己的一亩三分地。只有傻逼才会要求老板跑到山下按自己的处境去思考问题。能把自己的眼界拔高一点点，你就和老板接近一点，也就离摆脱屌丝身份更近了一点。</p>
+<h3 id="六、找个勤劳节俭的女人成立家庭很重要"><a href="#六、找个勤劳节俭的女人成立家庭很重要" class="headerlink" title="六、找个勤劳节俭的女人成立家庭很重要"></a>六、找个勤劳节俭的女人成立家庭很重要</h3><p>&emsp;&emsp;老婆不是拿来看的，别按着网页美女或者游戏美女标准去找老婆。要相信人的福祸是相依的，屌丝能娶到美女是福气，但必定会付出其他代价偿还，会接连的发生人生损失。<br>&emsp;&emsp;勤劳节俭的女人是旺夫相，能助你尽快脱屌，也能在你日后陷入事业低潮期时候助你脱困。</p>
+<h3 id="七、广交朋友"><a href="#七、广交朋友" class="headerlink" title="七、广交朋友"></a>七、广交朋友</h3><p>&emsp;&emsp;只有一辈子不想发财的人才不用交朋友。 朋友交谈中无心中的话语都可能蕴藏商机，遇事有朋友就好办的多，以后想创业，更离不开朋友圈子。</p>
+<h3 id="八、积极理财蓄势待发"><a href="#八、积极理财蓄势待发" class="headerlink" title="八、积极理财蓄势待发"></a>八、积极理财蓄势待发</h3><p>&emsp;&emsp;绝对不要只把眼睛放在代码上，会写代码能给你一份固定收入，但这份收入顶多能让你一家温饱小康，捉襟见肘的日子将伴你终生。<br>&emsp;&emsp;放下愤青的偏激成见，承认天地有缺陷、人间无极乐的客观现实，从客观现状去了解时代，学习经济，规避损失，把握投资机会，先建好自己的小家，再去管天下大家的事。<br>&emsp;&emsp;家底夯厚了，机会来了可以拉起几个朋友做点事，机会不到也能保一家人比较殷实的过一生。</p>
+<blockquote>
+<p>转自：<a href="http://blog.csdn.net/an342647823/article/details/40318361#comments" target="_blank" rel="external">http://blog.csdn.net/an342647823/article/details/40318361#comments</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一、生在屌丝家，逆袭靠自己&quot;&gt;&lt;a href=&quot;#一、生在屌丝家，逆袭靠自己&quot; class=&quot;headerlink&quot; title=&quot;一、生在屌丝家，逆袭靠自己&quot;&gt;&lt;/a&gt;一、生在屌丝家，逆袭靠自己&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;从事我们这一行的父母多是农村
+    
+    </summary>
+    
+      <category term="励志" scheme="https://ermao.cf/categories/%E5%8A%B1%E5%BF%97/"/>
+    
+    
+      <category term="转发" scheme="https://ermao.cf/tags/%E8%BD%AC%E5%8F%91/"/>
+    
+      <category term="励志" scheme="https://ermao.cf/tags/%E5%8A%B1%E5%BF%97/"/>
+    
+      <category term="程序员" scheme="https://ermao.cf/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+      <category term="程序猿" scheme="https://ermao.cf/tags/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案</title>
+    <link href="https://ermao.cf/2016/04/20/Pentaho%20Kettle%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>https://ermao.cf/2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/</id>
+    <published>2016-04-20T08:43:00.000Z</published>
+    <updated>2016-11-04T10:58:54.624Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h3><p>&emsp;&emsp;本书主要介绍如何使用开源ETL工具来完成数据整合工作。</p>
+<p>&emsp;&emsp;本书介绍的PDI(Kettle)是一种开源的 ETL 解决方案，书中介绍了如何使用PDI来实现数据的剖析、清洗、校验、抽取、转换、加载等各类常见的ETL类工作。</p>
+<p>&emsp;&emsp;除了ODS/DW类比较大型的应用外，Kettle 实际还可以为中小企业提供灵活的数据抽取和数据处理的功能。Kettle除了支持各种关系型数据库、HBase、MongoDB这样的NoSQL数据源外，它还支持Excel、Access这类小型的数据源。并且通过插件扩展，Kettle可以支持各类数据源。本书详细介绍了Kettle可以处理的数据源，而且详细介绍了如何使用Kettle抽取增量数据。</p>
+<p>&emsp;&emsp;Kettle 的数据处理功能也很强大，除了选择、过滤、分组、连接、排序这些常用的功能外，Kettle 里的Java表达式、正则表达式、Java脚本、Java类等功能都非常灵活而强大，都非常适合于各种数据处理功能。本书也使用了一些篇幅介绍Kettle这些灵活的数据处理功能。本书后面章节介绍了如何在Kettle上开发插件，如何使用Kettle处理实时数据流，以及如何在 AWS上运行Kettle 等一些高级主题。</p>
+<p>&emsp;&emsp;除了介绍PDI(Kettle)工具的使用和功能，本书还结合Kimball博士的数据仓库和ETL子系统的理论，从实践的角度介绍数据仓库的模型设计、数据仓库的构建方法，以及如何使用 PDI实现Kimball博士提出的34种ETL子系统。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>&emsp;&emsp;初建军 北京傲飞科技有限公司CEO，炼数成金社区BI方向授课专家，常年从事商业智能、数据挖掘、数据分析等工作，致力于推广开源BI软件。</p>
+<h3 id="预览与下载"><a href="#预览与下载" class="headerlink" title="预览与下载"></a>预览与下载</h3><p>&emsp;&emsp;<a href="http://7xll3b.com1.z0.glb.clouddn.com/file/pdf/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88_%20PDF%E7%94%B5%E5%AD%90%E4%B9%A6%E4%B8%8B%E8%BD%BD%20%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%20%E5%AE%8C%E6%95%B4%E7%89%88.pdf" target="_blank" rel="external">点击在线预览</a></p>
+<p>&emsp;&emsp;<a href="http://7xll3b.com1.z0.glb.clouddn.com/file/pdf/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88_%20PDF%E7%94%B5%E5%AD%90%E4%B9%A6%E4%B8%8B%E8%BD%BD%20%E5%B8%A6%E4%B9%A6%E7%AD%BE%E7%9B%AE%E5%BD%95%20%E5%AE%8C%E6%95%B4%E7%89%88.rar" target="_blank" rel="external">点击下载</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;内容简介&quot;&gt;&lt;a href=&quot;#内容简介&quot; class=&quot;headerlink&quot; title=&quot;内容简介&quot;&gt;&lt;/a&gt;内容简介&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;本书主要介绍如何使用开源ETL工具来完成数据整合工作。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;本书介
+    
+    </summary>
+    
+      <category term="etl" scheme="https://ermao.cf/categories/etl/"/>
+    
+    
+      <category term="kettle" scheme="https://ermao.cf/tags/kettle/"/>
+    
+      <category term="资源" scheme="https://ermao.cf/tags/%E8%B5%84%E6%BA%90/"/>
+    
+      <category term="etl" scheme="https://ermao.cf/tags/etl/"/>
+    
+      <category term="使用PDI构建开源ETL解决方案" scheme="https://ermao.cf/tags/%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
     
   </entry>
   

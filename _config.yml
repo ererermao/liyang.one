@@ -4,16 +4,17 @@
 
 # Site
 title: liyang's blog
-subtitle: 离你最近的人，如何一步步成为你羡慕嫉妒的那种人
-description:
+subtitle: 
+description: "离你最近的人，如何一步步成为你羡慕嫉妒的那种人"
 author: liyang
 language: zh-Hans	
 timezone:
-avatar: http://ofyose6ar.bkt.clouddn.com/2016110101.png
+avatar: http://og20qmy78.bkt.clouddn.com/psb.jpg
+since: 2016
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://ermao.cf
+url: https://ermao.cf/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -70,6 +71,9 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repository: git@github.com:ererermao/liyang.one.git
+- type: git
+  repository: git@github.com:ererermao/liyang.one
+  branch: master
+- type: git
+  repository: git@git.coding.net:ererermao/liyang.one
   branch: master
