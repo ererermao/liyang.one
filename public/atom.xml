@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ermao.cf/"/>
-  <updated>2016-11-04T11:00:31.425Z</updated>
+  <updated>2016-11-04T15:04:41.469Z</updated>
   <id>https://ermao.cf/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://ermao.cf/2016/11/03/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
     <id>https://ermao.cf/2016/11/03/建站日记/</id>
     <published>2016-11-03T15:44:59.000Z</published>
-    <updated>2016-11-04T11:00:31.425Z</updated>
+    <updated>2016-11-04T15:04:41.469Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>本来想着用一个单独的页面来记录建站的过程，后来想了想还是用文章记录吧。</p>
@@ -31,7 +31,7 @@
 <h3 id="目前：Hexo-github-coding"><a href="#目前：Hexo-github-coding" class="headerlink" title="目前：Hexo+github/coding"></a>目前：Hexo+github/coding</h3><ul>
 <li>20161102：hexo的搭建与基本配置，域名暂为：<strong>ermao.cf</strong></li>
 <li>20161103：更改主题next、增加评论、背景动画、统计。</li>
-<li>20161104：文章的迁移、留言页、公益404。</li>
+<li>20161104：文章的迁移、留言页、公益404、sitemap网站地图、非友情链接的出站链接添加”nofollow”标签、添加蜘蛛协议</li>
 </ul>
 ]]></content>
     
@@ -60,7 +60,7 @@
     <link href="https://ermao.cf/2016/11/02/Blog%EF%BC%9ATypecho%E8%BF%81%E7%A7%BB%E5%88%B0Hexo/"/>
     <id>https://ermao.cf/2016/11/02/Blog：Typecho迁移到Hexo/</id>
     <published>2016-11-02T05:52:31.000Z</published>
-    <updated>2016-11-03T11:39:29.991Z</updated>
+    <updated>2016-11-04T11:56:42.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>迁移的第一天，写个文章助助兴</p>
@@ -105,7 +105,7 @@
     <link href="https://ermao.cf/2016/08/17/%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%A0%E5%91%8A-%E8%87%AA%E5%8B%89/"/>
     <id>https://ermao.cf/2016/08/17/给程序员忠告-自勉/</id>
     <published>2016-08-17T11:01:00.000Z</published>
-    <updated>2016-11-04T11:00:03.377Z</updated>
+    <updated>2016-11-04T11:56:42.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、生在屌丝家，逆袭靠自己"><a href="#一、生在屌丝家，逆袭靠自己" class="headerlink" title="一、生在屌丝家，逆袭靠自己"></a>一、生在屌丝家，逆袭靠自己</h3><p>&emsp;&emsp;从事我们这一行的父母多是农村或者城市底层，他们给我们的爱跟富人给他们孩子的爱没有任何差别。你父母让你今天能四肢健全、健健康康、大脑灵光的来到大城市打工挣钱。你父母给了你今生最大的本钱，如果自己活得像个废柴，别怨出身，检讨自己是大脑不好使还是身体懒惰。&gt;从事我们这一行的父母多是农村或者城市底层，他们给我们的爱跟富人给他们孩子的爱没有任何差别。你父母让你今天能四肢健全、健健康康、大脑灵光的来到大城市打工挣钱。你父母给了你今生最大的本钱，如果自己活得像个废柴，别怨出身，检讨自己是大脑不好使还是身体懒惰。<br>&emsp;&emsp;如果你不是富二代，就要想办法成为富二代他爹。</p>
 <h3 id="二、看到这个行业的闪光面"><a href="#二、看到这个行业的闪光面" class="headerlink" title="二、看到这个行业的闪光面"></a>二、看到这个行业的闪光面</h3><p>&emsp;&emsp;很少有哪个行业像IT业一样有那么多就业机会，每年批量的制造白领。能给二十多岁就会写几段代码其他能力都是白纸的进城务工人员开那么高的工资。自己拍着良心想想，如果自己换到机器、化工及其他工科专业，甚至文科专业，有多少就业机会，对刚工作几年的开多高的工资？能不能给你那么多的跳槽机会让你频繁更换老板去追逐更高的收入。</p>
@@ -144,7 +144,7 @@
     <link href="https://ermao.cf/2016/04/20/Pentaho%20Kettle%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
     <id>https://ermao.cf/2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/</id>
     <published>2016-04-20T08:43:00.000Z</published>
-    <updated>2016-11-04T10:58:54.624Z</updated>
+    <updated>2016-11-04T11:56:42.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h3><p>&emsp;&emsp;本书主要介绍如何使用开源ETL工具来完成数据整合工作。</p>
 <p>&emsp;&emsp;本书介绍的PDI(Kettle)是一种开源的 ETL 解决方案，书中介绍了如何使用PDI来实现数据的剖析、清洗、校验、抽取、转换、加载等各类常见的ETL类工作。</p>

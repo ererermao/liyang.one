@@ -77,3 +77,9 @@ deploy:
 - type: git
   repository: git@git.coding.net:ererermao/liyang.one
   branch: master
+
+# hexo sitemap网站地图
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
