@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://ermao.cf/"/>
-  <updated>2016-11-04T15:04:41.469Z</updated>
-  <id>https://ermao.cf/</id>
+  <link href="https://www.liyang.one/"/>
+  <updated>2016-12-06T11:54:18.172Z</updated>
+  <id>https://www.liyang.one/</id>
   
   <author>
     <name>liyang</name>
@@ -16,22 +16,834 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>cdh搭建hadoop集群-hive错误集</title>
+    <link href="https://www.liyang.one/2016/12/06/cdh%E6%90%AD%E5%BB%BAhadoop%E9%9B%86%E7%BE%A4-hive%E9%94%99%E8%AF%AF%E9%9B%86/"/>
+    <id>https://www.liyang.one/2016/12/06/cdh搭建hadoop集群-hive错误集/</id>
+    <published>2016-12-06T11:47:47.000Z</published>
+    <updated>2016-12-06T11:54:18.172Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、Specified-key-was-too-long-max-key-length-is-767-bytes"><a href="#1、Specified-key-was-too-long-max-key-length-is-767-bytes" class="headerlink" title="1、Specified key was too long; max key length is 767 bytes"></a>1、Specified key was too long; max key length is 767 bytes</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create database hive DEFAULT CHARSET latin1;</div></pre></td></tr></table></figure>
+<p>这里由于mysql的最大索引长度导致，MySQL的varchar主键只支持不超过768个字节 或者 768/2=384个双字节 或者 768/3=256个三字节的字段 而 GBK是双字节的，UTF-8是三字节的<br>解决办法：数据库的字符集除了system为utf8，其他最好为latin1，否则可能出现如上异常，在mysql机器的上运行:</p>
+<h3 id="2、javax-jdo-JDODataStoreException-Error-executing-SQL-query-“select-“DB-ID”-from-“DBS””"><a href="#2、javax-jdo-JDODataStoreException-Error-executing-SQL-query-“select-“DB-ID”-from-“DBS””" class="headerlink" title="2、javax.jdo.JDODataStoreException: Error executing SQL query “select “DB_ID” from “DBS””"></a>2、javax.jdo.JDODataStoreException: Error executing SQL query “select “DB_ID” from “DBS””</h3><p>原因：很简单，就是没有创建存放hive元数据的表。在CDH页面找了很久，发现配置也正确也能正常连接上但是就是不能自动创建<br>解决办法：/opt/cloudera/parcels/CDH-5.4.2-1.cdh5.4.2.p0.2/lib/hive/scripts/metastore/upgrade/mysql/ 里面是mysql的相关的sql脚本，直接拿到mysql执行。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、Specified-key-was-too-long-max-key-length-is-767-bytes&quot;&gt;&lt;a href=&quot;#1、Specified-key-was-too-long-max-key-length-is-767-bytes&quot; class=
+    
+    </summary>
+    
+      <category term="hive" scheme="https://www.liyang.one/categories/hive/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>centos设置ntp服务器和客户端</title>
+    <link href="https://www.liyang.one/2016/12/05/centos%E8%AE%BE%E7%BD%AEntp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
+    <id>https://www.liyang.one/2016/12/05/centos设置ntp服务器和客户端/</id>
+    <published>2016-12-05T13:57:16.046Z</published>
+    <updated>2016-12-05T14:12:25.228Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。</p>
+</blockquote>
+<h2 id="1、安装ntp和修改时区"><a href="#1、安装ntp和修改时区" class="headerlink" title="1、安装ntp和修改时区"></a>1、安装ntp和修改时区</h2><p>简单点之间用yum安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y install ntp</div><div class="line"></div><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure></p>
+<h2 id="2、设置服务端192-168-0-25"><a href="#2、设置服务端192-168-0-25" class="headerlink" title="2、设置服务端192.168.0.25"></a>2、设置服务端192.168.0.25</h2><p>修改<code>/etc/ntp.cnf</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#限定了哪些主机可以从本NTP服务器同步时间，默认的配置文件里是没有这句话的。加入这句话后，表明，只有192.168.0 这个网段的主机可以从本NTP服务器同步时间。nomodify  表明客户端不可以修改服务器的地址</span></div><div class="line">restrict 192.168.0.1/24 mask 255.255.255.0 nomodify   </div><div class="line"></div><div class="line"><span class="comment">#远程服务器地址</span></div><div class="line">server time-b.nist.gov</div><div class="line"></div><div class="line"><span class="comment">#默认的配置文件里这两个是被注释掉的。如果第二部配置的server time-b.nist.gov无效时，则NTP服务器会根据这里的配置，把自己的时间做为NTP服务器的时间，即和自己同步。考虑到有的局域网里不可以访问外网，所有这里需要把这个配置项用上，即把前面的注释符#号去掉就可以了。</span></div><div class="line"></div><div class="line">server  127.127.1.0     <span class="comment"># local clock  </span></div><div class="line">fudge   127.127.1.0 stratum 10</div></pre></td></tr></table></figure></p>
+<p>记着关闭防火墙或者开放123端口  </p>
+<p>重启服务<code>servcice ntpd resatrt</code><br>NTP服务启动后大约需要3～5分钟的时间才会进行一次时间同步。可以通过命令ntpstat查看同步情况，</p>
+<h2 id="3、设置客户端"><a href="#3、设置客户端" class="headerlink" title="3、设置客户端"></a>3、设置客户端</h2><p>修改<code>/etc/ntp.cnf</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server 192.168.0.25</div></pre></td></tr></table></figure></p>
+<p>然后重启服务<code>servcice ntpd resatrt</code></p>
+<h2 id="4、相关命令"><a href="#4、相关命令" class="headerlink" title="4、相关命令"></a>4、相关命令</h2><ul>
+<li>查看系统时间：date</li>
+<li>查看与上层ntp服务器的关系：ntpq -p</li>
+<li>查看是否更新了自己的时间：ntpstat</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与
+    
+    </summary>
+    
+      <category term="centos" scheme="https://www.liyang.one/categories/centos/"/>
+    
+    
+      <category term="centos" scheme="https://www.liyang.one/tags/centos/"/>
+    
+      <category term="ntp" scheme="https://www.liyang.one/tags/ntp/"/>
+    
+      <category term="服务端" scheme="https://www.liyang.one/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/"/>
+    
+      <category term="客户端" scheme="https://www.liyang.one/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos更改国内阿里的yum源</title>
+    <link href="https://www.liyang.one/2016/12/01/centos%E6%9B%B4%E6%94%B9%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E7%9A%84yum%E6%BA%90/"/>
+    <id>https://www.liyang.one/2016/12/01/centos更改国内阿里的yum源/</id>
+    <published>2016-12-01T12:09:05.000Z</published>
+    <updated>2016-12-01T12:12:16.500Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。<br>阿里云Linux安装镜像源地址：<a href="http://mirrors.aliyun.com/" target="_blank" rel="external">http://mirrors.aliyun.com/</a><br>CentOS系统更换软件安装源  </p>
+</blockquote>
+<h2 id="第一步：备份你的原镜像文件，以免出错后可以恢复。"><a href="#第一步：备份你的原镜像文件，以免出错后可以恢复。" class="headerlink" title="第一步：备份你的原镜像文件，以免出错后可以恢复。"></a>第一步：备份你的原镜像文件，以免出错后可以恢复。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div></pre></td></tr></table></figure>
+<h2 id="第二步：下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#第二步：下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CentOS 5</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</div><div class="line">CentOS 6</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</div></pre></td></tr></table></figure>
+<h2 id="第三步：运行yum-makecache生成缓存"><a href="#第三步：运行yum-makecache生成缓存" class="headerlink" title="第三步：运行yum makecache生成缓存"></a>第三步：运行yum makecache生成缓存</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。&lt;br&gt;阿里云Linux安装镜像源地址：&lt;a href=&quot;http://mirrors.aliyun.com/&quot; target=&quot;_blank&quot; rel=&quot;
+    
+    </summary>
+    
+    
+      <category term="centos" scheme="https://www.liyang.one/tags/centos/"/>
+    
+      <category term="国内" scheme="https://www.liyang.one/tags/%E5%9B%BD%E5%86%85/"/>
+    
+      <category term="阿里" scheme="https://www.liyang.one/tags/%E9%98%BF%E9%87%8C/"/>
+    
+      <category term="yum" scheme="https://www.liyang.one/tags/yum/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用工具大集合(突发奇想更新中...)</title>
+    <link href="https://www.liyang.one/2016/11/21/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%A4%A7%E9%9B%86%E5%90%88(%E7%AA%81%E5%8F%91%E5%A5%87%E6%83%B3%E6%9B%B4%E6%96%B0%E4%B8%AD...)/"/>
+    <id>https://www.liyang.one/2016/11/21/常用工具大集合(突发奇想更新中...)/</id>
+    <published>2016-11-21T12:20:17.000Z</published>
+    <updated>2016-11-21T12:54:53.074Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>由于有的时候会忘记，先记录下。方便以后好查</p>
+</blockquote>
+<h3 id="1、Windows"><a href="#1、Windows" class="headerlink" title="1、Windows"></a>1、Windows</h3><h4 id="1-1-桌面"><a href="#1-1-桌面" class="headerlink" title="1.1 桌面"></a>1.1 桌面</h4><ul>
+<li>小Q书桌：快捷方式管理</li>
+<li>LICEcap：快速录像并生产gif</li>
+</ul>
+<h4 id="1-2-文件"><a href="#1-2-文件" class="headerlink" title="1.2 文件"></a>1.2 文件</h4><ul>
+<li>Everything：文件快速搜索、查找</li>
+<li>sublime：文件编辑器</li>
+<li>BCompare：文件比对，文件夹比对</li>
+<li>SpaceSniffer：查询硬盘占用比例</li>
+</ul>
+<h4 id="1-3-网络"><a href="#1-3-网络" class="headerlink" title="1.3 网络"></a>1.3 网络</h4><ul>
+<li>净网大师：拦截、劫持广告</li>
+<li>Shadowsocks：翻墙梯子</li>
+</ul>
+<h4 id="1-4-GTD"><a href="#1-4-GTD" class="headerlink" title="1.4 GTD"></a>1.4 GTD</h4><ul>
+<li>滴答清单：事件清单。记录待办事件</li>
+</ul>
+<h3 id="2、Linux"><a href="#2、Linux" class="headerlink" title="2、Linux"></a>2、Linux</h3><h4 id="2-1-文件"><a href="#2-1-文件" class="headerlink" title="2.1 文件"></a>2.1 文件</h4><ul>
+<li>filezilla：ftp工具</li>
+</ul>
+<h4 id="2-2-控制"><a href="#2-2-控制" class="headerlink" title="2.2 控制"></a>2.2 控制</h4><ul>
+<li>SecureCRT：虚拟终端工具</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;由于有的时候会忘记，先记录下。方便以后好查&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1、Windows&quot;&gt;&lt;a href=&quot;#1、Windows&quot; class=&quot;headerlink&quot; title=&quot;1、Windows&quot;&gt;&lt;/a&gt;1、W
+    
+    </summary>
+    
+      <category term="常用" scheme="https://www.liyang.one/categories/%E5%B8%B8%E7%94%A8/"/>
+    
+    
+      <category term="常用" scheme="https://www.liyang.one/tags/%E5%B8%B8%E7%94%A8/"/>
+    
+      <category term="常用工具" scheme="https://www.liyang.one/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="集合" scheme="https://www.liyang.one/tags/%E9%9B%86%E5%90%88/"/>
+    
+      <category term="大集合" scheme="https://www.liyang.one/tags/%E5%A4%A7%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>亚马逊aws更改linux为root权限密码登陆</title>
+    <link href="https://www.liyang.one/2016/11/21/%E4%BA%9A%E9%A9%AC%E9%80%8Aaws%E6%9B%B4%E6%94%B9linux%E4%B8%BAroot%E6%9D%83%E9%99%90%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/"/>
+    <id>https://www.liyang.one/2016/11/21/亚马逊aws更改linux为root权限密码登陆/</id>
+    <published>2016-11-21T02:36:25.000Z</published>
+    <updated>2016-11-21T06:20:27.206Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.</p>
+</blockquote>
+<h2 id="1、修改ROOT密码"><a href="#1、修改ROOT密码" class="headerlink" title="1、修改ROOT密码"></a>1、修改ROOT密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo passwd root</div></pre></td></tr></table></figure>
+<h2 id="2、修改sshd-config文件"><a href="#2、修改sshd-config文件" class="headerlink" title="2、修改sshd_config文件"></a>2、修改sshd_config文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/ssh/sshd_config</div><div class="line"></div><div class="line"><span class="comment">#修改这2行</span></div><div class="line">PermitRootLogin yes</div><div class="line">PasswordAuthentication yes</div></pre></td></tr></table></figure>
+<h2 id="3、重启ssh就可以使用root正常登陆了"><a href="#3、重启ssh就可以使用root正常登陆了" class="headerlink" title="3、重启ssh就可以使用root正常登陆了"></a>3、重启<code>ssh</code>就可以使用root正常登陆了</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/sbin/service sshd restart</div></pre></td></tr></table></figure>
+<h2 id="4、登录工具"><a href="#4、登录工具" class="headerlink" title="4、登录工具"></a>4、登录工具</h2><p>pc可以使用：<code>SecureCRT</code><br>手机可以使用：<code>Serverauditor</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1、修改ROOT密码&quot;&gt;&lt;a href=&quot;#1、修改ROOT密码&quot; class=&quot;headerlink&quot;
+    
+    </summary>
+    
+      <category term="aws" scheme="https://www.liyang.one/categories/aws/"/>
+    
+    
+      <category term="centos" scheme="https://www.liyang.one/tags/centos/"/>
+    
+      <category term="linux" scheme="https://www.liyang.one/tags/linux/"/>
+    
+      <category term="aws" scheme="https://www.liyang.one/tags/aws/"/>
+    
+      <category term="亚马逊" scheme="https://www.liyang.one/tags/%E4%BA%9A%E9%A9%AC%E9%80%8A/"/>
+    
+      <category term="root登录" scheme="https://www.liyang.one/tags/root%E7%99%BB%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）</title>
+    <link href="https://www.liyang.one/2016/11/17/%E7%BB%99VMware%E4%B8%8B%E7%9A%84Linux%E6%89%A9%E5%B1%95%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/"/>
+    <id>https://www.liyang.one/2016/11/17/给VMware下的Linux扩展磁盘空间/</id>
+    <published>2016-11-17T11:05:05.000Z</published>
+    <updated>2016-11-17T11:11:02.319Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>前提是使用的lvm逻辑卷分区，才能这样扩展。</p>
+</blockquote>
+<p>查看挂载点：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">df -h</div><div class="line"><span class="comment">#显示：  </span></div><div class="line">文件系统 容量 已用 可用 已用%% 挂载点  </div><div class="line">/dev/mapper/vg_dc01-lv_root  </div><div class="line">                       47G   12G   34G  25% /</div><div class="line">tmpfs                 504M   88K  504M   1% /dev/shm</div><div class="line">/dev/sda1             485M   31M  429M   7% /boot</div></pre></td></tr></table></figure>
+<h2 id="一、扩展VMWare硬盘空间"><a href="#一、扩展VMWare硬盘空间" class="headerlink" title="一、扩展VMWare硬盘空间"></a>一、扩展VMWare硬盘空间</h2><p>关闭Vmware 的 Linux系统，这样，才能在VMWare菜单中设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　VM -&gt; Settings... -&gt; Hardware -&gt; Hard Disk -&gt; Utilities -&gt; Expand</div></pre></td></tr></table></figure></p>
+<p>　　输入你想要扩展到多少G。本文假设你新增加了 30G</p>
+<h2 id="二、对新增加的硬盘进行分区、格式化"><a href="#二、对新增加的硬盘进行分区、格式化" class="headerlink" title="二、对新增加的硬盘进行分区、格式化"></a>二、对新增加的硬盘进行分区、格式化</h2><p>这里进行一个极简化的介绍，非常简化，但很全面，上面已经知道增加了空间的硬盘是 <code>/dev/sda</code>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#分区：</span></div><div class="line">fdisk /dev/sda　　　　<span class="comment">#操作 /dev/sda 的分区表</span></div><div class="line">p　　　　　　　<span class="comment">#查看已分区数量（我看到有两个 /dev/sda1 /dev/sda2）</span></div><div class="line">n　　　　　　　<span class="comment">#新增加一个分区</span></div><div class="line">p　　　　　　　<span class="comment">#分区类型我们选择为主分区</span></div><div class="line">3　　　　　　  <span class="comment">#分区号选3（因为1,2已经用过了，见上）</span></div><div class="line">回车　　　　　　<span class="comment">#默认（起始扇区）</span></div><div class="line">回车　　　　　　<span class="comment">#默认（结束扇区）</span></div><div class="line">t　　　　　　　<span class="comment">#修改分区类型</span></div><div class="line">3　　　　　　  <span class="comment">#选分区</span></div><div class="line">8e　　　　　　<span class="comment">#修改为LVM（8e就是LVM）</span></div><div class="line">w　　　　　　<span class="comment">#写分区表</span></div><div class="line">q　　　　　　<span class="comment">#完成，退出fdisk命令</span></div><div class="line"><span class="comment">#系统提示你重启，重启吧.</span></div><div class="line"><span class="comment">#开机后，格式化：</span></div><div class="line">mkfs.ext3 /dev/sda3</div></pre></td></tr></table></figure></p>
+<p>##三、添加新LVM到已有的LVM组，实现扩容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">lvm　　　　　　　　　　　　　　　　　　进入lvm管理</div><div class="line">lvm&gt; pvcreate /dev/sda3　　　　　　　　　这是初始化刚才的分区，必须的</div><div class="line">lvm&gt; vgextend vg_dc01 /dev/sda3　　　将初始化过的分区加入到虚拟卷组vg_dc01</div><div class="line">lvm&gt;lvextend -L +29.9G /dev/vg_dc01/lv_root　　扩展已有卷的容量（29.9G这个数字在后面解释）</div><div class="line">lvm&gt;pvdisplay　　　　　　　　　　　　　　查看卷容量，这时你会看到一个很大的卷了</div><div class="line">lvm&gt;quit　　　　　　　　　　　　　　　　　退出</div></pre></td></tr></table></figure></p>
+<p>上面那个 29.9G 怎么来的呢？因为你在VMWare新增加了30G，但这些空间不能全被LVM用了，你可以在上面的lvextend操作中一个一个的试探，比如 29.9G, 29.8G … 直到不报错为止，这样你就可以充分使用新增加的硬盘空间了，当然这是因为我不懂才用的笨办法，高手笑笑就过了吧。（我更不懂啊，原作者，我直接上了29.9G，结果就OK了）<br>以上只是卷扩容了，下面是文件系统的真正扩容，输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">resize2fs /dev/vg_dc01/lv_root</div><div class="line"></div><div class="line"><span class="comment">#再运行下：</span></div><div class="line">df -h</div></pre></td></tr></table></figure></p>
+<p>查看下我们机器性感的硬盘吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;前提是使用的lvm逻辑卷分区，才能这样扩展。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;查看挂载点：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;di
+    
+    </summary>
+    
+      <category term="centos" scheme="https://www.liyang.one/categories/centos/"/>
+    
+    
+      <category term="centos" scheme="https://www.liyang.one/tags/centos/"/>
+    
+      <category term="vm" scheme="https://www.liyang.one/tags/vm/"/>
+    
+      <category term="lvm" scheme="https://www.liyang.one/tags/lvm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos下mysqld的service服务</title>
+    <link href="https://www.liyang.one/2016/11/16/centos%E4%B8%8Bmysqld%E7%9A%84service%E6%9C%8D%E5%8A%A1/"/>
+    <id>https://www.liyang.one/2016/11/16/centos下mysqld的service服务/</id>
+    <published>2016-11-16T06:27:25.000Z</published>
+    <updated>2016-11-21T09:17:12.410Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文件路径、以何种模式启动神马的，等等。而我们装上appache或者mysql后，就可以使用service httpd start来启动，很是方便，service命令其实是跑一个shell脚本来管理，这样的话，我们自己手动写个shell脚本就可以实现service anything doanything了。另外，用chkconfig命令设置开机自动启动一个服务，该服务必须是系统服务，否则用chkconfig设置是会报错的。这样的话，把一些服务注册为系统服务，确实还是蛮必须的。而注册成系统服务，就是这个service…</p>
+</blockquote>
+<p>&emsp;&emsp;当我们输入service命令时，linux会去/etc/rc.d/init.d下去找这个脚本运行。init.d下面放的就是很多脚本，比如service svnd start时，就去/etc/rc.d/init.d下找svnd这个脚本文件，如果这个文件不存在，则会提示不存在这个服务。所以，这个就好办了，只要在init.d目录下写个脚本，就可以用service命令在任何地方执行了。</p>
+<h2 id="1-centos注册mysql服务"><a href="#1-centos注册mysql服务" class="headerlink" title="1. centos注册mysql服务"></a>1. centos注册mysql服务</h2><p>&emsp;&emsp;在<code>/etc/init.d/</code>目录下创建mysql的脚本：``<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment">###################################################</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#   MySQL start and stop script</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">###################################################</span></div><div class="line">basedir=/home/falcon/mysql</div><div class="line">datadir=/home/falcon/mysql/3306</div><div class="line">conf=<span class="variable">$basedir</span>/etc/3306.cnf</div><div class="line">mysql_user=falcon</div><div class="line"><span class="comment">###################################################</span></div><div class="line">bindir=<span class="variable">$basedir</span>/bin</div><div class="line">server_pid_file=<span class="variable">$datadir</span>/`/bin/hostname`.pid</div><div class="line">pid_file=<span class="variable">$server_pid_file</span></div><div class="line">other_args=<span class="string">"--user=<span class="variable">$mysql_user</span>"</span></div><div class="line">PATH=/sbin:/usr/sbin:/bin:/usr/bin:<span class="variable">$basedir</span>/bin</div><div class="line"><span class="built_in">export</span> PATH</div><div class="line">mode=<span class="variable">$1</span>    <span class="comment"># start or stop</span></div><div class="line"><span class="built_in">shift</span></div><div class="line"></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Use LSB init script functions for printing messages, if possible</span></div><div class="line"><span class="comment">#</span></div><div class="line">lsb_functions=<span class="string">"/lib/lsb/init-functions"</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-f</span> <span class="variable">$lsb_functions</span> ; <span class="keyword">then</span></div><div class="line">  <span class="built_in">source</span> <span class="variable">$lsb_functions</span></div><div class="line"><span class="keyword">else</span></div><div class="line">  <span class="function"><span class="title">log_success_msg</span></span>()</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">echo</span> <span class="string">" SUCCESS! <span class="variable">$@</span>"</span></div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="title">log_failure_msg</span></span>()</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">echo</span> <span class="string">" ERROR! <span class="variable">$@</span>"</span></div><div class="line">  &#125;</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="function"><span class="title">wait_for_pid</span></span> () &#123;</div><div class="line">  i=0</div><div class="line">  <span class="keyword">while</span> <span class="built_in">test</span> <span class="variable">$i</span> <span class="_">-lt</span> 35 ; <span class="keyword">do</span></div><div class="line">    sleep 1</div><div class="line">    <span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></div><div class="line">      <span class="string">'created'</span>)</div><div class="line">        <span class="built_in">test</span> <span class="_">-s</span> <span class="variable">$pid_file</span> &amp;&amp; i=<span class="string">''</span> &amp;&amp; <span class="built_in">break</span></div><div class="line">        ;;</div><div class="line">      <span class="string">'removed'</span>)</div><div class="line">        <span class="built_in">test</span> ! <span class="_">-s</span> <span class="variable">$pid_file</span> &amp;&amp; i=<span class="string">''</span> &amp;&amp; <span class="built_in">break</span></div><div class="line">        ;;</div><div class="line">      *)</div><div class="line">        <span class="built_in">echo</span> <span class="string">"wait_for_pid () usage: wait_for_pid created|removed"</span></div><div class="line">        <span class="built_in">exit</span> 1</div><div class="line">        ;;</div><div class="line">    <span class="keyword">esac</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$echo_n</span> <span class="string">".<span class="variable">$echo_c</span>"</span></div><div class="line">    i=`expr <span class="variable">$i</span> + 1`</div><div class="line">  <span class="keyword">done</span></div><div class="line">  <span class="keyword">if</span> <span class="built_in">test</span> -z <span class="string">"<span class="variable">$i</span>"</span> ; <span class="keyword">then</span></div><div class="line">    log_success_msg</div><div class="line">  <span class="keyword">else</span></div><div class="line">    log_failure_msg</div><div class="line">  <span class="keyword">fi</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># Safeguard (relative paths, core dumps..)</span></div><div class="line"><span class="built_in">cd</span> <span class="variable">$basedir</span></div><div class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$mode</span>"</span> <span class="keyword">in</span></div><div class="line">  <span class="string">'start'</span>)</div><div class="line">    <span class="comment"># Start daemon</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-s</span> <span class="string">"<span class="variable">$server_pid_file</span>"</span></div><div class="line">    <span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"MySQL is running now ..."</span></div><div class="line"><span class="built_in">exit</span> 1</div><div class="line">    <span class="keyword">fi</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$echo_n</span> <span class="string">"Starting MySQL"</span></div><div class="line">    <span class="keyword">if</span> <span class="built_in">test</span> -x <span class="variable">$bindir</span>/mysqld_safe</div><div class="line">    <span class="keyword">then</span></div><div class="line">      <span class="comment"># Give extra arguments to mysqld with the my.cnf file. This script</span></div><div class="line">      <span class="comment"># may be overwritten at next upgrade.</span></div><div class="line">      pid_file=<span class="variable">$server_pid_file</span></div><div class="line">      <span class="variable">$bindir</span>/mysqld_safe --defaults-file=<span class="variable">$conf</span> --datadir=<span class="variable">$datadir</span> --pid-file=<span class="variable">$server_pid_file</span> <span class="variable">$other_args</span> &gt;/dev/null 2&gt;&amp;1 &amp;</div><div class="line">      wait_for_pid created</div><div class="line">    <span class="keyword">else</span></div><div class="line">      log_failure_msg <span class="string">"Couldn't find MySQL manager or server"</span></div><div class="line">    <span class="keyword">fi</span></div><div class="line">    ;;</div><div class="line">  <span class="string">'stop'</span>)</div><div class="line">    <span class="comment"># Stop daemon. We use a signal here to avoid having to know the</span></div><div class="line">    <span class="comment"># root password.</span></div><div class="line">    <span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-s</span> <span class="string">"<span class="variable">$pid_file</span>"</span></div><div class="line">    <span class="keyword">then</span></div><div class="line">      mysqlmanager_pid=`cat <span class="variable">$pid_file</span>`</div><div class="line">      <span class="built_in">echo</span> <span class="variable">$echo_n</span> <span class="string">"Shutting down MySQL"</span></div><div class="line">      <span class="built_in">kill</span> <span class="variable">$mysqlmanager_pid</span></div><div class="line">      <span class="comment"># mysqlmanager should remove the pid_file when it exits, so wait for it.</span></div><div class="line">      wait_for_pid removed</div><div class="line">    <span class="keyword">else</span></div><div class="line">      log_failure_msg <span class="string">"MySQL manager or server PID file could not be found!"</span></div><div class="line">    <span class="keyword">fi</span></div><div class="line">    ;;</div><div class="line">  <span class="string">'restart'</span>)</div><div class="line">    <span class="comment"># Stop the service and regardless of whether it was</span></div><div class="line">    <span class="comment"># running or not, start it again.</span></div><div class="line">    <span class="variable">$0</span> stop  <span class="variable">$other_args</span></div><div class="line">    <span class="variable">$0</span> start <span class="variable">$other_args</span></div><div class="line">    ;;</div><div class="line">  <span class="string">'reload'</span>)</div><div class="line">    <span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-s</span> <span class="string">"<span class="variable">$server_pid_file</span>"</span> ; <span class="keyword">then</span></div><div class="line">      mysqld_pid=`cat <span class="variable">$server_pid_file</span>`</div><div class="line">      <span class="built_in">kill</span> -HUP <span class="variable">$mysqld_pid</span> &amp;&amp; log_success_msg <span class="string">"Reloading service MySQL"</span></div><div class="line">      touch <span class="variable">$server_pid_file</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">      log_failure_msg <span class="string">"MySQL PID file could not be found!"</span></div><div class="line">    <span class="keyword">fi</span></div><div class="line">    ;;</div><div class="line">  *)</div><div class="line">    <span class="comment"># usage</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span>  &#123;start|stop|restart|reload&#125;  [ MySQL server options ]"</span></div><div class="line">    <span class="built_in">exit</span> 1</div><div class="line">    ;;</div><div class="line"><span class="keyword">esac</span></div></pre></td></tr></table></figure></p>
+<p>简化版的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment">#######################################################</span></div><div class="line">basedir=/home/falcon/mysql</div><div class="line">datadir=/home/falcon/data/10000</div><div class="line">conf=<span class="variable">$basedir</span>/etc/10000.cnf</div><div class="line"><span class="comment">#######################################################</span></div><div class="line"></div><div class="line">pid_file=<span class="variable">$datadir</span>/`/bin/hostname`.pid</div><div class="line">MYSQLD=<span class="string">"<span class="variable">$basedir</span>/bin/mysqld_safe --defaults-file=<span class="variable">$conf</span>"</span></div><div class="line"><span class="function"><span class="title">usage</span></span>()&#123;</div><div class="line"> <span class="built_in">echo</span> <span class="string">"usage:"</span></div><div class="line"> <span class="built_in">echo</span> <span class="string">"  <span class="variable">$0</span> start|stop|status "</span></div><div class="line"> <span class="built_in">exit</span> 1</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> -z <span class="variable">$1</span></div><div class="line"><span class="keyword">then</span></div><div class="line"> usage</div><div class="line"><span class="keyword">fi</span></div><div class="line">STATUS=<span class="variable">$pid_file</span></div><div class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></div><div class="line"> <span class="string">"start"</span>)</div><div class="line">  <span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-s</span> <span class="string">"<span class="variable">$STATUS</span>"</span></div><div class="line">  <span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"The MySQL is running ..."</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$pid_file</span></div><div class="line">   <span class="built_in">exit</span> 1</div><div class="line">  <span class="keyword">fi</span></div><div class="line">  <span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-s</span> <span class="string">"<span class="variable">$STATUS</span>"</span></div><div class="line">  <span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"The MySQL start fail ..."</span></div><div class="line">  <span class="keyword">else</span></div><div class="line">   </div><div class="line">   <span class="variable">$MYSQLD</span> &gt; /dev/null 2&gt;&amp;1 &amp;</div><div class="line">  <span class="keyword">fi</span></div><div class="line"> ;;</div><div class="line"> <span class="string">"stop"</span>)</div><div class="line">  pid=`cat <span class="variable">$pid_file</span>`</div><div class="line">  `<span class="built_in">kill</span> <span class="variable">$pid</span> &gt; /dev/null 2&gt;&amp;1`</div><div class="line">  <span class="built_in">echo</span> <span class="string">"The MySQL is stop ..."</span></div><div class="line"> ;;</div><div class="line"> <span class="string">"reload"</span>)</div><div class="line">  pid=`cat <span class="variable">$pid_file</span>`</div><div class="line">  `<span class="built_in">kill</span> -HUP <span class="variable">$pid</span> &gt; /dev/null 2&gt;&amp;1`</div><div class="line"> ;;</div><div class="line"> <span class="string">"status"</span>)</div><div class="line"> <span class="keyword">if</span> <span class="built_in">test</span> <span class="_">-s</span> <span class="string">"<span class="variable">$STATUS</span>"</span></div><div class="line"> <span class="keyword">then</span></div><div class="line"> <span class="built_in">echo</span> <span class="string">"The MySQL is running..."</span></div><div class="line"> <span class="keyword">else</span></div><div class="line"> <span class="built_in">echo</span> <span class="string">"The MySQL is down..."</span></div><div class="line"> <span class="keyword">fi</span></div><div class="line"> ;;</div><div class="line"> *)</div><div class="line"> usage</div><div class="line"> ;;</div><div class="line"><span class="keyword">esac</span></div><div class="line"><span class="built_in">exit</span> 1</div></pre></td></tr></table></figure></p>
+<h2 id="2-设置"><a href="#2-设置" class="headerlink" title="2. 设置"></a>2. 设置</h2><p>&emsp;&emsp;对文件添加可执行权限<code>chmod +x mysqld</code></p>
+<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">servcie mysqld status</div></pre></td></tr></table></figure>
+<h2 id="4-设置chkconfig"><a href="#4-设置chkconfig" class="headerlink" title="4. 设置chkconfig"></a>4. 设置chkconfig</h2><p>在脚本的前面几行加入下面句话，开头带<code>#</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># chkconfig: 2345 08 92</span></div><div class="line"><span class="comment"># description:  Starts, stops and saves iptables firewall</span></div></pre></td></tr></table></figure></p>
+<h2 id="5-开机自动启动"><a href="#5-开机自动启动" class="headerlink" title="5. 开机自动启动"></a>5. 开机自动启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig mysqld on</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文件路径、以何种模式启动神马的，等等。而我们装上appache或者mysql后，就可以使用service httpd start来启动，很是方便，service命令其实是跑一个shell脚本
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://www.liyang.one/categories/mysql/"/>
+    
+    
+      <category term="centos" scheme="https://www.liyang.one/tags/centos/"/>
+    
+      <category term="mysql" scheme="https://www.liyang.one/tags/mysql/"/>
+    
+      <category term="mysqld" scheme="https://www.liyang.one/tags/mysqld/"/>
+    
+      <category term="service" scheme="https://www.liyang.one/tags/service/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>卸载CDH（ Cloudera Manager 和托管软件）</title>
+    <link href="https://www.liyang.one/2016/11/14/%E5%8D%B8%E8%BD%BDCDH%EF%BC%88%20Cloudera%20Manager%20%E5%92%8C%E6%89%98%E7%AE%A1%E8%BD%AF%E4%BB%B6%EF%BC%89/"/>
+    <id>https://www.liyang.one/2016/11/14/卸载CDH（ Cloudera Manager 和托管软件）/</id>
+    <published>2016-11-14T12:13:13.000Z</published>
+    <updated>2016-11-17T06:27:01.515Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-一些默认的地址"><a href="#1-一些默认的地址" class="headerlink" title="1. 一些默认的地址"></a>1. 一些默认的地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/var/lib/flume-ng </div><div class="line">/var/lib/hadoop* </div><div class="line">/var/lib/hue </div><div class="line">/var/lib/navigator </div><div class="line">/var/lib/oozie </div><div class="line">/var/lib/solr </div><div class="line">/var/lib/sqoop* </div><div class="line">/var/lib/zookeeper </div><div class="line">/dfs </div><div class="line">/mapred /yarn</div></pre></td></tr></table></figure>
+<h2 id="2-恢复未完成的安装"><a href="#2-恢复未完成的安装" class="headerlink" title="2. 恢复未完成的安装"></a>2. 恢复未完成的安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -Rf /usr/share/cmf /var/lib/cloudera* /var/cache/yum/cloudera*</div></pre></td></tr></table></figure>
+<h2 id="2-停止各种cdh和cm服务"><a href="#2-停止各种cdh和cm服务" class="headerlink" title="2. 停止各种cdh和cm服务"></a>2. 停止各种cdh和cm服务</h2><p>可以直接在界面上面定制</p>
+<h2 id="3-删除cm-server上的服务及安装"><a href="#3-删除cm-server上的服务及安装" class="headerlink" title="3. 删除cm server上的服务及安装"></a>3. 删除cm server上的服务及安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-server stop</div><div class="line">service cloudera-scm-server-db stop</div><div class="line">service cloudera-scm-agent hard_stop</div><div class="line">yum remove <span class="string">'cloudera-manager-*'</span></div><div class="line"></div><div class="line">yum clean all</div></pre></td></tr></table></figure>
+<h2 id="4-手动删除数据文件"><a href="#4-手动删除数据文件" class="headerlink" title="4. 手动删除数据文件"></a>4. 手动删除数据文件</h2><h3 id="4-1-删除-Cloudera-Manager-数据"><a href="#4-1-删除-Cloudera-Manager-数据" class="headerlink" title="4.1 删除 Cloudera Manager 数据"></a>4.1 删除 Cloudera Manager 数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -Rf /usr/share/cmf /var/lib/cloudera* /var/cache/yum/cloudera* /var/<span class="built_in">log</span>/cloudera* /var/run/cloudera*</div></pre></td></tr></table></figure>
+<h3 id="4-2-删除-Cloudera-Manager-锁定文件"><a href="#4-2-删除-Cloudera-Manager-锁定文件" class="headerlink" title="4.2 删除 Cloudera Manager 锁定文件"></a>4.2 删除 Cloudera Manager 锁定文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm /tmp/.scm_prepare_node.lock</div></pre></td></tr></table></figure>
+<h3 id="4-3-删除用户数据"><a href="#4-3-删除用户数据" class="headerlink" title="4.3 删除用户数据"></a>4.3 删除用户数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rm -Rf /var/lib/flume-ng /var/lib/hadoop* /var/lib/hue /var/lib/navigator /var/lib/oozie /var/lib/solr /var/lib/sqoop* /var/lib/zookeeper</div><div class="line">rm -Rf /dfs /mapred /yarn</div></pre></td></tr></table></figure>
+<h2 id="5-快速操作"><a href="#5-快速操作" class="headerlink" title="5. 快速操作"></a>5. 快速操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">1.</div><div class="line">service cloudera-scm-server stop</div><div class="line">service cloudera-scm-server-db stop</div><div class="line">service cloudera-scm-agent hard_stop</div><div class="line">yum remove <span class="string">'cloudera-manager-*'</span></div><div class="line">yum remove enterprise*</div><div class="line"></div><div class="line">2.</div><div class="line">rm -Rf /usr/share/cmf /var/lib/cloudera* /var/cache/yum/cloudera* /var/<span class="built_in">log</span>/cloudera* /var/run/cloudera*</div><div class="line">rm /tmp/.scm_prepare_node.lock</div><div class="line">rm -Rf /var/lib/flume-ng /var/lib/hadoop* /var/lib/hue /var/lib/navigator /var/lib/oozie /var/lib/solr /var/lib/sqoop* /var/lib/zookeeper</div><div class="line">rm -Rf /dfs /mapred /yarn</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-一些默认的地址&quot;&gt;&lt;a href=&quot;#1-一些默认的地址&quot; class=&quot;headerlink&quot; title=&quot;1. 一些默认的地址&quot;&gt;&lt;/a&gt;1. 一些默认的地址&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;
+    
+    </summary>
+    
+      <category term="hadoop" scheme="https://www.liyang.one/categories/hadoop/"/>
+    
+    
+      <category term="卸载CDH" scheme="https://www.liyang.one/tags/%E5%8D%B8%E8%BD%BDCDH/"/>
+    
+      <category term="cloudera" scheme="https://www.liyang.one/tags/cloudera/"/>
+    
+      <category term="cdh" scheme="https://www.liyang.one/tags/cdh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos源码安装mysql5.1.28</title>
+    <link href="https://www.liyang.one/2016/11/14/centos%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85mysql/"/>
+    <id>https://www.liyang.one/2016/11/14/centos源码安装mysql/</id>
+    <published>2016-11-14T12:00:49.045Z</published>
+    <updated>2016-12-05T02:10:06.923Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-centos配置"><a href="#1-centos配置" class="headerlink" title="1. centos配置"></a>1. centos配置</h2><h3 id="1-1-安装需要用到的软件"><a href="#1-1-安装需要用到的软件" class="headerlink" title="1.1 安装需要用到的软件"></a>1.1 安装需要用到的软件</h3><p>ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library found<br>gcc-c++：安装的时候需要，没有的话：../depcomp: line 512: exec: g++: not found<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install gcc-c++ ncurses-devel</div></pre></td></tr></table></figure></p>
+<h3 id="1-2-创建mysql-用户"><a href="#1-2-创建mysql-用户" class="headerlink" title="1.2 创建mysql 用户"></a>1.2 创建mysql 用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -g mysql mysql</div></pre></td></tr></table></figure>
+<h2 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h2><p>下载mysql的安装包 <strong> 5.1版本以前用configure进行编译，5.1之后的版本用cmake进行编译。</strong></p>
+<h2 id="3-解压安装"><a href="#3-解压安装" class="headerlink" title="3. 解压安装"></a>3. 解压安装</h2><h3 id="3-1-解压"><a href="#3-1-解压" class="headerlink" title="3.1 解压"></a>3.1 解压</h3><p>解压到<code>/opt</code>目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -axvf mysql-5.1.28-rc.tar.gz -C /opt</div></pre></td></tr></table></figure></p>
+<h3 id="3-2-编译"><a href="#3-2-编译" class="headerlink" title="3.2 编译"></a>3.2 编译</h3><p>–prefix：安装目录<br>–with-charset：字符集编码<br>–with-plugins：存储引擎<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/opt/mysql  --with-charset=utf8 --with-plugins=innobase</div></pre></td></tr></table></figure></p>
+<h3 id="3-3-安装"><a href="#3-3-安装" class="headerlink" title="3.3 安装"></a>3.3 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h2 id="4-配置与初始化"><a href="#4-配置与初始化" class="headerlink" title="4. 配置与初始化"></a>4. 配置与初始化</h2><h3 id="4-1-修改my-cnf"><a href="#4-1-修改my-cnf" class="headerlink" title="4.1 修改my.cnf"></a>4.1 修改my.cnf</h3><p>系统默认是按/etc/my.cnf—–/etc/mysql/my.cnf—-/opt/mysql/my.cnf的顺序读取配置文件的，当有多个配置文件时，mysql会以读取到的最后一个配置文件中的参数为准。<br>具体优化就不说了，这里就基本配置。<br>在安装目录下share/mysql/ 下找到my-medium.cnf,，将它拷贝到安装目录并且重命名为my.cnf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 修改下面3个参数   /opt/mysql 为安装目录</span></div><div class="line">datadir=/opt/mysql/var</div><div class="line">socket=/opt/mysql/mysql.sock</div><div class="line">basedir=/opt/mysql</div></pre></td></tr></table></figure></p>
+<h3 id="4-2-mysql服务启动脚本"><a href="#4-2-mysql服务启动脚本" class="headerlink" title="4.2 mysql服务启动脚本"></a>4.2 mysql服务启动脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">cp support-files/mysql.server /etc/init.d/mysqld</div><div class="line">chmod 755 /etc/init.d/mysqld</div><div class="line">chkconfig mysql on</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">### 4.3 初始化数据库表</span></div><div class="line">```bash</div><div class="line">chown mysql.mysql -R /opt/mysql</div><div class="line"></div><div class="line">./mysql/bin/mysql_install_db --user=root --datadir=/opt/mysql/var</div></pre></td></tr></table></figure>
+<h3 id="4-4-启动数据库"><a href="#4-4-启动数据库" class="headerlink" title="4.4 启动数据库"></a>4.4 启动数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./mysql/bin/mysqld_safe --defaults-file=/opt/mysql/my.cnf</div><div class="line"></div><div class="line"><span class="comment">#如果报错要学会看错误日志：</span></div><div class="line">more /opt/mysql/var/cdh.scm.err</div></pre></td></tr></table></figure>
+<h3 id="4-5-修改密码并进入数据库"><a href="#4-5-修改密码并进入数据库" class="headerlink" title="4.5 修改密码并进入数据库"></a>4.5 修改密码并进入数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./mysql/bin/mysqladmin -h <span class="string">'127.0.0.1'</span> -u root password 123</div><div class="line">./mysql/bin/mysql -h <span class="string">'127.0.0.1'</span> -u root -p</div></pre></td></tr></table></figure>
+<h2 id="5-可能遇到的错误"><a href="#5-可能遇到的错误" class="headerlink" title="5. 可能遇到的错误"></a>5. 可能遇到的错误</h2><h3 id="5-1-fatal-error-Can’t-change-to-run-as-user-‘mysql’-Please-check-that-the-user-exists"><a href="#5-1-fatal-error-Can’t-change-to-run-as-user-‘mysql’-Please-check-that-the-user-exists" class="headerlink" title="5.1 fatal error: Can’t change to run as user ‘mysql’ ;  Please check that the user exists!"></a>5.1 fatal error: Can’t change to run as user ‘mysql’ ;  Please check that the user exists!</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /etc/my.cnf</div></pre></td></tr></table></figure>
+<p>然后在重新初始化数据库表 ok 成功</p>
+<h3 id="5-2-unknown-option-‘–skip-federated’"><a href="#5-2-unknown-option-‘–skip-federated’" class="headerlink" title="5.2 unknown option ‘–skip-federated’"></a>5.2 unknown option ‘–skip-federated’</h3><p>将my.cnf文件中的skip-federated注释掉即可</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-centos配置&quot;&gt;&lt;a href=&quot;#1-centos配置&quot; class=&quot;headerlink&quot; title=&quot;1. centos配置&quot;&gt;&lt;/a&gt;1. centos配置&lt;/h2&gt;&lt;h3 id=&quot;1-1-安装需要用到的软件&quot;&gt;&lt;a href=&quot;#1-1-安装
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://www.liyang.one/categories/mysql/"/>
+    
+    
+      <category term="centos" scheme="https://www.liyang.one/tags/centos/"/>
+    
+      <category term="mysql" scheme="https://www.liyang.one/tags/mysql/"/>
+    
+      <category term="源码" scheme="https://www.liyang.one/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos修改selinux</title>
+    <link href="https://www.liyang.one/2016/11/11/centos%E4%BF%AE%E6%94%B9selinux/"/>
+    <id>https://www.liyang.one/2016/11/11/centos修改selinux/</id>
+    <published>2016-11-11T06:36:10.000Z</published>
+    <updated>2016-11-11T06:37:00.196Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.centoscn.com/CentOS/config/2015/0618/5681.html" target="_blank" rel="external">http://www.centoscn.com/CentOS/config/2015/0618/5681.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.centoscn.com/CentOS/config/2015/0618/5681.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.centoscn.com/CentOS/config/
+    
+    </summary>
+    
+      <category term="centos" scheme="https://www.liyang.one/categories/centos/"/>
+    
+    
+      <category term="selinux" scheme="https://www.liyang.one/tags/selinux/"/>
+    
+      <category term="cenots" scheme="https://www.liyang.one/tags/cenots/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos使用外部smtp发送邮件</title>
+    <link href="https://www.liyang.one/2016/11/10/centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
+    <id>https://www.liyang.one/2016/11/10/centos使用外部smtp发送邮件/</id>
+    <published>2016-11-10T11:20:00.235Z</published>
+    <updated>2016-11-21T12:23:30.253Z</updated>
+    
+    <content type="html"><![CDATA[<p>在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。</p>
+<h2 id="1-安装mail"><a href="#1-安装mail" class="headerlink" title="1. 安装mail"></a>1. 安装mail</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install mailx  -y  <span class="comment"># -y 默认yes</span></div></pre></td></tr></table></figure>
+<h2 id="2-配置外部smtp发送邮件"><a href="#2-配置外部smtp发送邮件" class="headerlink" title="2. 配置外部smtp发送邮件"></a>2. 配置外部smtp发送邮件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vi /etc/mail.rc</div><div class="line"><span class="comment">## 新增以下</span></div><div class="line"><span class="built_in">set</span> from=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp=smtp.qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-user=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-password=XXXXXXXX</div><div class="line"><span class="built_in">set</span> smtp-auth=login</div></pre></td></tr></table></figure>
+<h2 id="3-发送邮件"><a href="#3-发送邮件" class="headerlink" title="3. 发送邮件"></a>3. 发送邮件</h2><h3 id="3-1-使用管道进行邮件发送"><a href="#3-1-使用管道进行邮件发送" class="headerlink" title="3.1 使用管道进行邮件发送"></a>3.1 使用管道进行邮件发送</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;hello&quot; | mail -s &quot;test&quot; XXXXX@qq.com</div></pre></td></tr></table></figure>
+<h3 id="3-2-使用文件进行邮件发送"><a href="#3-2-使用文件进行邮件发送" class="headerlink" title="3.2 使用文件进行邮件发送"></a>3.2 使用文件进行邮件发送</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
+<h3 id="3-3-发送附件"><a href="#3-3-发送附件" class="headerlink" title="3.3 发送附件"></a>3.3 发送附件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; -a /opt/b.txt XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。&lt;/p&gt;
+&lt;h2 id=&quot;1-安装mail&quot;&gt;&lt;a href=&quot;#1-安装mail&quot; class=&quot;headerlink&quot; title=&quot;1. 安装mail&quot;&gt;&lt;/
+    
+    </summary>
+    
+      <category term="centos" scheme="https://www.liyang.one/categories/centos/"/>
+    
+    
+      <category term="centos" scheme="https://www.liyang.one/tags/centos/"/>
+    
+      <category term="mail" scheme="https://www.liyang.one/tags/mail/"/>
+    
+      <category term="smtp" scheme="https://www.liyang.one/tags/smtp/"/>
+    
+      <category term="邮件" scheme="https://www.liyang.one/tags/%E9%82%AE%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ss用一段时间卡？vps定时重启试试</title>
+    <link href="https://www.liyang.one/2016/11/08/ss%E7%94%A8%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%8D%A1%EF%BC%9Fvps%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF%E8%AF%95%E8%AF%95/"/>
+    <id>https://www.liyang.one/2016/11/08/ss用一段时间卡？vps定时重启试试/</id>
+    <published>2016-11-08T02:25:27.227Z</published>
+    <updated>2016-11-22T06:43:50.301Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。  </p>
+</blockquote>
+<h2 id="1-添加定时重启vps"><a href="#1-添加定时重启vps" class="headerlink" title="1. 添加定时重启vps"></a>1. 添加定时重启vps</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">crontab <span class="_">-e</span>				<span class="comment">#编辑任务列表</span></div><div class="line"></div><div class="line"><span class="comment">#新增：注意用root用户添加</span></div><div class="line">	01 21 * * * /sbin/roboot	  <span class="comment">#由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。</span></div></pre></td></tr></table></figure>
+<h2 id="2-开机自动启动ss服务等"><a href="#2-开机自动启动ss服务等" class="headerlink" title="2. 开机自动启动ss服务等"></a>2. 开机自动启动ss服务等</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ss的开机启动</span></div><div class="line">	chkconfig supervisord  on</div><div class="line"><span class="comment"># 锐速开机启动</span></div><div class="line">	chkconfig serverSpeeder on</div><div class="line"><span class="comment"># net-speeder的开机启动</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;'</span> &gt;&gt; /etc/rc.local</div></pre></td></tr></table></figure>
+<h2 id="3-补充：Crontab基本格式："><a href="#3-补充：Crontab基本格式：" class="headerlink" title="3.补充：Crontab基本格式："></a>3.补充：Crontab基本格式：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*　 *　 *　 *　　*　　<span class="built_in">command</span></div><div class="line">分　时　日　月　 周　 命令</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-添加定时重启vps&quot;&gt;&lt;a href=&quot;#1-添加定时重启vps&quot; class=&quot;headerli
+    
+    </summary>
+    
+      <category term="ss" scheme="https://www.liyang.one/categories/ss/"/>
+    
+    
+      <category term="vps" scheme="https://www.liyang.one/tags/vps/"/>
+    
+      <category term="ss" scheme="https://www.liyang.one/tags/ss/"/>
+    
+      <category term="shadowsocks" scheme="https://www.liyang.one/tags/shadowsocks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git for windows中文乱码</title>
+    <link href="https://www.liyang.one/2016/11/07/git%20for%20windows%20%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
+    <id>https://www.liyang.one/2016/11/07/git for windows 中文乱码/</id>
+    <published>2016-11-07T14:22:22.000Z</published>
+    <updated>2016-11-08T02:27:31.480Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Git 是在linux下开发的，而 Windows的默认编码为GBK，Linux 的编码方式默认是 UTF-8 的，所以移植到 Windows 之后难免会存在编码冲突，导致乱码。<br>Git 在 Windows 下有多种乱码情况，请按具体情况操作<br>Git 安装目录为 <code>C:\Git</code></p>
+</blockquote>
+<h2 id="1-使用-git-add-命令添加文件名含中文字符的文件时"><a href="#1-使用-git-add-命令添加文件名含中文字符的文件时" class="headerlink" title="1.使用 git add 命令添加文件名含中文字符的文件时"></a>1.使用 git add 命令添加文件名含中文字符的文件时</h2><h3 id="1-1-乱码类似："><a href="#1-1-乱码类似：" class="headerlink" title="1.1 乱码类似："></a>1.1 乱码类似：</h3><pre><code>\316\304\261\276\316\304\265\265.txt
+</code></pre><h3 id="1-2-解决方案："><a href="#1-2-解决方案：" class="headerlink" title="1.2 解决方案："></a>1.2 解决方案：</h3><p>编辑 <code>C:\Git\etc\inputrc</code> 文件中对应的行，查找以下2行，并修改其值，原先：</p>
+<pre><code>set output-meta off
+set convert-meta on
+</code></pre><p>改为：</p>
+<pre><code>set output-meta on
+set convert-meta off
+</code></pre><h2 id="2-使用git-log查看含有中文的log信息时"><a href="#2-使用git-log查看含有中文的log信息时" class="headerlink" title="2. 使用git log查看含有中文的log信息时"></a>2. 使用git log查看含有中文的log信息时</h2><h3 id="2-1-乱码类似："><a href="#2-1-乱码类似：" class="headerlink" title="2.1 乱码类似："></a>2.1 乱码类似：</h3><pre><code>&lt;E4&gt;&lt;BF&gt;&lt;AE&gt;&lt;E6&gt;&lt;94&gt;&lt;B9&gt;&lt;E6&gt;&lt;96&gt;&lt;87&gt;&lt;E6&gt;&lt;9C&gt;&lt;AC&gt;&lt;E6&gt;&lt;96&gt;&lt;87&gt;&lt;E6&gt;&lt;A1&gt;&lt;A3&gt;
+</code></pre><h3 id="2-2-解决方案："><a href="#2-2-解决方案：" class="headerlink" title="2.2 解决方案："></a>2.2 解决方案：</h3><p>在Bash提示符下输入：</p>
+<pre><code>git config --global i18n.commitencoding utf-8
+git config --global i18n.logoutputencoding gbk
+</code></pre><p>注：设置 commit 提交时使用 utf-8 编码，可避免 Linux 服务器上乱码；同时设置在执行 git log 时将 utf-8 编码转换成 gbk 编码，以解决乱码问题。编辑 <code>C:\Git\etc\profile</code> 文件，添加如下一行：</p>
+<pre><code>export LESSCHARSET=utf-8
+</code></pre><p>注：以使git log可以正常显示中文（需要配合：i18n.logoutputencoding gbk）</p>
+<h2 id="3-使用ls命令查看含有中文的文件名乱码时"><a href="#3-使用ls命令查看含有中文的文件名乱码时" class="headerlink" title="3.使用ls命令查看含有中文的文件名乱码时"></a>3.使用ls命令查看含有中文的文件名乱码时</h2><h3 id="3-1-乱码类似："><a href="#3-1-乱码类似：" class="headerlink" title="3.1 乱码类似："></a>3.1 乱码类似：</h3><pre><code>????.txt
+???????.md
+</code></pre><h3 id="3-2-解决方案："><a href="#3-2-解决方案：" class="headerlink" title="3.2 解决方案："></a>3.2 解决方案：</h3><p>使用 <code>ls --show-control-chars</code> 命令来强制使用控制台字符编码显示文件名，即可查看中文文件名。为了方便使用，可以编辑 <code>C:Gitetcgit-completion.bash</code> 文件，添加如下一行：</p>
+<pre><code>alias ls=&quot;ls --show-control-chars&quot;
+</code></pre><h2 id="4-在Git-Gui中查看UTF-8编码的文本文件时"><a href="#4-在Git-Gui中查看UTF-8编码的文本文件时" class="headerlink" title="4.在Git Gui中查看UTF-8编码的文本文件时"></a>4.在Git Gui中查看UTF-8编码的文本文件时</h2><h3 id="4-1-乱码类似："><a href="#4-1-乱码类似：" class="headerlink" title="4.1 乱码类似："></a>4.1 乱码类似：</h3><pre><code>锘夸腑鏂囨枃妗￡
+</code></pre><h3 id="4-2-解决方案："><a href="#4-2-解决方案：" class="headerlink" title="4.2 解决方案："></a>4.2 解决方案：</h3><p>在Bash提示符下输入：</p>
+<pre><code>git config --global gui.encoding utf-8
+</code></pre><p>注：通过上述设置，UTF-8 编码的文本文件可以正常查看，但是 GBK 编码的文件将会乱码，所以还是没有从根本上解决问题。</p>
+<p>可行的方法之一为：将所有文本文件的编码统一为 UTF-8 或 GBK，然后设置相应的gui.encoding 参数为 utf-8 或 gbk。</p>
+<blockquote>
+<p>转自：<a href="https://segmentfault.com/a/1190000000578037" target="_blank" rel="external">https://segmentfault.com/a/1190000000578037</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Git 是在linux下开发的，而 Windows的默认编码为GBK，Linux 的编码方式默认是 UTF-8 的，所以移植到 Windows 之后难免会存在编码冲突，导致乱码。&lt;br&gt;Git 在 Windows 下有多种乱码情况，请按具体情况操作
+    
+    </summary>
+    
+      <category term="git" scheme="https://www.liyang.one/categories/git/"/>
+    
+    
+      <category term="git" scheme="https://www.liyang.one/tags/git/"/>
+    
+      <category term="中文乱码" scheme="https://www.liyang.one/tags/%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git多用户</title>
+    <link href="https://www.liyang.one/2016/11/07/git%E5%A4%9A%E7%94%A8%E6%88%B7/"/>
+    <id>https://www.liyang.one/2016/11/07/git多用户/</id>
+    <published>2016-11-07T10:44:59.000Z</published>
+    <updated>2016-11-14T06:19:39.602Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-生成key"><a href="#1-生成key" class="headerlink" title="1. 生成key"></a>1. 生成key</h2><p>终端下执行 :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">cd</span> ~/.ssh</div><div class="line">ssh-keygen -t rsa -C <span class="string">'xxxxx@github.com'</span> <span class="_">-f</span> id_rsa_github</div></pre></td></tr></table></figure>
+<p>其中<code>xxxxx@github.com</code> 替换为你的邮箱， <code>id_rsa_github</code>为生成文件文件名，执行后会问你是否需要<code>enter a passphrase</code>， 默认一路确认就行。</p>
+<h2 id="2-添加到-ssh-agent"><a href="#2-添加到-ssh-agent" class="headerlink" title="2. 添加到 ssh-agent"></a>2. 添加到 ssh-agent</h2><p>将新生成的key 添加到 ssh-agent<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-agent <span class="_">-s</span></div><div class="line">ssh-add ~/.ssh/id_rsa_github</div></pre></td></tr></table></figure></p>
+<p>同时也可以通过命令 ssh-add -l 查看之前已添加的key。</p>
+<h2 id="3-添加公匙到账户"><a href="#3-添加公匙到账户" class="headerlink" title="3. 添加公匙到账户"></a>3. 添加公匙到账户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clip &lt; ~/.ssh/id_rsa_github.pub</div></pre></td></tr></table></figure>
+<p>重复执行以上步骤,配置你的其他账户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &apos;xxxxx@qq.com&apos; -f id_rsa_qq</div></pre></td></tr></table></figure></p>
+<h2 id="4-配置"><a href="#4-配置" class="headerlink" title="4. 配置"></a>4. 配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">cd</span> ~/.ssh/  </div><div class="line">&gt; vi config</div><div class="line">Host github.com</div><div class="line">    HostName github.com</div><div class="line">    IdentityFile ~/.ssh/id_rsa_github</div><div class="line">    User name1</div><div class="line">Host git.coding.net</div><div class="line">    HostName git.coding.net</div><div class="line">    IdentityFile ~/.ssh/id_rsa_qq</div><div class="line">    User name2</div></pre></td></tr></table></figure>
+<h2 id="5-测试"><a href="#5-测试" class="headerlink" title="5. 测试"></a>5. 测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -vT git@github.com</div><div class="line">ssh -vT git.coding.net</div></pre></td></tr></table></figure>
+<h2 id="6-有可能碰到的问题"><a href="#6-有可能碰到的问题" class="headerlink" title="6. 有可能碰到的问题"></a>6. 有可能碰到的问题</h2><h3 id="1、Could-not-open-a-connection-to-your-authentication-agent？应该是-ssh-agent-没有启动，执行以下命令启动"><a href="#1、Could-not-open-a-connection-to-your-authentication-agent？应该是-ssh-agent-没有启动，执行以下命令启动" class="headerlink" title="1、Could not open a connection to your authentication agent？应该是 ssh-agent 没有启动，执行以下命令启动"></a>1、Could not open a connection to your authentication agent？应该是 ssh-agent 没有启动，执行以下命令启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span> `ssh-agent <span class="_">-s</span>`</div><div class="line">ssh-add</div></pre></td></tr></table></figure>
+<h3 id="2、Permission-denied，"><a href="#2、Permission-denied，" class="headerlink" title="2、Permission denied，"></a>2、Permission denied，</h3><p>这个问题，注意一下配置文件里面的Host和HostName</p>
+<blockquote>
+<p>转自：<a href="https://segmentfault.com/a/1190000007116113" target="_blank" rel="external">https://segmentfault.com/a/1190000007116113</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-生成key&quot;&gt;&lt;a href=&quot;#1-生成key&quot; class=&quot;headerlink&quot; title=&quot;1. 生成key&quot;&gt;&lt;/a&gt;1. 生成key&lt;/h2&gt;&lt;p&gt;终端下执行 :&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;tabl
+    
+    </summary>
+    
+      <category term="git" scheme="https://www.liyang.one/categories/git/"/>
+    
+    
+      <category term="git" scheme="https://www.liyang.one/tags/git/"/>
+    
+      <category term="git多用户" scheme="https://www.liyang.one/tags/git%E5%A4%9A%E7%94%A8%E6%88%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CDH安装hadoop集群（目前更新到一半，待续）</title>
+    <link href="https://www.liyang.one/2016/11/07/CDH%E5%AE%89%E8%A3%85hadoop%E9%9B%86%E7%BE%A4/"/>
+    <id>https://www.liyang.one/2016/11/07/CDH安装hadoop集群/</id>
+    <published>2016-11-07T01:49:01.000Z</published>
+    <updated>2016-12-29T11:27:29.117Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-虚拟机设置（这里使用的是nat模式）"><a href="#1-虚拟机设置（这里使用的是nat模式）" class="headerlink" title="1. 虚拟机设置（这里使用的是nat模式）"></a>1. 虚拟机设置（这里使用的是nat模式）</h2><h3 id="1-1-子网IP段和子网掩码"><a href="#1-1-子网IP段和子网掩码" class="headerlink" title="1.1 子网IP段和子网掩码"></a>1.1 子网IP段和子网掩码</h3><blockquote>
+<p>vm&gt;&gt;编辑&gt;&gt;虚拟网络编辑器&gt;&gt;VMnet8&gt;&gt;勾选连接到此网络&gt;&gt;子网Ip和子网掩码设置</p>
+</blockquote>
+<p><img src="http://ofyose6ar.bkt.clouddn.com/2016110101.png" alt="image"></p>
+<h3 id="1-2-网关设置"><a href="#1-2-网关设置" class="headerlink" title="1.2 网关设置"></a>1.2 网关设置</h3><blockquote>
+<p>vm&gt;&gt;编辑&gt;&gt;虚拟网络编辑器&gt;&gt;VMnet8&gt;&gt;NAT设置</p>
+</blockquote>
+<p><img src="http://ofyose6ar.bkt.clouddn.com/2016110102.png" alt="image"></p>
+<h3 id="1-3-如果子网连不上宿主机或者宿主机ping通虚拟机"><a href="#1-3-如果子网连不上宿主机或者宿主机ping通虚拟机" class="headerlink" title="1.3 如果子网连不上宿主机或者宿主机ping通虚拟机"></a>1.3 如果子网连不上宿主机或者宿主机ping通虚拟机</h3><blockquote>
+<p>网络共享中心&gt;&gt;更改适配器设置&gt;&gt;VMnet8&gt;&gt;属性&gt;&gt;TCP/IPv4&gt;&gt;使用静态</p>
+</blockquote>
+<p><img src="http://ofyose6ar.bkt.clouddn.com/2016110103.png" alt="image"></p>
+<h2 id="2-虚拟机安装"><a href="#2-虚拟机安装" class="headerlink" title="2.虚拟机安装"></a>2.虚拟机安装</h2><h3 id="2-1-虚拟机下载地址："><a href="#2-1-虚拟机下载地址：" class="headerlink" title="2.1 虚拟机下载地址："></a>2.1 虚拟机下载地址：</h3><p><a href="http://www.centoscn.com/plus/download.php?open=2&amp;id=2196&amp;uhash=a6241d87fed784a11883750b" target="_blank" rel="external">http://www.centoscn.com/plus/download.php?open=2&amp;id=2196&amp;uhash=a6241d87fed784a11883750b</a></p>
+<h3 id="2-2-安装（略）"><a href="#2-2-安装（略）" class="headerlink" title="2.2 安装（略）"></a>2.2 安装（略）</h3><h2 id="3-虚拟机基本配置（root用户）"><a href="#3-虚拟机基本配置（root用户）" class="headerlink" title="3. 虚拟机基本配置（root用户）"></a>3. 虚拟机基本配置（root用户）</h2><h3 id="3-1-ip设置"><a href="#3-1-ip设置" class="headerlink" title="3.1 ip设置"></a>3.1 ip设置</h3><blockquote>
+<p>vi /etc/sysconfig/network-scripts/ifcfg-eth0 </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">DEVICE=eth0</div><div class="line">BOOTPROTO=static</div><div class="line">HWADDR=00:0C:29:89:7A:DC</div><div class="line">ONBOOT=yes</div><div class="line">IPADDR=192.168.136.111</div><div class="line">NETMASK=255.255.255.0</div><div class="line">GATEWAY=192.168.136.2</div><div class="line">DNS1=192.168.136.2</div></pre></td></tr></table></figure>
+<h3 id="3-2-修改主机名字"><a href="#3-2-修改主机名字" class="headerlink" title="3.2 修改主机名字"></a>3.2 修改主机名字</h3><blockquote>
+<p>vi /etc/sysconfig/network<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NETWORKING=yes</div><div class="line">NETWORKING_IPV6=no</div><div class="line">HOSTNAME=cdh.master</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="3-3-创建hadoop用户"><a href="#3-3-创建hadoop用户" class="headerlink" title="3.3 创建hadoop用户"></a>3.3 创建hadoop用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">groupadd hadoop             <span class="comment">#添加一个叫hadoop的用户组</span></div><div class="line">useradd hadoop -g hadoop    <span class="comment">#添加一个hadoop用户并加入hadoop组</span></div></pre></td></tr></table></figure>
+<h3 id="3-4-赋予sudo权限"><a href="#3-4-赋予sudo权限" class="headerlink" title="3.4 赋予sudo权限"></a>3.4 赋予sudo权限</h3><blockquote>
+<p>vi /etc/sudoers<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hadoop ALL=(ALL) ALL        <span class="comment">#在sudoers尾部加上这一行</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>修改hostname:<br>vi /etc/sysconfig/network</p>
+<p>修改hosts   #设置hosts文件，这样计算机之间就可以用计算机名来访问了<br>vi /etc/hsots</p>
+<p> service network restart</p>
+<p>配置ssh免密码登录</p>
+<p>ssh-keygen -t rsa -P “”</p>
+<p>scp id_rsa.pub cdh.scm:/root/.ssh/id_rsa.pub.master<br>scp id_rsa.pub cdh.scm:/root/.ssh/id_rsa.pub.slave01<br>scp id_rsa.pub cdh.scm:/root/.ssh/id_rsa.pub.slave02<br>scp id_rsa.pub cdh.scm:/root/.ssh/id_rsa.pub.slave03</p>
+<p>cat id_rsa.pub &gt;&gt; authorized_keys<br>cat id_rsa.pub.master &gt;&gt; authorized_keys<br>cat id_rsa.pub.slave01 &gt;&gt; authorized_keys<br>cat id_rsa.pub.slave02 &gt;&gt; authorized_keys<br>cat id_rsa.pub.slave03 &gt;&gt; authorized_keys</p>
+<p>scp authorized_keys cdh.master:/root/.ssh/<br>scp authorized_keys cdh.slave01:/root/.ssh/<br>scp authorized_keys cdh.slave02:/root/.ssh/<br>scp authorized_keys cdh.slave03:/root/.ssh/</p>
+<p>chmod 700 ~/.ssh<br>chmod 644 ~/.ssh/authorized_keys</p>
+<h2 id="4-配置JDK"><a href="#4-配置JDK" class="headerlink" title="4. 配置JDK"></a>4. 配置JDK</h2><blockquote>
+<p>建议用root用户安装，使用时配置环境变量</p>
+</blockquote>
+<h3 id="4-1-下载JDK（建议使用oraclejdk-不建议使用openjdk）"><a href="#4-1-下载JDK（建议使用oraclejdk-不建议使用openjdk）" class="headerlink" title="4.1 下载JDK（建议使用oraclejdk,不建议使用openjdk）"></a>4.1 下载JDK（建议使用oraclejdk,不建议使用openjdk）</h3><p><a href="http://www.oracle.com/technetwork/java/javase/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/index.html</a></p>
+<h3 id="4-2-上传（略）"><a href="#4-2-上传（略）" class="headerlink" title="4.2 上传（略）"></a>4.2 上传（略）</h3><h3 id="4-3-解压安装"><a href="#4-3-解压安装" class="headerlink" title="4.3 解压安装"></a>4.3 解压安装</h3><p>这里上传到<code>/opt</code>目录下的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar -xzvf /opt/jdk-7u80-linux-x64.tar.gz     <span class="comment">#解压</span></div><div class="line">mv /opt/jdk1.7.0_80 /usr/<span class="built_in">local</span>/jdk1.70_80 	 <span class="comment">#移动到/usr/lcoal</span></div></pre></td></tr></table></figure></p>
+<h3 id="4-4-给hadoop用户配置java环境"><a href="#4-4-给hadoop用户配置java环境" class="headerlink" title="4.4 给hadoop用户配置java环境"></a>4.4 给hadoop用户配置java环境</h3><blockquote>
+<p>vi ~/.bashrc<br>新增以下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/jdk1.70_80</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="切换回hadoop测试"><a href="#切换回hadoop测试" class="headerlink" title="切换回hadoop测试"></a>切换回hadoop测试</h3><p>echo $JAVA_HOME</p>
+<p>输出</p>
+<h2 id="5-克隆虚拟机"><a href="#5-克隆虚拟机" class="headerlink" title="5. 克隆虚拟机"></a>5. 克隆虚拟机</h2><h3 id="5-1-克隆2台"><a href="#5-1-克隆2台" class="headerlink" title="5.1 克隆2台"></a>5.1 克隆2台</h3><h3 id="5-2-修改ip和网卡地址"><a href="#5-2-修改ip和网卡地址" class="headerlink" title="5.2 修改ip和网卡地址"></a>5.2 修改ip和网卡地址</h3><p>Bringing up interface eth0:  Error: No suitable device found: no device found for connection ‘System eth0’.</p>
+<p>service network restart</p>
+<h3 id="5-3-测试"><a href="#5-3-测试" class="headerlink" title="5.3 测试"></a>5.3 测试</h3><p><a href="http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/cloudera-manager.repo" target="_blank" rel="external">http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/cloudera-manager.repo</a><br><a href="http://archive.cloudera.com/cm5/installer/5.4.5/cloudera-manager-installer.bin" target="_blank" rel="external">http://archive.cloudera.com/cm5/installer/5.4.5/cloudera-manager-installer.bin</a><br><a href="http://101.96.10.60/archive.cloudera.com/cm5/redhat/6/x86_64/cm/5.4.5/RPMS/" target="_blank" rel="external">http://101.96.10.60/archive.cloudera.com/cm5/redhat/6/x86_64/cm/5.4.5/RPMS/</a></p>
+<p>rpm 安装顺序</p>
+<p>enterprise-debuginfo-5.4.5-1.cm545.p0.5.el6.x86_64.rpm<br>cloudera-manager-daemons-5.4.5-1.cm545.p0.5.el6.x86_64.rpm<br>cloudera-manager-server-5.4.5-1.cm545.p0.5.el6.x86_64.rpm<br>cloudera-manager-server-db-2-5.4.5-1.cm545.p0.5.el6.x86_64.rpm<br>cloudera-manager-agent-5.4.5-1.cm545.p0.5.el6.x86_64.rpm</p>
+<p>所依赖的服务：</p>
+<p>yum -y install postgresql-server postgresql httpd perl bind-utils libxslt cyrus-sasl-gssapi redhat-lsb cyrus-sasl-plain portmap fuse fuse-libs nc python-setuptools</p>
+<p>yum -y install httpd perl bind-utils libxslt cyrus-sasl-gssapi redhat-lsb cyrus-sasl-plain portmap fuse fuse-libs nc python-setuptools</p>
+<p>安装报错：<br>SELinux is enabled. It must be disabled to install and use this product.</p>
+<p>是由于没有关闭：SELinux</p>
+<p>setenforce 0  临时关闭<br>修改 /etc/selinux/config 下的 SELINUX=disabled （重启后永久生效）</p>
+<p>cp cloudera-manager.repo /etc/yum.repos.d</p>
+<p>yum list|grep cloudera</p>
+<p>#如果列出的不是你安装的版本，执行下面命令重试<br>yum clean all<br>yum list | grep cloudera</p>
+<p>yum -y install *.rpm</p>
+<p>cp CDH-5.4.2-1.cdh5.4.2.p0.2-el6.parcel CDH-5.4.2-1.cdh5.4.2.p0.2-el6.parcel.sha manifest.json /opt/cloudera/parcel-repo</p>
+<p>scp -r /opt/cdh cdh.slave01:/opt/<br>scp -r /opt/cdh cdh.slave02:/opt/<br>scp -r /opt/cdh cdh.slave03:/opt/</p>
+<p>yum -y install ntp<br>chkconfig ntp no<br>ntpdate -u ntp.sjtu.edu.cn</p>
+<p>— 一定要记住关闭防火墙 不然在yum的时候会报错 couldn’t connect to host 或者一些另外的错误</p>
+<p>恢复未完成的安装</p>
+<p>rm -Rf /usr/share/cmf /var/lib/cloudera<em> /var/cache/yum/cloudera</em></p>
+<p>有的时候可能出现网路问题导致不能连接</p>
+<p>错误： Package does not match intended download. Suggestion: run yum –enablerepo=cloudera-manager clean metadata<br><a href="http://blog.csdn.net/huangyanlong/article/details/44050117" target="_blank" rel="external">http://blog.csdn.net/huangyanlong/article/details/44050117</a></p>
+<p>设置hosts 记着重启服务。</p>
+<p>如果还是报错 yum clean all</p>
+<p>Error: Cannot find a valid baseurl for repo: base</p>
+<p>新增rpm<br>mkdir -p cm5/redhat/6/x86_64/cm/5/RPMS/x86_64/</p>
+<p>将rpm拷贝到该路径</p>
+<p>新增xml<br>mkdir cm5/redhat/6/x86_64/cm/5/repodata/</p>
+<p>安装mysql<br>然后db 配置mysql<br>启动scm<br>然后图形安装 报错<br>手动安装</p>
+<p>yum install –skip-broken cloudera-manager-daemons-5.4.5-1.cm545.p0.5.el6.x86_64.rpm cloudera-manager-agent-5.4.5-1.cm545.p0.5.el6.x86_64.rpm</p>
+<p>继续安装，然后这个包一直下载不了，自动安装 ：bigtop-tomcat<br>yum install –skip-broken </p>
+<p>由于依赖 bigtop-utils 那就又下载然后继续一起安装</p>
+<p>yum install -y –skip-broken bigtop-tomcat-0.7.0+cdh5.4.5+0-1.cdh5.4.5.p0.8.el6.noarch.rpm bigtop-utils-0.7.0+cdh5.4.5+0-1.cdh5.4.5.p0.8.el6.noarch.rpm </p>
+<p>又来一个 hadoop-kms<br>yum install -y </p>
+<p>不行了，这个依赖的包太多了，只能放大招</p>
+<p>把 archive.cloudera.com 映射到自己的机器上面。前提是：自己下载有完整的包</p>
+<p>1、htdocs\cm5\redhat\6\x86_64  把下载的cdh目录拷贝到 htdocs\cm5\redhat\6\x86_64 目录下<br>2、设置hosts  172.16.100.23 archive.cloudera.com</p>
+<p>172.16.100.23 为自己机器的 Apache2.2服务的机器<br>ping archive.cloudera.com ip为自己机器就行了</p>
+<p>然而不知道为什么它要去找高版本，我的服务器上面只有5.4.5版本</p>
+<p>放弃 使用这种方式</p>
+<p>换一种 选择存储器的时候选择  parcel 方式</p>
+<p>把 parcel拷贝到 /opt/cloudera/parcel-repo/ 目录下</p>
+<p>忘记添加主机了 </p>
+<p>关机 全部重启</p>
+<p>service cloudera-scm-server start<br>service cloudera-scm-server restart</p>
+<p>启动比较慢，如果是急性子可以看看日志</p>
+<p>tail -f  /var/log/cloudera-scm-server/cloudera-scm-server.log</p>
+<p>cdh安装中遇到“正在获取安装锁”<br>解决办法：进入/tmp 目录，ls -a查看，删除scm_prepare_node.*的文件，以及.scm_prepare_node.lock文件。 </p>
+<p>数据库连接不上</p>
+<p>grant all on cdh.* TO ‘root’@’%’ IDENTIFIED BY ‘123’;</p>
+<p>FLUSH   PRIVILEGES; </p>
+<p>返回 在继续</p>
+<p>报错：JDBC driver cannot be found. Unable to find the JDBC database jar on host : cdh.slave01.<br>拷贝jar到该目录<br>/usr/share/java/mysql-connector-java.jar</p>
+<p>/var/log/cloudera-scm-installer : 安装日志目录。<br>/var/log/<em> : 相关日志文件（相关服务的及CM的）。<br>/usr/lib64/cmf/ : Agent程序代码。<br>/var/lib/cloudera-scm-server-db/data : 内嵌数据库目录。<br>/usr/bin/postgres : 内嵌数据库程序。<br>/etc/cloudera-scm-agent/ : agent的配置目录。<br>/etc/cloudera-scm-server/ : server的配置目录。<br>/etc/clouder-scm-server/db.properties 默认元数据库用户名密码配置<br>/opt/cloudera/parcels/ : Hadoop相关服务安装目录。<br>/opt/cloudera/parcel-repo/ : 下载的服务软件包数据，数据格式为parcels。<br>/opt/cloudera/parcel-cache/ : 下载的服务软件包缓存数据。<br>/etc/hadoop/</em> : 客户端配置文件目录。</p>
+<p>1、机器选型<br>    小型机–百万级别–成本太高。不适用<br>    pcservice–第一选择（屌丝逆袭）<br>    云主机（阿里云、腾讯云、亚马逊云）–创业公司首选（资金不足，数据逐步增大）<br>     pc–（实验环境）</p>
+<p>2、软件选型<br>    oraclejdk<br>    hadoop:<br>        a、apache<br>        b、cdh<br>        c、hdp<br>    os:<br>        centos6.5</p>
+<p>3、网络设备</p>
+<table>
+<thead>
+<tr>
+<th>机器</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center">12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CDH</td>
+<td style="text-align:center">SCM*</td>
+</tr>
+<tr>
+<td>master</td>
+<td style="text-align:center">namenode</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">rm1</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">zk</td>
+</tr>
+<tr>
+<td>slave01</td>
+<td style="text-align:center">namenode</td>
+<td style="text-align:center">datanode</td>
+<td style="text-align:center">rm 2</td>
+<td style="text-align:center">nm</td>
+<td style="text-align:center">ZK</td>
+</tr>
+<tr>
+<td>slave02</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">datanode</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">nm</td>
+<td style="text-align:center">ZK</td>
+</tr>
+<tr>
+<td>slave02</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">datanode</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">nm</td>
+<td style="text-align:center">ZK</td>
+</tr>
+</tbody>
+</table>
+<p>##########################################################################################</p>
+<p>1、使用lvm分区，然后安装centos分区</p>
+<p>关闭防火墙：<br>service iptables stop<br>chkconfig iptables off</p>
+<p>2、安装jdk</p>
+<hr>
+<p>3、克隆机器</p>
+<p>service iptables stop<br>chkconfig iptables off</p>
+<p>ifconfig 查看mac地址<br>vi /etc/sysconfig/network-sicp/ifcfg-eth0</p>
+<p>servcice network restart</p>
+<hr>
+<p>4、在管理机器上面安装mysql<br>5、创建数据库<br>create database cdh DEFAULT CHARACTER SET utf8;<br>grant all on cdh.* TO ‘root’@’%’ IDENTIFIED BY ‘123’;<br>flush privileges; #刷新权限</p>
+<p>直接赋予超级权限：<br>grant all privileges on <em>.</em> to hive@”%”identified by “123456”;<br>flush privileges; #刷新权限</p>
+<p>5、上传jdbc包<br>-mkdir -p /usr/share/java/</p>
+<ul>
+<li>cp /opt /usr/share/java/mysql-connector-java.jar</li>
+</ul>
+<p>6、使用官网中B的方式安装<br>7、安装cloudera-manager 这一些  安装顺序如下</p>
+<p>cloudera-manager-daemons-5.4.5-1.cm545.p0.5.el6.x86_64.rpm<br>cloudera-manager-server-5.4.5-1.cm545.p0.5.el6.x86_64.rpm<br>cloudera-manager-agent-5.4.5-1.cm545.p0.5.el6.x86_64.rpm<br>enterprise-debuginfo-5.4.5-1.cm545.p0.5.el6.x86_64.rpm</p>
+<p>#设置托管服务的数据库为mysql<br>sh /usr/share/cmf/schema/scm_prepare_database.sh mysql cdh root 123</p>
+<p>不知道为什么设置了，还是要下载psotgrepsql</p>
+<p>放大招： rpm -i –force –nodeps rpmname</p>
+<p>cloudera-manager-server-db-2-5.4.5-1.cm545.p0.5.el6.x86_64.rpm</p>
+<p>8、复制托管服务软件包到目录</p>
+<hr>
+<p>CDH-5.4.2-1.cdh5.4.2.p0.2-el6.parcel<br>manifest.json<br>CDH-5.4.2-1.cdh5.4.2.p0.2-el6.parcel.sha</p>
+<p>将上面3个文件都拷贝到下以下目录<br>/opt/cloudera/parcel-repo</p>
+<p>cp /opt/scm/CDH-5.4.2-1.cdh5.4.2.p0.2-el6.parcel /opt/scm/CDH-5.4.2-1.cdh5.4.2.p0.2-el6.parcel.sha /opt/scm/manifest.json /opt/cloudera/parcel-repo/</p>
+<p>安装 cloudera-manager-agent-5.4.5-1.cm545.p0.5.el6.x86_64.rpm  cloudera-manager-daemons-5.4.5-1.cm545.p0.5.el6.x86_64.rpm</p>
+<p>yum install -y –skip-broken cloudera-manager-daemons-5.4.5-1.cm545.p0.5.el6.x86_64.rpm cloudera-manager-agent-5.4.5-1.cm545.p0.5.el6.x86_64.rpm</p>
+<p>添加hosts<br>10 修改 /etc/hosts</p>
+<p>增加</p>
+<p>192.168.136.10 cdh.scm<br>192.168.136.11 cdh.master<br>192.168.136.12 cdh.slave1<br>192.168.136.13 cdh.slave2<br>192.168.136.14 cdh.slave3</p>
+<hr>
+<p>9、启动服务</p>
+<p>tail -f  /var/log/cloudera-scm-server/cloudera-scm-server.log</p>
+<p>10 修改 /etc/hosts</p>
+<p>增加</p>
+<p>172.16.3.31 kvm<br>172.16.3.32 cdh.scm<br>172.16.3.33 cdh.master<br>172.16.3.34 cdh.slave01<br>172.16.3.35 cdh.slave02<br>172.16.3.36 cdh.slave03</p>
+<p>192.168.136.11 cdh.master<br>192.168.136.12 cdh.slave1<br>192.168.136.13 cdh.slave2<br>192.168.136.14 cdh.slave3</p>
+<p>添加主机</p>
+<p>echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag<br>echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag</p>
+<p>/opt/mysql/bin/mysqld_safe –defaults-file=/opt/mysql/my.cnf</p>
+<p>注意：<br>select host,user,password from mysql.user; </p>
+<p>mysql 通过主机名的密码是多少</p>
+<p>内存大小问题<br>/etc/default/cloudera-scm-server</p>
+<p>mysql 自动启动脚本有问题。<br>需要重新写一个</p>
+<p>service cloudera-scm-server start<br>service cloudera-scm-server restart</p>
+<p>Event Server 运行不良  一直找不到原因，后来发现 Selinux 没有关</p>
+<p>setenforce 0  临时关闭<br>修改 /etc/selinux/config 下的 SELINUX=disabled （重启后永久生效）</p>
+<p>Cloudera 建议将 /proc/sys/vm/swappiness 设置为 0。当前设置为 60。<br>echo 0 &gt; /proc/sys/vm/swappiness</p>
+<p>检查主机正确性时出现 “已启用“透明大页面”，它可能会导致重大的性能问题。” 的警告，进行如下设定</p>
+<h1 id="vi-etc-sysctl-conf"><a href="#vi-etc-sysctl-conf" class="headerlink" title="vi /etc/sysctl.conf"></a>vi /etc/sysctl.conf</h1><p>vm.swappiness = 0</p>
+<h1 id="sysctl-–p"><a href="#sysctl-–p" class="headerlink" title="sysctl –p"></a>sysctl –p</h1><p>检查主机正确性时出现 “已启用“透明大页面”，它可能会导致重大的性能问题。” 的警告，进行如下设定<br>echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled<br>echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</p>
+<p>2016-11-25 15:33:34,586 WARN 358018152@scm-web-10:com.cloudera.server.web.cmf.EventsController: (2 skipped) Exception querying events<br>org.apache.avro.AvroRemoteException: java.net.ConnectException: 拒绝连接</p>
+<p>create database cdh DEFAULT CHARACTER SET utf8;<br>create database hive DEFAULT CHARACTER SET utf8;<br>create database oozie DEFAULT CHARACTER SET utf8;</p>
+<p>grant all on hive.<em> TO ‘root’@’%’ IDENTIFIED BY ‘123’;<br>grant all on oozie.</em> TO ‘root’@’%’ IDENTIFIED BY ‘123’;</p>
+<p>grant all on hue.* to ‘root’@’%’ identified by ‘123’;</p>
+<p>flush privileges; #刷新权限</p>
+<p>grant select,insert,update,delete on %.* to root@”cdh.scm” identified by “123456”; </p>
+<p>/etc/hadoop/conf.impala/hdfs-site.xml<br>/etc/hadoop/conf.empty/hdfs-site.xml<br>/usr/lib/hadoop-0.20-mapreduce/example-confs/conf.pseudo/hdfs-site.xml<br>/usr/lib/hadoop-0.20-mapreduce/example-confs/conf.secure/hdfs-site.xml<br>/usr/lib/spark-1.6.2/conf/hdfs-site.xml</p>
+<p>52:54:00:FE:42:EA</p>
+<p>sh /usr/share/cmf/schema/scm_prepare_database.sh mysql cdh root 123<br>sh /usr/share/cmf/schema/scm_prepare_database.sh mysql cdh root 123</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-虚拟机设置（这里使用的是nat模式）&quot;&gt;&lt;a href=&quot;#1-虚拟机设置（这里使用的是nat模式）&quot; class=&quot;headerlink&quot; title=&quot;1. 虚拟机设置（这里使用的是nat模式）&quot;&gt;&lt;/a&gt;1. 虚拟机设置（这里使用的是nat模式）&lt;/h2
+    
+    </summary>
+    
+      <category term="hadoop" scheme="https://www.liyang.one/categories/hadoop/"/>
+    
+    
+      <category term="chd" scheme="https://www.liyang.one/tags/chd/"/>
+    
+      <category term="hadoop" scheme="https://www.liyang.one/tags/hadoop/"/>
+    
+      <category term="vm" scheme="https://www.liyang.one/tags/vm/"/>
+    
+      <category term="hadoop集群安装" scheme="https://www.liyang.one/tags/hadoop%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>建站日记</title>
-    <link href="https://ermao.cf/2016/11/03/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
-    <id>https://ermao.cf/2016/11/03/建站日记/</id>
+    <link href="https://www.liyang.one/2016/11/03/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
+    <id>https://www.liyang.one/2016/11/03/建站日记/</id>
     <published>2016-11-03T15:44:59.000Z</published>
-    <updated>2016-11-04T15:04:41.469Z</updated>
+    <updated>2016-11-22T12:21:55.013Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>本来想着用一个单独的页面来记录建站的过程，后来想了想还是用文章记录吧。</p>
 </blockquote>
 <h3 id="最初-Typecho"><a href="#最初-Typecho" class="headerlink" title="最初: Typecho"></a>最初: Typecho</h3><ul>
-<li>20160409：建立Tyecho的blog,域名： <strong>liyang.one</strong></li>
+<li><strong>20160409</strong><ul>
+<li>建立Tyecho的blog</li>
+<li>域名：<code>liyang.one</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="目前：Hexo-github-coding"><a href="#目前：Hexo-github-coding" class="headerlink" title="目前：Hexo+github/coding"></a>目前：Hexo+github/coding</h3><ul>
-<li>20161102：hexo的搭建与基本配置，域名暂为：<strong>ermao.cf</strong></li>
-<li>20161103：更改主题next、增加评论、背景动画、统计。</li>
-<li>20161104：文章的迁移、留言页、公益404、sitemap网站地图、非友情链接的出站链接添加”nofollow”标签、添加蜘蛛协议</li>
+<li><strong>20161102</strong><ul>
+<li>hexo的搭建与基本配置。</li>
+<li>域名暂为：<code>ermao.cf</code></li>
+</ul>
+</li>
+<li><strong>20161103</strong><ul>
+<li>更改主题next.</li>
+<li>增加评论</li>
+<li>背景动画</li>
+<li>统计</li>
+<li>域名更改为：<code>liyang.one</code></li>
+</ul>
+</li>
+<li><strong>20161104</strong><ul>
+<li>文章的迁移</li>
+<li>留言页</li>
+<li>公益404</li>
+<li>sitemap网站地图</li>
+<li>非友情链接的出站链接添加<code>&quot;nofollow&quot;</code>标签</li>
+<li>添加蜘蛛协议</li>
+</ul>
+</li>
+<li><strong>20161121</strong><ul>
+<li>代码压缩，压缩了js、css、html、图片。</li>
+<li>新增机器的计划任务，每天晚上9点自动同步更新博客。</li>
+<li>新增搜索功能</li>
+<li>新增百度自动推送</li>
+</ul>
+</li>
+<li><strong>20161122</strong><ul>
+<li>新增百度主动推送（每天同步博客的时候主动推送给百度）</li>
+</ul>
+</li>
+</ul>
+<h3 id="计划："><a href="#计划：" class="headerlink" title="计划："></a>计划：</h3><ul>
+<li>谷歌推送</li>
+<li>high一下 </li>
 </ul>
 ]]></content>
     
@@ -44,21 +856,21 @@
     
     </summary>
     
-      <category term="建站日记" scheme="https://ermao.cf/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
+      <category term="建站日记" scheme="https://www.liyang.one/categories/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
     
     
-      <category term="日记" scheme="https://ermao.cf/tags/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="https://www.liyang.one/tags/%E6%97%A5%E8%AE%B0/"/>
     
-      <category term="建站日记" scheme="https://ermao.cf/tags/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
+      <category term="建站日记" scheme="https://www.liyang.one/tags/%E5%BB%BA%E7%AB%99%E6%97%A5%E8%AE%B0/"/>
     
-      <category term="建站" scheme="https://ermao.cf/tags/%E5%BB%BA%E7%AB%99/"/>
+      <category term="建站" scheme="https://www.liyang.one/tags/%E5%BB%BA%E7%AB%99/"/>
     
   </entry>
   
   <entry>
     <title>Blog：Typecho迁移到Hexo</title>
-    <link href="https://ermao.cf/2016/11/02/Blog%EF%BC%9ATypecho%E8%BF%81%E7%A7%BB%E5%88%B0Hexo/"/>
-    <id>https://ermao.cf/2016/11/02/Blog：Typecho迁移到Hexo/</id>
+    <link href="https://www.liyang.one/2016/11/02/Blog%EF%BC%9ATypecho%E8%BF%81%E7%A7%BB%E5%88%B0Hexo/"/>
+    <id>https://www.liyang.one/2016/11/02/Blog：Typecho迁移到Hexo/</id>
     <published>2016-11-02T05:52:31.000Z</published>
     <updated>2016-11-04T11:56:42.000Z</updated>
     
@@ -87,23 +899,23 @@
     
     </summary>
     
-      <category term="随想" scheme="https://ermao.cf/categories/%E9%9A%8F%E6%83%B3/"/>
+      <category term="随想" scheme="https://www.liyang.one/categories/%E9%9A%8F%E6%83%B3/"/>
     
     
-      <category term="随想" scheme="https://ermao.cf/tags/%E9%9A%8F%E6%83%B3/"/>
+      <category term="随想" scheme="https://www.liyang.one/tags/%E9%9A%8F%E6%83%B3/"/>
     
-      <category term="迁移" scheme="https://ermao.cf/tags/%E8%BF%81%E7%A7%BB/"/>
+      <category term="迁移" scheme="https://www.liyang.one/tags/%E8%BF%81%E7%A7%BB/"/>
     
-      <category term="typecho" scheme="https://ermao.cf/tags/typecho/"/>
+      <category term="typecho" scheme="https://www.liyang.one/tags/typecho/"/>
     
-      <category term="hexo" scheme="https://ermao.cf/tags/hexo/"/>
+      <category term="hexo" scheme="https://www.liyang.one/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>给程序员忠告-自勉</title>
-    <link href="https://ermao.cf/2016/08/17/%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%A0%E5%91%8A-%E8%87%AA%E5%8B%89/"/>
-    <id>https://ermao.cf/2016/08/17/给程序员忠告-自勉/</id>
+    <link href="https://www.liyang.one/2016/08/17/%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%A0%E5%91%8A-%E8%87%AA%E5%8B%89/"/>
+    <id>https://www.liyang.one/2016/08/17/给程序员忠告-自勉/</id>
     <published>2016-08-17T11:01:00.000Z</published>
     <updated>2016-11-04T11:56:42.000Z</updated>
     
@@ -126,23 +938,23 @@
     
     </summary>
     
-      <category term="励志" scheme="https://ermao.cf/categories/%E5%8A%B1%E5%BF%97/"/>
+      <category term="励志" scheme="https://www.liyang.one/categories/%E5%8A%B1%E5%BF%97/"/>
     
     
-      <category term="转发" scheme="https://ermao.cf/tags/%E8%BD%AC%E5%8F%91/"/>
+      <category term="转发" scheme="https://www.liyang.one/tags/%E8%BD%AC%E5%8F%91/"/>
     
-      <category term="励志" scheme="https://ermao.cf/tags/%E5%8A%B1%E5%BF%97/"/>
+      <category term="励志" scheme="https://www.liyang.one/tags/%E5%8A%B1%E5%BF%97/"/>
     
-      <category term="程序员" scheme="https://ermao.cf/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+      <category term="程序员" scheme="https://www.liyang.one/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
     
-      <category term="程序猿" scheme="https://ermao.cf/tags/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
+      <category term="程序猿" scheme="https://www.liyang.one/tags/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"/>
     
   </entry>
   
   <entry>
     <title>Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案</title>
-    <link href="https://ermao.cf/2016/04/20/Pentaho%20Kettle%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>https://ermao.cf/2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/</id>
+    <link href="https://www.liyang.one/2016/04/20/Pentaho%20Kettle%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>https://www.liyang.one/2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/</id>
     <published>2016-04-20T08:43:00.000Z</published>
     <updated>2016-11-04T11:56:42.000Z</updated>
     
@@ -163,16 +975,16 @@
     
     </summary>
     
-      <category term="etl" scheme="https://ermao.cf/categories/etl/"/>
+      <category term="etl" scheme="https://www.liyang.one/categories/etl/"/>
     
     
-      <category term="kettle" scheme="https://ermao.cf/tags/kettle/"/>
+      <category term="kettle" scheme="https://www.liyang.one/tags/kettle/"/>
     
-      <category term="资源" scheme="https://ermao.cf/tags/%E8%B5%84%E6%BA%90/"/>
+      <category term="资源" scheme="https://www.liyang.one/tags/%E8%B5%84%E6%BA%90/"/>
     
-      <category term="etl" scheme="https://ermao.cf/tags/etl/"/>
+      <category term="etl" scheme="https://www.liyang.one/tags/etl/"/>
     
-      <category term="使用PDI构建开源ETL解决方案" scheme="https://ermao.cf/tags/%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <category term="使用PDI构建开源ETL解决方案" scheme="https://www.liyang.one/tags/%E4%BD%BF%E7%94%A8PDI%E6%9E%84%E5%BB%BA%E5%BC%80%E6%BA%90ETL%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
     
   </entry>
   
