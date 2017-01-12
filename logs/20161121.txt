@@ -1,0 +1,813 @@
+INFO  Deleted database.
+INFO  Deleted public folder.
+INFO  Start processing
+INFO  Files loaded in 1.03 s
+INFO  Generated: sitemap.xml
+INFO  Generated: baidusitemap.xml
+INFO  Generated: atom.xml
+INFO  Generated: index.html
+INFO  Generated: categories/index.html
+INFO  Generated: archives/index.html
+INFO  Generated: robots.txt
+INFO  Generated: favicon.ico
+INFO  Generated: tags/index.html
+INFO  Generated: guestbook/index.html
+INFO  Generated: page/3/index.html
+INFO  Generated: images/avatar.gif
+INFO  Generated: archives/2016/04/index.html
+INFO  Generated: categories/hadoop/index.html
+INFO  Generated: categories/mysql/index.html
+INFO  Generated: archives/2016/08/index.html
+INFO  Generated: categories/aws/index.html
+INFO  Generated: categories/git/index.html
+INFO  Generated: categories/随想/index.html
+INFO  Generated: tags/迁移/index.html
+INFO  Generated: tags/随想/index.html
+INFO  Generated: tags/mysql/index.html
+INFO  Generated: categories/centos/index.html
+INFO  Generated: tags/centos/index.html
+INFO  Generated: categories/励志/index.html
+INFO  Generated: categories/ss/index.html
+INFO  Generated: categories/建站日记/index.html
+INFO  Generated: tags/chd/index.html
+INFO  Generated: tags/vm/index.html
+INFO  Generated: tags/service/index.html
+INFO  Generated: tags/hexo/index.html
+INFO  Generated: tags/mail/index.html
+INFO  Generated: tags/hadoop/index.html
+INFO  Generated: tags/hadoop集群安装/index.html
+INFO  Generated: categories/etl/index.html
+INFO  Generated: tags/mysqld/index.html
+INFO  Generated: tags/资源/index.html
+INFO  Generated: tags/git/index.html
+INFO  Generated: tags/源码/index.html
+INFO  Generated: tags/typecho/index.html
+INFO  Generated: tags/cenots/index.html
+INFO  Generated: tags/vps/index.html
+INFO  Generated: tags/etl/index.html
+INFO  Generated: tags/邮件/index.html
+INFO  Generated: tags/ss/index.html
+INFO  Generated: tags/kettle/index.html
+INFO  Generated: tags/shadowsocks/index.html
+INFO  Generated: tags/中文乱码/index.html
+INFO  Generated: tags/使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: tags/git多用户/index.html
+INFO  Generated: tags/cdh/index.html
+INFO  Generated: tags/aws/index.html
+INFO  Generated: tags/亚马逊/index.html
+INFO  Generated: tags/cloudera/index.html
+INFO  Generated: tags/smtp/index.html
+INFO  Generated: tags/建站日记/index.html
+INFO  Generated: tags/日记/index.html
+INFO  Generated: tags/转发/index.html
+INFO  Generated: tags/建站/index.html
+INFO  Generated: tags/励志/index.html
+INFO  Generated: tags/程序猿/index.html
+INFO  Generated: tags/linux/index.html
+INFO  Generated: tags/卸载CDH/index.html
+INFO  Generated: tags/程序员/index.html
+INFO  Generated: tags/selinux/index.html
+INFO  Generated: tags/root登录/index.html
+INFO  Generated: tags/lvm/index.html
+INFO  Generated: archives/2016/11/index.html
+INFO  Generated: 404.html
+INFO  Generated: images/cc-by-nc-nd.svg
+INFO  Generated: page/2/index.html
+INFO  Generated: images/cc-by-nc-sa.svg
+INFO  Generated: images/cc-by-nd.svg
+INFO  Generated: images/favicon.ico
+INFO  Generated: images/cc-by-nc.svg
+INFO  Generated: images/cc-by.svg
+INFO  Generated: images/cc-by-sa.svg
+INFO  Generated: images/quote-l.svg
+INFO  Generated: images/searchicon.png
+INFO  Generated: images/placeholder.gif
+INFO  Generated: images/loading.gif
+INFO  Generated: images/quote-r.svg
+INFO  Generated: archives/2016/index.html
+INFO  Generated: images/cc-zero.svg
+INFO  Generated: vendors/fastclick/LICENSE
+INFO  Generated: vendors/jquery_lazyload/bower.json
+INFO  Generated: vendors/velocity/bower.json
+INFO  Generated: vendors/fastclick/bower.json
+INFO  Generated: vendors/fastclick/README.html
+INFO  Generated: vendors/velocity/velocity.ui.min.js
+INFO  Generated: vendors/font-awesome/bower.json
+INFO  Generated: vendors/jquery_lazyload/CONTRIBUTING.html
+INFO  Generated: vendors/jquery_lazyload/jquery.scrollstop.js
+INFO  Generated: vendors/jquery_lazyload/jquery.lazyload.js
+INFO  Generated: vendors/jquery_lazyload/README.html
+INFO  Generated: vendors/font-awesome/HELP-US-OUT.txt
+INFO  Generated: css/main.css
+INFO  Generated: vendors/jquery/index.js
+INFO  Generated: vendors/font-awesome/fonts/FontAwesome.otf
+INFO  Generated: vendors/velocity/velocity.ui.js
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.svg
+INFO  Generated: vendors/velocity/velocity.js
+INFO  Generated: 2016/11/11/centos修改selinux/index.html
+INFO  Generated: 2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: vendors/velocity/velocity.min.js
+INFO  Generated: vendors/fancybox/source/helpers/fancybox_buttons.png
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.pack.js
+INFO  Generated: 2016/11/21/亚马逊aws更改linux为root权限密码登陆/index.html
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff
+INFO  Generated: 2016/11/16/centos下mysqld的service服务/index.html
+INFO  Generated: 2016/08/17/给程序员忠告-自勉/index.html
+INFO  Generated: 2016/11/14/卸载CDH（ Cloudera Manager 和托管软件）/index.html
+INFO  Generated: js/src/affix.js
+INFO  Generated: 2016/11/03/建站日记/index.html
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.eot
+INFO  Generated: 2016/11/08/ss用一段时间卡？vps定时重启试试/index.html
+INFO  Generated: js/src/bootstrap.js
+INFO  Generated: 2016/11/07/git多用户/index.html
+INFO  Generated: js/src/particle.js
+INFO  Generated: js/src/utils.js
+INFO  Generated: js/src/post-details.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.css
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.css
+INFO  Generated: js/src/scrollspy.js
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.min.js
+INFO  Generated: vendors/fancybox/source/fancybox_loading.gif
+INFO  Generated: js/src/motion.js
+INFO  Generated: vendors/fancybox/source/fancybox_loading@2x.gif
+INFO  Generated: vendors/fancybox/source/fancybox_sprite.png
+INFO  Generated: vendors/fancybox/source/fancybox_sprite@2x.png
+INFO  Generated: vendors/fancybox/source/fancybox_overlay.png
+INFO  Generated: 2016/11/07/git for windows 中文乱码/index.html
+INFO  Generated: js/src/hook-duoshuo.js
+INFO  Generated: 2016/11/14/centos源码安装mysql/index.html
+INFO  Generated: 2016/11/17/给VMware下的Linux扩展磁盘空间/index.html
+INFO  Generated: vendors/fastclick/lib/fastclick.min.js
+INFO  Generated: 2016/11/10/centos使用外部smtp发送邮件/index.html
+INFO  Generated: 2016/11/02/Blog：Typecho迁移到Hexo/index.html
+INFO  Generated: 2016/11/07/CHD安装hadoop集群/index.html
+INFO  Generated: vendors/fancybox/source/blank.gif
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.pack.js
+INFO  Generated: vendors/font-awesome/css/font-awesome.css
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff2
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-media.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.js
+INFO  Generated: vendors/fastclick/lib/fastclick.js
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.ttf
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.js
+INFO  Generated: vendors/font-awesome/css/font-awesome.min.css
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.css
+INFO  Generated: vendors/font-awesome/css/font-awesome.css.map
+INFO  Generated: js/src/schemes/pisces.js
+INFO  153 files generated in 3.77 s
+[18:55:02] Using gulpfile D:\hexo\gulpfile.js
+[18:55:02] Starting 'minify-html'...
+[18:55:02] Starting 'minify-css'...
+[18:55:02] Starting 'minify-js'...
+[18:55:02] Starting 'images'...
+[18:55:02] Finished 'images' after 4.93 ms
+[18:55:02] gulp-imagemin: Minified 0 images
+[18:55:05] Finished 'minify-css' after 3.04 s
+[18:55:07] Finished 'minify-js' after 4.36 s
+[18:55:07] Finished 'minify-html' after 5.13 s
+[18:55:07] Starting 'default'...
+[18:55:07] Finished 'default' after 5.91 μs
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+[master efd7bab] Site updated: 2016-11-21 18:55:09
+ 5 files changed, 36 insertions(+), 36 deletions(-)
+Branch master set up to track remote branch master from git@github.com:ererermao/liyang.one.git.
+INFO  Deploy done: git
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+On branch master
+nothing to commit, working directory clean
+Branch master set up to track remote branch master from git@git.coding.net:ererermao/liyang.one.git.
+INFO  Deploy done: git
+INFO  Deleted database.
+INFO  Deleted public folder.
+INFO  Start processing
+INFO  Files loaded in 974 ms
+INFO  Generated: baidusitemap.xml
+INFO  Generated: atom.xml
+INFO  Generated: sitemap.xml
+INFO  Generated: index.html
+INFO  Generated: categories/index.html
+INFO  Generated: robots.txt
+INFO  Generated: favicon.ico
+INFO  Generated: archives/index.html
+INFO  Generated: guestbook/index.html
+INFO  Generated: tags/index.html
+INFO  Generated: 404.html
+INFO  Generated: page/3/index.html
+INFO  Generated: categories/随想/index.html
+INFO  Generated: categories/hadoop/index.html
+INFO  Generated: images/avatar.gif
+INFO  Generated: categories/etl/index.html
+INFO  Generated: categories/mysql/index.html
+INFO  Generated: categories/aws/index.html
+INFO  Generated: categories/centos/index.html
+INFO  Generated: categories/建站日记/index.html
+INFO  Generated: categories/励志/index.html
+INFO  Generated: tags/随想/index.html
+INFO  Generated: categories/ss/index.html
+INFO  Generated: tags/迁移/index.html
+INFO  Generated: tags/hexo/index.html
+INFO  Generated: tags/hadoop/index.html
+INFO  Generated: tags/typecho/index.html
+INFO  Generated: categories/git/index.html
+INFO  Generated: tags/vm/index.html
+INFO  Generated: images/cc-by-nc-nd.svg
+INFO  Generated: images/cc-by-sa.svg
+INFO  Generated: images/cc-by-nc-sa.svg
+INFO  Generated: images/cc-by.svg
+INFO  Generated: images/cc-zero.svg
+INFO  Generated: images/favicon.ico
+INFO  Generated: images/cc-by-nd.svg
+INFO  Generated: images/cc-by-nc.svg
+INFO  Generated: images/quote-l.svg
+INFO  Generated: images/loading.gif
+INFO  Generated: images/searchicon.png
+INFO  Generated: tags/kettle/index.html
+INFO  Generated: images/quote-r.svg
+INFO  Generated: tags/chd/index.html
+INFO  Generated: images/placeholder.gif
+INFO  Generated: tags/etl/index.html
+INFO  Generated: tags/hadoop集群安装/index.html
+INFO  Generated: tags/资源/index.html
+INFO  Generated: tags/使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: tags/mysqld/index.html
+INFO  Generated: tags/centos/index.html
+INFO  Generated: archives/2016/11/index.html
+INFO  Generated: tags/mail/index.html
+INFO  Generated: tags/smtp/index.html
+INFO  Generated: tags/service/index.html
+INFO  Generated: tags/邮件/index.html
+INFO  Generated: tags/源码/index.html
+INFO  Generated: tags/cenots/index.html
+INFO  Generated: tags/中文乱码/index.html
+INFO  Generated: tags/git多用户/index.html
+INFO  Generated: tags/selinux/index.html
+INFO  Generated: tags/vps/index.html
+INFO  Generated: tags/linux/index.html
+INFO  Generated: tags/ss/index.html
+INFO  Generated: tags/shadowsocks/index.html
+INFO  Generated: tags/aws/index.html
+INFO  Generated: tags/亚马逊/index.html
+INFO  Generated: tags/root登录/index.html
+INFO  Generated: tags/git/index.html
+INFO  Generated: tags/卸载CDH/index.html
+INFO  Generated: tags/cdh/index.html
+INFO  Generated: tags/lvm/index.html
+INFO  Generated: tags/mysql/index.html
+INFO  Generated: tags/cloudera/index.html
+INFO  Generated: tags/励志/index.html
+INFO  Generated: tags/程序猿/index.html
+INFO  Generated: tags/日记/index.html
+INFO  Generated: tags/转发/index.html
+INFO  Generated: page/2/index.html
+INFO  Generated: archives/2016/index.html
+INFO  Generated: tags/建站日记/index.html
+INFO  Generated: tags/建站/index.html
+INFO  Generated: tags/程序员/index.html
+INFO  Generated: css/main.css
+INFO  Generated: archives/2016/04/index.html
+INFO  Generated: archives/2016/08/index.html
+INFO  Generated: vendors/font-awesome/HELP-US-OUT.txt
+INFO  Generated: vendors/jquery_lazyload/CONTRIBUTING.html
+INFO  Generated: vendors/velocity/bower.json
+INFO  Generated: vendors/fastclick/LICENSE
+INFO  Generated: vendors/jquery/index.js
+INFO  Generated: vendors/fastclick/README.html
+INFO  Generated: vendors/fastclick/bower.json
+INFO  Generated: vendors/font-awesome/bower.json
+INFO  Generated: vendors/velocity/velocity.ui.min.js
+INFO  Generated: vendors/velocity/velocity.min.js
+INFO  Generated: vendors/jquery_lazyload/jquery.lazyload.js
+INFO  Generated: vendors/jquery_lazyload/README.html
+INFO  Generated: vendors/velocity/velocity.ui.js
+INFO  Generated: vendors/velocity/velocity.js
+INFO  Generated: 2016/11/11/centos修改selinux/index.html
+INFO  Generated: vendors/jquery_lazyload/bower.json
+INFO  Generated: vendors/jquery_lazyload/jquery.scrollstop.js
+INFO  Generated: vendors/font-awesome/fonts/FontAwesome.otf
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.eot
+INFO  Generated: 2016/11/17/给VMware下的Linux扩展磁盘空间/index.html
+INFO  Generated: 2016/11/16/centos下mysqld的service服务/index.html
+INFO  Generated: 2016/11/08/ss用一段时间卡？vps定时重启试试/index.html
+INFO  Generated: 2016/11/14/卸载CDH（ Cloudera Manager 和托管软件）/index.html
+INFO  Generated: vendors/fancybox/source/helpers/fancybox_buttons.png
+INFO  Generated: 2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: 2016/08/17/给程序员忠告-自勉/index.html
+INFO  Generated: js/src/affix.js
+INFO  Generated: js/src/hook-duoshuo.js
+INFO  Generated: js/src/motion.js
+INFO  Generated: js/src/post-details.js
+INFO  Generated: js/src/particle.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.css
+INFO  Generated: vendors/fastclick/lib/fastclick.min.js
+INFO  Generated: 2016/11/10/centos使用外部smtp发送邮件/index.html
+INFO  Generated: js/src/bootstrap.js
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.min.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.css
+INFO  Generated: js/src/utils.js
+INFO  Generated: js/src/scrollspy.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-media.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.js
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.pack.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.js
+INFO  Generated: vendors/fastclick/lib/fastclick.js
+INFO  Generated: 2016/11/21/亚马逊aws更改linux为root权限密码登陆/index.html
+INFO  Generated: vendors/fancybox/source/fancybox_loading@2x.gif
+INFO  Generated: vendors/fancybox/source/fancybox_sprite.png
+INFO  Generated: vendors/fancybox/source/fancybox_overlay.png
+INFO  Generated: vendors/font-awesome/css/font-awesome.css
+INFO  Generated: 2016/11/07/CHD安装hadoop集群/index.html
+INFO  Generated: vendors/font-awesome/css/font-awesome.min.css
+INFO  Generated: vendors/fancybox/source/fancybox_sprite@2x.png
+INFO  Generated: vendors/fancybox/source/blank.gif
+INFO  Generated: vendors/fancybox/source/fancybox_loading.gif
+INFO  Generated: 2016/11/03/建站日记/index.html
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.ttf
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff2
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.pack.js
+INFO  Generated: 2016/11/07/git for windows 中文乱码/index.html
+INFO  Generated: 2016/11/02/Blog：Typecho迁移到Hexo/index.html
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.svg
+INFO  Generated: 2016/11/07/git多用户/index.html
+INFO  Generated: 2016/11/14/centos源码安装mysql/index.html
+INFO  Generated: js/src/schemes/pisces.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.css
+INFO  Generated: vendors/font-awesome/css/font-awesome.css.map
+INFO  153 files generated in 3.77 s
+[19:32:21] Using gulpfile D:\hexo\gulpfile.js
+[19:32:21] Starting 'minify-html'...
+[19:32:21] Starting 'minify-css'...
+[19:32:21] Starting 'minify-js'...
+[19:32:21] Starting 'images'...
+[19:32:21] Finished 'images' after 2.53 ms
+[19:32:21] gulp-imagemin: Minified 0 images
+[19:32:23] Finished 'minify-css' after 2.54 s
+[19:32:25] Finished 'minify-js' after 4.36 s
+[19:32:26] Finished 'minify-html' after 5.18 s
+[19:32:26] Starting 'default'...
+[19:32:26] Finished 'default' after 5.91 μs
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+[master 8af8310] Site updated: 2016-11-21 19:32:28
+ 3 files changed, 21 insertions(+), 21 deletions(-)
+Branch master set up to track remote branch master from git@github.com:ererermao/liyang.one.git.
+INFO  Deploy done: git
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+On branch master
+nothing to commit, working directory clean
+INFO  Deleted database.
+INFO  Deleted public folder.
+INFO  Start processing
+INFO  Files loaded in 1.08 s
+INFO  Generated: baidusitemap.xml
+INFO  Generated: search.xml
+INFO  Generated: sitemap.xml
+INFO  Generated: atom.xml
+INFO  Generated: index.html
+INFO  Generated: robots.txt
+INFO  Generated: favicon.ico
+INFO  Generated: tags/index.html
+INFO  Generated: guestbook/index.html
+INFO  Generated: categories/index.html
+INFO  Generated: archives/index.html
+INFO  Generated: tags/建站日记/index.html
+INFO  Generated: tags/励志/index.html
+INFO  Generated: tags/建站/index.html
+INFO  Generated: images/cc-by-nc-nd.svg
+INFO  Generated: tags/lvm/index.html
+INFO  Generated: tags/转发/index.html
+INFO  Generated: images/cc-by-nc-sa.svg
+INFO  Generated: images/cc-by-nc.svg
+INFO  Generated: images/avatar.gif
+INFO  Generated: images/cc-by-sa.svg
+INFO  Generated: images/cc-by.svg
+INFO  Generated: images/cc-zero.svg
+INFO  Generated: images/quote-l.svg
+INFO  Generated: images/quote-r.svg
+INFO  Generated: images/searchicon.png
+INFO  Generated: tags/程序员/index.html
+INFO  Generated: images/placeholder.gif
+INFO  Generated: 404.html
+INFO  Generated: archives/2016/04/index.html
+INFO  Generated: images/cc-by-nd.svg
+INFO  Generated: page/2/index.html
+INFO  Generated: archives/2016/11/index.html
+INFO  Generated: archives/2016/08/index.html
+INFO  Generated: categories/hadoop/index.html
+INFO  Generated: categories/etl/index.html
+INFO  Generated: tags/日记/index.html
+INFO  Generated: tags/cdh/index.html
+INFO  Generated: archives/2016/index.html
+INFO  Generated: categories/mysql/index.html
+INFO  Generated: categories/aws/index.html
+INFO  Generated: categories/常用/index.html
+INFO  Generated: categories/建站日记/index.html
+INFO  Generated: categories/励志/index.html
+INFO  Generated: categories/ss/index.html
+INFO  Generated: tags/程序猿/index.html
+INFO  Generated: tags/typecho/index.html
+INFO  Generated: tags/迁移/index.html
+INFO  Generated: tags/hexo/index.html
+INFO  Generated: categories/随想/index.html
+INFO  Generated: tags/hadoop集群安装/index.html
+INFO  Generated: tags/kettle/index.html
+INFO  Generated: tags/chd/index.html
+INFO  Generated: tags/hadoop/index.html
+INFO  Generated: tags/资源/index.html
+INFO  Generated: tags/etl/index.html
+INFO  Generated: tags/mysqld/index.html
+INFO  Generated: tags/vm/index.html
+INFO  Generated: tags/mysql/index.html
+INFO  Generated: tags/centos/index.html
+INFO  Generated: tags/service/index.html
+INFO  Generated: tags/smtp/index.html
+INFO  Generated: tags/邮件/index.html
+INFO  Generated: tags/mail/index.html
+INFO  Generated: tags/随想/index.html
+INFO  Generated: categories/git/index.html
+INFO  Generated: tags/中文乱码/index.html
+INFO  Generated: tags/selinux/index.html
+INFO  Generated: tags/ss/index.html
+INFO  Generated: tags/vps/index.html
+INFO  Generated: tags/linux/index.html
+INFO  Generated: tags/aws/index.html
+INFO  Generated: tags/git/index.html
+INFO  Generated: categories/centos/index.html
+INFO  Generated: tags/shadowsocks/index.html
+INFO  Generated: tags/亚马逊/index.html
+INFO  Generated: tags/集合/index.html
+INFO  Generated: tags/git多用户/index.html
+INFO  Generated: tags/大集合/index.html
+INFO  Generated: tags/卸载CDH/index.html
+INFO  Generated: page/3/index.html
+INFO  Generated: tags/cloudera/index.html
+INFO  Generated: tags/常用/index.html
+INFO  Generated: tags/常用工具/index.html
+INFO  Generated: tags/cenots/index.html
+INFO  Generated: tags/源码/index.html
+INFO  Generated: images/favicon.ico
+INFO  Generated: images/loading.gif
+INFO  Generated: tags/root登录/index.html
+INFO  Generated: tags/使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: vendors/fastclick/LICENSE
+INFO  Generated: vendors/fastclick/README.html
+INFO  Generated: vendors/jquery_lazyload/README.html
+INFO  Generated: vendors/fastclick/bower.json
+INFO  Generated: vendors/jquery_lazyload/jquery.lazyload.js
+INFO  Generated: vendors/velocity/velocity.ui.min.js
+INFO  Generated: css/main.css
+INFO  Generated: vendors/jquery/index.js
+INFO  Generated: vendors/velocity/velocity.ui.js
+INFO  Generated: vendors/velocity/velocity.min.js
+INFO  Generated: vendors/jquery_lazyload/jquery.scrollstop.js
+INFO  Generated: vendors/font-awesome/bower.json
+INFO  Generated: vendors/jquery_lazyload/CONTRIBUTING.html
+INFO  Generated: vendors/velocity/bower.json
+INFO  Generated: vendors/font-awesome/HELP-US-OUT.txt
+INFO  Generated: vendors/font-awesome/fonts/FontAwesome.otf
+INFO  Generated: vendors/velocity/velocity.js
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.eot
+INFO  Generated: vendors/jquery_lazyload/bower.json
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff
+INFO  Generated: vendors/fancybox/source/helpers/fancybox_buttons.png
+INFO  Generated: vendors/fancybox/source/blank.gif
+INFO  Generated: vendors/fancybox/source/fancybox_loading.gif
+INFO  Generated: vendors/fancybox/source/fancybox_loading@2x.gif
+INFO  Generated: vendors/fancybox/source/fancybox_overlay.png
+INFO  Generated: vendors/font-awesome/css/font-awesome.css.map
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff2
+INFO  Generated: js/src/hook-duoshuo.js
+INFO  Generated: vendors/fancybox/source/fancybox_sprite@2x.png
+INFO  Generated: js/src/motion.js
+INFO  Generated: js/src/particle.js
+INFO  Generated: js/src/post-details.js
+INFO  Generated: vendors/fancybox/source/fancybox_sprite.png
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.min.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.css
+INFO  Generated: js/src/utils.js
+INFO  Generated: vendors/fastclick/lib/fastclick.min.js
+INFO  Generated: 2016/11/21/常用工具大集合/index.html
+INFO  Generated: 2016/11/16/centos下mysqld的service服务/index.html
+INFO  Generated: 2016/11/21/亚马逊aws更改linux为root权限密码登陆/index.html
+INFO  Generated: 2016/11/14/卸载CDH（ Cloudera Manager 和托管软件）/index.html
+INFO  Generated: js/src/bootstrap.js
+INFO  Generated: 2016/11/14/centos源码安装mysql/index.html
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.css
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-media.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.css
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.pack.js
+INFO  Generated: vendors/fastclick/lib/fastclick.js
+INFO  Generated: vendors/font-awesome/css/font-awesome.css
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.pack.js
+INFO  Generated: 2016/11/07/git for windows 中文乱码/index.html
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.js
+INFO  Generated: vendors/font-awesome/css/font-awesome.min.css
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.ttf
+INFO  Generated: 2016/08/17/给程序员忠告-自勉/index.html
+INFO  Generated: 2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: 2016/11/02/Blog：Typecho迁移到Hexo/index.html
+INFO  Generated: 2016/11/03/建站日记/index.html
+INFO  Generated: js/src/scrollspy.js
+INFO  Generated: 2016/11/07/git多用户/index.html
+INFO  Generated: js/src/affix.js
+INFO  Generated: 2016/11/11/centos修改selinux/index.html
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.svg
+INFO  Generated: 2016/11/10/centos使用外部smtp发送邮件/index.html
+INFO  Generated: js/src/schemes/pisces.js
+INFO  Generated: 2016/11/08/ss用一段时间卡？vps定时重启试试/index.html
+INFO  Generated: 2016/11/17/给VMware下的Linux扩展磁盘空间/index.html
+INFO  Generated: 2016/11/07/CHD安装hadoop集群/index.html
+INFO  160 files generated in 4.28 s
+[20:54:18] Using gulpfile D:\hexo\gulpfile.js
+[20:54:18] Starting 'minify-html'...
+[20:54:18] Starting 'minify-css'...
+[20:54:18] Starting 'minify-js'...
+[20:54:18] Starting 'images'...
+[20:54:18] Finished 'images' after 2.53 ms
+[20:54:18] gulp-imagemin: Minified 0 images
+[20:54:21] Finished 'minify-css' after 2.94 s
+[20:54:25] Finished 'minify-js' after 6.49 s
+[20:54:27] Finished 'minify-html' after 8.48 s
+[20:54:27] Starting 'default'...
+[20:54:27] Finished 'default' after 5.29 μs
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+[master 4eb8964] Site updated: 2016-11-21 20:54:29
+ 90 files changed, 577 insertions(+), 244 deletions(-)
+ rewrite "2016/04/20/Pentaho Kettle\350\247\243\345\206\263\346\226\271\346\241\210\357\274\232\344\275\277\347\224\250PDI\346\236\204\345\273\272\345\274\200\346\272\220ETL\350\247\243\345\206\263\346\226\271\346\241\210/index.html" (68%)
+ rewrite "2016/08/17/\347\273\231\347\250\213\345\272\217\345\221\230\345\277\240\345\221\212-\350\207\252\345\213\211/index.html" (74%)
+ rewrite "2016/11/03/\345\273\272\347\253\231\346\227\245\350\256\260/index.html" (89%)
+ rewrite "2016/11/07/CHD\345\256\211\350\243\205hadoop\351\233\206\347\276\244/index.html" (84%)
+ rewrite "2016/11/07/git\345\244\232\347\224\250\346\210\267/index.html" (75%)
+ rewrite "2016/11/08/ss\347\224\250\344\270\200\346\256\265\346\227\266\351\227\264\345\215\241\357\274\237vps\345\256\232\346\227\266\351\207\215\345\220\257\350\257\225\350\257\225/index.html" (69%)
+ rewrite "2016/11/10/centos\344\275\277\347\224\250\345\244\226\351\203\250smtp\345\217\221\351\200\201\351\202\256\344\273\266/index.html" (71%)
+ rewrite "2016/11/11/centos\344\277\256\346\224\271selinux/index.html" (67%)
+ rewrite "2016/11/14/centos\346\272\220\347\240\201\345\256\211\350\243\205mysql/index.html" (79%)
+ rewrite "2016/11/14/\345\215\270\350\275\275CDH\357\274\210 Cloudera Manager \345\222\214\346\211\230\347\256\241\350\275\257\344\273\266\357\274\211/index.html" (76%)
+ rewrite "2016/11/16/centos\344\270\213mysqld\347\232\204service\346\234\215\345\212\241/index.html" (86%)
+ rewrite "2016/11/17/\347\273\231VMware\344\270\213\347\232\204Linux\346\211\251\345\261\225\347\243\201\347\233\230\347\251\272\351\227\264/index.html" (76%)
+ rewrite "2016/11/21/\344\272\232\351\251\254\351\200\212aws\346\233\264\346\224\271linux\344\270\272root\346\235\203\351\231\220\345\257\206\347\240\201\347\231\273\351\231\206/index.html" (69%)
+ create mode 100644 "2016/11/21/\345\270\270\347\224\250\345\267\245\345\205\267\345\244\247\351\233\206\345\220\210/index.html"
+ rewrite archives/2016/04/index.html (60%)
+ rewrite archives/2016/08/index.html (60%)
+ rewrite archives/2016/11/index.html (72%)
+ rewrite archives/2016/index.html (75%)
+ rewrite archives/index.html (75%)
+ rewrite categories/aws/index.html (60%)
+ rewrite categories/centos/index.html (62%)
+ rewrite categories/etl/index.html (60%)
+ rename categories/{aws => git}/index.html (63%)
+ rewrite categories/hadoop/index.html (62%)
+ rewrite categories/index.html (64%)
+ rewrite categories/mysql/index.html (62%)
+ rewrite categories/ss/index.html (60%)
+ create mode 100644 "categories/\345\270\270\347\224\250/index.html"
+ rewrite index.html (79%)
+ rewrite page/2/index.html (83%)
+ rewrite page/3/index.html (66%)
+ create mode 100644 search.xml
+ rewrite tags/aws/index.html (60%)
+ rewrite tags/cdh/index.html (60%)
+ rewrite tags/centos/index.html (66%)
+ rewrite tags/cloudera/index.html (60%)
+ rename tags/{cdh => git}/index.html (63%)
+ rewrite tags/hadoop/index.html (60%)
+ rewrite tags/index.html (69%)
+ rewrite tags/kettle/index.html (60%)
+ rewrite tags/linux/index.html (60%)
+ rewrite tags/lvm/index.html (60%)
+ rewrite tags/mysql/index.html (62%)
+ rewrite "tags/root\347\231\273\345\275\225/index.html" (60%)
+ rename {archives/2016/08 => tags/shadowsocks}/index.html (56%)
+ rewrite tags/vm/index.html (62%)
+ rewrite tags/vps/index.html (60%)
+ rewrite "tags/\344\272\232\351\251\254\351\200\212/index.html" (60%)
+ rewrite "tags/\345\215\270\350\275\275CDH/index.html" (60%)
+ create mode 100644 "tags/\345\244\247\351\233\206\345\220\210/index.html"
+ create mode 100644 "tags/\345\270\270\347\224\250/index.html"
+ create mode 100644 "tags/\345\270\270\347\224\250\345\267\245\345\205\267/index.html"
+ rewrite "tags/\350\265\204\346\272\220/index.html" (60%)
+ create mode 100644 "tags/\351\233\206\345\220\210/index.html"
+Branch master set up to track remote branch master from git@github.com:ererermao/liyang.one.git.
+INFO  Deploy done: git
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+On branch master
+nothing to commit, working directory clean
+Branch master set up to track remote branch master from git@git.coding.net:ererermao/liyang.one.git.
+INFO  Deploy done: git
+INFO  Deleted database.
+INFO  Deleted public folder.
+INFO  Start processing
+INFO  Files loaded in 1.01 s
+INFO  Generated: baidusitemap.xml
+INFO  Generated: atom.xml
+INFO  Generated: search.xml
+INFO  Generated: sitemap.xml
+INFO  Generated: index.html
+INFO  Generated: guestbook/index.html
+INFO  Generated: categories/index.html
+INFO  Generated: tags/index.html
+INFO  Generated: archives/index.html
+INFO  Generated: favicon.ico
+INFO  Generated: robots.txt
+INFO  Generated: archives/2016/08/index.html
+INFO  Generated: page/2/index.html
+INFO  Generated: categories/随想/index.html
+INFO  Generated: images/cc-by-nc-nd.svg
+INFO  Generated: categories/etl/index.html
+INFO  Generated: categories/centos/index.html
+INFO  Generated: categories/ss/index.html
+INFO  Generated: categories/hadoop/index.html
+INFO  Generated: categories/git/index.html
+INFO  Generated: categories/aws/index.html
+INFO  Generated: archives/2016/04/index.html
+INFO  Generated: categories/建站日记/index.html
+INFO  Generated: categories/励志/index.html
+INFO  Generated: categories/常用/index.html
+INFO  Generated: archives/2016/11/index.html
+INFO  Generated: tags/vm/index.html
+INFO  Generated: page/3/index.html
+INFO  Generated: tags/typecho/index.html
+INFO  Generated: tags/kettle/index.html
+INFO  Generated: tags/资源/index.html
+INFO  Generated: images/cc-by-nc-sa.svg
+INFO  Generated: images/avatar.gif
+INFO  Generated: images/cc-by-sa.svg
+INFO  Generated: images/cc-by-nd.svg
+INFO  Generated: images/cc-by-nc.svg
+INFO  Generated: images/cc-zero.svg
+INFO  Generated: images/loading.gif
+INFO  Generated: images/quote-r.svg
+INFO  Generated: images/placeholder.gif
+INFO  Generated: images/cc-by.svg
+INFO  Generated: images/quote-l.svg
+INFO  Generated: images/searchicon.png
+INFO  Generated: images/favicon.ico
+INFO  Generated: archives/2016/index.html
+INFO  Generated: tags/迁移/index.html
+INFO  Generated: tags/hexo/index.html
+INFO  Generated: tags/hadoop集群安装/index.html
+INFO  Generated: tags/使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: tags/hadoop/index.html
+INFO  Generated: tags/etl/index.html
+INFO  Generated: tags/centos/index.html
+INFO  Generated: tags/service/index.html
+INFO  Generated: tags/chd/index.html
+INFO  Generated: tags/mail/index.html
+INFO  Generated: tags/源码/index.html
+INFO  Generated: tags/中文乱码/index.html
+INFO  Generated: tags/mysqld/index.html
+INFO  Generated: tags/mysql/index.html
+INFO  Generated: tags/cenots/index.html
+INFO  Generated: categories/mysql/index.html
+INFO  Generated: tags/selinux/index.html
+INFO  Generated: tags/smtp/index.html
+INFO  Generated: tags/git多用户/index.html
+INFO  Generated: tags/shadowsocks/index.html
+INFO  Generated: tags/linux/index.html
+INFO  Generated: tags/亚马逊/index.html
+INFO  Generated: tags/aws/index.html
+INFO  Generated: tags/git/index.html
+INFO  Generated: tags/root登录/index.html
+INFO  Generated: tags/cloudera/index.html
+INFO  Generated: tags/大集合/index.html
+INFO  Generated: tags/邮件/index.html
+INFO  Generated: tags/常用工具/index.html
+INFO  Generated: tags/cdh/index.html
+INFO  Generated: tags/日记/index.html
+INFO  Generated: tags/集合/index.html
+INFO  Generated: tags/建站日记/index.html
+INFO  Generated: tags/建站/index.html
+INFO  Generated: tags/卸载CDH/index.html
+INFO  Generated: tags/励志/index.html
+INFO  Generated: tags/转发/index.html
+INFO  Generated: tags/程序员/index.html
+INFO  Generated: tags/常用/index.html
+INFO  Generated: tags/vps/index.html
+INFO  Generated: 404.html
+INFO  Generated: tags/随想/index.html
+INFO  Generated: tags/ss/index.html
+INFO  Generated: tags/程序猿/index.html
+INFO  Generated: vendors/fastclick/LICENSE
+INFO  Generated: vendors/jquery_lazyload/CONTRIBUTING.html
+INFO  Generated: tags/lvm/index.html
+INFO  Generated: vendors/velocity/bower.json
+INFO  Generated: vendors/fastclick/README.html
+INFO  Generated: vendors/jquery_lazyload/bower.json
+INFO  Generated: css/main.css
+INFO  Generated: vendors/velocity/velocity.ui.min.js
+INFO  Generated: vendors/velocity/velocity.min.js
+INFO  Generated: vendors/velocity/velocity.js
+INFO  Generated: vendors/jquery/index.js
+INFO  Generated: vendors/fastclick/bower.json
+INFO  Generated: vendors/velocity/velocity.ui.js
+INFO  Generated: vendors/font-awesome/bower.json
+INFO  Generated: vendors/font-awesome/HELP-US-OUT.txt
+INFO  Generated: vendors/font-awesome/fonts/FontAwesome.otf
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.eot
+INFO  Generated: vendors/jquery_lazyload/README.html
+INFO  Generated: vendors/jquery_lazyload/jquery.scrollstop.js
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff
+INFO  Generated: vendors/jquery_lazyload/jquery.lazyload.js
+INFO  Generated: 2016/11/21/亚马逊aws更改linux为root权限密码登陆/index.html
+INFO  Generated: 2016/11/16/centos下mysqld的service服务/index.html
+INFO  Generated: 2016/11/11/centos修改selinux/index.html
+INFO  Generated: 2016/11/14/卸载CDH（ Cloudera Manager 和托管软件）/index.html
+INFO  Generated: 2016/11/03/建站日记/index.html
+INFO  Generated: vendors/fancybox/source/helpers/fancybox_buttons.png
+INFO  Generated: 2016/08/17/给程序员忠告-自勉/index.html
+INFO  Generated: 2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.min.js
+INFO  Generated: 2016/11/07/git for windows 中文乱码/index.html
+INFO  Generated: vendors/fancybox/source/blank.gif
+INFO  Generated: 2016/11/17/给VMware下的Linux扩展磁盘空间/index.html
+INFO  Generated: vendors/font-awesome/css/font-awesome.css.map
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff2
+INFO  Generated: 2016/11/08/ss用一段时间卡？vps定时重启试试/index.html
+INFO  Generated: vendors/fancybox/source/fancybox_sprite.png
+INFO  Generated: 2016/11/07/CHD安装hadoop集群/index.html
+INFO  Generated: 2016/11/07/git多用户/index.html
+INFO  Generated: 2016/11/14/centos源码安装mysql/index.html
+INFO  Generated: vendors/fancybox/source/fancybox_loading@2x.gif
+INFO  Generated: vendors/fancybox/source/fancybox_sprite@2x.png
+INFO  Generated: js/src/affix.js
+INFO  Generated: js/src/motion.js
+INFO  Generated: js/src/scrollspy.js
+INFO  Generated: js/src/post-details.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.css
+INFO  Generated: js/src/utils.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-media.js
+INFO  Generated: js/src/bootstrap.js
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.pack.js
+INFO  Generated: js/src/particle.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.css
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.css
+INFO  Generated: vendors/font-awesome/css/font-awesome.css
+INFO  Generated: 2016/11/21/常用工具大集合(突发奇想更新中...)/index.html
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.pack.js
+INFO  Generated: vendors/fancybox/source/fancybox_loading.gif
+INFO  Generated: vendors/fastclick/lib/fastclick.js
+INFO  Generated: vendors/font-awesome/css/font-awesome.min.css
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.js
+INFO  Generated: 2016/11/10/centos使用外部smtp发送邮件/index.html
+INFO  Generated: 2016/11/02/Blog：Typecho迁移到Hexo/index.html
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.ttf
+INFO  Generated: vendors/fastclick/lib/fastclick.min.js
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.svg
+INFO  Generated: vendors/fancybox/source/fancybox_overlay.png
+INFO  Generated: js/src/hook-duoshuo.js
+INFO  Generated: js/src/schemes/pisces.js
+INFO  160 files generated in 4 s
+[23:00:11] Using gulpfile D:\hexo\gulpfile.js
+[23:00:11] Starting 'minify-html'...
+[23:00:11] Starting 'minify-css'...
+[23:00:11] Starting 'minify-js'...
+[23:00:11] Starting 'images'...
+[23:00:11] Finished 'images' after 2.62 ms
+[23:00:11] gulp-imagemin: Minified 0 images
+[23:00:14] Finished 'minify-css' after 2.87 s
+[23:00:16] Finished 'minify-js' after 5.02 s
+[23:00:18] Finished 'minify-html' after 6.83 s
+[23:00:18] Starting 'default'...
+[23:00:18] Finished 'default' after 5.6 μs
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+[master 7a7b6a5] Site updated: 2016-11-21 23:00:20
+ 18 files changed, 108 insertions(+), 107 deletions(-)
+ create mode 100644 "2016/11/21/\345\270\270\347\224\250\345\267\245\345\205\267\345\244\247\351\233\206\345\220\210(\347\252\201\345\217\221\345\245\207\346\203\263\346\233\264\346\226\260\344\270\255...)/index.html"
+ delete mode 100644 "2016/11/21/\345\270\270\347\224\250\345\267\245\345\205\267\345\244\247\351\233\206\345\220\210/index.html"
+ rewrite archives/2016/11/index.html (72%)
+ rewrite archives/2016/index.html (73%)
+ rewrite archives/index.html (73%)
+ rewrite "categories/\345\270\270\347\224\250/index.html" (61%)
+ rewrite index.html (81%)
+ rename "tags/\351\233\206\345\220\210/index.html" => "tags/\345\244\247\351\233\206\345\220\210/index.html" (72%)
+ rewrite "tags/\345\270\270\347\224\250/index.html" (62%)
+ rename "tags/\345\244\247\351\233\206\345\220\210/index.html" => "tags/\345\270\270\347\224\250\345\267\245\345\205\267/index.html" (72%)
+ rewrite "tags/\351\233\206\345\220\210/index.html" (62%)
+Branch master set up to track remote branch master from git@github.com:ererermao/liyang.one.git.
+INFO  Deploy done: git
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+On branch master
+nothing to commit, working directory clean
+Branch master set up to track remote branch master from git@git.coding.net:ererermao/liyang.one.git.
+INFO  Deploy done: git

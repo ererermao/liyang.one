@@ -136,6 +136,7 @@ social:
   #LinkLabel: Link
   GitHub: https://github.com/ererermao
 	Twitter: https://twitter.com/ererermao
+  #ÐÂÀËÎ¢²©: http://weibo.com/ererermao
 
 # Social Links Icons
 # Icon Mapping:
@@ -148,7 +149,7 @@ social_icons:
   # KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   Twitter: twitter
-  Weibo: weibo
+  #ÐÂÀËÎ¢²©: weibo
 
 
 # Sidebar Avatar
@@ -162,7 +163,7 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
-  number: true
+  number: false
 
 
 # Creative Commons 4.0 International License.
@@ -349,7 +350,7 @@ busuanzi_count:
 # tencent_analytics:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
-baidu_push: false
+baidu_push: true
 
 # Google Calendar
 # Share your recent schedule to others via calendar page
@@ -427,6 +428,10 @@ vendors:
 css: css
 js: js
 images: images
+
+
+
+
 
 # Theme version
 version: 5.0.2

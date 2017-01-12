@@ -1,0 +1,249 @@
+INFO  Deleted database.
+INFO  Deleted public folder.
+INFO  Start processing
+INFO  Generating Baidu urls for last 20 posts
+INFO  Posts urls generated in baidu_urls.txt
+https://www.liyang.one/2016/12/06/cdh搭建hadoop集群-hive错误集/
+https://www.liyang.one/2016/12/05/centos设置ntp服务器和客户端/
+https://www.liyang.one/2016/12/01/centos更改国内阿里的yum源/
+https://www.liyang.one/2016/11/21/常用工具大集合(突发奇想更新中...)/
+https://www.liyang.one/2016/11/21/亚马逊aws更改linux为root权限密码登陆/
+https://www.liyang.one/2016/11/17/给VMware下的Linux扩展磁盘空间/
+https://www.liyang.one/2016/11/16/centos下mysqld的service服务/
+https://www.liyang.one/2016/11/14/卸载CDH（ Cloudera Manager 和托管软件）/
+https://www.liyang.one/2016/11/14/centos源码安装mysql/
+https://www.liyang.one/2016/11/11/centos修改selinux/
+https://www.liyang.one/2016/11/10/centos使用外部smtp发送邮件/
+https://www.liyang.one/2016/11/08/ss用一段时间卡？vps定时重启试试/
+https://www.liyang.one/2016/11/07/git for windows 中文乱码/
+https://www.liyang.one/2016/11/07/git多用户/
+https://www.liyang.one/2016/11/07/CDH安装hadoop集群/
+https://www.liyang.one/2016/11/03/建站日记/
+https://www.liyang.one/2016/11/02/Blog：Typecho迁移到Hexo/
+https://www.liyang.one/2016/08/17/给程序员忠告-自勉/
+https://www.liyang.one/2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/
+INFO  Files loaded in 2.6 s
+INFO  Generated: baidu_urls.txt
+INFO  Generated: search.xml
+INFO  Generated: sitemap.xml
+INFO  Generated: baidusitemap.xml
+INFO  Generated: atom.xml
+INFO  Generated: googlea5d881f65759a65a.html
+INFO  Generated: index.html
+INFO  Generated: favicon.ico
+INFO  Generated: robots.txt
+INFO  Generated: guestbook/index.html
+INFO  Generated: tags/index.html
+INFO  Generated: categories/index.html
+INFO  Generated: archives/index.html
+INFO  Generated: 404.html
+INFO  Generated: images/cc-by-nc-nd.svg
+INFO  Generated: images/cc-by-nd.svg
+INFO  Generated: images/cc-by-nc.svg
+INFO  Generated: images/placeholder.gif
+INFO  Generated: images/cc-by-nc-sa.svg
+INFO  Generated: images/loading.gif
+INFO  Generated: images/cc-by.svg
+INFO  Generated: images/favicon.ico
+INFO  Generated: images/cc-by-sa.svg
+INFO  Generated: images/avatar.gif
+INFO  Generated: images/searchicon.png
+INFO  Generated: images/quote-l.svg
+INFO  Generated: images/quote-r.svg
+INFO  Generated: archives/2016/04/index.html
+INFO  Generated: images/cc-zero.svg
+INFO  Generated: page/2/index.html
+INFO  Generated: categories/随想/index.html
+INFO  Generated: archives/2016/08/index.html
+INFO  Generated: categories/etl/index.html
+INFO  Generated: archives/2016/12/index.html
+INFO  Generated: categories/mysql/index.html
+INFO  Generated: categories/hadoop/index.html
+INFO  Generated: categories/centos/index.html
+INFO  Generated: archives/2016/11/index.html
+INFO  Generated: categories/hive/index.html
+INFO  Generated: categories/ss/index.html
+INFO  Generated: categories/aws/index.html
+INFO  Generated: categories/git/index.html
+INFO  Generated: page/3/index.html
+INFO  Generated: categories/常用/index.html
+INFO  Generated: tags/vm/index.html
+INFO  Generated: categories/励志/index.html
+INFO  Generated: categories/建站日记/index.html
+INFO  Generated: tags/kettle/index.html
+INFO  Generated: tags/hadoop/index.html
+INFO  Generated: archives/2016/index.html
+INFO  Generated: tags/资源/index.html
+INFO  Generated: tags/etl/index.html
+INFO  Generated: tags/使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: tags/随想/index.html
+INFO  Generated: tags/hadoop集群安装/index.html
+INFO  Generated: tags/typecho/index.html
+INFO  Generated: tags/mysqld/index.html
+INFO  Generated: tags/centos/index.html
+INFO  Generated: tags/mysql/index.html
+INFO  Generated: tags/hexo/index.html
+INFO  Generated: tags/service/index.html
+INFO  Generated: tags/迁移/index.html
+INFO  Generated: tags/chd/index.html
+INFO  Generated: tags/阿里/index.html
+INFO  Generated: tags/yum/index.html
+INFO  Generated: tags/国内/index.html
+INFO  Generated: tags/cenots/index.html
+INFO  Generated: tags/邮件/index.html
+INFO  Generated: tags/源码/index.html
+INFO  Generated: tags/git/index.html
+INFO  Generated: tags/ntp/index.html
+INFO  Generated: tags/vps/index.html
+INFO  Generated: tags/mail/index.html
+INFO  Generated: tags/中文乱码/index.html
+INFO  Generated: tags/客户端/index.html
+INFO  Generated: tags/ss/index.html
+INFO  Generated: tags/smtp/index.html
+INFO  Generated: tags/服务端/index.html
+INFO  Generated: tags/linux/index.html
+INFO  Generated: tags/日记/index.html
+INFO  Generated: tags/建站日记/index.html
+INFO  Generated: tags/aws/index.html
+INFO  Generated: tags/集合/index.html
+INFO  Generated: tags/亚马逊/index.html
+INFO  Generated: tags/root登录/index.html
+INFO  Generated: tags/shadowsocks/index.html
+INFO  Generated: tags/建站/index.html
+INFO  Generated: tags/程序员/index.html
+INFO  Generated: tags/常用/index.html
+INFO  Generated: tags/常用工具/index.html
+INFO  Generated: tags/大集合/index.html
+INFO  Generated: tags/lvm/index.html
+INFO  Generated: tags/程序猿/index.html
+INFO  Generated: tags/卸载CDH/index.html
+INFO  Generated: tags/git多用户/index.html
+INFO  Generated: tags/selinux/index.html
+INFO  Generated: tags/转发/index.html
+INFO  Generated: tags/cdh/index.html
+INFO  Generated: tags/励志/index.html
+INFO  Generated: tags/cloudera/index.html
+INFO  Generated: vendors/font-awesome/HELP-US-OUT.txt
+INFO  Generated: vendors/fastclick/LICENSE
+INFO  Generated: vendors/jquery_lazyload/bower.json
+INFO  Generated: vendors/velocity/velocity.ui.min.js
+INFO  Generated: css/main.css
+INFO  Generated: vendors/jquery/index.js
+INFO  Generated: vendors/font-awesome/bower.json
+INFO  Generated: vendors/fastclick/bower.json
+INFO  Generated: vendors/velocity/bower.json
+INFO  Generated: vendors/jquery_lazyload/CONTRIBUTING.html
+INFO  Generated: vendors/velocity/velocity.ui.js
+INFO  Generated: vendors/jquery_lazyload/README.html
+INFO  Generated: vendors/jquery_lazyload/jquery.scrollstop.js
+INFO  Generated: vendors/jquery_lazyload/jquery.lazyload.js
+INFO  Generated: vendors/fastclick/README.html
+INFO  Generated: vendors/velocity/velocity.min.js
+INFO  Generated: vendors/velocity/velocity.js
+INFO  Generated: 2016/12/05/centos设置ntp服务器和客户端/index.html
+INFO  Generated: vendors/fastclick/lib/fastclick.js
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff
+INFO  Generated: vendors/fancybox/source/helpers/fancybox_buttons.png
+INFO  Generated: js/src/affix.js
+INFO  Generated: vendors/font-awesome/fonts/FontAwesome.otf
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.eot
+INFO  Generated: vendors/font-awesome/css/font-awesome.css.map
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.pack.js
+INFO  Generated: vendors/fancybox/source/blank.gif
+INFO  Generated: vendors/fancybox/source/fancybox_loading.gif
+INFO  Generated: js/src/post-details.js
+INFO  Generated: vendors/fancybox/source/fancybox_loading@2x.gif
+INFO  Generated: vendors/fancybox/source/fancybox_sprite.png
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.woff2
+INFO  Generated: js/src/hook-duoshuo.js
+INFO  Generated: js/src/motion.js
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.svg
+INFO  Generated: 2016/11/21/常用工具大集合(突发奇想更新中...)/index.html
+INFO  Generated: 2016/08/17/给程序员忠告-自勉/index.html
+INFO  Generated: js/src/scrollspy.js
+INFO  Generated: 2016/11/14/centos源码安装mysql/index.html
+INFO  Generated: vendors/fancybox/source/fancybox_overlay.png
+INFO  Generated: 2016/11/16/centos下mysqld的service服务/index.html
+INFO  Generated: 2016/11/07/git for windows 中文乱码/index.html
+INFO  Generated: 2016/11/17/给VMware下的Linux扩展磁盘空间/index.html
+INFO  Generated: 2016/12/01/centos更改国内阿里的yum源/index.html
+INFO  Generated: 2016/12/06/cdh搭建hadoop集群-hive错误集/index.html
+INFO  Generated: 2016/11/02/Blog：Typecho迁移到Hexo/index.html
+INFO  Generated: 2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/index.html
+INFO  Generated: 2016/11/08/ss用一段时间卡？vps定时重启试试/index.html
+INFO  Generated: 2016/11/03/建站日记/index.html
+INFO  Generated: 2016/11/11/centos修改selinux/index.html
+INFO  Generated: 2016/11/10/centos使用外部smtp发送邮件/index.html
+INFO  Generated: js/src/particle.js
+INFO  Generated: js/src/bootstrap.js
+INFO  Generated: js/src/utils.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.js
+INFO  Generated: vendors/fastclick/lib/fastclick.min.js
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.css
+INFO  Generated: vendors/fancybox/source/jquery.fancybox.pack.js
+INFO  Generated: vendors/font-awesome/fonts/fontawesome-webfont.ttf
+INFO  Generated: vendors/font-awesome/css/font-awesome.css
+INFO  Generated: vendors/fancybox/source/fancybox_sprite@2x.png
+INFO  Generated: 2016/11/21/亚马逊aws更改linux为root权限密码登陆/index.html
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.css
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-media.js
+INFO  Generated: 2016/11/07/git多用户/index.html
+INFO  Generated: 2016/11/07/CDH安装hadoop集群/index.html
+INFO  Generated: vendors/font-awesome/css/font-awesome.min.css
+INFO  Generated: 2016/11/14/卸载CDH（ Cloudera Manager 和托管软件）/index.html
+INFO  Generated: vendors/ua-parser-js/dist/ua-parser.min.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-buttons.js
+INFO  Generated: js/src/schemes/pisces.js
+INFO  Generated: vendors/fancybox/source/helpers/jquery.fancybox-thumbs.css
+INFO  173 files generated in 5.48 s
+[23:00:42] Using gulpfile D:\hexo\gulpfile.js
+[23:00:42] Starting 'minify-html'...
+[23:00:42] Starting 'minify-css'...
+[23:00:42] Starting 'minify-js'...
+[23:00:42] Starting 'images'...
+[23:00:42] Finished 'images' after 11 ms
+[23:00:42] gulp-imagemin: Minified 0 images
+[23:00:45] Finished 'minify-css' after 2.97 s
+[23:00:47] Finished 'minify-js' after 5.04 s
+[23:00:48] Finished 'minify-html' after 6.63 s
+[23:00:48] Starting 'default'...
+[23:00:48] Finished 'default' after 5.6 μs
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+[master 9da951a] Site updated: 2017-01-01 23:00:58
+ 101 files changed, 132 insertions(+), 132 deletions(-)
+Branch master set up to track remote branch master from git@github.com:ererermao/liyang.one.git.
+INFO  Deploy done: git
+INFO  Deploying: git
+INFO  Clearing .deploy_git folder...
+INFO  Copying files from public folder...
+On branch master
+nothing to commit, working directory clean
+Branch master set up to track remote branch master from git@git.coding.net:ererermao/liyang.one.git.
+INFO  Deploy done: git
+INFO  Deploying: baidu_url_submitter
+INFO  Submitting urls 
+https://www.liyang.one/2016/12/06/cdh搭建hadoop集群-hive错误集/
+https://www.liyang.one/2016/12/05/centos设置ntp服务器和客户端/
+https://www.liyang.one/2016/12/01/centos更改国内阿里的yum源/
+https://www.liyang.one/2016/11/21/常用工具大集合(突发奇想更新中...)/
+https://www.liyang.one/2016/11/21/亚马逊aws更改linux为root权限密码登陆/
+https://www.liyang.one/2016/11/17/给VMware下的Linux扩展磁盘空间/
+https://www.liyang.one/2016/11/16/centos下mysqld的service服务/
+https://www.liyang.one/2016/11/14/卸载CDH（ Cloudera Manager 和托管软件）/
+https://www.liyang.one/2016/11/14/centos源码安装mysql/
+https://www.liyang.one/2016/11/11/centos修改selinux/
+https://www.liyang.one/2016/11/10/centos使用外部smtp发送邮件/
+https://www.liyang.one/2016/11/08/ss用一段时间卡？vps定时重启试试/
+https://www.liyang.one/2016/11/07/git for windows 中文乱码/
+https://www.liyang.one/2016/11/07/git多用户/
+https://www.liyang.one/2016/11/07/CDH安装hadoop集群/
+https://www.liyang.one/2016/11/03/建站日记/
+https://www.liyang.one/2016/11/02/Blog：Typecho迁移到Hexo/
+https://www.liyang.one/2016/08/17/给程序员忠告-自勉/
+https://www.liyang.one/2016/04/20/Pentaho Kettle解决方案：使用PDI构建开源ETL解决方案/
+{"remain":1,"success":19}
+INFO  Deploy done: baidu_url_submitter
+20170101 23:00:00.59
