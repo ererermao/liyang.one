@@ -124,7 +124,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -338,13 +338,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -369,141 +362,14 @@
           
 我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.
 
-1、修改ROOT密码1sudo passwd root
-2、修改sshd_config文件12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin ye
+¶1、修改ROOT密码
+1sudo passwd root
+¶2、修改sshd_config文件
+12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogi
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/" itemprop="url">
-                  ss用一段时间卡？vps定时重启试试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T10:36:25+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ss/" itemprop="url" rel="index">
-                    <span itemprop="name">ss</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-          
-          
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。  
-
-1. 添加定时重启vps1234crontab -e				#编辑任务列表#新增：注意用root用户添加	01 21 * * * /sbin/roboot	  #由于vps的时间要晚8个小时，又懒得去修
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -596,13 +462,6 @@
           
           
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/17/20161117-给VMware下的Linux扩展磁盘空间/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/20161117-给VMware下的Linux扩展磁盘空间/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
@@ -727,13 +586,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/16/20161116-centos下mysqld的service服务/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/16/20161116-centos下mysqld的service服务/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -854,13 +706,6 @@ linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/20161114-卸载CDH（Cloudera-Manager-和托管软件）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/20161114-卸载CDH（Cloudera-Manager-和托管软件）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -882,7 +727,8 @@ linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文
       
         
           
-          1. 一些默认的地址12345678910/var/lib/flume-ng /var/lib/hadoop* /var/lib/hue /var/lib/navigator /var/lib/oozie /var/lib/solr /var/lib/sqoop* /var/lib/zookeepe
+          ¶1. 一些默认的地址
+12345678910/var/lib/flume-ng /var/lib/hadoop* /var/lib/hue /var/lib/navigator /var/lib/oozie /var/lib/solr /var/lib/sqoop* /var/lib/zookee
           ...
 
           <div class="post-more-link text-center">
@@ -980,13 +826,6 @@ linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/20161114-centos源码安装mysql/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/20161114-centos源码安装mysql/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1008,7 +847,10 @@ linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文
       
         
           
-          1. centos配置1.1 安装需要用到的软件ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library foundgcc-c++：安装的时候需要，没有的话：../depcomp: line 512: exec: g
+          ¶1. centos配置
+¶1.1 安装需要用到的软件
+ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library found
+gcc-c++：安装的时候需要，没有的话：…/depcomp: line 512: exe
           ...
 
           <div class="post-more-link text-center">
@@ -1106,13 +948,6 @@ linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/11/20161111-centos修改selinux/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/11/20161111-centos修改selinux/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1169,6 +1004,129 @@ linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/10/20161110-centos使用外部smtp发送邮件/" itemprop="url">
+                  centos使用外部smtp发送邮件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-10T20:20:20+08:00" content="2016-11-10">
+              2016-11-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/centos/" itemprop="url" rel="index">
+                    <span itemprop="name">centos</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。
+¶1. 安装mail
+1yum install mailx  -y  # -y 默认yes
+¶2. 配置外部smtp发送邮件
+1234567vi /etc/mail.rc## 新增以下se
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/10/20161110-centos使用外部smtp发送邮件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1183,7 +1141,6 @@ linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文
 
 
           
-
         </div>
         
           
@@ -1401,31 +1358,23 @@ linux下有的软件启动很麻烦，跟一大堆参数，比如指定配置文
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

@@ -124,7 +124,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -338,13 +338,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/07/20161107-git-for-windows-中文乱码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/07/20161107-git-for-windows-中文乱码/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -367,9 +360,11 @@
         
           
           
-Git 是在linux下开发的，而 Windows的默认编码为GBK，Linux 的编码方式默认是 UTF-8 的，所以移植到 Windows 之后难免会存在编码冲突，导致乱码。Git 在 Windows 下有多种乱码情况，请按具体情况操作Git 安装目录为 C:\Git
+Git 是在linux下开发的，而 Windows的默认编码为GBK，Linux 的编码方式默认是 UTF-8 的，所以移植到 Windows 之后难免会存在编码冲突，导致乱码。
+Git 在 Windows 下有多种乱码情况，请按具体情况操作
+Git 安装目录为 C:\Git
 
-1.使用 git ad
+¶1.使用 git
           ...
 
           <div class="post-more-link text-center">
@@ -467,13 +462,6 @@ Git 是在linux下开发的，而 Windows的默认编码为GBK，Linux 的编码
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/07/20161107-git多用户/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/07/20161107-git多用户/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -495,9 +483,10 @@ Git 是在linux下开发的，而 Windows的默认编码为GBK，Linux 的编码
       
         
           
-          1. 生成key终端下执行 :
+          ¶1. 生成key
+终端下执行 :
 12&gt; cd ~/.sshssh-keygen -t rsa -C 'xxxxx@github.com' -f id_rsa_github
-其中xxxxx@github.com 替换为你的邮箱， id_rsa_github为生成文件文件名，执行后会问你是否需要e
+其中xxxxx@github.com 替换为你的邮箱， id_rsa_github为生成文件文件名，执行后会问你是否需
           ...
 
           <div class="post-more-link text-center">
@@ -595,13 +584,6 @@ Git 是在linux下开发的，而 Windows的默认编码为GBK，Linux 的编码
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/07/20161107-CDH安装hadoop集群/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/07/20161107-CDH安装hadoop集群/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -623,12 +605,15 @@ Git 是在linux下开发的，而 Windows的默认编码为GBK，Linux 的编码
       
         
           
-          1. 虚拟机设置（这里使用的是nat模式）1.1 子网IP段和子网掩码
+          ¶1. 虚拟机设置（这里使用的是nat模式）
+¶1.1 子网IP段和子网掩码
+
 vm&gt;&gt;编辑&gt;&gt;虚拟网络编辑器&gt;&gt;VMnet8&gt;&gt;勾选连接到此网络&gt;&gt;子网Ip和子网掩码设置
 
 
-1.2 网关设置
-vm&gt;&gt;编辑&gt;&gt;虚拟网络编辑
+¶1.2 网关设置
+
+vm&gt;&gt;编辑&gt;&gt;
           ...
 
           <div class="post-more-link text-center">
@@ -726,13 +711,6 @@ vm&gt;&gt;编辑&gt;&gt;虚拟网络编辑
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/03/20161103-建站日记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/03/20161103-建站日记/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -757,19 +735,21 @@ vm&gt;&gt;编辑&gt;&gt;虚拟网络编辑
           
 本来想着用一个单独的页面来记录建站的过程，后来想了想还是用文章记录吧。
 
-最初: Typecho
+¶最初: Typecho
+
 20160409
+
 建立Tyecho的blog
 域名：liyang.one
 
 
 
-目前：Hexo+github/coding
+¶目前：Hexo+github/coding
+
 20161102
+
 hexo的搭建与基本配置。
-域名暂为：ermao.cf
-
-
+域名暂为：erma
           ...
 
           <div class="post-more-link text-center">
@@ -867,13 +847,6 @@ hexo的搭建与基本配置。
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/02/20161102-Blog：Typecho迁移到Hexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/20161102-Blog：Typecho迁移到Hexo/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -898,9 +871,9 @@ hexo的搭建与基本配置。
           
 迁移的第一天，写个文章助助兴
 
-&emsp;&emsp;不知不觉已经工作三年了，毕业两年，实习一年。从2016年04月09日搭建博客到现在一共更新了2篇文章。哈哈哈，虽然建了很久但是确实是几乎没怎么维护。
-&emsp;&emsp;为什么要迁移到Hexo呢？在知乎上面看到了一段话：
-第一阶段，刚接触
+  不知不觉已经工作三年了，毕业两年，实习一年。从2016年04月09日搭建博客到现在一共更新了2篇文章。哈哈哈，虽然建了很久但是确实是几乎没怎么维护。
+  为什么要迁移到Hexo呢？在知乎上面看到了一段话：
+	第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费
           ...
 
           <div class="post-more-link text-center">
@@ -998,13 +971,6 @@ hexo的搭建与基本配置。
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/17/20160817-给程序员忠告-自勉/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/20160817-给程序员忠告-自勉/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1026,7 +992,8 @@ hexo的搭建与基本配置。
       
         
           
-          一、生在屌丝家，逆袭靠自己&emsp;&emsp;从事我们这一行的父母多是农村或者城市底层，他们给我们的爱跟富人给他们孩子的爱没有任何差别。你父母让你今天能四肢健全、健健康康、大脑灵光的来到大城市打工挣钱。你父母给了你今生最大的本钱，如果自己活得像个废柴，别怨出身，检讨自己是大脑不好使还是身体懒惰。
+          ¶一、生在屌丝家，逆袭靠自己
+  从事我们这一行的父母多是农村或者城市底层，他们给我们的爱跟富人给他们孩子的爱没有任何差别。你父母让你今天能四肢健全、健健康康、大脑灵光的来到大城市打工挣钱。你父母给了你今生最大的本钱，如果自己活得像个废柴，别怨出身，检讨自己是大脑不好使还是身体懒惰。&gt;从事我们
           ...
 
           <div class="post-more-link text-center">
@@ -1124,13 +1091,6 @@ hexo的搭建与基本配置。
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/20/20160420-Pentaho-Kettle解决方案：使用PDI构建开源ETL解决方案/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/20/20160420-Pentaho-Kettle解决方案：使用PDI构建开源ETL解决方案/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1152,9 +1112,10 @@ hexo的搭建与基本配置。
       
         
           
-          内容简介&emsp;&emsp;本书主要介绍如何使用开源ETL工具来完成数据整合工作。
-&emsp;&emsp;本书介绍的PDI(Kettle)是一种开源的 ETL 解决方案，书中介绍了如何使用PDI来实现数据的剖析、清洗、校验、抽取、转换、加载等各类常见的ETL类工作。
-&emsp;&emsp;除
+          ¶内容简介
+  本书主要介绍如何使用开源ETL工具来完成数据整合工作。
+  本书介绍的PDI(Kettle)是一种开源的 ETL 解决方案，书中介绍了如何使用PDI来实现数据的剖析、清洗、校验、抽取、转换、加载等各类常见的ETL类工作。
+  除了ODS/DW类比较大型的应用外，Kettle 实际还可
           ...
 
           <div class="post-more-link text-center">
@@ -1202,7 +1163,6 @@ hexo的搭建与基本配置。
 
 
           
-
         </div>
         
           
@@ -1420,31 +1380,23 @@ hexo的搭建与基本配置。
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

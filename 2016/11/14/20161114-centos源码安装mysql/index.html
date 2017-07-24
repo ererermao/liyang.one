@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="1. centos配置1.1 安装需要用到的软件ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library foundgcc-c++：安装的时候需要，没有的话：../depcomp: line 512: exec: g++: not found1yum -y install gcc-c++ ncurses-devel">
+<meta name="description" content="¶1. centos配置 ¶1.1 安装需要用到的软件 ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library found gcc-c++：安装的时候需要，没有的话：…/depcomp: line 512: exec: g++: not found 1yum -y install gcc-c++ ncurses-">
 <meta name="keywords" content="centos,mysql,源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos源码安装mysql5.1.28">
 <meta property="og:url" content="http://www.liyang.site/2016/11/14/20161114-centos源码安装mysql/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="1. centos配置1.1 安装需要用到的软件ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library foundgcc-c++：安装的时候需要，没有的话：../depcomp: line 512: exec: g++: not found1yum -y install gcc-c++ ncurses-devel">
+<meta property="og:description" content="¶1. centos配置 ¶1.1 安装需要用到的软件 ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library found gcc-c++：安装的时候需要，没有的话：…/depcomp: line 512: exec: g++: not found 1yum -y install gcc-c++ ncurses-">
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos源码安装mysql5.1.28">
-<meta name="twitter:description" content="1. centos配置1.1 安装需要用到的软件ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library foundgcc-c++：安装的时候需要，没有的话：../depcomp: line 512: exec: g++: not found1yum -y install gcc-c++ ncurses-devel">
+<meta name="twitter:description" content="¶1. centos配置 ¶1.1 安装需要用到的软件 ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library found gcc-c++：安装的时候需要，没有的话：…/depcomp: line 512: exec: g++: not found 1yum -y install gcc-c++ ncurses-">
 
 
 
@@ -126,7 +126,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -335,13 +335,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/20161114-centos源码安装mysql/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/20161114-centos源码安装mysql/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -361,22 +354,50 @@
       
 
       
-        <h2 id="1-centos配置"><a href="#1-centos配置" class="headerlink" title="1. centos配置"></a>1. centos配置</h2><h3 id="1-1-安装需要用到的软件"><a href="#1-1-安装需要用到的软件" class="headerlink" title="1.1 安装需要用到的软件"></a>1.1 安装需要用到的软件</h3><p>ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library found<br>gcc-c++：安装的时候需要，没有的话：../depcomp: line 512: exec: g++: not found<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install gcc-c++ ncurses-devel</div></pre></td></tr></table></figure></p>
-<h3 id="1-2-创建mysql-用户"><a href="#1-2-创建mysql-用户" class="headerlink" title="1.2 创建mysql 用户"></a>1.2 创建mysql 用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -g mysql mysql</div></pre></td></tr></table></figure>
-<h2 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h2><p>下载mysql的安装包 <strong> 5.1版本以前用configure进行编译，5.1之后的版本用cmake进行编译。</strong></p>
-<h2 id="3-解压安装"><a href="#3-解压安装" class="headerlink" title="3. 解压安装"></a>3. 解压安装</h2><h3 id="3-1-解压"><a href="#3-1-解压" class="headerlink" title="3.1 解压"></a>3.1 解压</h3><p>解压到<code>/opt</code>目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -axvf mysql-5.1.28-rc.tar.gz -C /opt</div></pre></td></tr></table></figure></p>
-<h3 id="3-2-编译"><a href="#3-2-编译" class="headerlink" title="3.2 编译"></a>3.2 编译</h3><p>–prefix：安装目录<br>–with-charset：字符集编码<br>–with-plugins：存储引擎<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/opt/mysql  --with-charset=utf8 --with-plugins=innobase</div></pre></td></tr></table></figure></p>
-<h3 id="3-3-安装"><a href="#3-3-安装" class="headerlink" title="3.3 安装"></a>3.3 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<h2 id="4-配置与初始化"><a href="#4-配置与初始化" class="headerlink" title="4. 配置与初始化"></a>4. 配置与初始化</h2><h3 id="4-1-修改my-cnf"><a href="#4-1-修改my-cnf" class="headerlink" title="4.1 修改my.cnf"></a>4.1 修改my.cnf</h3><p>系统默认是按/etc/my.cnf—–/etc/mysql/my.cnf—-/opt/mysql/my.cnf的顺序读取配置文件的，当有多个配置文件时，mysql会以读取到的最后一个配置文件中的参数为准。<br>具体优化就不说了，这里就基本配置。<br>在安装目录下share/mysql/ 下找到my-medium.cnf,，将它拷贝到安装目录并且重命名为my.cnf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 修改下面3个参数   /opt/mysql 为安装目录</span></div><div class="line">datadir=/opt/mysql/var</div><div class="line">socket=/opt/mysql/mysql.sock</div><div class="line">basedir=/opt/mysql</div></pre></td></tr></table></figure></p>
-<h3 id="4-2-mysql服务启动脚本"><a href="#4-2-mysql服务启动脚本" class="headerlink" title="4.2 mysql服务启动脚本"></a>4.2 mysql服务启动脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cp share/mysql/mysql.server /etc/init.d/mysqld</div><div class="line">chmod 755 /etc/init.d/mysqld</div><div class="line">chkconfig mysqld on</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">### 4.3 初始化数据库表</span></div><div class="line">```bash</div><div class="line">chown mysql.mysql -R /opt/mysql</div><div class="line"></div><div class="line"><span class="comment"># datadir目录不能有数据</span></div><div class="line">./bin/mysql_install_db --user=mysql --datadir=/opt/mysql/var</div></pre></td></tr></table></figure>
-<h3 id="4-4-启动数据库"><a href="#4-4-启动数据库" class="headerlink" title="4.4 启动数据库"></a>4.4 启动数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./bin/mysqld_safe --defaults-file=/opt/mysql/my.cnf</div><div class="line"></div><div class="line"><span class="comment"># 如果报错要学会看错误日志：</span></div><div class="line">more /opt/mysql/var/cdh.scm.err</div></pre></td></tr></table></figure>
-<h3 id="4-5-修改密码并进入数据库"><a href="#4-5-修改密码并进入数据库" class="headerlink" title="4.5 修改密码并进入数据库"></a>4.5 修改密码并进入数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./bin/mysqladmin -h <span class="string">'127.0.0.1'</span> -u root password 123</div><div class="line">./bin/mysql -h <span class="string">'127.0.0.1'</span> -u root -p</div></pre></td></tr></table></figure>
-<h2 id="5-可能遇到的错误"><a href="#5-可能遇到的错误" class="headerlink" title="5. 可能遇到的错误"></a>5. 可能遇到的错误</h2><h3 id="5-1-fatal-error-Can’t-change-to-run-as-user-‘mysql’-Please-check-that-the-user-exists"><a href="#5-1-fatal-error-Can’t-change-to-run-as-user-‘mysql’-Please-check-that-the-user-exists" class="headerlink" title="5.1 fatal error: Can’t change to run as user ‘mysql’ ;  Please check that the user exists!"></a>5.1 fatal error: Can’t change to run as user ‘mysql’ ;  Please check that the user exists!</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /etc/my.cnf</div></pre></td></tr></table></figure>
+        <h2 id="1-centos配置"><a class="header-anchor" href="#1-centos配置">¶</a>1. centos配置</h2>
+<h3 id="1-1-安装需要用到的软件"><a class="header-anchor" href="#1-1-安装需要用到的软件">¶</a>1.1 安装需要用到的软件</h3>
+<p>ncurses-devel：编译的时候需要，没有的话：configure: error: No curses/termcap library found<br>
+gcc-c++：安装的时候需要，没有的话：…/depcomp: line 512: exec: g++: not found</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install gcc-c++ ncurses-devel</div></pre></td></tr></table></figure>
+<h3 id="1-2-创建mysql-用户"><a class="header-anchor" href="#1-2-创建mysql-用户">¶</a>1.2 创建mysql 用户</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -g mysql mysql</div></pre></td></tr></table></figure>
+<h2 id="2-下载"><a class="header-anchor" href="#2-下载">¶</a>2. 下载</h2>
+<p>下载mysql的安装包 ** 5.1版本以前用configure进行编译，5.1之后的版本用cmake进行编译。**</p>
+<h2 id="3-解压安装"><a class="header-anchor" href="#3-解压安装">¶</a>3. 解压安装</h2>
+<h3 id="3-1-解压"><a class="header-anchor" href="#3-1-解压">¶</a>3.1 解压</h3>
+<p>解压到<code>/opt</code>目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -axvf mysql-5.1.28-rc.tar.gz -C /opt</div></pre></td></tr></table></figure>
+<h3 id="3-2-编译"><a class="header-anchor" href="#3-2-编译">¶</a>3.2 编译</h3>
+<p>–prefix：安装目录<br>
+–with-charset：字符集编码<br>
+–with-plugins：存储引擎</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/opt/mysql  --with-charset=utf8 --with-plugins=innobase</div></pre></td></tr></table></figure>
+<h3 id="3-3-安装"><a class="header-anchor" href="#3-3-安装">¶</a>3.3 安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h2 id="4-配置与初始化"><a class="header-anchor" href="#4-配置与初始化">¶</a>4. 配置与初始化</h2>
+<h3 id="4-1-修改my-cnf"><a class="header-anchor" href="#4-1-修改my-cnf">¶</a>4.1 修改my.cnf</h3>
+<p>系统默认是按/etc/my.cnf-----/etc/mysql/my.cnf----/opt/mysql/my.cnf的顺序读取配置文件的，当有多个配置文件时，mysql会以读取到的最后一个配置文件中的参数为准。<br>
+具体优化就不说了，这里就基本配置。<br>
+在安装目录下share/mysql/ 下找到my-medium.cnf,，将它拷贝到安装目录并且重命名为my.cnf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 修改下面3个参数   /opt/mysql 为安装目录</span></div><div class="line">datadir=/opt/mysql/var</div><div class="line">socket=/opt/mysql/mysql.sock</div><div class="line">basedir=/opt/mysql</div></pre></td></tr></table></figure>
+<h3 id="4-2-mysql服务启动脚本"><a class="header-anchor" href="#4-2-mysql服务启动脚本">¶</a>4.2 mysql服务启动脚本</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cp share/mysql/mysql.server /etc/init.d/mysqld</div><div class="line">chmod 755 /etc/init.d/mysqld</div><div class="line">chkconfig mysqld on</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">### 4.3 初始化数据库表</span></div><div class="line">```bash</div><div class="line">chown mysql.mysql -R /opt/mysql</div><div class="line"></div><div class="line"><span class="comment"># datadir目录不能有数据</span></div><div class="line">./bin/mysql_install_db --user=mysql --datadir=/opt/mysql/var</div></pre></td></tr></table></figure>
+<h3 id="4-4-启动数据库"><a class="header-anchor" href="#4-4-启动数据库">¶</a>4.4 启动数据库</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./bin/mysqld_safe --defaults-file=/opt/mysql/my.cnf</div><div class="line"></div><div class="line"><span class="comment"># 如果报错要学会看错误日志：</span></div><div class="line">more /opt/mysql/var/cdh.scm.err</div></pre></td></tr></table></figure>
+<h3 id="4-5-修改密码并进入数据库"><a class="header-anchor" href="#4-5-修改密码并进入数据库">¶</a>4.5 修改密码并进入数据库</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./bin/mysqladmin -h <span class="string">'127.0.0.1'</span> -u root password 123</div><div class="line">./bin/mysql -h <span class="string">'127.0.0.1'</span> -u root -p</div></pre></td></tr></table></figure>
+<h2 id="5-可能遇到的错误"><a class="header-anchor" href="#5-可能遇到的错误">¶</a>5. 可能遇到的错误</h2>
+<h3 id="5-1-fatal-error-can-t-change-to-run-as-user-mysql-please-check-that-the-user-exists"><a class="header-anchor" href="#5-1-fatal-error-can-t-change-to-run-as-user-mysql-please-check-that-the-user-exists">¶</a>5.1 fatal error: Can’t change to run as user ‘mysql’ ;  Please check that the user exists!</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /etc/my.cnf</div></pre></td></tr></table></figure>
 <p>然后在重新初始化数据库表 ok 成功</p>
-<h3 id="5-2-unknown-option-‘–skip-federated’"><a href="#5-2-unknown-option-‘–skip-federated’" class="headerlink" title="5.2 unknown option ‘–skip-federated’"></a>5.2 unknown option ‘–skip-federated’</h3><p>将my.cnf文件中的skip-federated注释掉即可</p>
-<h3 id="5-3-ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-tmp-mysql-sock"><a href="#5-3-ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-tmp-mysql-sock" class="headerlink" title="5.3 ERROR 2002 (HY000): Can’t connect to local MySQL server through socket /tmp/mysql.sock"></a>5.3 ERROR 2002 (HY000): Can’t connect to local MySQL server through socket /tmp/mysql.sock</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1、执行 sudo ln -s /opt/mysql/mysql.sock /tmp/mysql.sock </div><div class="line">2、将连接mysql的语句改成 mysql -h 127.0.0.1 -u root -p</div><div class="line"></div><div class="line">mysql使用unix socket或者tcp来连接数据库进行通讯，默认不加 -h选项时使用的就是localhost即unixsocket，此时会通过/tmp/mysql.sock来通讯，但是在配置文件中默认生成的socket文件是在/var/lib/mysql/mysql.sock(不同安装可能不同，建议查看/etc/my.cnf确认),所以要想mysql使用这个文件通讯，最简单的方法就是建立软链接，一劳永逸，此为方法一</div><div class="line"></div><div class="line">方法二就是强制mysql使用tcp通讯，因为127.0.0.1对于mysql来说走的是tcp协议而非unixsocket，这种方法的弊端就是每次都要指明本地地址127.0.0.1</div></pre></td></tr></table></figure>
-<h3 id="5-4-ERROR-Can’t-start-server-can’t-create-PID-file-No-such-file-or-directory"><a href="#5-4-ERROR-Can’t-start-server-can’t-create-PID-file-No-such-file-or-directory" class="headerlink" title="5.4 [ERROR] Can’t start server: can’t create PID file: No such file or directory"></a>5.4 [ERROR] Can’t start server: can’t create PID file: No such file or directory</h3><p>pid的路径必须存在，mysql不会自动创建。自己手动把路径建好就好了</p>
-<h3 id="5-5-ERROR-opt-mysql-libexec-mysqld-unknown-option-‘–skip-federated’"><a href="#5-5-ERROR-opt-mysql-libexec-mysqld-unknown-option-‘–skip-federated’" class="headerlink" title="5.5 [ERROR] /opt/mysql/libexec/mysqld: unknown option ‘–skip-federated’"></a>5.5 [ERROR] /opt/mysql/libexec/mysqld: unknown option ‘–skip-federated’</h3><p>删除my.cnf 中 <code>skip-federated</code> 这一行</p>
+<h3 id="5-2-unknown-option-skip-federated"><a class="header-anchor" href="#5-2-unknown-option-skip-federated">¶</a>5.2 unknown option ‘–skip-federated’</h3>
+<p>将my.cnf文件中的skip-federated注释掉即可</p>
+<h3 id="5-3-error-2002-hy000-can-t-connect-to-local-mysql-server-through-socket-tmp-mysql-sock"><a class="header-anchor" href="#5-3-error-2002-hy000-can-t-connect-to-local-mysql-server-through-socket-tmp-mysql-sock">¶</a>5.3 ERROR 2002 (HY000): Can’t connect to local MySQL server through socket /tmp/mysql.sock</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1、执行 sudo ln -s /opt/mysql/mysql.sock /tmp/mysql.sock </div><div class="line">2、将连接mysql的语句改成 mysql -h 127.0.0.1 -u root -p</div><div class="line"></div><div class="line">mysql使用unix socket或者tcp来连接数据库进行通讯，默认不加 -h选项时使用的就是localhost即unixsocket，此时会通过/tmp/mysql.sock来通讯，但是在配置文件中默认生成的socket文件是在/var/lib/mysql/mysql.sock(不同安装可能不同，建议查看/etc/my.cnf确认),所以要想mysql使用这个文件通讯，最简单的方法就是建立软链接，一劳永逸，此为方法一</div><div class="line"></div><div class="line">方法二就是强制mysql使用tcp通讯，因为127.0.0.1对于mysql来说走的是tcp协议而非unixsocket，这种方法的弊端就是每次都要指明本地地址127.0.0.1</div></pre></td></tr></table></figure>
+<h3 id="5-4-error-can-t-start-server-can-t-create-pid-file-no-such-file-or-directory"><a class="header-anchor" href="#5-4-error-can-t-start-server-can-t-create-pid-file-no-such-file-or-directory">¶</a>5.4 [ERROR] Can’t start server: can’t create PID file: No such file or directory</h3>
+<p>pid的路径必须存在，mysql不会自动创建。自己手动把路径建好就好了</p>
+<h3 id="5-5-error-opt-mysql-libexec-mysqld-unknown-option-skip-federated"><a class="header-anchor" href="#5-5-error-opt-mysql-libexec-mysqld-unknown-option-skip-federated">¶</a>5.5 [ERROR] /opt/mysql/libexec/mysqld: unknown option ‘–skip-federated’</h3>
+<p>删除my.cnf 中 <code>skip-federated</code> 这一行</p>
 
       
     </div>
@@ -444,18 +465,11 @@
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/14/20161114-centos源码安装mysql/"
-           data-title="centos源码安装mysql5.1.28" data-url="http://www.liyang.site/2016/11/14/20161114-centos源码安装mysql/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -599,7 +613,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-centos配置"><span class="nav-text">1. centos配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-安装需要用到的软件"><span class="nav-text">1.1 安装需要用到的软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-创建mysql-用户"><span class="nav-text">1.2 创建mysql 用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-下载"><span class="nav-text">2. 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-解压安装"><span class="nav-text">3. 解压安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-解压"><span class="nav-text">3.1 解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-编译"><span class="nav-text">3.2 编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-安装"><span class="nav-text">3.3 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-配置与初始化"><span class="nav-text">4. 配置与初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-修改my-cnf"><span class="nav-text">4.1 修改my.cnf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-mysql服务启动脚本"><span class="nav-text">4.2 mysql服务启动脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-启动数据库"><span class="nav-text">4.4 启动数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-修改密码并进入数据库"><span class="nav-text">4.5 修改密码并进入数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-可能遇到的错误"><span class="nav-text">5. 可能遇到的错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-fatal-error-Can’t-change-to-run-as-user-‘mysql’-Please-check-that-the-user-exists"><span class="nav-text">5.1 fatal error: Can’t change to run as user ‘mysql’ ;  Please check that the user exists!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-unknown-option-‘–skip-federated’"><span class="nav-text">5.2 unknown option ‘–skip-federated’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-tmp-mysql-sock"><span class="nav-text">5.3 ERROR 2002 (HY000): Can’t connect to local MySQL server through socket /tmp/mysql.sock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-ERROR-Can’t-start-server-can’t-create-PID-file-No-such-file-or-directory"><span class="nav-text">5.4 [ERROR] Can’t start server: can’t create PID file: No such file or directory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-ERROR-opt-mysql-libexec-mysqld-unknown-option-‘–skip-federated’"><span class="nav-text">5.5 [ERROR] /opt/mysql/libexec/mysqld: unknown option ‘–skip-federated’</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-centos配置"><span class="nav-text">¶1. centos配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-安装需要用到的软件"><span class="nav-text">¶1.1 安装需要用到的软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-创建mysql-用户"><span class="nav-text">¶1.2 创建mysql 用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-下载"><span class="nav-text">¶2. 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-解压安装"><span class="nav-text">¶3. 解压安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-解压"><span class="nav-text">¶3.1 解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-编译"><span class="nav-text">¶3.2 编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-安装"><span class="nav-text">¶3.3 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-配置与初始化"><span class="nav-text">¶4. 配置与初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-修改my-cnf"><span class="nav-text">¶4.1 修改my.cnf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-mysql服务启动脚本"><span class="nav-text">¶4.2 mysql服务启动脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-启动数据库"><span class="nav-text">¶4.4 启动数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-修改密码并进入数据库"><span class="nav-text">¶4.5 修改密码并进入数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-可能遇到的错误"><span class="nav-text">¶5. 可能遇到的错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-fatal-error-can-t-change-to-run-as-user-mysql-please-check-that-the-user-exists"><span class="nav-text">¶5.1 fatal error: Can’t change to run as user ‘mysql’ ;  Please check that the user exists!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-unknown-option-skip-federated"><span class="nav-text">¶5.2 unknown option ‘–skip-federated’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-error-2002-hy000-can-t-connect-to-local-mysql-server-through-socket-tmp-mysql-sock"><span class="nav-text">¶5.3 ERROR 2002 (HY000): Can’t connect to local MySQL server through socket /tmp/mysql.sock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-error-can-t-start-server-can-t-create-pid-file-no-such-file-or-directory"><span class="nav-text">¶5.4 [ERROR] Can’t start server: can’t create PID file: No such file or directory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-error-opt-mysql-libexec-mysqld-unknown-option-skip-federated"><span class="nav-text">¶5.5 [ERROR] /opt/mysql/libexec/mysqld: unknown option ‘–skip-federated’</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -699,31 +713,23 @@
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

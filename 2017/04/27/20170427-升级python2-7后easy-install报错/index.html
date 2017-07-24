@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="centos6升级后python2.7后执行easy_install --h会有以下错误：12345$ easy_install --hTraceback (most recent call last):  File &amp;quot;/usr/bin/easy_install&amp;quot;, line 5, in &amp;lt;module&amp;gt;    from pkg_resources import l">
+<meta name="description" content="centos6升级后python2.7后执行easy_install --h会有以下错误： 12345$ easy_install --hTraceback (most recent call last):  File &amp;quot;/usr/bin/easy_install&amp;quot;, line 5, in &amp;lt;module&amp;gt;    from pkg_resources import">
 <meta name="keywords" content="centos,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="升级python2.7后easy_install报错：No module named pkg_resources">
 <meta property="og:url" content="http://www.liyang.site/2017/04/27/20170427-升级python2-7后easy-install报错/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="centos6升级后python2.7后执行easy_install --h会有以下错误：12345$ easy_install --hTraceback (most recent call last):  File &amp;quot;/usr/bin/easy_install&amp;quot;, line 5, in &amp;lt;module&amp;gt;    from pkg_resources import l">
+<meta property="og:description" content="centos6升级后python2.7后执行easy_install --h会有以下错误： 12345$ easy_install --hTraceback (most recent call last):  File &amp;quot;/usr/bin/easy_install&amp;quot;, line 5, in &amp;lt;module&amp;gt;    from pkg_resources import">
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级python2.7后easy_install报错：No module named pkg_resources">
-<meta name="twitter:description" content="centos6升级后python2.7后执行easy_install --h会有以下错误：12345$ easy_install --hTraceback (most recent call last):  File &amp;quot;/usr/bin/easy_install&amp;quot;, line 5, in &amp;lt;module&amp;gt;    from pkg_resources import l">
+<meta name="twitter:description" content="centos6升级后python2.7后执行easy_install --h会有以下错误： 12345$ easy_install --hTraceback (most recent call last):  File &amp;quot;/usr/bin/easy_install&amp;quot;, line 5, in &amp;lt;module&amp;gt;    from pkg_resources import">
 
 
 
@@ -126,7 +126,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -335,13 +335,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/04/27/20170427-升级python2-7后easy-install报错/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/20170427-升级python2-7后easy-install报错/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -361,9 +354,10 @@
       
 
       
-        <p>centos6升级后python2.7后执行<code>easy_install --h</code>会有以下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ easy_install --h</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/easy_install&quot;, line 5, in &lt;module&gt;</div><div class="line">    from pkg_resources import load_entry_point</div><div class="line">ImportError: No module named pkg_resources</div></pre></td></tr></table></figure></p>
-<p>解决办法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c5.tar.gz</div><div class="line">$tar zxvf setuptools-0.6c5.tar.gz</div><div class="line">$cd setuptools-0.6c5</div><div class="line">$python setup.py install</div></pre></td></tr></table></figure></p>
-
+        <p>centos6升级后python2.7后执行<code>easy_install --h</code>会有以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ easy_install --h</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/easy_install&quot;, line 5, in &lt;module&gt;</div><div class="line">    from pkg_resources import load_entry_point</div><div class="line">ImportError: No module named pkg_resources</div></pre></td></tr></table></figure>
+<p>解决办法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c5.tar.gz</div><div class="line">$tar zxvf setuptools-0.6c5.tar.gz</div><div class="line">$cd setuptools-0.6c5</div><div class="line">$python setup.py install</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -428,18 +422,11 @@
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/27/20170427-升级python2-7后easy-install报错/"
-           data-title="升级python2.7后easy_install报错：No module named pkg_resources" data-url="http://www.liyang.site/2017/04/27/20170427-升级python2-7后easy-install报错/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -683,31 +670,23 @@
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

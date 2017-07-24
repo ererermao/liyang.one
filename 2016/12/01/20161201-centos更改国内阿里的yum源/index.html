@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/CentOS系统更换软件安装源    第一步：备份你的原镜像文件，以免出错后可以恢复。1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.r">
+<meta name="description" content="阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。 阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/ CentOS系统更换软件安装源  ¶第一步：备份你的原镜像文件，以免出错后可以恢复。 1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base">
 <meta name="keywords" content="centos,国内,阿里,yum">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos更改国内阿里的yum源">
 <meta property="og:url" content="http://www.liyang.site/2016/12/01/20161201-centos更改国内阿里的yum源/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/CentOS系统更换软件安装源    第一步：备份你的原镜像文件，以免出错后可以恢复。1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.r">
+<meta property="og:description" content="阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。 阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/ CentOS系统更换软件安装源  ¶第一步：备份你的原镜像文件，以免出错后可以恢复。 1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base">
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos更改国内阿里的yum源">
-<meta name="twitter:description" content="阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/CentOS系统更换软件安装源    第一步：备份你的原镜像文件，以免出错后可以恢复。1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.r">
+<meta name="twitter:description" content="阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。 阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/ CentOS系统更换软件安装源  ¶第一步：备份你的原镜像文件，以免出错后可以恢复。 1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base">
 
 
 
@@ -126,7 +126,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -335,13 +335,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/01/20161201-centos更改国内阿里的yum源/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/01/20161201-centos更改国内阿里的yum源/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -362,11 +355,16 @@
 
       
         <blockquote>
-<p>阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。<br>阿里云Linux安装镜像源地址：<a href="http://mirrors.aliyun.com/" target="_blank" rel="external">http://mirrors.aliyun.com/</a><br>CentOS系统更换软件安装源  </p>
+<p>阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。<br>
+阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/<br>
+CentOS系统更换软件安装源</p>
 </blockquote>
-<h2 id="第一步：备份你的原镜像文件，以免出错后可以恢复。"><a href="#第一步：备份你的原镜像文件，以免出错后可以恢复。" class="headerlink" title="第一步：备份你的原镜像文件，以免出错后可以恢复。"></a>第一步：备份你的原镜像文件，以免出错后可以恢复。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div></pre></td></tr></table></figure>
-<h2 id="第二步：下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#第二步：下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CentOS 5</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</div><div class="line">CentOS 6</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</div></pre></td></tr></table></figure>
-<h2 id="第三步：运行yum-makecache生成缓存"><a href="#第三步：运行yum-makecache生成缓存" class="headerlink" title="第三步：运行yum makecache生成缓存"></a>第三步：运行yum makecache生成缓存</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure>
+<h2 id="第一步：备份你的原镜像文件-以免出错后可以恢复"><a class="header-anchor" href="#第一步：备份你的原镜像文件-以免出错后可以恢复">¶</a>第一步：备份你的原镜像文件，以免出错后可以恢复。</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div></pre></td></tr></table></figure>
+<h2 id="第二步：下载新的centos-base-repo-到-etc-yum-repos-d"><a class="header-anchor" href="#第二步：下载新的centos-base-repo-到-etc-yum-repos-d">¶</a>第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CentOS 5</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</div><div class="line">CentOS 6</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</div></pre></td></tr></table></figure>
+<h2 id="第三步：运行yum-makecache生成缓存"><a class="header-anchor" href="#第三步：运行yum-makecache生成缓存">¶</a>第三步：运行yum makecache生成缓存</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -435,18 +433,11 @@
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/01/20161201-centos更改国内阿里的yum源/"
-           data-title="centos更改国内阿里的yum源" data-url="http://www.liyang.site/2016/12/01/20161201-centos更改国内阿里的yum源/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -590,7 +581,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：备份你的原镜像文件，以免出错后可以恢复。"><span class="nav-text">第一步：备份你的原镜像文件，以免出错后可以恢复。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：下载新的CentOS-Base-repo-到-etc-yum-repos-d"><span class="nav-text">第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：运行yum-makecache生成缓存"><span class="nav-text">第三步：运行yum makecache生成缓存</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：备份你的原镜像文件-以免出错后可以恢复"><span class="nav-text">¶第一步：备份你的原镜像文件，以免出错后可以恢复。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：下载新的centos-base-repo-到-etc-yum-repos-d"><span class="nav-text">¶第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：运行yum-makecache生成缓存"><span class="nav-text">¶第三步：运行yum makecache生成缓存</span></a></li></ol></div>
             
           </div>
         </section>
@@ -690,31 +681,23 @@
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

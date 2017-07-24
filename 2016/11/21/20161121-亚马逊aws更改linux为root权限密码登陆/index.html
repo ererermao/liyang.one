@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.  1、修改ROOT密码1sudo passwd root 2、修改sshd_config文件12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes 3、重启ssh就可以使用root正常登陆了1">
+<meta name="description" content="我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.  ¶1、修改ROOT密码 1sudo passwd root ¶2、修改sshd_config文件 12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes ¶3、重启ssh就可以使用root正">
 <meta name="keywords" content="centos,linux,aws,亚马逊,root登录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="亚马逊aws更改linux为root权限密码登陆">
 <meta property="og:url" content="http://www.liyang.site/2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.  1、修改ROOT密码1sudo passwd root 2、修改sshd_config文件12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes 3、重启ssh就可以使用root正常登陆了1">
+<meta property="og:description" content="我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.  ¶1、修改ROOT密码 1sudo passwd root ¶2、修改sshd_config文件 12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes ¶3、重启ssh就可以使用root正">
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="亚马逊aws更改linux为root权限密码登陆">
-<meta name="twitter:description" content="我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.  1、修改ROOT密码1sudo passwd root 2、修改sshd_config文件12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes 3、重启ssh就可以使用root正常登陆了1">
+<meta name="twitter:description" content="我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.  ¶1、修改ROOT密码 1sudo passwd root ¶2、修改sshd_config文件 12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes ¶3、重启ssh就可以使用root正">
 
 
 
@@ -126,7 +126,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -335,13 +335,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -364,10 +357,15 @@
         <blockquote>
 <p>我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录.</p>
 </blockquote>
-<h2 id="1、修改ROOT密码"><a href="#1、修改ROOT密码" class="headerlink" title="1、修改ROOT密码"></a>1、修改ROOT密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo passwd root</div></pre></td></tr></table></figure>
-<h2 id="2、修改sshd-config文件"><a href="#2、修改sshd-config文件" class="headerlink" title="2、修改sshd_config文件"></a>2、修改sshd_config文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/ssh/sshd_config</div><div class="line"></div><div class="line"><span class="comment">#修改这2行</span></div><div class="line">PermitRootLogin yes</div><div class="line">PasswordAuthentication yes</div></pre></td></tr></table></figure>
-<h2 id="3、重启ssh就可以使用root正常登陆了"><a href="#3、重启ssh就可以使用root正常登陆了" class="headerlink" title="3、重启ssh就可以使用root正常登陆了"></a>3、重启<code>ssh</code>就可以使用root正常登陆了</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/sbin/service sshd restart</div></pre></td></tr></table></figure>
-<h2 id="4、登录工具"><a href="#4、登录工具" class="headerlink" title="4、登录工具"></a>4、登录工具</h2><p>pc可以使用：<code>SecureCRT</code><br>手机可以使用：<code>Serverauditor</code></p>
+<h2 id="1-修改root密码"><a class="header-anchor" href="#1-修改root密码">¶</a>1、修改ROOT密码</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo passwd root</div></pre></td></tr></table></figure>
+<h2 id="2-修改sshd-config文件"><a class="header-anchor" href="#2-修改sshd-config文件">¶</a>2、修改sshd_config文件</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/ssh/sshd_config</div><div class="line"></div><div class="line"><span class="comment">#修改这2行</span></div><div class="line">PermitRootLogin yes</div><div class="line">PasswordAuthentication yes</div></pre></td></tr></table></figure>
+<h2 id="3-重启ssh就可以使用root正常登陆了"><a class="header-anchor" href="#3-重启ssh就可以使用root正常登陆了">¶</a>3、重启<code>ssh</code>就可以使用root正常登陆了</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/sbin/service sshd restart</div></pre></td></tr></table></figure>
+<h2 id="4-登录工具"><a class="header-anchor" href="#4-登录工具">¶</a>4、登录工具</h2>
+<p>pc可以使用：<code>SecureCRT</code>	<br>
+手机可以使用：<code>Serverauditor</code></p>
 
       
     </div>
@@ -407,16 +405,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/" rel="next" title="ss用一段时间卡？vps定时重启试试">
-                <i class="fa fa-chevron-left"></i> ss用一段时间卡？vps定时重启试试
+              <a href="/2016/11/17/20161117-给VMware下的Linux扩展磁盘空间/" rel="next" title="给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）">
+                <i class="fa fa-chevron-left"></i> 给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/21/20161121-常用工具大集合-突发奇想更新中/" rel="prev" title="常用工具大集合(突发奇想更新中...)">
-                常用工具大集合(突发奇想更新中...) <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/" rel="prev" title="ss用一段时间卡？vps定时重启试试">
+                ss用一段时间卡？vps定时重启试试 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -439,18 +437,11 @@
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/"
-           data-title="亚马逊aws更改linux为root权限密码登陆" data-url="http://www.liyang.site/2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -594,7 +585,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、修改ROOT密码"><span class="nav-text">1、修改ROOT密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、修改sshd-config文件"><span class="nav-text">2、修改sshd_config文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、重启ssh就可以使用root正常登陆了"><span class="nav-text">3、重启ssh就可以使用root正常登陆了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、登录工具"><span class="nav-text">4、登录工具</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-修改root密码"><span class="nav-text">¶1、修改ROOT密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-修改sshd-config文件"><span class="nav-text">¶2、修改sshd_config文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重启ssh就可以使用root正常登陆了"><span class="nav-text">¶3、重启ssh就可以使用root正常登陆了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-登录工具"><span class="nav-text">¶4、登录工具</span></a></li></ol></div>
             
           </div>
         </section>
@@ -694,31 +685,23 @@
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

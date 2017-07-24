@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.怀疑是多次安装导致的，先卸载吧  1. 卸载wine及相关组件12yum remove wine*yum autoremove 2. 删除相关文件123~/.wine~/.local/share/applicat">
+<meta name="description" content="报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver. 怀疑是多次安装导致的，先卸载吧  ¶1. 卸载wine及相关组件 12yum remove wine*yum autoremove ¶2. 删除相关文件 123~/.wine~/.local/share/app">
 <meta name="keywords" content="centos,wine">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centOS彻底卸载wine">
 <meta property="og:url" content="http://www.liyang.site/2017/01/23/20170123-CentOS彻底卸载wine/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.怀疑是多次安装导致的，先卸载吧  1. 卸载wine及相关组件12yum remove wine*yum autoremove 2. 删除相关文件123~/.wine~/.local/share/applicat">
+<meta property="og:description" content="报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver. 怀疑是多次安装导致的，先卸载吧  ¶1. 卸载wine及相关组件 12yum remove wine*yum autoremove ¶2. 删除相关文件 123~/.wine~/.local/share/app">
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centOS彻底卸载wine">
-<meta name="twitter:description" content="报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.怀疑是多次安装导致的，先卸载吧  1. 卸载wine及相关组件12yum remove wine*yum autoremove 2. 删除相关文件123~/.wine~/.local/share/applicat">
+<meta name="twitter:description" content="报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver. 怀疑是多次安装导致的，先卸载吧  ¶1. 卸载wine及相关组件 12yum remove wine*yum autoremove ¶2. 删除相关文件 123~/.wine~/.local/share/app">
 
 
 
@@ -126,7 +126,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -335,13 +335,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/23/20170123-CentOS彻底卸载wine/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/23/20170123-CentOS彻底卸载wine/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -362,11 +355,15 @@
 
       
         <blockquote>
-<p>报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.<br>怀疑是多次安装导致的，先卸载吧</p>
+<p>报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.<br>
+怀疑是多次安装导致的，先卸载吧</p>
 </blockquote>
-<h3 id="1-卸载wine及相关组件"><a href="#1-卸载wine及相关组件" class="headerlink" title="1. 卸载wine及相关组件"></a>1. 卸载wine及相关组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum remove wine*</div><div class="line">yum autoremove</div></pre></td></tr></table></figure>
-<h3 id="2-删除相关文件"><a href="#2-删除相关文件" class="headerlink" title="2. 删除相关文件"></a>2. 删除相关文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~/.wine</div><div class="line">~/.<span class="built_in">local</span>/share/applications</div><div class="line">/usr/lib/wine</div></pre></td></tr></table></figure>
-<h3 id="3-搜索删除，然后根据情况删除"><a href="#3-搜索删除，然后根据情况删除" class="headerlink" title="3. 搜索删除，然后根据情况删除"></a>3. 搜索删除，然后根据情况删除</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find / -name *wine*</div></pre></td></tr></table></figure>
+<h3 id="1-卸载wine及相关组件"><a class="header-anchor" href="#1-卸载wine及相关组件">¶</a>1. 卸载wine及相关组件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum remove wine*</div><div class="line">yum autoremove</div></pre></td></tr></table></figure>
+<h3 id="2-删除相关文件"><a class="header-anchor" href="#2-删除相关文件">¶</a>2. 删除相关文件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~/.wine</div><div class="line">~/.<span class="built_in">local</span>/share/applications</div><div class="line">/usr/lib/wine</div></pre></td></tr></table></figure>
+<h3 id="3-搜索删除-然后根据情况删除"><a class="header-anchor" href="#3-搜索删除-然后根据情况删除">¶</a>3. 搜索删除，然后根据情况删除</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find / -name *wine*</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -431,18 +428,11 @@
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/23/20170123-CentOS彻底卸载wine/"
-           data-title="centOS彻底卸载wine" data-url="http://www.liyang.site/2017/01/23/20170123-CentOS彻底卸载wine/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -586,7 +576,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-卸载wine及相关组件"><span class="nav-text">1. 卸载wine及相关组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-删除相关文件"><span class="nav-text">2. 删除相关文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-搜索删除，然后根据情况删除"><span class="nav-text">3. 搜索删除，然后根据情况删除</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-卸载wine及相关组件"><span class="nav-text">¶1. 卸载wine及相关组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-删除相关文件"><span class="nav-text">¶2. 删除相关文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-搜索删除-然后根据情况删除"><span class="nav-text">¶3. 搜索删除，然后根据情况删除</span></a></li></ol></div>
             
           </div>
         </section>
@@ -686,31 +676,23 @@
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

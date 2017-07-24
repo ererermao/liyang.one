@@ -16,62 +16,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>centos使用外部smtp发送邮件</title>
-    <link href="http://www.liyang.site/2017/07/18/20161110-centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
-    <id>http://www.liyang.site/2017/07/18/20161110-centos使用外部smtp发送邮件/</id>
-    <published>2017-07-18T13:35:07.143Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
-    
-    <content type="html"><![CDATA[<p>在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。</p>
-<h2 id="1-安装mail"><a href="#1-安装mail" class="headerlink" title="1. 安装mail"></a>1. 安装mail</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install mailx  -y  <span class="comment"># -y 默认yes</span></div></pre></td></tr></table></figure>
-<h2 id="2-配置外部smtp发送邮件"><a href="#2-配置外部smtp发送邮件" class="headerlink" title="2. 配置外部smtp发送邮件"></a>2. 配置外部smtp发送邮件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vi /etc/mail.rc</div><div class="line"><span class="comment">## 新增以下</span></div><div class="line"><span class="built_in">set</span> from=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp=smtp.qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-user=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-password=XXXXXXXX</div><div class="line"><span class="built_in">set</span> smtp-auth=login</div></pre></td></tr></table></figure>
-<h2 id="3-发送邮件"><a href="#3-发送邮件" class="headerlink" title="3. 发送邮件"></a>3. 发送邮件</h2><h3 id="3-1-使用管道进行邮件发送"><a href="#3-1-使用管道进行邮件发送" class="headerlink" title="3.1 使用管道进行邮件发送"></a>3.1 使用管道进行邮件发送</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;hello&quot; | mail -s &quot;test&quot; XXXXX@qq.com</div></pre></td></tr></table></figure>
-<h3 id="3-2-使用文件进行邮件发送"><a href="#3-2-使用文件进行邮件发送" class="headerlink" title="3.2 使用文件进行邮件发送"></a>3.2 使用文件进行邮件发送</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
-<h3 id="3-3-发送附件"><a href="#3-3-发送附件" class="headerlink" title="3.3 发送附件"></a>3.3 发送附件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; -a /opt/b.txt XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。&lt;/p&gt;
-&lt;h2 id=&quot;1-安装mail&quot;&gt;&lt;a href=&quot;#1-安装mail&quot; class=&quot;headerlink&quot; title=&quot;1. 安装mail&quot;&gt;&lt;/
-    
-    </summary>
-    
-      <category term="centos" scheme="http://www.liyang.site/categories/centos/"/>
-    
-    
-      <category term="mail" scheme="http://www.liyang.site/tags/mail/"/>
-    
-      <category term="smtp" scheme="http://www.liyang.site/tags/smtp/"/>
-    
-      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
-    
-      <category term="邮件" scheme="http://www.liyang.site/tags/%E9%82%AE%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>.so文件缺失或大小为0</title>
     <link href="http://www.liyang.site/2017/05/08/20170508-so%E6%96%87%E4%BB%B6%E7%BC%BA%E5%A4%B1%E6%88%96%E5%A4%A7%E5%B0%8F%E4%B8%BA0/"/>
     <id>http://www.liyang.site/2017/05/08/20170508-so文件缺失或大小为0/</id>
     <published>2017-05-08T07:58:01.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、科普："><a href="#1、科普：" class="headerlink" title="1、科普："></a>1、科普：</h3><p>Linux中的.so文件类似于Windows中的DLL，是动态链接库，也有人译作共享库（因so的全称为Shared Object）。当多个程序使用同一个动态链接库时，既能节约可执行文件的大小，也能减少运行时的内存占用。</p>
-<h3 id="2、问题："><a href="#2、问题：" class="headerlink" title="2、问题："></a>2、问题：</h3><p>常见的错误日志：</p>
+    <content type="html"><![CDATA[<h3 id="1-科普："><a class="header-anchor" href="#1-科普：">¶</a>1、科普：</h3>
+<p>Linux中的.so文件类似于Windows中的DLL，是动态链接库，也有人译作共享库（因so的全称为Shared Object）。当多个程序使用同一个动态链接库时，既能节约可执行文件的大小，也能减少运行时的内存占用。</p>
+<h3 id="2-问题："><a class="header-anchor" href="#2-问题：">¶</a>2、问题：</h3>
+<p>常见的错误日志：</p>
 <ul>
-<li>lib<em>.so.</em> :file too short</li>
-<li>lib<em>.so.</em> is empty ,not checked</li>
+<li>lib*.so.* :file too short</li>
+<li>lib*.so.* is empty ,not checked</li>
 </ul>
-<h3 id="3、解决"><a href="#3、解决" class="headerlink" title="3、解决"></a>3、解决</h3><p>`</p>
-<p>#查询出目前有问题的.so文件<br>ldconfig </p>
-<p>#搜索该.so的所属软件包(如果没有搜索到直接谷歌：libasound)<br>pacman -Qo /usr/lib/libasound.so</p>
-<p>#重装<br>pacman -S –force alas-lib<br>`</p>
+<h3 id="3-解决"><a class="header-anchor" href="#3-解决">¶</a>3、解决</h3>
+<p><code>#查询出目前有问题的.so文件 ldconfig #搜索该.so的所属软件包(如果没有搜索到直接谷歌：libasound) pacman -Qo /usr/lib/libasound.so #重装 pacman -S --force alas-lib</code></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、科普：&quot;&gt;&lt;a href=&quot;#1、科普：&quot; class=&quot;headerlink&quot; title=&quot;1、科普：&quot;&gt;&lt;/a&gt;1、科普：&lt;/h3&gt;&lt;p&gt;Linux中的.so文件类似于Windows中的DLL，是动态链接库，也有人译作共享库（因so的全称为Shared 
+      &lt;h3 id=&quot;1-科普：&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-科普：&quot;&gt;¶&lt;/a&gt;1、科普：&lt;/h3&gt;
+&lt;p&gt;Linux中的.so文件类似于Windows中的DLL，是动态链接库，也有人译作共享库（因so的全称为Shared Object）。当
     
     </summary>
     
@@ -91,25 +57,45 @@
     <published>2017-05-04T11:48:01.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h3><p>博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。</p>
-<h3 id="2、环境搭建"><a href="#2、环境搭建" class="headerlink" title="2、环境搭建"></a>2、环境搭建</h3><p>我的nas是centos，所以一下为centos的命令</p>
-<h4 id="2-1-添加yum源"><a href="#2-1-添加yum源" class="headerlink" title="2.1 添加yum源"></a>2.1 添加yum源</h4><p><code>yum install epel-release</code></p>
-<h4 id="2-2-安装基础环境"><a href="#2-2-安装基础环境" class="headerlink" title="2.2 安装基础环境"></a>2.2 安装基础环境</h4><p><code>yum install nodejs npm</code></p>
-<h4 id="2-3-配置npm国内镜像"><a href="#2-3-配置npm国内镜像" class="headerlink" title="2.3 配置npm国内镜像"></a>2.3 配置npm国内镜像</h4><p><code>npm config set registry http://registry.npm.taobao.org</code></p>
-<h4 id="2-4-安装hexo"><a href="#2-4-安装hexo" class="headerlink" title="2.4 安装hexo"></a>2.4 安装hexo</h4><p><code>npm install -g hexo-cli</code></p>
-<h4 id="2-5-初始化hexo"><a href="#2-5-初始化hexo" class="headerlink" title="2.5 初始化hexo"></a>2.5 初始化hexo</h4><p><code>mkdir /opt/hexo &amp;&amp; cd /opt/hexo &amp;&amp; hexo init</code></p>
-<h3 id="3、迁移"><a href="#3、迁移" class="headerlink" title="3、迁移"></a>3、迁移</h3><h4 id="3-1-配置文件"><a href="#3-1-配置文件" class="headerlink" title="3.1 配置文件"></a>3.1 配置文件</h4><p>根目录下的<code>_config.yml</code>等等</p>
-<h4 id="3-2-主题"><a href="#3-2-主题" class="headerlink" title="3.2 主题"></a>3.2 主题</h4><p><code>themes\hexo</code> 复制整个文件夹</p>
-<h4 id="3-3-资源"><a href="#3-3-资源" class="headerlink" title="3.3 资源"></a>3.3 资源</h4><p>根目录<code>source</code>整个文件夹</p>
-<h4 id="3-4-一些功能"><a href="#3-4-一些功能" class="headerlink" title="3.4 一些功能"></a>3.4 一些功能</h4><h5 id="3-4-1-压缩"><a href="#3-4-1-压缩" class="headerlink" title="3.4.1 压缩"></a>3.4.1 压缩</h5><p>拷贝压缩的配置文件<code>gulpfile.js</code><br>安装插件：<br><code>npm install --global gulp 
-npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify-css gulp-minify-html gulp-rename gulp-shell gulp-uglify gulp-imagemin</code></p>
-<h5 id="3-4-2-sitemap网站地图"><a href="#3-4-2-sitemap网站地图" class="headerlink" title="3.4.2 sitemap网站地图"></a>3.4.2 sitemap网站地图</h5><p>文件在<code>source</code>文件夹里面，所以不用再拷贝了<br>安装插件：<br><code>npm install hexo-generator-sitemap hexo-generator-baidu-sitemap --save</code></p>
-<h5 id="3-4-3-搜索"><a href="#3-4-3-搜索" class="headerlink" title="3.4.3 搜索"></a>3.4.3 搜索</h5><p>配置在<code>_config.yml</code><br><code>npm install hexo-generator-searchdb</code></p>
+    <content type="html"><![CDATA[<h3 id="1-前言"><a class="header-anchor" href="#1-前言">¶</a>1、前言</h3>
+<p>博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。</p>
+<h3 id="2-环境搭建"><a class="header-anchor" href="#2-环境搭建">¶</a>2、环境搭建</h3>
+<p>我的nas是centos，所以一下为centos的命令</p>
+<h4 id="2-1-添加yum源"><a class="header-anchor" href="#2-1-添加yum源">¶</a>2.1 添加yum源</h4>
+<p><code>yum install epel-release</code></p>
+<h4 id="2-2-安装基础环境"><a class="header-anchor" href="#2-2-安装基础环境">¶</a>2.2 安装基础环境</h4>
+<p><code>yum install nodejs npm</code></p>
+<h4 id="2-3-配置npm国内镜像"><a class="header-anchor" href="#2-3-配置npm国内镜像">¶</a>2.3 配置npm国内镜像</h4>
+<p><code>npm config set registry http://registry.npm.taobao.org</code></p>
+<h4 id="2-4-安装hexo"><a class="header-anchor" href="#2-4-安装hexo">¶</a>2.4 安装hexo</h4>
+<p><code>npm install -g hexo-cli</code></p>
+<h4 id="2-5-初始化hexo"><a class="header-anchor" href="#2-5-初始化hexo">¶</a>2.5 初始化hexo</h4>
+<p><code>mkdir /opt/hexo &amp;&amp; cd /opt/hexo &amp;&amp; hexo init</code></p>
+<h3 id="3-迁移"><a class="header-anchor" href="#3-迁移">¶</a>3、迁移</h3>
+<h4 id="3-1-配置文件"><a class="header-anchor" href="#3-1-配置文件">¶</a>3.1 配置文件</h4>
+<p>根目录下的<code>_config.yml</code>等等</p>
+<h4 id="3-2-主题"><a class="header-anchor" href="#3-2-主题">¶</a>3.2 主题</h4>
+<p><code>themes\hexo</code> 复制整个文件夹</p>
+<h4 id="3-3-资源"><a class="header-anchor" href="#3-3-资源">¶</a>3.3 资源</h4>
+<p>根目录<code>source</code>整个文件夹</p>
+<h4 id="3-4-一些功能"><a class="header-anchor" href="#3-4-一些功能">¶</a>3.4 一些功能</h4>
+<h5 id="3-4-1-压缩"><a class="header-anchor" href="#3-4-1-压缩">¶</a>3.4.1 压缩</h5>
+<p>拷贝压缩的配置文件<code>gulpfile.js</code><br>
+安装插件：<br>
+<code>npm install --global gulp npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify-css gulp-minify-html gulp-rename gulp-shell gulp-uglify gulp-imagemin</code></p>
+<h5 id="3-4-2-sitemap网站地图"><a class="header-anchor" href="#3-4-2-sitemap网站地图">¶</a>3.4.2 sitemap网站地图</h5>
+<p>文件在<code>source</code>文件夹里面，所以不用再拷贝了<br>
+安装插件：<br>
+<code>npm install hexo-generator-sitemap hexo-generator-baidu-sitemap --save</code></p>
+<h5 id="3-4-3-搜索"><a class="header-anchor" href="#3-4-3-搜索">¶</a>3.4.3 搜索</h5>
+<p>配置在<code>_config.yml</code><br>
+<code>npm install hexo-generator-searchdb</code></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、前言&quot;&gt;&lt;a href=&quot;#1、前言&quot; class=&quot;headerlink&quot; title=&quot;1、前言&quot;&gt;&lt;/a&gt;1、前言&lt;/h3&gt;&lt;p&gt;博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面
+      &lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-前言&quot;&gt;¶&lt;/a&gt;1、前言&lt;/h3&gt;
+&lt;p&gt;博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一
     
     </summary>
     
@@ -129,13 +115,15 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
     <published>2017-04-27T11:20:01.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<p>centos6升级后python2.7后执行<code>easy_install --h</code>会有以下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ easy_install --h</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/easy_install&quot;, line 5, in &lt;module&gt;</div><div class="line">    from pkg_resources import load_entry_point</div><div class="line">ImportError: No module named pkg_resources</div></pre></td></tr></table></figure></p>
-<p>解决办法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c5.tar.gz</div><div class="line">$tar zxvf setuptools-0.6c5.tar.gz</div><div class="line">$cd setuptools-0.6c5</div><div class="line">$python setup.py install</div></pre></td></tr></table></figure></p>
-]]></content>
+    <content type="html"><![CDATA[<p>centos6升级后python2.7后执行<code>easy_install --h</code>会有以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ easy_install --h</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/easy_install&quot;, line 5, in &lt;module&gt;</div><div class="line">    from pkg_resources import load_entry_point</div><div class="line">ImportError: No module named pkg_resources</div></pre></td></tr></table></figure>
+<p>解决办法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c5.tar.gz</div><div class="line">$tar zxvf setuptools-0.6c5.tar.gz</div><div class="line">$cd setuptools-0.6c5</div><div class="line">$python setup.py install</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;centos6升级后python2.7后执行&lt;code&gt;easy_install --h&lt;/code&gt;会有以下错误：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div cla
+      &lt;p&gt;centos6升级后python2.7后执行&lt;code&gt;easy_install --h&lt;/code&gt;会有以下错误：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div cl
     
     </summary>
     
@@ -155,15 +143,20 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
     <published>2017-04-20T08:00:01.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、错误日志："><a href="#1、错误日志：" class="headerlink" title="1、错误日志："></a>1、错误日志：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">error: not found: value StorageLevel</div></pre></td></tr></table></figure>
-<h3 id="2、场景描述："><a href="#2、场景描述：" class="headerlink" title="2、场景描述："></a>2、场景描述：</h3><p>数据持久化的时候   </p>
-<h3 id="3、错误原因："><a href="#3、错误原因：" class="headerlink" title="3、错误原因："></a>3、错误原因：</h3><p>没有引用<code>StorageLevel</code>  </p>
-<h3 id="4、解决办法："><a href="#4、解决办法：" class="headerlink" title="4、解决办法："></a>4、解决办法：</h3><p> <code>import org.apache.spark.storage.StorageLevel</code>  </p>
+    <content type="html"><![CDATA[<h3 id="1-错误日志："><a class="header-anchor" href="#1-错误日志：">¶</a>1、错误日志：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">error: not found: value StorageLevel</div></pre></td></tr></table></figure>
+<h3 id="2-场景描述："><a class="header-anchor" href="#2-场景描述：">¶</a>2、场景描述：</h3>
+<p>数据持久化的时候</p>
+<h3 id="3-错误原因："><a class="header-anchor" href="#3-错误原因：">¶</a>3、错误原因：</h3>
+<p>没有引用<code>StorageLevel</code></p>
+<h3 id="4-解决办法："><a class="header-anchor" href="#4-解决办法：">¶</a>4、解决办法：</h3>
+<p><code>import org.apache.spark.storage.StorageLevel</code></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、错误日志：&quot;&gt;&lt;a href=&quot;#1、错误日志：&quot; class=&quot;headerlink&quot; title=&quot;1、错误日志：&quot;&gt;&lt;/a&gt;1、错误日志：&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
+      &lt;h3 id=&quot;1-错误日志：&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-错误日志：&quot;&gt;¶&lt;/a&gt;1、错误日志：&lt;/h3&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
     
     </summary>
     
@@ -185,19 +178,24 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
     
     <content type="html"><![CDATA[<blockquote>
 <p>记录一下遇到过的错误。</p>
-<h3 id="1、错误日志："><a href="#1、错误日志：" class="headerlink" title="1、错误日志："></a>1、错误日志：</h3></blockquote>
+</blockquote>
+<h3 id="1-错误日志："><a class="header-anchor" href="#1-错误日志：">¶</a>1、错误日志：</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;console&gt;:10: error: not found: value sqlContext  </div><div class="line">       import sqlContext.implicits._  </div><div class="line">              ^</div><div class="line">&lt;console&gt;:10: error: not found: value sqlContext  </div><div class="line">       import sqlContext.sql</div></pre></td></tr></table></figure>
-<h3 id="2、场景描述："><a href="#2、场景描述：" class="headerlink" title="2、场景描述："></a>2、场景描述：</h3><p> <code>spark-shell</code>进入后，报出的错误。  </p>
-<h3 id="3、错误原因："><a href="#3、错误原因：" class="headerlink" title="3、错误原因："></a>3、错误原因：</h3><p>由于没有<code>spark-shell</code>不会自动创建<code>sqlContext</code>，<code>pyspark</code>会自动创建  </p>
-<h3 id="4、解决办法："><a href="#4、解决办法：" class="headerlink" title="4、解决办法："></a>4、解决办法：</h3><p>初始化<code>sqlContext</code>，如下：</p>
+<h3 id="2-场景描述："><a class="header-anchor" href="#2-场景描述：">¶</a>2、场景描述：</h3>
+<p><code>spark-shell</code>进入后，报出的错误。</p>
+<h3 id="3-错误原因："><a class="header-anchor" href="#3-错误原因：">¶</a>3、错误原因：</h3>
+<p>由于没有<code>spark-shell</code>不会自动创建<code>sqlContext</code>，<code>pyspark</code>会自动创建</p>
+<h3 id="4-解决办法："><a class="header-anchor" href="#4-解决办法：">¶</a>4、解决办法：</h3>
+<p>初始化<code>sqlContext</code>，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import org.apache.spark.SparkConf</div><div class="line">import org.apache.spark.SparkContext</div><div class="line">import org.apache.spark.SparkContext._</div><div class="line">val conf = new SparkConf().setMaster(&quot;local&quot;).setAppName(&quot;My App&quot;)</div><div class="line">val sc = new SparkContext(conf)</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
 &lt;p&gt;记录一下遇到过的错误。&lt;/p&gt;
-&lt;h3 id=&quot;1、错误日志：&quot;&gt;&lt;a href=&quot;#1、错误日志：&quot; class=&quot;headerlink&quot; title=&quot;1、错误日志：&quot;&gt;&lt;/a&gt;1、错误日志：&lt;/h3&gt;&lt;/blockquote&gt;
-&lt;figure
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1-错误日志：&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-错误日志：&quot;&gt;¶&lt;/a&gt;1、错误日志：&lt;/h3&gt;
+&lt;figure class=&quot;hig
     
     </summary>
     
@@ -217,11 +215,15 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
     <published>2017-04-19T08:00:01.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、错误日志："><a href="#1、错误日志：" class="headerlink" title="1、错误日志："></a>1、错误日志：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Address already in use</div><div class="line"></div><div class="line">or</div><div class="line"></div><div class="line">Utils: Service &apos;SparkUI&apos; could not bind on port 4040. Attempting port 4041.</div></pre></td></tr></table></figure>
-<h3 id="2、场景描述："><a href="#2、场景描述：" class="headerlink" title="2、场景描述："></a>2、场景描述：</h3><p>初始化<code>sqlContext</code>的时候  </p>
-<h3 id="3、错误原因："><a href="#3、错误原因：" class="headerlink" title="3、错误原因："></a>3、错误原因：</h3><p>每一个Spark任务都会占用一个SparkUI端口，默认为4040，如果被占用则依次递增端口重试。但是有个默认重试次数，重试都失败后，会放弃该任务的运行      </p>
-<h3 id="4、解决办法："><a href="#4、解决办法：" class="headerlink" title="4、解决办法："></a>4、解决办法：</h3><ul>
-<li>初始化SparkConf时，添加<code>conf.set(“spark.port.maxRetries”,“100”)</code>语句  </li>
+    <content type="html"><![CDATA[<h3 id="1-错误日志："><a class="header-anchor" href="#1-错误日志：">¶</a>1、错误日志：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Address already in use</div><div class="line"></div><div class="line">or</div><div class="line"></div><div class="line">Utils: Service &apos;SparkUI&apos; could not bind on port 4040. Attempting port 4041.</div></pre></td></tr></table></figure>
+<h3 id="2-场景描述："><a class="header-anchor" href="#2-场景描述：">¶</a>2、场景描述：</h3>
+<p>初始化<code>sqlContext</code>的时候</p>
+<h3 id="3-错误原因："><a class="header-anchor" href="#3-错误原因：">¶</a>3、错误原因：</h3>
+<p>每一个Spark任务都会占用一个SparkUI端口，默认为4040，如果被占用则依次递增端口重试。但是有个默认重试次数，重试都失败后，会放弃该任务的运行</p>
+<h3 id="4-解决办法："><a class="header-anchor" href="#4-解决办法：">¶</a>4、解决办法：</h3>
+<ul>
+<li>初始化SparkConf时，添加<code>conf.set(“spark.port.maxRetries”,“100”)</code>语句</li>
 <li>使用spark-submit提交任务时，在命令行中添加<code>-Dspark.port.maxRetries=100</code></li>
 <li>在spark-defaults.conf中添加<code>spark.port.maxRetries 100</code></li>
 </ul>
@@ -229,7 +231,8 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、错误日志：&quot;&gt;&lt;a href=&quot;#1、错误日志：&quot; class=&quot;headerlink&quot; title=&quot;1、错误日志：&quot;&gt;&lt;/a&gt;1、错误日志：&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
+      &lt;h3 id=&quot;1-错误日志：&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-错误日志：&quot;&gt;¶&lt;/a&gt;1、错误日志：&lt;/h3&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
     
     </summary>
     
@@ -249,14 +252,18 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
     <published>2017-04-13T07:35:01.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、错误日志："><a href="#1、错误日志：" class="headerlink" title="1、错误日志："></a>1、错误日志：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Caught throwable while processing event M_SERVER_SHUTDOWN</div></pre></td></tr></table></figure>
-<h3 id="2、场景描述："><a href="#2、场景描述：" class="headerlink" title="2、场景描述："></a>2、场景描述：</h3><p>集群能正常启动，但是hbase master启动后过会就挂掉了  </p>
-<h3 id="3、解决办法："><a href="#3、解决办法：" class="headerlink" title="3、解决办法："></a>3、解决办法：</h3><p>删除hdfs上hbase根目录下的<code>WALs</code>文件夹</p>
+    <content type="html"><![CDATA[<h3 id="1-错误日志："><a class="header-anchor" href="#1-错误日志：">¶</a>1、错误日志：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Caught throwable while processing event M_SERVER_SHUTDOWN</div></pre></td></tr></table></figure>
+<h3 id="2-场景描述："><a class="header-anchor" href="#2-场景描述：">¶</a>2、场景描述：</h3>
+<p>集群能正常启动，但是hbase master启动后过会就挂掉了</p>
+<h3 id="3-解决办法："><a class="header-anchor" href="#3-解决办法：">¶</a>3、解决办法：</h3>
+<p>删除hdfs上hbase根目录下的<code>WALs</code>文件夹</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、错误日志：&quot;&gt;&lt;a href=&quot;#1、错误日志：&quot; class=&quot;headerlink&quot; title=&quot;1、错误日志：&quot;&gt;&lt;/a&gt;1、错误日志：&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
+      &lt;h3 id=&quot;1-错误日志：&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-错误日志：&quot;&gt;¶&lt;/a&gt;1、错误日志：&lt;/h3&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
     
     </summary>
     
@@ -276,18 +283,25 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
     <published>2017-03-31T10:35:01.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、问题"><a href="#1、问题" class="headerlink" title="1、问题"></a>1、问题</h3><p>由于一些情况，需要使用wine。而wine又是32位程序，如果直接用yaourt会报错一些错误：lib target not found （各种lib32-xxx等等）</p>
-<h3 id="2、原因"><a href="#2、原因" class="headerlink" title="2、原因"></a>2、原因</h3><p>arch64位系统默认是关闭<code>Multilib</code>仓库的.<br>arch官方的一些对<code>Multilib</code>一些解释：<br>multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 位程序。<br>启用 multilib 的 64 位系统使用了类似 Debian 的目录结构。 32位库位于 <code>/usr/lib32/</code>, 而64位库位于<code>/usr/lib/</code>.</p>
-<h3 id="3、解决"><a href="#3、解决" class="headerlink" title="3、解决"></a>3、解决</h3><p>编辑<code>/etc/pacman.conf</code>,取消下面内容的注释<br><code>[multilib]
-Include = /etc/pacman.d/mirrorlist</code></p>
+    <content type="html"><![CDATA[<h3 id="1-问题"><a class="header-anchor" href="#1-问题">¶</a>1、问题</h3>
+<p>由于一些情况，需要使用wine。而wine又是32位程序，如果直接用yaourt会报错一些错误：lib target not found （各种lib32-xxx等等）</p>
+<h3 id="2-原因"><a class="header-anchor" href="#2-原因">¶</a>2、原因</h3>
+<p>arch64位系统默认是关闭<code>Multilib</code>仓库的.<br>
+arch官方的一些对<code>Multilib</code>一些解释：<br>
+multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 位程序。<br>
+启用 multilib 的 64 位系统使用了类似 Debian 的目录结构。 32位库位于 <code>/usr/lib32/</code>, 而64位库位于<code>/usr/lib/</code>.</p>
+<h3 id="3-解决"><a class="header-anchor" href="#3-解决">¶</a>3、解决</h3>
+<p>编辑<code>/etc/pacman.conf</code>,取消下面内容的注释<br>
+<code>[multilib] Include = /etc/pacman.d/mirrorlist</code></p>
 <blockquote>
-<p>更多详情参考:<a href="https://wiki.archlinux.org/index.php/Multilib_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">arch官方wiki</a>)</p>
+<p>更多详情参考:<a href="https://wiki.archlinux.org/index.php/Multilib_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="external">arch官方wiki</a></p>
 </blockquote>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、问题&quot;&gt;&lt;a href=&quot;#1、问题&quot; class=&quot;headerlink&quot; title=&quot;1、问题&quot;&gt;&lt;/a&gt;1、问题&lt;/h3&gt;&lt;p&gt;由于一些情况，需要使用wine。而wine又是32位程序，如果直接用yaourt会报错一些错误：lib target not
+      &lt;h3 id=&quot;1-问题&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-问题&quot;&gt;¶&lt;/a&gt;1、问题&lt;/h3&gt;
+&lt;p&gt;由于一些情况，需要使用wine。而wine又是32位程序，如果直接用yaourt会报错一些错误：lib target not found （
     
     </summary>
     
@@ -305,14 +319,20 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <published>2017-03-30T10:35:01.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<p>之前一直用centos系统，由于与服务器一致。后面发现日常用还是不够理想，后面来换arch。发现一个作者的几篇文章不错，收藏一下。由于作者谢绝转载。<br>以下为访问地址：</p>
-<p><a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-1.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-1.md</a><br><a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-2.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-2.md</a><br><a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-3.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-3.md</a><br><a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-4.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-4.md</a><br><a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-5.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-5.md</a></p>
+    <content type="html"><![CDATA[<p>之前一直用centos系统，由于与服务器一致。后面发现日常用还是不够理想，后面来换arch。发现一个作者的几篇文章不错，收藏一下。由于作者谢绝转载。<br>
+以下为访问地址：</p>
+<p><a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-1.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-1.md</a><br>
+<a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-2.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-2.md</a><br>
+<a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-3.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-3.md</a><br>
+<a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-4.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-4.md</a><br>
+<a href="https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-5.md" target="_blank" rel="external">https://github.com/LinuxTOY/linuxtoy.org/blob/master/content/the-perfect-linux-desktop-arch-linux-2007-08-2-5.md</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;之前一直用centos系统，由于与服务器一致。后面发现日常用还是不够理想，后面来换arch。发现一个作者的几篇文章不错，收藏一下。由于作者谢绝转载。&lt;br&gt;以下为访问地址：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/LinuxTOY/linuxt
+      &lt;p&gt;之前一直用centos系统，由于与服务器一致。后面发现日常用还是不够理想，后面来换arch。发现一个作者的几篇文章不错，收藏一下。由于作者谢绝转载。&lt;br&gt;
+以下为访问地址：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/LinuxTOY/linux
     
     </summary>
     
@@ -331,22 +351,44 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。<br>不废话了，直接记录操作的过程</p>
+<p>测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。<br>
+不废话了，直接记录操作的过程</p>
 </blockquote>
-<h3 id="1、停止各个机器上的相关服务"><a href="#1、停止各个机器上的相关服务" class="headerlink" title="1、停止各个机器上的相关服务"></a>1、停止各个机器上的相关服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-agent stop  </div><div class="line">service cloudera-scm-server stop</div></pre></td></tr></table></figure>
-<h3 id="2、修改托管服务数据库中的配置"><a href="#2、修改托管服务数据库中的配置" class="headerlink" title="2、修改托管服务数据库中的配置"></a>2、修改托管服务数据库中的配置</h3><p>修改<font color="Red"><code>HOSTS</code></font> 表中的 <font color="LimeGreen"><code>ip_adderss</code></font></p>
+<h3 id="1-停止各个机器上的相关服务"><a class="header-anchor" href="#1-停止各个机器上的相关服务">¶</a>1、停止各个机器上的相关服务</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-agent stop  </div><div class="line">service cloudera-scm-server stop</div></pre></td></tr></table></figure>
+<h3 id="2-修改托管服务数据库中的配置"><a class="header-anchor" href="#2-修改托管服务数据库中的配置">¶</a>2、修改托管服务数据库中的配置</h3>
+<p>修改<font color="Red"><code>HOSTS</code></font> 表中的 <font color="LimeGreen"><code>ip_adderss</code></font></p>
 <p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022701.png" alt="image"></p>
-<h3 id="3、修改config-ini"><a href="#3、修改config-ini" class="headerlink" title="3、修改config.ini"></a>3、修改config.ini</h3><p>修改<font color="Red"><code>clouder-mager</code></font>服务机器上面<font color="Red"><code>config.ini</code></font>中：<font color="Red"><code>server_host</code></font><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">vi /etc/cloudera-scm-agent/config.ini</span></div><div class="line"></div><div class="line">[General]</div><div class="line"><span class="meta">#</span><span class="bash"> Hostname of the CM server.</span></div><div class="line">server_host=172.16.8.202</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> Port that the CM server is listening on.</span></div><div class="line">server_port=7182</div><div class="line">......</div></pre></td></tr></table></figure></p>
-<h3 id="4、修改hosts"><a href="#4、修改hosts" class="headerlink" title="4、修改hosts"></a>4、修改hosts</h3><p>修改hosts，并scp到其他机器</p>
+<h3 id="3-修改config-ini"><a class="header-anchor" href="#3-修改config-ini">¶</a>3、修改config.ini</h3>
+<p>修改<font color="Red"><code>clouder-mager</code></font>服务机器上面<font color="Red"><code>config.ini</code></font>中：<font color="Red"><code>server_host</code></font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">vi /etc/cloudera-scm-agent/config.ini</span></div><div class="line"></div><div class="line">[General]</div><div class="line"><span class="meta">#</span><span class="bash"> Hostname of the CM server.</span></div><div class="line">server_host=172.16.8.202</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> Port that the CM server is listening on.</span></div><div class="line">server_port=7182</div><div class="line">......</div></pre></td></tr></table></figure>
+<h3 id="4-修改hosts"><a class="header-anchor" href="#4-修改hosts">¶</a>4、修改hosts</h3>
+<p>修改hosts，并scp到其他机器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> vi /etc/hosts</span></div><div class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line"></div><div class="line"></div><div class="line">172.16.8.201 kvm</div><div class="line">172.16.8.202 cdh.scm</div><div class="line">172.16.8.203 cdh.master</div><div class="line">172.16.8.204 cdh.slave01</div><div class="line">172.16.8.205 cdh.slave02</div><div class="line">172.16.8.206 cdh.slave03</div><div class="line"></div><div class="line">[root@kvm ~]# scp /etc/hosts 172.16.3.202:/etc/hosts</div><div class="line">The authenticity of host '172.16.3.202 (172.16.3.202)' can't be established.</div><div class="line">RSA key fingerprint is a2:84:e0:da:bf:a9:a2:83:5f:d0:d0:a2:04:02:eb:cb.</div><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div><div class="line">Warning: Permanently added '172.16.3.202' (RSA) to the list of known hosts.</div><div class="line">root@172.16.3.202's password: </div><div class="line">hosts                                                                                                                                                    100%  298     0.3KB/s   00:00</div></pre></td></tr></table></figure>
-<h3 id="5、启动各个机器上的相关服务"><a href="#5、启动各个机器上的相关服务" class="headerlink" title="5、启动各个机器上的相关服务"></a>5、启动各个机器上的相关服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-agent start</div><div class="line">service cloudera-scm-server start</div></pre></td></tr></table></figure>
-<p>启动过程可能有点慢，可以查看日志，当出现了以下即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># tail -f  /var/log/cloudera-scm-server/cloudera-scm-server.log</div><div class="line"></div><div class="line">2017-02-24 21:38:36,288 INFO WebServerImpl:org.mortbay.log: jetty-6.1.26.cloudera.4</div><div class="line">2017-02-24 21:38:36,296 INFO WebServerImpl:org.mortbay.log: Started SelectChannelConnector@0.0.0.0:7180</div><div class="line">2017-02-24 21:38:36,297 INFO WebServerImpl:com.cloudera.server.cmf.WebServerImpl: Started Jetty server.</div></pre></td></tr></table></figure></p>
-<h3 id="6、运行升级向导"><a href="#6、运行升级向导" class="headerlink" title="6、运行升级向导"></a>6、运行升级向导</h3><p>安装下图进行升级向导<br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022702.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022703.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022704.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022705.png" alt="image"></p>
-<p>等待一会就好，如果有错误看错误日志。<br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022706.png" alt="image"></p>
-<h3 id="7、更新配置文件"><a href="#7、更新配置文件" class="headerlink" title="7、更新配置文件"></a>7、更新配置文件</h3><h4 id="7-1-更新clouder-magerment-service-过去配置"><a href="#7-1-更新clouder-magerment-service-过去配置" class="headerlink" title="7.1 更新clouder magerment service 过去配置"></a>7.1 更新clouder magerment service 过去配置</h4><p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022707.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022708.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022709.png" alt="image"></p>
-<h4 id="7-2-更新集群过期配置"><a href="#7-2-更新集群过期配置" class="headerlink" title="7.2 更新集群过期配置"></a>7.2 更新集群过期配置</h4><p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022711.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022710.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022712.png" alt="image"></p>
+<h3 id="5-启动各个机器上的相关服务"><a class="header-anchor" href="#5-启动各个机器上的相关服务">¶</a>5、启动各个机器上的相关服务</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-agent start</div><div class="line">service cloudera-scm-server start</div></pre></td></tr></table></figure>
+<p>启动过程可能有点慢，可以查看日志，当出现了以下即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># tail -f  /var/log/cloudera-scm-server/cloudera-scm-server.log</div><div class="line"></div><div class="line">2017-02-24 21:38:36,288 INFO WebServerImpl:org.mortbay.log: jetty-6.1.26.cloudera.4</div><div class="line">2017-02-24 21:38:36,296 INFO WebServerImpl:org.mortbay.log: Started SelectChannelConnector@0.0.0.0:7180</div><div class="line">2017-02-24 21:38:36,297 INFO WebServerImpl:com.cloudera.server.cmf.WebServerImpl: Started Jetty server.</div></pre></td></tr></table></figure>
+<h3 id="6-运行升级向导"><a class="header-anchor" href="#6-运行升级向导">¶</a>6、运行升级向导</h3>
+<p>安装下图进行升级向导<br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022702.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022703.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022704.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022705.png" alt="image"></p>
+<p>等待一会就好，如果有错误看错误日志。<br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022706.png" alt="image"></p>
+<h3 id="7-更新配置文件"><a class="header-anchor" href="#7-更新配置文件">¶</a>7、更新配置文件</h3>
+<h4 id="7-1-更新clouder-magerment-service-过去配置"><a class="header-anchor" href="#7-1-更新clouder-magerment-service-过去配置">¶</a>7.1 更新clouder magerment service 过去配置</h4>
+<p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022707.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022708.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022709.png" alt="image"></p>
+<h4 id="7-2-更新集群过期配置"><a class="header-anchor" href="#7-2-更新集群过期配置">¶</a>7.2 更新集群过期配置</h4>
+<p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022711.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022710.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022712.png" alt="image"></p>
 <p>等待一会就好</p>
-<h3 id="8、完成并测试一下"><a href="#8、完成并测试一下" class="headerlink" title="8、完成并测试一下"></a>8、完成并测试一下</h3><p>随便测试一下好了，就hive吧</p>
+<h3 id="8-完成并测试一下"><a class="header-anchor" href="#8-完成并测试一下">¶</a>8、完成并测试一下</h3>
+<p>随便测试一下好了，就hive吧</p>
 <p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022713.png" alt="image"></p>
 <p>ok</p>
 ]]></content>
@@ -354,18 +396,19 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。&lt;br&gt;不废话了，直接记录操作的过程&lt;/p&gt;
+&lt;p&gt;测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。&lt;br&gt;
+不废话了，直接记录操作的过程&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;1、停止各个机器上的相关服务&quot;&gt;&lt;a href=&quot;#1、停止各
+&lt;h3 id=&quot;1-停止各个机器上的相关服务&quot;&gt;&lt;a class=&quot;head
     
     </summary>
     
       <category term="hadoop" scheme="http://www.liyang.site/categories/hadoop/"/>
     
     
-      <category term="hadoop" scheme="http://www.liyang.site/tags/hadoop/"/>
-    
       <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
+    
+      <category term="hadoop" scheme="http://www.liyang.site/tags/hadoop/"/>
     
       <category term="cloudera-manger" scheme="http://www.liyang.site/tags/cloudera-manger/"/>
     
@@ -381,16 +424,24 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <content type="html"><![CDATA[<blockquote>
 <p>很奇怪的一天，hive命令行执行就正常,hive-server2执行就报错。以下是我的问题记录以及谷歌到的解决办法。</p>
 </blockquote>
-<h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>hive客户端在执行带有join语句的时候,会报错：</p>
-<h4 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h4><p>控制台报的错<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask (state=08S01,code=1)</div></pre></td></tr></table></figure></p>
-<h4 id="1-2-hive-server2-log"><a href="#1-2-hive-server2-log" class="headerlink" title="1.2 hive-server2.log"></a>1.2 hive-server2.log</h4><p>日志文件中报的错<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">2017-02-21 15:15:41,689 ERROR [HiveServer2-Background-Pool: Thread-2064]: mr.MapredLocalTask (MapredLocalTask.java:executeInChildVM(318)) - Exception: java.io.IOException: Cannot run program "/usr/lib/hadoop/bin/hadoop" (in directory "/root"): error=13, Permission denied</div><div class="line">java.io.IOException: Cannot run program "/usr/lib/hadoop/bin/hadoop" (in directory "/root"): error=13, Permission denied</div><div class="line">        at java.lang.ProcessBuilder.start(ProcessBuilder.java:1047)</div><div class="line">        at java.lang.Runtime.exec(Runtime.java:617)</div><div class="line">        at java.lang.Runtime.exec(Runtime.java:450)</div><div class="line">        at org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask.executeInChildVM(MapredLocalTask.java:291)</div><div class="line">        at org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask.execute(MapredLocalTask.java:140)</div><div class="line">        at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:160)</div><div class="line">        at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:88)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.launchTask(Driver.java:1638)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:1398)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1182)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1048)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1043)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation.runQuery(SQLOperation.java:144)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation.access$100(SQLOperation.java:69)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation$1$1.run(SQLOperation.java:196)</div><div class="line">        at java.security.AccessController.doPrivileged(Native Method)</div><div class="line">        at javax.security.auth.Subject.doAs(Subject.java:415)</div><div class="line">        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1671)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation$1.run(SQLOperation.java:208)</div><div class="line">        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)</div><div class="line">        at java.util.concurrent.FutureTask.run(FutureTask.java:262)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)</div><div class="line">        at java.lang.Thread.run(Thread.java:745)</div><div class="line">Caused by: java.io.IOException: error=13, Permission denied</div><div class="line">        at java.lang.UNIXProcess.forkAndExec(Native Method)</div><div class="line">        at java.lang.UNIXProcess.&lt;init&gt;(UNIXProcess.java:186)</div><div class="line">        at java.lang.ProcessImpl.start(ProcessImpl.java:130)</div><div class="line">        at java.lang.ProcessBuilder.start(ProcessBuilder.java:1028)</div><div class="line">        ... 23 more</div><div class="line">2017-02-21 15:15:41,690 ERROR [HiveServer2-Background-Pool: Thread-2064]: ql.Driver (SessionState.java:printError(921)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask</div><div class="line">2017-02-21 15:15:41,690 ERROR [HiveServer2-Background-Pool: Thread-2064]: operation.Operation (SQLOperation.java:run(199)) - Error running hive query: </div><div class="line">org.apache.hive.service.cli.HiveSQLException: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask</div><div class="line">        at org.apache.hive.service.cli.operation.Operation.toSQLException(Operation.java:315)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation.runQuery(SQLOperation.java:146)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation.access$100(SQLOperation.java:69)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation$1$1.run(SQLOperation.java:196)</div><div class="line">        at java.security.AccessController.doPrivileged(Native Method)</div><div class="line">        at javax.security.auth.Subject.doAs(Subject.java:415)</div><div class="line">        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1671)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation$1.run(SQLOperation.java:208)</div><div class="line">        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)</div><div class="line">        at java.util.concurrent.FutureTask.run(FutureTask.java:262)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)</div><div class="line">        at java.lang.Thread.run(Thread.java:745)</div></pre></td></tr></table></figure></p>
-<h3 id="2、分析以及解决"><a href="#2、分析以及解决" class="headerlink" title="2、分析以及解决"></a>2、分析以及解决</h3><p>首先注意到是MapredLocalTask，开启了本地模式。那关闭本地模式试一下，<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set hive.exec.mode.local.auto=false;</div></pre></td></tr></table></figure></p>
+<h3 id="1-问题描述"><a class="header-anchor" href="#1-问题描述">¶</a>1、问题描述</h3>
+<p>hive客户端在执行带有join语句的时候,会报错：</p>
+<h4 id="1-1"><a class="header-anchor" href="#1-1">¶</a>1.1</h4>
+<p>控制台报的错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask (state=08S01,code=1)</div></pre></td></tr></table></figure>
+<h4 id="1-2-hive-server2-log"><a class="header-anchor" href="#1-2-hive-server2-log">¶</a>1.2 hive-server2.log</h4>
+<p>日志文件中报的错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">2017-02-21 15:15:41,689 ERROR [HiveServer2-Background-Pool: Thread-2064]: mr.MapredLocalTask (MapredLocalTask.java:executeInChildVM(318)) - Exception: java.io.IOException: Cannot run program "/usr/lib/hadoop/bin/hadoop" (in directory "/root"): error=13, Permission denied</div><div class="line">java.io.IOException: Cannot run program "/usr/lib/hadoop/bin/hadoop" (in directory "/root"): error=13, Permission denied</div><div class="line">        at java.lang.ProcessBuilder.start(ProcessBuilder.java:1047)</div><div class="line">        at java.lang.Runtime.exec(Runtime.java:617)</div><div class="line">        at java.lang.Runtime.exec(Runtime.java:450)</div><div class="line">        at org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask.executeInChildVM(MapredLocalTask.java:291)</div><div class="line">        at org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask.execute(MapredLocalTask.java:140)</div><div class="line">        at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:160)</div><div class="line">        at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:88)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.launchTask(Driver.java:1638)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:1398)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1182)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1048)</div><div class="line">        at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1043)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation.runQuery(SQLOperation.java:144)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation.access$100(SQLOperation.java:69)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation$1$1.run(SQLOperation.java:196)</div><div class="line">        at java.security.AccessController.doPrivileged(Native Method)</div><div class="line">        at javax.security.auth.Subject.doAs(Subject.java:415)</div><div class="line">        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1671)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation$1.run(SQLOperation.java:208)</div><div class="line">        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)</div><div class="line">        at java.util.concurrent.FutureTask.run(FutureTask.java:262)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)</div><div class="line">        at java.lang.Thread.run(Thread.java:745)</div><div class="line">Caused by: java.io.IOException: error=13, Permission denied</div><div class="line">        at java.lang.UNIXProcess.forkAndExec(Native Method)</div><div class="line">        at java.lang.UNIXProcess.&lt;init&gt;(UNIXProcess.java:186)</div><div class="line">        at java.lang.ProcessImpl.start(ProcessImpl.java:130)</div><div class="line">        at java.lang.ProcessBuilder.start(ProcessBuilder.java:1028)</div><div class="line">        ... 23 more</div><div class="line">2017-02-21 15:15:41,690 ERROR [HiveServer2-Background-Pool: Thread-2064]: ql.Driver (SessionState.java:printError(921)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask</div><div class="line">2017-02-21 15:15:41,690 ERROR [HiveServer2-Background-Pool: Thread-2064]: operation.Operation (SQLOperation.java:run(199)) - Error running hive query: </div><div class="line">org.apache.hive.service.cli.HiveSQLException: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.mr.MapredLocalTask</div><div class="line">        at org.apache.hive.service.cli.operation.Operation.toSQLException(Operation.java:315)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation.runQuery(SQLOperation.java:146)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation.access$100(SQLOperation.java:69)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation$1$1.run(SQLOperation.java:196)</div><div class="line">        at java.security.AccessController.doPrivileged(Native Method)</div><div class="line">        at javax.security.auth.Subject.doAs(Subject.java:415)</div><div class="line">        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1671)</div><div class="line">        at org.apache.hive.service.cli.operation.SQLOperation$1.run(SQLOperation.java:208)</div><div class="line">        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)</div><div class="line">        at java.util.concurrent.FutureTask.run(FutureTask.java:262)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)</div><div class="line">        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)</div><div class="line">        at java.lang.Thread.run(Thread.java:745)</div></pre></td></tr></table></figure>
+<h3 id="2-分析以及解决"><a class="header-anchor" href="#2-分析以及解决">¶</a>2、分析以及解决</h3>
+<p>首先注意到是MapredLocalTask，开启了本地模式。那关闭本地模式试一下，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set hive.exec.mode.local.auto=false;</div></pre></td></tr></table></figure>
 <p>结果还是报相同错误，只能从其他方面考虑。</p>
-<p>在默认情况下，hive的join策略是进行reduce side join，但是当两个表中有一个是小表的时候，就会使用map join，把其中较小的一个表复制到所有节点，这样另一个表在每个节点上面的分片就可以跟这个完整的表join。<br>分析这个问题，job使用map join时可能造成内存溢出，关闭其自动装换尝试一下。</p>
+<p>在默认情况下，hive的join策略是进行reduce side join，但是当两个表中有一个是小表的时候，就会使用map join，把其中较小的一个表复制到所有节点，这样另一个表在每个节点上面的分片就可以跟这个完整的表join。<br>
+分析这个问题，job使用map join时可能造成内存溢出，关闭其自动装换尝试一下。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set hive.auto.convert.join = false;</div></pre></td></tr></table></figure>
 <p>果然ok了。</p>
 <blockquote>
-<p> <a href="http://wzktravel.github.io/2016/08/22/hive-join-problem" target="_blank" rel="external">参考</a></p>
+<p><a href="http://wzktravel.github.io/2016/08/22/hive-join-problem" target="_blank" rel="external">参考</a></p>
 </blockquote>
 ]]></content>
     
@@ -399,7 +450,7 @@ Include = /etc/pacman.d/mirrorlist</code></p>
       &lt;blockquote&gt;
 &lt;p&gt;很奇怪的一天，hive命令行执行就正常,hive-server2执行就报错。以下是我的问题记录以及谷歌到的解决办法。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;1、问题描述&quot;&gt;&lt;a href=&quot;#1、问题描述&quot; class=&quot;header
+&lt;h3 id=&quot;1-问题描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;
     
     </summary>
     
@@ -421,19 +472,27 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <published>2017-02-15T06:26:25.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、安装lxml时报错"><a href="#1、安装lxml时报错" class="headerlink" title="1、安装lxml时报错"></a>1、安装lxml时报错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install lsml</div></pre></td></tr></table></figure>
-<p>错入信息如下：<br><img src="http://og20qmy78.bkt.clouddn.com/image/2017021501.png" alt="image"></p>
-<h3 id="2、安装libxml2"><a href="#2、安装libxml2" class="headerlink" title="2、安装libxml2"></a>2、安装libxml2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install libxml2</div></pre></td></tr></table></figure>
-<h3 id="3、重新安装lxml"><a href="#3、重新安装lxml" class="headerlink" title="3、重新安装lxml"></a>3、重新安装lxml</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install lxml</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h3 id="1-安装lxml时报错"><a class="header-anchor" href="#1-安装lxml时报错">¶</a>1、安装lxml时报错</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install lsml</div></pre></td></tr></table></figure>
+<p>错入信息如下：<br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017021501.png" alt="image"></p>
+<h3 id="2-安装libxml2"><a class="header-anchor" href="#2-安装libxml2">¶</a>2、安装libxml2</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install libxml2</div></pre></td></tr></table></figure>
+<h3 id="3-重新安装lxml"><a class="header-anchor" href="#3-重新安装lxml">¶</a>3、重新安装lxml</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install lxml</div></pre></td></tr></table></figure>
 <p>结果还是提示相同的错误信息。</p>
-<h3 id="4、检查是否安装-libxml2-dev、-libxslt-devel"><a href="#4、检查是否安装-libxml2-dev、-libxslt-devel" class="headerlink" title="4、检查是否安装 libxml2-dev、 libxslt-devel"></a>4、检查是否安装 libxml2-dev、 libxslt-devel</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##同时安装依赖 libxml2-devel</span></div><div class="line">yum install libxslt-devel</div></pre></td></tr></table></figure>
-<h3 id="5、再次安装lxml"><a href="#5、再次安装lxml" class="headerlink" title="5、再次安装lxml"></a>5、再次安装lxml</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install lxml</div></pre></td></tr></table></figure>
-<p>安装成功。<br><img src="http://og20qmy78.bkt.clouddn.com/image/2017021502.png" alt="image"></p>
+<h3 id="4-检查是否安装-libxml2-dev-libxslt-devel"><a class="header-anchor" href="#4-检查是否安装-libxml2-dev-libxslt-devel">¶</a>4、检查是否安装 libxml2-dev、 libxslt-devel</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##同时安装依赖 libxml2-devel</span></div><div class="line">yum install libxslt-devel</div></pre></td></tr></table></figure>
+<h3 id="5-再次安装lxml"><a class="header-anchor" href="#5-再次安装lxml">¶</a>5、再次安装lxml</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install lxml</div></pre></td></tr></table></figure>
+<p>安装成功。<br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017021502.png" alt="image"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、安装lxml时报错&quot;&gt;&lt;a href=&quot;#1、安装lxml时报错&quot; class=&quot;headerlink&quot; title=&quot;1、安装lxml时报错&quot;&gt;&lt;/a&gt;1、安装lxml时报错&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table
+      &lt;h3 id=&quot;1-安装lxml时报错&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-安装lxml时报错&quot;&gt;¶&lt;/a&gt;1、安装lxml时报错&lt;/h3&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
     
     </summary>
     
@@ -456,17 +515,22 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.<br>怀疑是多次安装导致的，先卸载吧</p>
+<p>报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.<br>
+怀疑是多次安装导致的，先卸载吧</p>
 </blockquote>
-<h3 id="1-卸载wine及相关组件"><a href="#1-卸载wine及相关组件" class="headerlink" title="1. 卸载wine及相关组件"></a>1. 卸载wine及相关组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum remove wine*</div><div class="line">yum autoremove</div></pre></td></tr></table></figure>
-<h3 id="2-删除相关文件"><a href="#2-删除相关文件" class="headerlink" title="2. 删除相关文件"></a>2. 删除相关文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~/.wine</div><div class="line">~/.<span class="built_in">local</span>/share/applications</div><div class="line">/usr/lib/wine</div></pre></td></tr></table></figure>
-<h3 id="3-搜索删除，然后根据情况删除"><a href="#3-搜索删除，然后根据情况删除" class="headerlink" title="3. 搜索删除，然后根据情况删除"></a>3. 搜索删除，然后根据情况删除</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find / -name *wine*</div></pre></td></tr></table></figure>]]></content>
+<h3 id="1-卸载wine及相关组件"><a class="header-anchor" href="#1-卸载wine及相关组件">¶</a>1. 卸载wine及相关组件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum remove wine*</div><div class="line">yum autoremove</div></pre></td></tr></table></figure>
+<h3 id="2-删除相关文件"><a class="header-anchor" href="#2-删除相关文件">¶</a>2. 删除相关文件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~/.wine</div><div class="line">~/.<span class="built_in">local</span>/share/applications</div><div class="line">/usr/lib/wine</div></pre></td></tr></table></figure>
+<h3 id="3-搜索删除-然后根据情况删除"><a class="header-anchor" href="#3-搜索删除-然后根据情况删除">¶</a>3. 搜索删除，然后根据情况删除</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find / -name *wine*</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.&lt;br&gt;怀疑是多次安装导致的，先卸载吧&lt;/p&gt;
-&lt;/block
+&lt;p&gt;报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.&lt;br&gt;
+怀疑是多次安装导致的，先卸载吧&lt;/p&gt;
+&lt;/bloc
     
     </summary>
     
@@ -486,15 +550,21 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <published>2017-01-18T14:22:22.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、开头语"><a href="#1、开头语" class="headerlink" title="1、开头语"></a>1、开头语</h3><p>&emsp;&emsp;沉醉在代码的世界里面，日子总是过的很快，一不留神就到了2017。一直想着写点什么，又一直没有停下来好好得思考一下。</p>
-<h3 id="2、2016"><a href="#2、2016" class="headerlink" title="2、2016"></a>2、2016</h3><p>&emsp;&emsp;写之前想了好多，可是当写的时候又不知道写什么了。</p>
-<h4 id="2-1-工作"><a href="#2-1-工作" class="headerlink" title="2.1 工作"></a>2.1 工作</h4><p>&emsp;&emsp;从重庆到了上海，然后工作了3个月不到换到现在这家公司。当时还是考虑了好久的。<br> sdf   </p>
-<p> 算了，确实不知道怎么写了，明天在写吧。额，好像明天公司聚餐。后天写吧。先下班了</p>
+    <content type="html"><![CDATA[<h3 id="1-开头语"><a class="header-anchor" href="#1-开头语">¶</a>1、开头语</h3>
+<p>  沉醉在代码的世界里面，日子总是过的很快，一不留神就到了2017。一直想着写点什么，又一直没有停下来好好得思考一下。</p>
+<h3 id="2-2016"><a class="header-anchor" href="#2-2016">¶</a>2、2016</h3>
+<p>  写之前想了好多，可是当写的时候又不知道写什么了。</p>
+<h4 id="2-1-工作"><a class="header-anchor" href="#2-1-工作">¶</a>2.1 工作</h4>
+<p>  从重庆到了上海，然后工作了3个月不到换到现在这家公司。当时还是考虑了好久的。<br>
+sdf</p>
+<p>算了，确实不知道怎么写了，明天在写吧。额，好像明天公司聚餐。后天写吧。先下班了</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、开头语&quot;&gt;&lt;a href=&quot;#1、开头语&quot; class=&quot;headerlink&quot; title=&quot;1、开头语&quot;&gt;&lt;/a&gt;1、开头语&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;沉醉在代码的世界里面，日子总是过的很快，一不留神就到了2017。一直想着写点什么，又一直没有
+      &lt;h3 id=&quot;1-开头语&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-开头语&quot;&gt;¶&lt;/a&gt;1、开头语&lt;/h3&gt;
+&lt;p&gt;  沉醉在代码的世界里面，日子总是过的很快，一不留神就到了2017。一直想着写点什么，又一直没有停下来好好得思考一下。&lt;/p&gt;
+&lt;h3
     
     </summary>
     
@@ -517,12 +587,20 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <content type="html"><![CDATA[<blockquote>
 <p>突然就不行了，重装也不行。后面谷歌到了,记录一下。懒的截图，图片也借用下</p>
 </blockquote>
-<h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>&emsp;&emsp;Sublime下采用Package Control安装好OmniMarkupPreviewer，使用一段时间后，突然无法实现Markdown文件实时预览功能。<br>&emsp;&emsp;谷歌访问效果如下：<br><img src="http://og20qmy78.bkt.clouddn.com/image/2017011802.png" alt="image"></p>
-<h3 id="2、原因"><a href="#2、原因" class="headerlink" title="2、原因"></a>2、原因</h3><p>&emsp;&emsp;<code>Ctrl+</code> 打开控制台，查看日志信息，下面是我的日志信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;code&gt;&lt;code&gt;OmniMarkupPreviewer: [INFO] Launching web browser for http://127.0.0.1:51004/view/29</div><div class="line">UnicodeEncodeError(&apos;latin-1&apos;, &apos;夏至&apos;, 0, 2, &apos;ordinal not in range(256)&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1035, in communicate</div><div class="line">    req.respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 831, in respond</div><div class="line">    self.server.gateway(self).respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1868, in respond</div><div class="line">    self.write(chunk)</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1934, in write</div><div class="line">    self.req.send_headers()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 941, in send_headers</div><div class="line">    (b&quot;Server&quot;, self.server.server_name.encode(&apos;ISO-8859-1&apos;)))</div><div class="line">UnicodeEncodeError: &apos;latin-1&apos; codec can&apos;t encode characters in position 0-1: ordinal not in range(256)</div><div class="line">UnicodeEncodeError(&apos;latin-1&apos;, &apos;夏至&apos;, 0, 2, &apos;ordinal not in range(256)&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1035, in communicate</div><div class="line">    req.respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 831, in respond</div><div class="line">    self.server.gateway(self).respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1868, in respond</div><div class="line">    self.write(chunk)</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1934, in write</div><div class="line">    self.req.send_headers()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 941, in send_headers</div><div class="line">    (b&quot;Server&quot;, self.server.server_name.encode(&apos;ISO-8859-1&apos;)))</div><div class="line">&lt;/code&gt;&lt;/code&gt;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp; 其中 <code>UnicodeEncodeError(&#39;latin-1&#39;, &#39;夏至&#39;, 0, 2, &#39;ordinal not in range(256)&#39;)</code>为报错信息。<code>夏至</code>是计算机名。<br>&emsp;&emsp;<img src="http://og20qmy78.bkt.clouddn.com/image/2017011803.png" alt="image"></p>
-<h3 id="3、解决"><a href="#3、解决" class="headerlink" title="3、解决"></a>3、解决</h3><p>&emsp;&emsp;修改一下计算机名字  </p>
-<p><img src="http://og20qmy78.bkt.clouddn.com/image/2017011804.png" alt="image">  </p>
-<p>&emsp;&emsp;最终结果，可以正常显示了。<br><img src="http://og20qmy78.bkt.clouddn.com/image/2017011805.png" alt="image"></p>
+<h3 id="1-问题描述"><a class="header-anchor" href="#1-问题描述">¶</a>1、问题描述</h3>
+<p>  Sublime下采用Package Control安装好OmniMarkupPreviewer，使用一段时间后，突然无法实现Markdown文件实时预览功能。<br>
+  谷歌访问效果如下：<br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017011802.png" alt="image"></p>
+<h3 id="2-原因"><a class="header-anchor" href="#2-原因">¶</a>2、原因</h3>
+<p>  <code>Ctrl+</code> 打开控制台，查看日志信息，下面是我的日志信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;code&gt;&lt;code&gt;OmniMarkupPreviewer: [INFO] Launching web browser for http://127.0.0.1:51004/view/29</div><div class="line">UnicodeEncodeError(&apos;latin-1&apos;, &apos;夏至&apos;, 0, 2, &apos;ordinal not in range(256)&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1035, in communicate</div><div class="line">    req.respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 831, in respond</div><div class="line">    self.server.gateway(self).respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1868, in respond</div><div class="line">    self.write(chunk)</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1934, in write</div><div class="line">    self.req.send_headers()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 941, in send_headers</div><div class="line">    (b&quot;Server&quot;, self.server.server_name.encode(&apos;ISO-8859-1&apos;)))</div><div class="line">UnicodeEncodeError: &apos;latin-1&apos; codec can&apos;t encode characters in position 0-1: ordinal not in range(256)</div><div class="line">UnicodeEncodeError(&apos;latin-1&apos;, &apos;夏至&apos;, 0, 2, &apos;ordinal not in range(256)&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1035, in communicate</div><div class="line">    req.respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 831, in respond</div><div class="line">    self.server.gateway(self).respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1868, in respond</div><div class="line">    self.write(chunk)</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1934, in write</div><div class="line">    self.req.send_headers()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 941, in send_headers</div><div class="line">    (b&quot;Server&quot;, self.server.server_name.encode(&apos;ISO-8859-1&apos;)))</div><div class="line">&lt;/code&gt;&lt;/code&gt;</div></pre></td></tr></table></figure>
+<p>   其中 <code>UnicodeEncodeError('latin-1', '夏至', 0, 2, 'ordinal not in range(256)')</code>为报错信息。<code>夏至</code>是计算机名。<br>
+  <img src="http://og20qmy78.bkt.clouddn.com/image/2017011803.png" alt="image"></p>
+<h3 id="3-解决"><a class="header-anchor" href="#3-解决">¶</a>3、解决</h3>
+<p>  修改一下计算机名字</p>
+<p><img src="http://og20qmy78.bkt.clouddn.com/image/2017011804.png" alt="image"></p>
+<p>  最终结果，可以正常显示了。<br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017011805.png" alt="image"></p>
 <blockquote>
 <p>转载出处：<a href="http://www.2cto.com/kf/201608/535703.html" target="_blank" rel="external">点击前往</a></p>
 </blockquote>
@@ -533,7 +611,7 @@ Include = /etc/pacman.d/mirrorlist</code></p>
       &lt;blockquote&gt;
 &lt;p&gt;突然就不行了，重装也不行。后面谷歌到了,记录一下。懒的截图，图片也借用下&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;1、问题描述&quot;&gt;&lt;a href=&quot;#1、问题描述&quot; class=&quot;headerlink&quot; title=&quot;1、问题描述&quot;&gt;&lt;
+&lt;h3 id=&quot;1-问题描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-问题描述&quot;&gt;¶&lt;/a&gt;1、问题描述&lt;/
     
     </summary>
     
@@ -556,9 +634,12 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <content type="html"><![CDATA[<blockquote>
 <p>最近电脑越来越卡，正好想彻底的学习一下centos.就把笔记本的系统换成centos了。由于笔记本嘛，肯定用无线网了方便、简洁。</p>
 </blockquote>
-<h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>&emsp;&emsp;因为是日常娱乐使用，安装的时候选择的是桌面版。安装后有网卡驱动。但是在使用的是网络偶尔能连上，一直断。</p>
-<h3 id="2、问题原因"><a href="#2、问题原因" class="headerlink" title="2、问题原因"></a>2、问题原因</h3><p>&emsp;&emsp;网上找了一些资料，一些说是没有安装驱动，一些说没有安装正确对应的无线网卡驱动。</p>
-<h4 id="1-2-基本参数"><a href="#1-2-基本参数" class="headerlink" title="1.2 基本参数"></a>1.2 基本参数</h4><p><code>iwconfig</code>可以查看无线网卡的具体型号,<code>lspci |grep -i network</code>  查看网卡具体型号</p>
+<h3 id="1-问题描述"><a class="header-anchor" href="#1-问题描述">¶</a>1、问题描述</h3>
+<p>  因为是日常娱乐使用，安装的时候选择的是桌面版。安装后有网卡驱动。但是在使用的是网络偶尔能连上，一直断。</p>
+<h3 id="2-问题原因"><a class="header-anchor" href="#2-问题原因">¶</a>2、问题原因</h3>
+<p>  网上找了一些资料，一些说是没有安装驱动，一些说没有安装正确对应的无线网卡驱动。</p>
+<h4 id="1-2-基本参数"><a class="header-anchor" href="#1-2-基本参数">¶</a>1.2 基本参数</h4>
+<p><code>iwconfig</code>可以查看无线网卡的具体型号,<code>lspci |grep -i network</code>  查看网卡具体型号</p>
 ]]></content>
     
     <summary type="html">
@@ -566,7 +647,7 @@ Include = /etc/pacman.d/mirrorlist</code></p>
       &lt;blockquote&gt;
 &lt;p&gt;最近电脑越来越卡，正好想彻底的学习一下centos.就把笔记本的系统换成centos了。由于笔记本嘛，肯定用无线网了方便、简洁。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;1、问题描述&quot;&gt;&lt;a href=&quot;#1、问题描述&quot; class=&quot;
+&lt;h3 id=&quot;1-问题描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; 
     
     </summary>
     
@@ -585,13 +666,21 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <content type="html"><![CDATA[<blockquote>
 <p>NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。</p>
 </blockquote>
-<h2 id="1、安装ntp和修改时区"><a href="#1、安装ntp和修改时区" class="headerlink" title="1、安装ntp和修改时区"></a>1、安装ntp和修改时区</h2><p>简单点之间用yum安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y install ntp</div><div class="line"></div><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure></p>
-<h2 id="2、设置服务端192-168-0-25"><a href="#2、设置服务端192-168-0-25" class="headerlink" title="2、设置服务端192.168.0.25"></a>2、设置服务端192.168.0.25</h2><p>修改<code>/etc/ntp.cnf</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#限定了哪些主机可以从本NTP服务器同步时间，默认的配置文件里是没有这句话的。加入这句话后，表明，只有192.168.0 这个网段的主机可以从本NTP服务器同步时间。nomodify  表明客户端不可以修改服务器的地址</span></div><div class="line">restrict 192.168.0.1/24 mask 255.255.255.0 nomodify   </div><div class="line"></div><div class="line"><span class="comment">#远程服务器地址</span></div><div class="line">server time-b.nist.gov</div><div class="line"></div><div class="line"><span class="comment">#默认的配置文件里这两个是被注释掉的。如果第二部配置的server time-b.nist.gov无效时，则NTP服务器会根据这里的配置，把自己的时间做为NTP服务器的时间，即和自己同步。考虑到有的局域网里不可以访问外网，所有这里需要把这个配置项用上，即把前面的注释符#号去掉就可以了。</span></div><div class="line"></div><div class="line">server  127.127.1.0     <span class="comment"># local clock  </span></div><div class="line">fudge   127.127.1.0 stratum 10</div></pre></td></tr></table></figure></p>
-<p>记着关闭防火墙或者开放123端口  </p>
-<p>重启服务<code>servcice ntpd resatrt</code><br>NTP服务启动后大约需要3～5分钟的时间才会进行一次时间同步。可以通过命令ntpstat查看同步情况，</p>
-<h2 id="3、设置客户端"><a href="#3、设置客户端" class="headerlink" title="3、设置客户端"></a>3、设置客户端</h2><p>修改<code>/etc/ntp.cnf</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server 192.168.0.25</div></pre></td></tr></table></figure></p>
+<h2 id="1-安装ntp和修改时区"><a class="header-anchor" href="#1-安装ntp和修改时区">¶</a>1、安装ntp和修改时区</h2>
+<p>简单点之间用yum安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y install ntp</div><div class="line"></div><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
+<h2 id="2-设置服务端192-168-0-25"><a class="header-anchor" href="#2-设置服务端192-168-0-25">¶</a>2、设置服务端192.168.0.25</h2>
+<p>修改<code>/etc/ntp.cnf</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#限定了哪些主机可以从本NTP服务器同步时间，默认的配置文件里是没有这句话的。加入这句话后，表明，只有192.168.0 这个网段的主机可以从本NTP服务器同步时间。nomodify  表明客户端不可以修改服务器的地址</span></div><div class="line">restrict 192.168.0.1/24 mask 255.255.255.0 nomodify   </div><div class="line"></div><div class="line"><span class="comment">#远程服务器地址</span></div><div class="line">server time-b.nist.gov</div><div class="line"></div><div class="line"><span class="comment">#默认的配置文件里这两个是被注释掉的。如果第二部配置的server time-b.nist.gov无效时，则NTP服务器会根据这里的配置，把自己的时间做为NTP服务器的时间，即和自己同步。考虑到有的局域网里不可以访问外网，所有这里需要把这个配置项用上，即把前面的注释符#号去掉就可以了。</span></div><div class="line"></div><div class="line">server  127.127.1.0     <span class="comment"># local clock  </span></div><div class="line">fudge   127.127.1.0 stratum 10</div></pre></td></tr></table></figure>
+<p>记着关闭防火墙或者开放123端口</p>
+<p>重启服务<code>servcice ntpd resatrt</code><br>
+NTP服务启动后大约需要3～5分钟的时间才会进行一次时间同步。可以通过命令ntpstat查看同步情况，</p>
+<h2 id="3-设置客户端"><a class="header-anchor" href="#3-设置客户端">¶</a>3、设置客户端</h2>
+<p>修改<code>/etc/ntp.cnf</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server 192.168.0.25</div></pre></td></tr></table></figure>
 <p>然后重启服务<code>service ntpd resatrt</code></p>
-<h2 id="4、相关命令"><a href="#4、相关命令" class="headerlink" title="4、相关命令"></a>4、相关命令</h2><ul>
+<h2 id="4-相关命令"><a class="header-anchor" href="#4-相关命令">¶</a>4、相关命令</h2>
+<ul>
 <li>查看系统时间：date</li>
 <li>查看与上层ntp服务器的关系：ntpq -p</li>
 <li>查看是否更新了自己的时间：ntpstat</li>
@@ -625,14 +714,18 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <published>2016-12-06T11:47:47.000Z</published>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1、Specified-key-was-too-long-max-key-length-is-767-bytes"><a href="#1、Specified-key-was-too-long-max-key-length-is-767-bytes" class="headerlink" title="1、Specified key was too long; max key length is 767 bytes"></a>1、Specified key was too long; max key length is 767 bytes</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create database hive DEFAULT CHARSET latin1;</div></pre></td></tr></table></figure>
-<p>这里由于mysql的最大索引长度导致，MySQL的varchar主键只支持不超过768个字节 或者 768/2=384个双字节 或者 768/3=256个三字节的字段 而 GBK是双字节的，UTF-8是三字节的<br>解决办法：数据库的字符集除了system为utf8，其他最好为latin1，否则可能出现如上异常，在mysql机器的上运行:</p>
-<h3 id="2、javax-jdo-JDODataStoreException-Error-executing-SQL-query-“select-“DB-ID”-from-“DBS””"><a href="#2、javax-jdo-JDODataStoreException-Error-executing-SQL-query-“select-“DB-ID”-from-“DBS””" class="headerlink" title="2、javax.jdo.JDODataStoreException: Error executing SQL query “select “DB_ID” from “DBS””"></a>2、javax.jdo.JDODataStoreException: Error executing SQL query “select “DB_ID” from “DBS””</h3><p>原因：很简单，就是没有创建存放hive元数据的表。在CDH页面找了很久，发现配置也正确也能正常连接上但是就是不能自动创建<br>解决办法：/opt/cloudera/parcels/CDH-5.4.2-1.cdh5.4.2.p0.2/lib/hive/scripts/metastore/upgrade/mysql/ 里面是mysql的相关的sql脚本，直接拿到mysql执行。</p>
+    <content type="html"><![CDATA[<h3 id="1-specified-key-was-too-long-max-key-length-is-767-bytes"><a class="header-anchor" href="#1-specified-key-was-too-long-max-key-length-is-767-bytes">¶</a>1、Specified key was too long; max key length is 767 bytes</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create database hive DEFAULT CHARSET latin1;</div></pre></td></tr></table></figure>
+<p>这里由于mysql的最大索引长度导致，MySQL的varchar主键只支持不超过768个字节 或者 768/2=384个双字节 或者 768/3=256个三字节的字段 而 GBK是双字节的，UTF-8是三字节的<br>
+解决办法：数据库的字符集除了system为utf8，其他最好为latin1，否则可能出现如上异常，在mysql机器的上运行:</p>
+<h3 id="2-javax-jdo-jdodatastoreexception-error-executing-sql-query-select-db-id-from-dbs"><a class="header-anchor" href="#2-javax-jdo-jdodatastoreexception-error-executing-sql-query-select-db-id-from-dbs">¶</a>2、javax.jdo.JDODataStoreException: Error executing SQL query “select “DB_ID” from “DBS””</h3>
+<p>原因：很简单，就是没有创建存放hive元数据的表。在CDH页面找了很久，发现配置也正确也能正常连接上但是就是不能自动创建<br>
+解决办法：/opt/cloudera/parcels/CDH-5.4.2-1.cdh5.4.2.p0.2/lib/hive/scripts/metastore/upgrade/mysql/ 里面是mysql的相关的sql脚本，直接拿到mysql执行。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1、Specified-key-was-too-long-max-key-length-is-767-bytes&quot;&gt;&lt;a href=&quot;#1、Specified-key-was-too-long-max-key-length-is-767-bytes&quot; class=
+      &lt;h3 id=&quot;1-specified-key-was-too-long-max-key-length-is-767-bytes&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-specified-key-was-too-long-max-key-lengt
     
     </summary>
     
@@ -649,16 +742,24 @@ Include = /etc/pacman.d/mirrorlist</code></p>
     <updated>2017-07-18T13:35:07.143Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。<br>阿里云Linux安装镜像源地址：<a href="http://mirrors.aliyun.com/" target="_blank" rel="external">http://mirrors.aliyun.com/</a><br>CentOS系统更换软件安装源  </p>
+<p>阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。<br>
+阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/<br>
+CentOS系统更换软件安装源</p>
 </blockquote>
-<h2 id="第一步：备份你的原镜像文件，以免出错后可以恢复。"><a href="#第一步：备份你的原镜像文件，以免出错后可以恢复。" class="headerlink" title="第一步：备份你的原镜像文件，以免出错后可以恢复。"></a>第一步：备份你的原镜像文件，以免出错后可以恢复。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div></pre></td></tr></table></figure>
-<h2 id="第二步：下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#第二步：下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CentOS 5</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</div><div class="line">CentOS 6</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</div></pre></td></tr></table></figure>
-<h2 id="第三步：运行yum-makecache生成缓存"><a href="#第三步：运行yum-makecache生成缓存" class="headerlink" title="第三步：运行yum makecache生成缓存"></a>第三步：运行yum makecache生成缓存</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure>]]></content>
+<h2 id="第一步：备份你的原镜像文件-以免出错后可以恢复"><a class="header-anchor" href="#第一步：备份你的原镜像文件-以免出错后可以恢复">¶</a>第一步：备份你的原镜像文件，以免出错后可以恢复。</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div></pre></td></tr></table></figure>
+<h2 id="第二步：下载新的centos-base-repo-到-etc-yum-repos-d"><a class="header-anchor" href="#第二步：下载新的centos-base-repo-到-etc-yum-repos-d">¶</a>第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CentOS 5</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</div><div class="line">CentOS 6</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</div></pre></td></tr></table></figure>
+<h2 id="第三步：运行yum-makecache生成缓存"><a class="header-anchor" href="#第三步：运行yum-makecache生成缓存">¶</a>第三步：运行yum makecache生成缓存</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。&lt;br&gt;阿里云Linux安装镜像源地址：&lt;a href=&quot;http://mirrors.aliyun.com/&quot; target=&quot;_blank&quot; rel=&quot;
+&lt;p&gt;阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。&lt;br&gt;
+阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/&lt;br&gt;
+CentOS系统更换软件安装源&lt;/p&gt;
+&lt;/bloc
     
     </summary>
     
@@ -672,6 +773,74 @@ Include = /etc/pacman.d/mirrorlist</code></p>
       <category term="阿里" scheme="http://www.liyang.site/tags/%E9%98%BF%E9%87%8C/"/>
     
       <category term="yum" scheme="http://www.liyang.site/tags/yum/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用工具大集合(突发奇想更新中...)</title>
+    <link href="http://www.liyang.site/2016/11/21/20161121-%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%A4%A7%E9%9B%86%E5%90%88-%E7%AA%81%E5%8F%91%E5%A5%87%E6%83%B3%E6%9B%B4%E6%96%B0%E4%B8%AD/"/>
+    <id>http://www.liyang.site/2016/11/21/20161121-常用工具大集合-突发奇想更新中/</id>
+    <published>2016-11-21T12:20:17.000Z</published>
+    <updated>2017-07-18T13:35:07.143Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>由于有的时候会忘记，先记录下。方便以后好查</p>
+</blockquote>
+<h3 id="1-效率"><a class="header-anchor" href="#1-效率">¶</a>1、效率</h3>
+<h4 id="1-1-日常"><a class="header-anchor" href="#1-1-日常">¶</a>1.1 日常</h4>
+<ul>
+<li>小Q书桌：快捷方式管理</li>
+<li>LICEcap：快速录像并生产gif</li>
+<li>Everything：文件快速搜索、查找</li>
+<li>sublime：文件编辑器</li>
+<li>BCompare：文件比对，文件夹比对</li>
+<li>SpaceSniffer：查询硬盘占用比例</li>
+<li>filezilla：ftp工具</li>
+<li>SecureCRT：虚拟终端工具</li>
+</ul>
+<h4 id="1-2-gtd"><a class="header-anchor" href="#1-2-gtd">¶</a>1.2 GTD</h4>
+<ul>
+<li>滴答清单：事件清单。记录待办事件</li>
+</ul>
+<h4 id="1-3-插件"><a class="header-anchor" href="#1-3-插件">¶</a>1.3 插件</h4>
+<ul>
+<li>vimium：浏览器控制插件，代替鼠标</li>
+<li>lastpass: 密码管理器</li>
+</ul>
+<h3 id="2-网络"><a class="header-anchor" href="#2-网络">¶</a>2、 网络</h3>
+<ul>
+<li>净网大师：拦截、劫持广告</li>
+<li>Shadowsocks：翻墙梯子</li>
+<li>非凡vpn：每天免费1小时</li>
+</ul>
+<h3 id="3-工作"><a class="header-anchor" href="#3-工作">¶</a>3、工作</h3>
+<h4 id="3-1-数据库"><a class="header-anchor" href="#3-1-数据库">¶</a>3.1 数据库</h4>
+<ul>
+<li>filezilla：ftp工具</li>
+<li>Dbvisualizer: 关系型数据库sql客户端</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;由于有的时候会忘记，先记录下。方便以后好查&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1-效率&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-效率&quot;&gt;¶&lt;/a&gt;1、效率&lt;/h3&gt;
+&lt;h4 id=&quot;1-1-日常&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="常用" scheme="http://www.liyang.site/categories/%E5%B8%B8%E7%94%A8/"/>
+    
+    
+      <category term="常用" scheme="http://www.liyang.site/tags/%E5%B8%B8%E7%94%A8/"/>
+    
+      <category term="常用工具" scheme="http://www.liyang.site/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="集合" scheme="http://www.liyang.site/tags/%E9%9B%86%E5%90%88/"/>
+    
+      <category term="大集合" scheme="http://www.liyang.site/tags/%E5%A4%A7%E9%9B%86%E5%90%88/"/>
     
   </entry>
   

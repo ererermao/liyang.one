@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="1、前言博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。 2、环境搭建我的nas是centos，所以一下为centos的命令 2.1 添加yum源yum install epel-release 2.2 安装基础环境yum install nodejs npm 2.3 配置npm国内镜">
+<meta name="description" content="¶1、前言 博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。 ¶2、环境搭建 我的nas是centos，所以一下为centos的命令 ¶2.1 添加yum源 yum install epel-release ¶2.2 安装基础环境 yum install nodejs npm ¶2.3">
 <meta name="keywords" content="hexo,博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo博客迁移记录">
 <meta property="og:url" content="http://www.liyang.site/2017/05/04/20170504-博客迁移记录/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="1、前言博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。 2、环境搭建我的nas是centos，所以一下为centos的命令 2.1 添加yum源yum install epel-release 2.2 安装基础环境yum install nodejs npm 2.3 配置npm国内镜">
+<meta property="og:description" content="¶1、前言 博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。 ¶2、环境搭建 我的nas是centos，所以一下为centos的命令 ¶2.1 添加yum源 yum install epel-release ¶2.2 安装基础环境 yum install nodejs npm ¶2.3">
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客迁移记录">
-<meta name="twitter:description" content="1、前言博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。 2、环境搭建我的nas是centos，所以一下为centos的命令 2.1 添加yum源yum install epel-release 2.2 安装基础环境yum install nodejs npm 2.3 配置npm国内镜">
+<meta name="twitter:description" content="¶1、前言 博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。 ¶2、环境搭建 我的nas是centos，所以一下为centos的命令 ¶2.1 添加yum源 yum install epel-release ¶2.2 安装基础环境 yum install nodejs npm ¶2.3">
 
 
 
@@ -126,7 +126,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -335,13 +335,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/05/04/20170504-博客迁移记录/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/04/20170504-博客迁移记录/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -361,20 +354,39 @@
       
 
       
-        <h3 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h3><p>博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。</p>
-<h3 id="2、环境搭建"><a href="#2、环境搭建" class="headerlink" title="2、环境搭建"></a>2、环境搭建</h3><p>我的nas是centos，所以一下为centos的命令</p>
-<h4 id="2-1-添加yum源"><a href="#2-1-添加yum源" class="headerlink" title="2.1 添加yum源"></a>2.1 添加yum源</h4><p><code>yum install epel-release</code></p>
-<h4 id="2-2-安装基础环境"><a href="#2-2-安装基础环境" class="headerlink" title="2.2 安装基础环境"></a>2.2 安装基础环境</h4><p><code>yum install nodejs npm</code></p>
-<h4 id="2-3-配置npm国内镜像"><a href="#2-3-配置npm国内镜像" class="headerlink" title="2.3 配置npm国内镜像"></a>2.3 配置npm国内镜像</h4><p><code>npm config set registry http://registry.npm.taobao.org</code></p>
-<h4 id="2-4-安装hexo"><a href="#2-4-安装hexo" class="headerlink" title="2.4 安装hexo"></a>2.4 安装hexo</h4><p><code>npm install -g hexo-cli</code></p>
-<h4 id="2-5-初始化hexo"><a href="#2-5-初始化hexo" class="headerlink" title="2.5 初始化hexo"></a>2.5 初始化hexo</h4><p><code>mkdir /opt/hexo &amp;&amp; cd /opt/hexo &amp;&amp; hexo init</code></p>
-<h3 id="3、迁移"><a href="#3、迁移" class="headerlink" title="3、迁移"></a>3、迁移</h3><h4 id="3-1-配置文件"><a href="#3-1-配置文件" class="headerlink" title="3.1 配置文件"></a>3.1 配置文件</h4><p>根目录下的<code>_config.yml</code>等等</p>
-<h4 id="3-2-主题"><a href="#3-2-主题" class="headerlink" title="3.2 主题"></a>3.2 主题</h4><p><code>themes\hexo</code> 复制整个文件夹</p>
-<h4 id="3-3-资源"><a href="#3-3-资源" class="headerlink" title="3.3 资源"></a>3.3 资源</h4><p>根目录<code>source</code>整个文件夹</p>
-<h4 id="3-4-一些功能"><a href="#3-4-一些功能" class="headerlink" title="3.4 一些功能"></a>3.4 一些功能</h4><h5 id="3-4-1-压缩"><a href="#3-4-1-压缩" class="headerlink" title="3.4.1 压缩"></a>3.4.1 压缩</h5><p>拷贝压缩的配置文件<code>gulpfile.js</code><br>安装插件：<br><code>npm install --global gulp 
-npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify-css gulp-minify-html gulp-rename gulp-shell gulp-uglify gulp-imagemin</code></p>
-<h5 id="3-4-2-sitemap网站地图"><a href="#3-4-2-sitemap网站地图" class="headerlink" title="3.4.2 sitemap网站地图"></a>3.4.2 sitemap网站地图</h5><p>文件在<code>source</code>文件夹里面，所以不用再拷贝了<br>安装插件：<br><code>npm install hexo-generator-sitemap hexo-generator-baidu-sitemap --save</code></p>
-<h5 id="3-4-3-搜索"><a href="#3-4-3-搜索" class="headerlink" title="3.4.3 搜索"></a>3.4.3 搜索</h5><p>配置在<code>_config.yml</code><br><code>npm install hexo-generator-searchdb</code></p>
+        <h3 id="1-前言"><a class="header-anchor" href="#1-前言">¶</a>1、前言</h3>
+<p>博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。</p>
+<h3 id="2-环境搭建"><a class="header-anchor" href="#2-环境搭建">¶</a>2、环境搭建</h3>
+<p>我的nas是centos，所以一下为centos的命令</p>
+<h4 id="2-1-添加yum源"><a class="header-anchor" href="#2-1-添加yum源">¶</a>2.1 添加yum源</h4>
+<p><code>yum install epel-release</code></p>
+<h4 id="2-2-安装基础环境"><a class="header-anchor" href="#2-2-安装基础环境">¶</a>2.2 安装基础环境</h4>
+<p><code>yum install nodejs npm</code></p>
+<h4 id="2-3-配置npm国内镜像"><a class="header-anchor" href="#2-3-配置npm国内镜像">¶</a>2.3 配置npm国内镜像</h4>
+<p><code>npm config set registry http://registry.npm.taobao.org</code></p>
+<h4 id="2-4-安装hexo"><a class="header-anchor" href="#2-4-安装hexo">¶</a>2.4 安装hexo</h4>
+<p><code>npm install -g hexo-cli</code></p>
+<h4 id="2-5-初始化hexo"><a class="header-anchor" href="#2-5-初始化hexo">¶</a>2.5 初始化hexo</h4>
+<p><code>mkdir /opt/hexo &amp;&amp; cd /opt/hexo &amp;&amp; hexo init</code></p>
+<h3 id="3-迁移"><a class="header-anchor" href="#3-迁移">¶</a>3、迁移</h3>
+<h4 id="3-1-配置文件"><a class="header-anchor" href="#3-1-配置文件">¶</a>3.1 配置文件</h4>
+<p>根目录下的<code>_config.yml</code>等等</p>
+<h4 id="3-2-主题"><a class="header-anchor" href="#3-2-主题">¶</a>3.2 主题</h4>
+<p><code>themes\hexo</code> 复制整个文件夹</p>
+<h4 id="3-3-资源"><a class="header-anchor" href="#3-3-资源">¶</a>3.3 资源</h4>
+<p>根目录<code>source</code>整个文件夹</p>
+<h4 id="3-4-一些功能"><a class="header-anchor" href="#3-4-一些功能">¶</a>3.4 一些功能</h4>
+<h5 id="3-4-1-压缩"><a class="header-anchor" href="#3-4-1-压缩">¶</a>3.4.1 压缩</h5>
+<p>拷贝压缩的配置文件<code>gulpfile.js</code><br>
+安装插件：<br>
+<code>npm install --global gulp npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify-css gulp-minify-html gulp-rename gulp-shell gulp-uglify gulp-imagemin</code></p>
+<h5 id="3-4-2-sitemap网站地图"><a class="header-anchor" href="#3-4-2-sitemap网站地图">¶</a>3.4.2 sitemap网站地图</h5>
+<p>文件在<code>source</code>文件夹里面，所以不用再拷贝了<br>
+安装插件：<br>
+<code>npm install hexo-generator-sitemap hexo-generator-baidu-sitemap --save</code></p>
+<h5 id="3-4-3-搜索"><a class="header-anchor" href="#3-4-3-搜索">¶</a>3.4.3 搜索</h5>
+<p>配置在<code>_config.yml</code><br>
+<code>npm install hexo-generator-searchdb</code></p>
 
       
     </div>
@@ -440,18 +452,11 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/05/04/20170504-博客迁移记录/"
-           data-title="hexo博客迁移记录" data-url="http://www.liyang.site/2017/05/04/20170504-博客迁移记录/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -595,7 +600,7 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、前言"><span class="nav-text">1、前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、环境搭建"><span class="nav-text">2、环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-添加yum源"><span class="nav-text">2.1 添加yum源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-安装基础环境"><span class="nav-text">2.2 安装基础环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-配置npm国内镜像"><span class="nav-text">2.3 配置npm国内镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-安装hexo"><span class="nav-text">2.4 安装hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-初始化hexo"><span class="nav-text">2.5 初始化hexo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、迁移"><span class="nav-text">3、迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-配置文件"><span class="nav-text">3.1 配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-主题"><span class="nav-text">3.2 主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-资源"><span class="nav-text">3.3 资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-一些功能"><span class="nav-text">3.4 一些功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-1-压缩"><span class="nav-text">3.4.1 压缩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-2-sitemap网站地图"><span class="nav-text">3.4.2 sitemap网站地图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-3-搜索"><span class="nav-text">3.4.3 搜索</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前言"><span class="nav-text">¶1、前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-环境搭建"><span class="nav-text">¶2、环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-添加yum源"><span class="nav-text">¶2.1 添加yum源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-安装基础环境"><span class="nav-text">¶2.2 安装基础环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-配置npm国内镜像"><span class="nav-text">¶2.3 配置npm国内镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-安装hexo"><span class="nav-text">¶2.4 安装hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-初始化hexo"><span class="nav-text">¶2.5 初始化hexo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-迁移"><span class="nav-text">¶3、迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-配置文件"><span class="nav-text">¶3.1 配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-主题"><span class="nav-text">¶3.2 主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-资源"><span class="nav-text">¶3.3 资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-一些功能"><span class="nav-text">¶3.4 一些功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-1-压缩"><span class="nav-text">¶3.4.1 压缩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-2-sitemap网站地图"><span class="nav-text">¶3.4.2 sitemap网站地图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-3-搜索"><span class="nav-text">¶3.4.3 搜索</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -695,31 +700,23 @@ npm install gulp-clean gulp-htmlclean gulp-htmlmin gulp-load-plugins gulp-minify
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

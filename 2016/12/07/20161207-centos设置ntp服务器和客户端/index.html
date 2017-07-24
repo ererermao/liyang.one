@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。  1、安装ntp和修改时区简单点之间用yum安装123yum -y install">
+<meta name="description" content="NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。  ¶1、安装ntp和修改时区 简单点之间用yum安装 123yum -y inst">
 <meta name="keywords" content="centos,ntp,服务端,客户端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos设置ntp服务器和客户端">
 <meta property="og:url" content="http://www.liyang.site/2016/12/07/20161207-centos设置ntp服务器和客户端/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。  1、安装ntp和修改时区简单点之间用yum安装123yum -y install">
+<meta property="og:description" content="NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。  ¶1、安装ntp和修改时区 简单点之间用yum安装 123yum -y inst">
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos设置ntp服务器和客户端">
-<meta name="twitter:description" content="NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。  1、安装ntp和修改时区简单点之间用yum安装123yum -y install">
+<meta name="twitter:description" content="NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。  ¶1、安装ntp和修改时区 简单点之间用yum安装 123yum -y inst">
 
 
 
@@ -126,7 +126,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -335,13 +335,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/07/20161207-centos设置ntp服务器和客户端/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/07/20161207-centos设置ntp服务器和客户端/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -364,13 +357,21 @@
         <blockquote>
 <p>NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。</p>
 </blockquote>
-<h2 id="1、安装ntp和修改时区"><a href="#1、安装ntp和修改时区" class="headerlink" title="1、安装ntp和修改时区"></a>1、安装ntp和修改时区</h2><p>简单点之间用yum安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y install ntp</div><div class="line"></div><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure></p>
-<h2 id="2、设置服务端192-168-0-25"><a href="#2、设置服务端192-168-0-25" class="headerlink" title="2、设置服务端192.168.0.25"></a>2、设置服务端192.168.0.25</h2><p>修改<code>/etc/ntp.cnf</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#限定了哪些主机可以从本NTP服务器同步时间，默认的配置文件里是没有这句话的。加入这句话后，表明，只有192.168.0 这个网段的主机可以从本NTP服务器同步时间。nomodify  表明客户端不可以修改服务器的地址</span></div><div class="line">restrict 192.168.0.1/24 mask 255.255.255.0 nomodify   </div><div class="line"></div><div class="line"><span class="comment">#远程服务器地址</span></div><div class="line">server time-b.nist.gov</div><div class="line"></div><div class="line"><span class="comment">#默认的配置文件里这两个是被注释掉的。如果第二部配置的server time-b.nist.gov无效时，则NTP服务器会根据这里的配置，把自己的时间做为NTP服务器的时间，即和自己同步。考虑到有的局域网里不可以访问外网，所有这里需要把这个配置项用上，即把前面的注释符#号去掉就可以了。</span></div><div class="line"></div><div class="line">server  127.127.1.0     <span class="comment"># local clock  </span></div><div class="line">fudge   127.127.1.0 stratum 10</div></pre></td></tr></table></figure></p>
-<p>记着关闭防火墙或者开放123端口  </p>
-<p>重启服务<code>servcice ntpd resatrt</code><br>NTP服务启动后大约需要3～5分钟的时间才会进行一次时间同步。可以通过命令ntpstat查看同步情况，</p>
-<h2 id="3、设置客户端"><a href="#3、设置客户端" class="headerlink" title="3、设置客户端"></a>3、设置客户端</h2><p>修改<code>/etc/ntp.cnf</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server 192.168.0.25</div></pre></td></tr></table></figure></p>
+<h2 id="1-安装ntp和修改时区"><a class="header-anchor" href="#1-安装ntp和修改时区">¶</a>1、安装ntp和修改时区</h2>
+<p>简单点之间用yum安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y install ntp</div><div class="line"></div><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
+<h2 id="2-设置服务端192-168-0-25"><a class="header-anchor" href="#2-设置服务端192-168-0-25">¶</a>2、设置服务端192.168.0.25</h2>
+<p>修改<code>/etc/ntp.cnf</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#限定了哪些主机可以从本NTP服务器同步时间，默认的配置文件里是没有这句话的。加入这句话后，表明，只有192.168.0 这个网段的主机可以从本NTP服务器同步时间。nomodify  表明客户端不可以修改服务器的地址</span></div><div class="line">restrict 192.168.0.1/24 mask 255.255.255.0 nomodify   </div><div class="line"></div><div class="line"><span class="comment">#远程服务器地址</span></div><div class="line">server time-b.nist.gov</div><div class="line"></div><div class="line"><span class="comment">#默认的配置文件里这两个是被注释掉的。如果第二部配置的server time-b.nist.gov无效时，则NTP服务器会根据这里的配置，把自己的时间做为NTP服务器的时间，即和自己同步。考虑到有的局域网里不可以访问外网，所有这里需要把这个配置项用上，即把前面的注释符#号去掉就可以了。</span></div><div class="line"></div><div class="line">server  127.127.1.0     <span class="comment"># local clock  </span></div><div class="line">fudge   127.127.1.0 stratum 10</div></pre></td></tr></table></figure>
+<p>记着关闭防火墙或者开放123端口</p>
+<p>重启服务<code>servcice ntpd resatrt</code><br>
+NTP服务启动后大约需要3～5分钟的时间才会进行一次时间同步。可以通过命令ntpstat查看同步情况，</p>
+<h2 id="3-设置客户端"><a class="header-anchor" href="#3-设置客户端">¶</a>3、设置客户端</h2>
+<p>修改<code>/etc/ntp.cnf</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server 192.168.0.25</div></pre></td></tr></table></figure>
 <p>然后重启服务<code>service ntpd resatrt</code></p>
-<h2 id="4、相关命令"><a href="#4、相关命令" class="headerlink" title="4、相关命令"></a>4、相关命令</h2><ul>
+<h2 id="4-相关命令"><a class="header-anchor" href="#4-相关命令">¶</a>4、相关命令</h2>
+<ul>
 <li>查看系统时间：date</li>
 <li>查看与上层ntp服务器的关系：ntpq -p</li>
 <li>查看是否更新了自己的时间：ntpstat</li>
@@ -444,18 +445,11 @@
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/07/20161207-centos设置ntp服务器和客户端/"
-           data-title="centos设置ntp服务器和客户端" data-url="http://www.liyang.site/2016/12/07/20161207-centos设置ntp服务器和客户端/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -599,7 +593,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、安装ntp和修改时区"><span class="nav-text">1、安装ntp和修改时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、设置服务端192-168-0-25"><span class="nav-text">2、设置服务端192.168.0.25</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、设置客户端"><span class="nav-text">3、设置客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、相关命令"><span class="nav-text">4、相关命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装ntp和修改时区"><span class="nav-text">¶1、安装ntp和修改时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-设置服务端192-168-0-25"><span class="nav-text">¶2、设置服务端192.168.0.25</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-设置客户端"><span class="nav-text">¶3、设置客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-相关命令"><span class="nav-text">¶4、相关命令</span></a></li></ol></div>
             
           </div>
         </section>
@@ -699,31 +693,23 @@
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

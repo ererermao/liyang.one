@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。    1. 添加定时重启vps1234crontab -e				#编辑任务列表#新增：注意用root用户添加	01 21 * * * /sbin/roboot	  #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 2. 开机自动启动ss服务等123456# ss的开机启动	chkconfig s">
+<meta name="description" content="用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。  ¶1. 添加定时重启vps 1234crontab -e				#编辑任务列表#新增：注意用root用户添加	01 21 * * * /sbin/roboot	  #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动	chkconfig">
 <meta name="keywords" content="vps,ss,shadowsocks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ss用一段时间卡？vps定时重启试试">
 <meta property="og:url" content="http://www.liyang.site/2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。    1. 添加定时重启vps1234crontab -e				#编辑任务列表#新增：注意用root用户添加	01 21 * * * /sbin/roboot	  #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 2. 开机自动启动ss服务等123456# ss的开机启动	chkconfig s">
+<meta property="og:description" content="用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。  ¶1. 添加定时重启vps 1234crontab -e				#编辑任务列表#新增：注意用root用户添加	01 21 * * * /sbin/roboot	  #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动	chkconfig">
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ss用一段时间卡？vps定时重启试试">
-<meta name="twitter:description" content="用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。    1. 添加定时重启vps1234crontab -e				#编辑任务列表#新增：注意用root用户添加	01 21 * * * /sbin/roboot	  #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 2. 开机自动启动ss服务等123456# ss的开机启动	chkconfig s">
+<meta name="twitter:description" content="用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。  ¶1. 添加定时重启vps 1234crontab -e				#编辑任务列表#新增：注意用root用户添加	01 21 * * * /sbin/roboot	  #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动	chkconfig">
 
 
 
@@ -126,7 +126,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -335,13 +335,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -362,11 +355,14 @@
 
       
         <blockquote>
-<p>用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。  </p>
+<p>用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。</p>
 </blockquote>
-<h2 id="1-添加定时重启vps"><a href="#1-添加定时重启vps" class="headerlink" title="1. 添加定时重启vps"></a>1. 添加定时重启vps</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">crontab -e				<span class="comment">#编辑任务列表</span></div><div class="line"></div><div class="line"><span class="comment">#新增：注意用root用户添加</span></div><div class="line">	01 21 * * * /sbin/roboot	  <span class="comment">#由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。</span></div></pre></td></tr></table></figure>
-<h2 id="2-开机自动启动ss服务等"><a href="#2-开机自动启动ss服务等" class="headerlink" title="2. 开机自动启动ss服务等"></a>2. 开机自动启动ss服务等</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ss的开机启动</span></div><div class="line">	chkconfig supervisord  on</div><div class="line"><span class="comment"># 锐速开机启动</span></div><div class="line">	chkconfig serverSpeeder on</div><div class="line"><span class="comment"># net-speeder的开机启动</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;'</span> &gt;&gt; /etc/rc.local</div></pre></td></tr></table></figure>
-<h2 id="3-补充：Crontab基本格式："><a href="#3-补充：Crontab基本格式：" class="headerlink" title="3.补充：Crontab基本格式："></a>3.补充：Crontab基本格式：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*　 *　 *　 *　　*　　<span class="built_in">command</span></div><div class="line">分　时　日　月　 周　 命令</div></pre></td></tr></table></figure>
+<h2 id="1-添加定时重启vps"><a class="header-anchor" href="#1-添加定时重启vps">¶</a>1. 添加定时重启vps</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">crontab -e				<span class="comment">#编辑任务列表</span></div><div class="line"></div><div class="line"><span class="comment">#新增：注意用root用户添加</span></div><div class="line">	01 21 * * * /sbin/roboot	  <span class="comment">#由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。</span></div></pre></td></tr></table></figure>
+<h2 id="2-开机自动启动ss服务等"><a class="header-anchor" href="#2-开机自动启动ss服务等">¶</a>2. 开机自动启动ss服务等</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ss的开机启动</span></div><div class="line">	chkconfig supervisord  on</div><div class="line"><span class="comment"># 锐速开机启动</span></div><div class="line">	chkconfig serverSpeeder on</div><div class="line"><span class="comment"># net-speeder的开机启动</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;'</span> &gt;&gt; /etc/rc.local</div></pre></td></tr></table></figure>
+<h2 id="3-补充：crontab基本格式："><a class="header-anchor" href="#3-补充：crontab基本格式：">¶</a>3.补充：Crontab基本格式：</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*　 *　 *　 *　　*　　<span class="built_in">command</span></div><div class="line">分　时　日　月　 周　 命令</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -401,16 +397,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/17/20161117-给VMware下的Linux扩展磁盘空间/" rel="next" title="给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）">
-                <i class="fa fa-chevron-left"></i> 给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）
+              <a href="/2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/" rel="next" title="亚马逊aws更改linux为root权限密码登陆">
+                <i class="fa fa-chevron-left"></i> 亚马逊aws更改linux为root权限密码登陆
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/21/20161121-亚马逊aws更改linux为root权限密码登陆/" rel="prev" title="亚马逊aws更改linux为root权限密码登陆">
-                亚马逊aws更改linux为root权限密码登陆 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/20161121-常用工具大集合-突发奇想更新中/" rel="prev" title="常用工具大集合(突发奇想更新中...)">
+                常用工具大集合(突发奇想更新中...) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -433,18 +429,11 @@
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/"
-           data-title="ss用一段时间卡？vps定时重启试试" data-url="http://www.liyang.site/2016/11/21/20161121-ss用一段时间卡？vps定时重启试试/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -588,7 +577,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-添加定时重启vps"><span class="nav-text">1. 添加定时重启vps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开机自动启动ss服务等"><span class="nav-text">2. 开机自动启动ss服务等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-补充：Crontab基本格式："><span class="nav-text">3.补充：Crontab基本格式：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-添加定时重启vps"><span class="nav-text">¶1. 添加定时重启vps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开机自动启动ss服务等"><span class="nav-text">¶2. 开机自动启动ss服务等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-补充：crontab基本格式："><span class="nav-text">¶3.补充：Crontab基本格式：</span></a></li></ol></div>
             
           </div>
         </section>
@@ -688,31 +677,23 @@
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

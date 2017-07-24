@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hadoop,cdh,cloudera-manger," />
+  <meta name="keywords" content="cdh,hadoop,cloudera-manger," />
 
 
 
@@ -104,13 +104,13 @@
 
 
 
-<meta name="description" content="测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。不废话了，直接记录操作的过程  1、停止各个机器上的相关服务12service cloudera-scm-agent stop  service cloudera-scm-server stop 2、修改托管服务数据库中的配置修改HOSTS 表中的 ip_adderss  3、修改config.ini">
-<meta name="keywords" content="hadoop,cdh,cloudera-manger">
+<meta name="description" content="测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。 不废话了，直接记录操作的过程  ¶1、停止各个机器上的相关服务 12service cloudera-scm-agent stop  service cloudera-scm-server stop ¶2、修改托管服务数据库中的配置 修改HOSTS 表中的 ip_adderss  ¶3、修改conf">
+<meta name="keywords" content="cdh,hadoop,cloudera-manger">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cdh修改hadoop集群的IP">
 <meta property="og:url" content="http://www.liyang.site/2017/02/27/20170227-Cloudera-Manager修改集群的IP/index.html">
 <meta property="og:site_name" content="liyang&#39;s blog">
-<meta property="og:description" content="测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。不废话了，直接记录操作的过程  1、停止各个机器上的相关服务12service cloudera-scm-agent stop  service cloudera-scm-server stop 2、修改托管服务数据库中的配置修改HOSTS 表中的 ip_adderss  3、修改config.ini">
+<meta property="og:description" content="测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。 不废话了，直接记录操作的过程  ¶1、停止各个机器上的相关服务 12service cloudera-scm-agent stop  service cloudera-scm-server stop ¶2、修改托管服务数据库中的配置 修改HOSTS 表中的 ip_adderss  ¶3、修改conf">
 <meta property="og:image" content="http://og20qmy78.bkt.clouddn.com/image/2017022701.png">
 <meta property="og:image" content="http://og20qmy78.bkt.clouddn.com/image/2017022702.png">
 <meta property="og:image" content="http://og20qmy78.bkt.clouddn.com/image/2017022703.png">
@@ -127,7 +127,7 @@
 <meta property="og:updated_time" content="2017-07-18T13:35:07.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cdh修改hadoop集群的IP">
-<meta name="twitter:description" content="测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。不废话了，直接记录操作的过程  1、停止各个机器上的相关服务12service cloudera-scm-agent stop  service cloudera-scm-server stop 2、修改托管服务数据库中的配置修改HOSTS 表中的 ip_adderss  3、修改config.ini">
+<meta name="twitter:description" content="测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。 不废话了，直接记录操作的过程  ¶1、停止各个机器上的相关服务 12service cloudera-scm-agent stop  service cloudera-scm-server stop ¶2、修改托管服务数据库中的配置 修改HOSTS 表中的 ip_adderss  ¶3、修改conf">
 <meta name="twitter:image" content="http://og20qmy78.bkt.clouddn.com/image/2017022701.png">
 
 
@@ -140,7 +140,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     }
   };
@@ -349,13 +349,6 @@
           
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/27/20170227-Cloudera-Manager修改集群的IP/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/27/20170227-Cloudera-Manager修改集群的IP/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -376,22 +369,44 @@
 
       
         <blockquote>
-<p>测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。<br>不废话了，直接记录操作的过程</p>
+<p>测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。<br>
+不废话了，直接记录操作的过程</p>
 </blockquote>
-<h3 id="1、停止各个机器上的相关服务"><a href="#1、停止各个机器上的相关服务" class="headerlink" title="1、停止各个机器上的相关服务"></a>1、停止各个机器上的相关服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-agent stop  </div><div class="line">service cloudera-scm-server stop</div></pre></td></tr></table></figure>
-<h3 id="2、修改托管服务数据库中的配置"><a href="#2、修改托管服务数据库中的配置" class="headerlink" title="2、修改托管服务数据库中的配置"></a>2、修改托管服务数据库中的配置</h3><p>修改<font color="Red"><code>HOSTS</code></font> 表中的 <font color="LimeGreen"><code>ip_adderss</code></font></p>
+<h3 id="1-停止各个机器上的相关服务"><a class="header-anchor" href="#1-停止各个机器上的相关服务">¶</a>1、停止各个机器上的相关服务</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-agent stop  </div><div class="line">service cloudera-scm-server stop</div></pre></td></tr></table></figure>
+<h3 id="2-修改托管服务数据库中的配置"><a class="header-anchor" href="#2-修改托管服务数据库中的配置">¶</a>2、修改托管服务数据库中的配置</h3>
+<p>修改<font color="Red"><code>HOSTS</code></font> 表中的 <font color="LimeGreen"><code>ip_adderss</code></font></p>
 <p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022701.png" alt="image"></p>
-<h3 id="3、修改config-ini"><a href="#3、修改config-ini" class="headerlink" title="3、修改config.ini"></a>3、修改config.ini</h3><p>修改<font color="Red"><code>clouder-mager</code></font>服务机器上面<font color="Red"><code>config.ini</code></font>中：<font color="Red"><code>server_host</code></font><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">vi /etc/cloudera-scm-agent/config.ini</span></div><div class="line"></div><div class="line">[General]</div><div class="line"><span class="meta">#</span><span class="bash"> Hostname of the CM server.</span></div><div class="line">server_host=172.16.8.202</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> Port that the CM server is listening on.</span></div><div class="line">server_port=7182</div><div class="line">......</div></pre></td></tr></table></figure></p>
-<h3 id="4、修改hosts"><a href="#4、修改hosts" class="headerlink" title="4、修改hosts"></a>4、修改hosts</h3><p>修改hosts，并scp到其他机器</p>
+<h3 id="3-修改config-ini"><a class="header-anchor" href="#3-修改config-ini">¶</a>3、修改config.ini</h3>
+<p>修改<font color="Red"><code>clouder-mager</code></font>服务机器上面<font color="Red"><code>config.ini</code></font>中：<font color="Red"><code>server_host</code></font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">vi /etc/cloudera-scm-agent/config.ini</span></div><div class="line"></div><div class="line">[General]</div><div class="line"><span class="meta">#</span><span class="bash"> Hostname of the CM server.</span></div><div class="line">server_host=172.16.8.202</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> Port that the CM server is listening on.</span></div><div class="line">server_port=7182</div><div class="line">......</div></pre></td></tr></table></figure>
+<h3 id="4-修改hosts"><a class="header-anchor" href="#4-修改hosts">¶</a>4、修改hosts</h3>
+<p>修改hosts，并scp到其他机器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> vi /etc/hosts</span></div><div class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line"></div><div class="line"></div><div class="line">172.16.8.201 kvm</div><div class="line">172.16.8.202 cdh.scm</div><div class="line">172.16.8.203 cdh.master</div><div class="line">172.16.8.204 cdh.slave01</div><div class="line">172.16.8.205 cdh.slave02</div><div class="line">172.16.8.206 cdh.slave03</div><div class="line"></div><div class="line">[root@kvm ~]# scp /etc/hosts 172.16.3.202:/etc/hosts</div><div class="line">The authenticity of host '172.16.3.202 (172.16.3.202)' can't be established.</div><div class="line">RSA key fingerprint is a2:84:e0:da:bf:a9:a2:83:5f:d0:d0:a2:04:02:eb:cb.</div><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div><div class="line">Warning: Permanently added '172.16.3.202' (RSA) to the list of known hosts.</div><div class="line">root@172.16.3.202's password: </div><div class="line">hosts                                                                                                                                                    100%  298     0.3KB/s   00:00</div></pre></td></tr></table></figure>
-<h3 id="5、启动各个机器上的相关服务"><a href="#5、启动各个机器上的相关服务" class="headerlink" title="5、启动各个机器上的相关服务"></a>5、启动各个机器上的相关服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-agent start</div><div class="line">service cloudera-scm-server start</div></pre></td></tr></table></figure>
-<p>启动过程可能有点慢，可以查看日志，当出现了以下即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># tail -f  /var/log/cloudera-scm-server/cloudera-scm-server.log</div><div class="line"></div><div class="line">2017-02-24 21:38:36,288 INFO WebServerImpl:org.mortbay.log: jetty-6.1.26.cloudera.4</div><div class="line">2017-02-24 21:38:36,296 INFO WebServerImpl:org.mortbay.log: Started SelectChannelConnector@0.0.0.0:7180</div><div class="line">2017-02-24 21:38:36,297 INFO WebServerImpl:com.cloudera.server.cmf.WebServerImpl: Started Jetty server.</div></pre></td></tr></table></figure></p>
-<h3 id="6、运行升级向导"><a href="#6、运行升级向导" class="headerlink" title="6、运行升级向导"></a>6、运行升级向导</h3><p>安装下图进行升级向导<br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022702.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022703.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022704.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022705.png" alt="image"></p>
-<p>等待一会就好，如果有错误看错误日志。<br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022706.png" alt="image"></p>
-<h3 id="7、更新配置文件"><a href="#7、更新配置文件" class="headerlink" title="7、更新配置文件"></a>7、更新配置文件</h3><h4 id="7-1-更新clouder-magerment-service-过去配置"><a href="#7-1-更新clouder-magerment-service-过去配置" class="headerlink" title="7.1 更新clouder magerment service 过去配置"></a>7.1 更新clouder magerment service 过去配置</h4><p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022707.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022708.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022709.png" alt="image"></p>
-<h4 id="7-2-更新集群过期配置"><a href="#7-2-更新集群过期配置" class="headerlink" title="7.2 更新集群过期配置"></a>7.2 更新集群过期配置</h4><p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022711.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022710.png" alt="image"><br><img src="http://og20qmy78.bkt.clouddn.com/image/2017022712.png" alt="image"></p>
+<h3 id="5-启动各个机器上的相关服务"><a class="header-anchor" href="#5-启动各个机器上的相关服务">¶</a>5、启动各个机器上的相关服务</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service cloudera-scm-agent start</div><div class="line">service cloudera-scm-server start</div></pre></td></tr></table></figure>
+<p>启动过程可能有点慢，可以查看日志，当出现了以下即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># tail -f  /var/log/cloudera-scm-server/cloudera-scm-server.log</div><div class="line"></div><div class="line">2017-02-24 21:38:36,288 INFO WebServerImpl:org.mortbay.log: jetty-6.1.26.cloudera.4</div><div class="line">2017-02-24 21:38:36,296 INFO WebServerImpl:org.mortbay.log: Started SelectChannelConnector@0.0.0.0:7180</div><div class="line">2017-02-24 21:38:36,297 INFO WebServerImpl:com.cloudera.server.cmf.WebServerImpl: Started Jetty server.</div></pre></td></tr></table></figure>
+<h3 id="6-运行升级向导"><a class="header-anchor" href="#6-运行升级向导">¶</a>6、运行升级向导</h3>
+<p>安装下图进行升级向导<br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022702.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022703.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022704.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022705.png" alt="image"></p>
+<p>等待一会就好，如果有错误看错误日志。<br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022706.png" alt="image"></p>
+<h3 id="7-更新配置文件"><a class="header-anchor" href="#7-更新配置文件">¶</a>7、更新配置文件</h3>
+<h4 id="7-1-更新clouder-magerment-service-过去配置"><a class="header-anchor" href="#7-1-更新clouder-magerment-service-过去配置">¶</a>7.1 更新clouder magerment service 过去配置</h4>
+<p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022707.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022708.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022709.png" alt="image"></p>
+<h4 id="7-2-更新集群过期配置"><a class="header-anchor" href="#7-2-更新集群过期配置">¶</a>7.2 更新集群过期配置</h4>
+<p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022711.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022710.png" alt="image"><br>
+<img src="http://og20qmy78.bkt.clouddn.com/image/2017022712.png" alt="image"></p>
 <p>等待一会就好</p>
-<h3 id="8、完成并测试一下"><a href="#8、完成并测试一下" class="headerlink" title="8、完成并测试一下"></a>8、完成并测试一下</h3><p>随便测试一下好了，就hive吧</p>
+<h3 id="8-完成并测试一下"><a class="header-anchor" href="#8-完成并测试一下">¶</a>8、完成并测试一下</h3>
+<p>随便测试一下好了，就hive吧</p>
 <p><img src="http://og20qmy78.bkt.clouddn.com/image/2017022713.png" alt="image"></p>
 <p>ok</p>
 
@@ -416,9 +431,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hadoop/" rel="tag">#hadoop</a>
-          
             <a href="/tags/cdh/" rel="tag">#cdh</a>
+          
+            <a href="/tags/hadoop/" rel="tag">#hadoop</a>
           
             <a href="/tags/cloudera-manger/" rel="tag">#cloudera-manger</a>
           
@@ -461,18 +476,11 @@
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/27/20170227-Cloudera-Manager修改集群的IP/"
-           data-title="cdh修改hadoop集群的IP" data-url="http://www.liyang.site/2017/02/27/20170227-Cloudera-Manager修改集群的IP/">
-      </div>
-    
-  </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTcwOS82Mjc3"></div>
 
 
         </div>
@@ -616,7 +624,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、停止各个机器上的相关服务"><span class="nav-text">1、停止各个机器上的相关服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、修改托管服务数据库中的配置"><span class="nav-text">2、修改托管服务数据库中的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、修改config-ini"><span class="nav-text">3、修改config.ini</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、修改hosts"><span class="nav-text">4、修改hosts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、启动各个机器上的相关服务"><span class="nav-text">5、启动各个机器上的相关服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、运行升级向导"><span class="nav-text">6、运行升级向导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、更新配置文件"><span class="nav-text">7、更新配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-更新clouder-magerment-service-过去配置"><span class="nav-text">7.1 更新clouder magerment service 过去配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-更新集群过期配置"><span class="nav-text">7.2 更新集群过期配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、完成并测试一下"><span class="nav-text">8、完成并测试一下</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-停止各个机器上的相关服务"><span class="nav-text">¶1、停止各个机器上的相关服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改托管服务数据库中的配置"><span class="nav-text">¶2、修改托管服务数据库中的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-修改config-ini"><span class="nav-text">¶3、修改config.ini</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-修改hosts"><span class="nav-text">¶4、修改hosts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-启动各个机器上的相关服务"><span class="nav-text">¶5、启动各个机器上的相关服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-运行升级向导"><span class="nav-text">¶6、运行升级向导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-更新配置文件"><span class="nav-text">¶7、更新配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-更新clouder-magerment-service-过去配置"><span class="nav-text">¶7.1 更新clouder magerment service 过去配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-更新集群过期配置"><span class="nav-text">¶7.2 更新集群过期配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-完成并测试一下"><span class="nav-text">¶8、完成并测试一下</span></a></li></ol></div>
             
           </div>
         </section>
@@ -716,31 +724,23 @@
 
 
   
-
   
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"ermao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
+
+
+  
 
 
 

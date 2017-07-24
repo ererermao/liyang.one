@@ -1,4 +1,3 @@
-http://www.liyang.site/2017/07/18/20161110-centos使用外部smtp发送邮件/
 http://www.liyang.site/2017/05/08/20170508-so文件缺失或大小为0/
 http://www.liyang.site/2017/05/04/20170504-博客迁移记录/
 http://www.liyang.site/2017/04/27/20170427-升级python2-7后easy-install报错/
@@ -18,3 +17,4 @@ http://www.liyang.site/2017/01/10/20170110-centos无线网连接问题/
 http://www.liyang.site/2016/12/07/20161207-centos设置ntp服务器和客户端/
 http://www.liyang.site/2016/12/06/20161206-cdh搭建hadoop集群-hive错误集/
 http://www.liyang.site/2016/12/01/20161201-centos更改国内阿里的yum源/
+http://www.liyang.site/2016/11/21/20161121-常用工具大集合-突发奇想更新中/
