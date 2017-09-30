@@ -1,6 +1,6 @@
-http://www.liyang.site/2017/09/30/20170810-未归类的问题集/
 http://www.liyang.site/2017/09/29/20170929-spark2-x编译/
 http://www.liyang.site/2017/08/17/20161110-centos使用外部smtp发送邮件/
+http://www.liyang.site/2017/08/10/20170810-未归类的问题集/
 http://www.liyang.site/2017/07/13/20170713-archlinux的优化/
 http://www.liyang.site/2017/07/11/20170711-archlinux的安装/
 http://www.liyang.site/2017/05/08/20170508-so文件缺失或大小为0/

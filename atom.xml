@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.liyang.site/"/>
-  <updated>2017-09-30T02:29:34.115Z</updated>
+  <updated>2017-09-30T02:37:20.315Z</updated>
   <id>http://www.liyang.site/</id>
   
   <author>
@@ -16,22 +16,107 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://www.liyang.site/2017/09/30/20170810-%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98%E9%9B%86/"/>
-    <id>http://www.liyang.site/2017/09/30/20170810-未归类的问题集/</id>
-    <published>2017-09-30T02:29:34.115Z</published>
-    <updated>2017-09-30T02:29:34.115Z</updated>
+    <title>spark2.x编译</title>
+    <link href="http://www.liyang.site/2017/09/29/20170929-spark2-x%E7%BC%96%E8%AF%91/"/>
+    <id>http://www.liyang.site/2017/09/29/20170929-spark2-x编译/</id>
+    <published>2017-09-29T12:00:00.000Z</published>
+    <updated>2017-09-30T02:37:20.315Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>title: 未归类的问题集<br>
-date: 2017-08-10 20:00:00<br>
-categories: 未归类<br>
-tags:</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>编译随记</p>
+</blockquote>
+<h3 id="1-基础环境-忽略"><a class="header-anchor" href="#1-基础环境-忽略">¶</a>1、基础环境（忽略）</h3>
 <ul>
-<li>未归类</li>
+<li>maven</li>
+<li>scala2.11+</li>
 </ul>
-<hr>
-<blockquote>
+<h3 id="2-下载源码"><a class="header-anchor" href="#2-下载源码">¶</a>2、下载源码</h3>
+<p>先下载源码，可以去</p>
+<ul>
+<li>http://archive.apache.org/dist/spark</li>
+<li>http://archive.apache.org/dist/spark/</li>
+</ul>
+<h3 id="3-添加源"><a class="header-anchor" href="#3-添加源">¶</a>3、添加源</h3>
+<p>在根目录的pom.xml里面添加下面这一句</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>cloudera<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>cloudera Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repository.cloudera.com/artifactory/cloudera-repos<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="4-编译"><a class="header-anchor" href="#4-编译">¶</a>4、编译</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 官方建议用make-distribution.sh 编译</span></div><div class="line">./dev/make-distribution.sh --name custom-spark --tgz -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver </div><div class="line"></div><div class="line"><span class="comment">## maven 编译命令</span></div><div class="line">mvn -e -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver -Pyarn -DskipTests clean package</div></pre></td></tr></table></figure>
+<h3 id="5-可能遇到的问题"><a class="header-anchor" href="#5-可能遇到的问题">¶</a>5、可能遇到的问题</h3>
+<h4 id="5-1-failed-to-execute-goal-org-codehaus-mojo-exec-maven-plugin-1-4-0-exec-sparkr-pkg-on-project-spark-core-2-10-command-execution-failed-process-exited-with-an-error-127-exit-value-127-help-1"><a class="header-anchor" href="#5-1-failed-to-execute-goal-org-codehaus-mojo-exec-maven-plugin-1-4-0-exec-sparkr-pkg-on-project-spark-core-2-10-command-execution-failed-process-exited-with-an-error-127-exit-value-127-help-1">¶</a>5.1 Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.4.0:exec (sparkr-pkg) on project spark-core_2.10: Command execution failed. Process exited with an error: 127 (Exit value: 127) -&gt; [Help 1]</h4>
+<p>解决： 在编译命令去掉 -Pyarnr 这个参数</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;编译随记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1-基础环境-忽略&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-基础环境-忽略&quot;&gt;¶&lt;/a&gt;1、基础环境（忽略）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;maven&lt;/li
+    
+    </summary>
+    
+      <category term="spark" scheme="http://www.liyang.site/categories/spark/"/>
+    
+    
+      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
+    
+      <category term="spark" scheme="http://www.liyang.site/tags/spark/"/>
+    
+      <category term="spark2.x" scheme="http://www.liyang.site/tags/spark2-x/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos使用外部smtp发送邮件</title>
+    <link href="http://www.liyang.site/2017/08/17/20161110-centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
+    <id>http://www.liyang.site/2017/08/17/20161110-centos使用外部smtp发送邮件/</id>
+    <published>2017-08-17T05:22:24.560Z</published>
+    <updated>2017-08-17T05:22:24.560Z</updated>
+    
+    <content type="html"><![CDATA[<p>在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。</p>
+<h2 id="1-安装mail"><a class="header-anchor" href="#1-安装mail">¶</a>1. 安装mail</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install mailx  -y  <span class="comment"># -y 默认yes</span></div></pre></td></tr></table></figure>
+<h2 id="2-配置外部smtp发送邮件"><a class="header-anchor" href="#2-配置外部smtp发送邮件">¶</a>2. 配置外部smtp发送邮件</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vi /etc/mail.rc</div><div class="line"><span class="comment">## 新增以下</span></div><div class="line"><span class="built_in">set</span> from=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp=smtp.qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-user=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-password=XXXXXXXX</div><div class="line"><span class="built_in">set</span> smtp-auth=login</div></pre></td></tr></table></figure>
+<h2 id="3-发送邮件"><a class="header-anchor" href="#3-发送邮件">¶</a>3. 发送邮件</h2>
+<h3 id="3-1-使用管道进行邮件发送"><a class="header-anchor" href="#3-1-使用管道进行邮件发送">¶</a>3.1 使用管道进行邮件发送</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;hello&quot; | mail -s &quot;test&quot; XXXXX@qq.com</div></pre></td></tr></table></figure>
+<h3 id="3-2-使用文件进行邮件发送"><a class="header-anchor" href="#3-2-使用文件进行邮件发送">¶</a>3.2 使用文件进行邮件发送</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
+<h3 id="3-3-发送附件"><a class="header-anchor" href="#3-3-发送附件">¶</a>3.3 发送附件</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; -a /opt/b.txt XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。&lt;/p&gt;
+&lt;h2 id=&quot;1-安装mail&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-安装mail&quot;&gt;¶&lt;/a&gt;1. 安装mail&lt;/h
+    
+    </summary>
+    
+      <category term="centos" scheme="http://www.liyang.site/categories/centos/"/>
+    
+    
+      <category term="mail" scheme="http://www.liyang.site/tags/mail/"/>
+    
+      <category term="smtp" scheme="http://www.liyang.site/tags/smtp/"/>
+    
+      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
+    
+      <category term="邮件" scheme="http://www.liyang.site/tags/%E9%82%AE%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>未归类的问题集</title>
+    <link href="http://www.liyang.site/2017/08/10/20170810-%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98%E9%9B%86/"/>
+    <id>http://www.liyang.site/2017/08/10/20170810-未归类的问题集/</id>
+    <published>2017-08-10T12:00:00.000Z</published>
+    <updated>2017-09-30T02:37:07.482Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
 <p>未归类的一些问题集</p>
 </blockquote>
 <h3 id="1-ss-panel-vendor-autoload-php-no-such-file-or-directory"><a class="header-anchor" href="#1-ss-panel-vendor-autoload-php-no-such-file-or-directory">¶</a>1、ss.panel/vendor/autoload.php: No such file or directory</h3>
@@ -108,115 +193,17 @@ jdk1.8 scala 2.11.11 jar 3.0</p>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title: 未归类的问题集&lt;br&gt;
-date: 2017-08-10 20:00:00&lt;br&gt;
-categories: 未归类&lt;br&gt;
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;未归类&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;未归类的一些问题
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>spark2.x编译</title>
-    <link href="http://www.liyang.site/2017/09/29/20170929-spark2-x%E7%BC%96%E8%AF%91/"/>
-    <id>http://www.liyang.site/2017/09/29/20170929-spark2-x编译/</id>
-    <published>2017-09-29T12:00:00.000Z</published>
-    <updated>2017-09-30T02:25:10.562Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>编译</p>
-</blockquote>
-<h3 id="1-基础环境-忽略"><a class="header-anchor" href="#1-基础环境-忽略">¶</a>1、基础环境（忽略）</h3>
-<ul>
-<li>maven</li>
-<li>scala2.11+</li>
-</ul>
-<h3 id="2-下载源码"><a class="header-anchor" href="#2-下载源码">¶</a>2、下载源码</h3>
-<p>先下载源码，可以去</p>
-<ul>
-<li>http://archive.apache.org/dist/spark</li>
-<li>http://archive.apache.org/dist/spark/</li>
-</ul>
-<h3 id="3-添加源"><a class="header-anchor" href="#3-添加源">¶</a>3、添加源</h3>
-<p>在根目录的pom.xml里面添加下面这一句</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>cloudera<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>cloudera Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repository.cloudera.com/artifactory/cloudera-repos<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="4-编译"><a class="header-anchor" href="#4-编译">¶</a>4、编译</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 官方建议用make-distribution.sh 编译</span></div><div class="line">./dev/make-distribution.sh --name custom-spark --tgz -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver </div><div class="line"></div><div class="line"><span class="comment">## maven 编译命令</span></div><div class="line">mvn -e -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver -Pyarn -DskipTests clean package</div></pre></td></tr></table></figure>
-<h3 id="5-可能遇到的问题"><a class="header-anchor" href="#5-可能遇到的问题">¶</a>5、可能遇到的问题</h3>
-<h4 id="5-1-failed-to-execute-goal-org-codehaus-mojo-exec-maven-plugin-1-4-0-exec-sparkr-pkg-on-project-spark-core-2-10-command-execution-failed-process-exited-with-an-error-127-exit-value-127-help-1"><a class="header-anchor" href="#5-1-failed-to-execute-goal-org-codehaus-mojo-exec-maven-plugin-1-4-0-exec-sparkr-pkg-on-project-spark-core-2-10-command-execution-failed-process-exited-with-an-error-127-exit-value-127-help-1">¶</a>5.1 Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.4.0:exec (sparkr-pkg) on project spark-core_2.10: Command execution failed. Process exited with an error: 127 (Exit value: 127) -&gt; [Help 1]</h4>
-<p>解决： 在编译命令去掉 -Pyarnr 这个参数</p>
-]]></content>
-    
-    <summary type="html">
-    
       &lt;blockquote&gt;
-&lt;p&gt;编译&lt;/p&gt;
+&lt;p&gt;未归类的一些问题集&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;1-基础环境-忽略&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-基础环境-忽略&quot;&gt;¶&lt;/a&gt;1、基础环境（忽略）&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;maven&lt;/li&gt;
-
+&lt;h3 id=&quot;1-ss-panel-vendor-autoload-php-no-such-file-or-directory&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=
     
     </summary>
     
-      <category term="spark" scheme="http://www.liyang.site/categories/spark/"/>
+      <category term="未归类" scheme="http://www.liyang.site/categories/%E6%9C%AA%E5%BD%92%E7%B1%BB/"/>
     
     
-      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
-    
-      <category term="spark" scheme="http://www.liyang.site/tags/spark/"/>
-    
-      <category term="spark2.x" scheme="http://www.liyang.site/tags/spark2-x/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos使用外部smtp发送邮件</title>
-    <link href="http://www.liyang.site/2017/08/17/20161110-centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
-    <id>http://www.liyang.site/2017/08/17/20161110-centos使用外部smtp发送邮件/</id>
-    <published>2017-08-17T05:22:24.560Z</published>
-    <updated>2017-08-17T05:22:24.560Z</updated>
-    
-    <content type="html"><![CDATA[<p>在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。</p>
-<h2 id="1-安装mail"><a class="header-anchor" href="#1-安装mail">¶</a>1. 安装mail</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install mailx  -y  <span class="comment"># -y 默认yes</span></div></pre></td></tr></table></figure>
-<h2 id="2-配置外部smtp发送邮件"><a class="header-anchor" href="#2-配置外部smtp发送邮件">¶</a>2. 配置外部smtp发送邮件</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vi /etc/mail.rc</div><div class="line"><span class="comment">## 新增以下</span></div><div class="line"><span class="built_in">set</span> from=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp=smtp.qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-user=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-password=XXXXXXXX</div><div class="line"><span class="built_in">set</span> smtp-auth=login</div></pre></td></tr></table></figure>
-<h2 id="3-发送邮件"><a class="header-anchor" href="#3-发送邮件">¶</a>3. 发送邮件</h2>
-<h3 id="3-1-使用管道进行邮件发送"><a class="header-anchor" href="#3-1-使用管道进行邮件发送">¶</a>3.1 使用管道进行邮件发送</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;hello&quot; | mail -s &quot;test&quot; XXXXX@qq.com</div></pre></td></tr></table></figure>
-<h3 id="3-2-使用文件进行邮件发送"><a class="header-anchor" href="#3-2-使用文件进行邮件发送">¶</a>3.2 使用文件进行邮件发送</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
-<h3 id="3-3-发送附件"><a class="header-anchor" href="#3-3-发送附件">¶</a>3.3 发送附件</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; -a /opt/b.txt XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。&lt;/p&gt;
-&lt;h2 id=&quot;1-安装mail&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-安装mail&quot;&gt;¶&lt;/a&gt;1. 安装mail&lt;/h
-    
-    </summary>
-    
-      <category term="centos" scheme="http://www.liyang.site/categories/centos/"/>
-    
-    
-      <category term="mail" scheme="http://www.liyang.site/tags/mail/"/>
-    
-      <category term="smtp" scheme="http://www.liyang.site/tags/smtp/"/>
-    
-      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
-    
-      <category term="邮件" scheme="http://www.liyang.site/tags/%E9%82%AE%E4%BB%B6/"/>
+      <category term="未归类" scheme="http://www.liyang.site/tags/%E6%9C%AA%E5%BD%92%E7%B1%BB/"/>
     
   </entry>
   
