@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.liyang.site/"/>
-  <updated>2017-07-18T13:35:07.143Z</updated>
+  <updated>2017-09-30T02:25:17.218Z</updated>
   <id>http://www.liyang.site/</id>
   
   <author>
@@ -16,11 +16,327 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://www.liyang.site/2017/09/30/20170810-%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98%E9%9B%86/"/>
+    <id>http://www.liyang.site/2017/09/30/20170810-未归类的问题集/</id>
+    <published>2017-09-30T02:25:17.218Z</published>
+    <updated>2017-09-30T02:25:17.218Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<p>title: 未归类的问题集<br>
+date: 2017-08-10 20:00:00<br>
+categories: 未归类<br>
+tags:</p>
+<ul>
+<li>未归类</li>
+</ul>
+<blockquote>
+<p>未归类的一些问题集</p>
+</blockquote>
+<h3 id="1-ss-panel-vendor-autoload-php-no-such-file-or-directory"><a class="header-anchor" href="#1-ss-panel-vendor-autoload-php-no-such-file-or-directory">¶</a>1、ss.panel/vendor/autoload.php: No such file or directory</h3>
+<p>需要执行：php composer.phar install</p>
+<h3 id="2-php版本-大于5-6"><a class="header-anchor" href="#2-php版本-大于5-6">¶</a>2、php版本 大于5.6</h3>
+<h3 id="3-php-n-xcat-createadmin"><a class="header-anchor" href="#3-php-n-xcat-createadmin">¶</a>3、php -n xcat createAdmin</h3>
+<p>Fatal error: Interface ‘JsonSerializable’ not found in /home/ss/ss.panel/vendor/sendgrid/sendgrid/lib/helpers/mail/Mail.php on line 16<br>
+去掉 -n</p>
+<h2 id="20170607"><a class="header-anchor" href="#20170607">¶</a>20170607</h2>
+<h3 id="4-error-not-found-value-hivectx"><a class="header-anchor" href="#4-error-not-found-value-hivectx">¶</a>4、error: not found: value hiveCtx</h3>
+<p>import org.apache.spark.sql.hive.HiveContext<br>
+val hiveCtx = new HiveContext(sc)</p>
+<h3 id="5-http-liuyq1991-iteye-com-blog-2270678"><a class="header-anchor" href="#5-http-liuyq1991-iteye-com-blog-2270678">¶</a>5、http://liuyq1991.iteye.com/blog/2270678</h3>
+<p>Error in configuring object</p>
+<h3 id="6"><a class="header-anchor" href="#6">¶</a>6、</h3>
+<p>问题4：java.sql.SQLException: Failed to start database ‘metastore_db’ with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@5a0039e7, see the next exception for details<br>
+只是要注意一点：在运行程序之前，千万不要运行脚本sbin/start-thriftserver.sh,否则自己写的程序是无法运行的<br>
+情形一：已经有一个hive连接在访问Derby创建的metastore_db文件夹，由于Derby数据库自身的缺点–仅支持一个链接对其进行访问，所以这时，如果再有一个终端调用hive，就有第二个链接访问Derby数据库了，就会抛出这个异常。<br>
+解决方法很简单。用mysql作为元数据仓库，mysql支持多链接访问，这个问题就不存在了。<br>
+情形二：突然离线，易造成hive没能来得及删除自动创建的metastore_db文件夹(~home/bin/metastore_db),这时再次用hive命令进入，则会产生如下报错。<br>
+解决这一问题很简单。将metastore_db文件夹改名或者干脆删除，然后重新运行hive命令启动即可。</p>
+<p>spark_home 将metastore_db文件夹改名或者干脆删除</p>
+<h3 id="7-spark-动态资源分配"><a class="header-anchor" href="#7-spark-动态资源分配">¶</a>7、spark 动态资源分配</h3>
+<p>http://lxw1234.com/archives/2015/12/593.htm</p>
+<h3 id="9-unread-block-data"><a class="header-anchor" href="#9-unread-block-data">¶</a>9、unread block data</h3>
+<p>17/06/28 11:14:35 INFO spark.SparkContext: Running Spark version 1.6.0<br>
+17/06/28 11:14:35 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform… using builtin-java classes where applicable<br>
+17/06/28 11:14:36 WARN spark.SparkConf:<br>
+SPARK_CLASSPATH was detected (set to ‘:/usr/lib/spark-1.6.0-bin-hadoop2.6/lib/hbase/*::/usr/lib/spark-1.6.0-bin-hadoop2.6/conf’).<br>
+This is deprecated in Spark 1.0+.</p>
+<p>Please instead use:</p>
+<ul>
+<li>./spark-submit with --driver-class-path to augment the driver classpath</li>
+<li>spark.executor.extraClassPath to augment the executor classpath</li>
+</ul>
+<p>17/06/28 11:14:36 WARN spark.SparkConf: Setting ‘spark.executor.extraClassPath’ to ‘:/usr/lib/spark-1.6.0-bin-hadoop2.6/lib/hbase/<em>::/usr/lib/spark-1.6.0-bin-hadoop2.6/conf’ as a work-around.<br>
+17/06/28 11:14:36 WARN spark.SparkConf: Setting ‘spark.driver.extraClassPath’ to ':/usr/lib/spark-1.6.0-bin-hadoop2.6/lib/hbase/</em>::/usr/lib/spark-1.6.0-bin-hadoop2.6/conf’ as a work-around.</p>
+<p>解决办法：–jars</p>
+<h3 id="10-had-a-not-serializable-result"><a class="header-anchor" href="#10-had-a-not-serializable-result">¶</a>10、had a not serializable result</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">17/06/28 14:36:12 ERROR scheduler.TaskSetManager: Task 0.0 in stage 1.0 (TID 1) had a not serializable result: org.apache.hadoop.hbase.io.ImmutableBytesWritable</div><div class="line">Serialization stack:</div><div class="line">        - object not serializable (class: org.apache.hadoop.hbase.io.ImmutableBytesWritable, value: 72 6f 77 33)</div><div class="line">        - field (class: scala.Tuple2, name: _1, type: class java.lang.Object)</div><div class="line">        - object (class scala.Tuple2, (72 6f 77 33,keyvalues=&#123;row1/info:age/1498564460423/Put/vlen=2/seqid=0, row1/info:mail/1498564470928/Put/vlen=15/seqid=0, row1/info:name/1498564445991/Put/vlen=8/seqid=0&#125;))</div><div class="line">        - element of array (index: 0)</div><div class="line">        - array (class [Lscala.Tuple2;, size 3); not retrying</div><div class="line">Exception in thread "main" org.apache.spark.SparkException: Job aborted due to stage failure: Task 0.0 in stage 1.0 (TID 1) had a not serializable result: org.apache.hadoop.hbase.io.ImmutableBytesWritable</div><div class="line">Serialization stack:</div><div class="line">        - object not serializable (class: org.apache.hadoop.hbase.io.ImmutableBytesWritable, value: 72 6f 77 33)</div><div class="line">        - field (class: scala.Tuple2, name: _1, type: class java.lang.Object)</div><div class="line">        - object (class scala.Tuple2, (72 6f 77 33,keyvalues=&#123;row1/info:age/1498564460423/Put/vlen=2/seqid=0, row1/info:mail/1498564470928/Put/vlen=15/seqid=0, row1/info:name/1498564445991/Put/vlen=8/seqid=0&#125;))</div><div class="line">        - element of array (index: 0)</div><div class="line">        - array (class [Lscala.Tuple2;, size 3)</div><div class="line">        at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1431)</div><div class="line">        at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1419)</div><div class="line">        at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1418)</div><div class="line">        at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)</div><div class="line">        at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)</div><div class="line">        at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1418)</div><div class="line">        at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.a</div><div class="line"></div><div class="line"></div><div class="line">在使用Spark操作Hbase的时候，其返回的数据类型是RDD[ImmutableBytesWritable,Result]，我们可能会对这个结果进行其他的操作，比如join等，但是因为org.apache.hadoop.hbase.io.ImmutableBytesWritable 和 org.apache.hadoop.hbase.client.Result 并没有实现 java.io.Serializable 接口，程序在运行的过程中可能发生以下的异常</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    stuRDD.foreach(&#123; case (_,result) =&gt;</div><div class="line">       val key = Bytes.toString(result.getRow)</div><div class="line">       val name = Bytes.toString(result.getValue("info".getBytes,"name".getBytes))</div><div class="line">       val gender = Bytes.toString(result.getValue("info".getBytes,"mail".getBytes))</div><div class="line">       val age = Bytes.toString(result.getValue("info".getBytes,"age".getBytes))</div><div class="line">       println("Row key:"+key+" Name:"+name+" Gender:"+gender+" Age:"+age)</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">val sc = new SparkContext(new SparkConf().set("spark.serializer", "org.apache.spark.serializer.KryoSerializer"))</div><div class="line"></div><div class="line">val stuRDD = sc.newAPIHadoopRDD(conf, classOf[TableInputFormat],classOf[ImmutableBytesWritable],classOf[Result])</div></pre></td></tr></table></figure>
+<h3 id="11-could-not-load-native-gpl-library-no-gplcompression-in-java-library-path"><a class="header-anchor" href="#11-could-not-load-native-gpl-library-no-gplcompression-in-java-library-path">¶</a>11、Could not load native gpl library     no gplcompression in java.library.path</h3>
+<p>测试是没有问题的hdfs dfs -text /home/bi/shaoyu/11.txt.lzo</p>
+<h3 id="12-json-scala"><a class="header-anchor" href="#12-json-scala">¶</a>12、 json scala</h3>
+<p>json4s<br>
+http://kubicode.me/2015/05/24/Scala/Study-And-User-JSON4S/</p>
+<p>lift-json<br>
+https://gxnotes.com/article/72792.html</p>
+<h3 id="13"><a class="header-anchor" href="#13">¶</a>13 、</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError: net/liftweb/json/package$</div><div class="line">Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError: org/json4s/native/JsonMethods$</div></pre></td></tr></table></figure>
+<p>估计是版本问题<br>
+升级jdk版本 和scala版本<br>
+jdk1.8 scala 2.11.11 jar 3.0</p>
+<p>官方文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Spark runs on Java 7+, Python 2.6+ and R 3.1+. For the Scala API, Spark 1.6.0 uses Scala 2.10. You will need to use a compatible Scala version (2.10.x).</div></pre></td></tr></table></figure>
+<p>最终答案：<br>
+到目前为止，都很happy，因为都能顺利通过，因为你依赖的spark库，在spark master和worker上面都有。但是如果依赖mysql的jdbc这些第三方库, 只使用sbt的 package 命令打包，是不会把这些第三方库打包进去的。</p>
+<h3 id="14-modules-were-resolved-with-conflicting-cross-version-suffixes-in"><a class="header-anchor" href="#14-modules-were-resolved-with-conflicting-cross-version-suffixes-in">¶</a>14、  Modules were resolved with conflicting cross-version suffixes in</h3>
+<p>sbt 版本配置文件，版本冲突</p>
+<h3 id="15-sbt-sbt-assembly-编译spark报错"><a class="header-anchor" href="#15-sbt-sbt-assembly-编译spark报错">¶</a>15、 ./sbt/sbt assembly 编译spark报错</h3>
+<p>需要安装git java</p>
+<p>需要配置同名的过滤条件</p>
+<h3 id="16-json-单引号-双引号"><a class="header-anchor" href="#16-json-单引号-双引号">¶</a>16、json 单引号 双引号</h3>
+<p>标准为双引号<br>
+可以通过第三方工具来使用</p>
+<h3 id="18-not-a-host-port-pair-pbuf"><a class="header-anchor" href="#18-not-a-host-port-pair-pbuf">¶</a>18、Not a host:port pair: PBUF</h3>
+<p>hive 整合hbase的时候，hbase包的版本不一致</p>
+<h3 id="17-connection-reset-by-peer"><a class="header-anchor" href="#17-connection-reset-by-peer">¶</a>17、Connection reset by peer</h3>
+<p>在执行hbase put的过程中报出的</p>
+<h3 id="18"><a class="header-anchor" href="#18">¶</a>18 、</h3>
+<p>http://www.haowt.info/archives/205.html</p>
+<h3 id="19-kettle-加载不了资源库"><a class="header-anchor" href="#19-kettle-加载不了资源库">¶</a>19 kettle 加载不了资源库，</h3>
+<p>在设置里面关闭了一些加载，就好了。至于什么忘记了下</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;title: 未归类的问题集&lt;br&gt;
+date: 2017-08-10 20:00:00&lt;br&gt;
+categories: 未归类&lt;br&gt;
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;未归类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;未归类的一些问题集&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>spark2.x编译</title>
+    <link href="http://www.liyang.site/2017/09/29/20170929-spark2-x%E7%BC%96%E8%AF%91/"/>
+    <id>http://www.liyang.site/2017/09/29/20170929-spark2-x编译/</id>
+    <published>2017-09-29T12:00:00.000Z</published>
+    <updated>2017-09-30T02:25:10.562Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>编译</p>
+</blockquote>
+<h3 id="1-基础环境-忽略"><a class="header-anchor" href="#1-基础环境-忽略">¶</a>1、基础环境（忽略）</h3>
+<ul>
+<li>maven</li>
+<li>scala2.11+</li>
+</ul>
+<h3 id="2-下载源码"><a class="header-anchor" href="#2-下载源码">¶</a>2、下载源码</h3>
+<p>先下载源码，可以去</p>
+<ul>
+<li>http://archive.apache.org/dist/spark</li>
+<li>http://archive.apache.org/dist/spark/</li>
+</ul>
+<h3 id="3-添加源"><a class="header-anchor" href="#3-添加源">¶</a>3、添加源</h3>
+<p>在根目录的pom.xml里面添加下面这一句</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>cloudera<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>cloudera Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repository.cloudera.com/artifactory/cloudera-repos<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="4-编译"><a class="header-anchor" href="#4-编译">¶</a>4、编译</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 官方建议用make-distribution.sh 编译</span></div><div class="line">./dev/make-distribution.sh --name custom-spark --tgz -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver </div><div class="line"></div><div class="line"><span class="comment">## maven 编译命令</span></div><div class="line">mvn -e -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver -Pyarn -DskipTests clean package</div></pre></td></tr></table></figure>
+<h3 id="5-可能遇到的问题"><a class="header-anchor" href="#5-可能遇到的问题">¶</a>5、可能遇到的问题</h3>
+<h4 id="5-1-failed-to-execute-goal-org-codehaus-mojo-exec-maven-plugin-1-4-0-exec-sparkr-pkg-on-project-spark-core-2-10-command-execution-failed-process-exited-with-an-error-127-exit-value-127-help-1"><a class="header-anchor" href="#5-1-failed-to-execute-goal-org-codehaus-mojo-exec-maven-plugin-1-4-0-exec-sparkr-pkg-on-project-spark-core-2-10-command-execution-failed-process-exited-with-an-error-127-exit-value-127-help-1">¶</a>5.1 Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.4.0:exec (sparkr-pkg) on project spark-core_2.10: Command execution failed. Process exited with an error: 127 (Exit value: 127) -&gt; [Help 1]</h4>
+<p>解决： 在编译命令去掉 -Pyarnr 这个参数</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;编译&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1-基础环境-忽略&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-基础环境-忽略&quot;&gt;¶&lt;/a&gt;1、基础环境（忽略）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;maven&lt;/li&gt;
+
+    
+    </summary>
+    
+      <category term="spark" scheme="http://www.liyang.site/categories/spark/"/>
+    
+    
+      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
+    
+      <category term="spark" scheme="http://www.liyang.site/tags/spark/"/>
+    
+      <category term="spark2.x" scheme="http://www.liyang.site/tags/spark2-x/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos使用外部smtp发送邮件</title>
+    <link href="http://www.liyang.site/2017/08/17/20161110-centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
+    <id>http://www.liyang.site/2017/08/17/20161110-centos使用外部smtp发送邮件/</id>
+    <published>2017-08-17T05:22:24.560Z</published>
+    <updated>2017-08-17T05:22:24.560Z</updated>
+    
+    <content type="html"><![CDATA[<p>在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。</p>
+<h2 id="1-安装mail"><a class="header-anchor" href="#1-安装mail">¶</a>1. 安装mail</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install mailx  -y  <span class="comment"># -y 默认yes</span></div></pre></td></tr></table></figure>
+<h2 id="2-配置外部smtp发送邮件"><a class="header-anchor" href="#2-配置外部smtp发送邮件">¶</a>2. 配置外部smtp发送邮件</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vi /etc/mail.rc</div><div class="line"><span class="comment">## 新增以下</span></div><div class="line"><span class="built_in">set</span> from=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp=smtp.qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-user=xxxxx@qq.com</div><div class="line"><span class="built_in">set</span> smtp-auth-password=XXXXXXXX</div><div class="line"><span class="built_in">set</span> smtp-auth=login</div></pre></td></tr></table></figure>
+<h2 id="3-发送邮件"><a class="header-anchor" href="#3-发送邮件">¶</a>3. 发送邮件</h2>
+<h3 id="3-1-使用管道进行邮件发送"><a class="header-anchor" href="#3-1-使用管道进行邮件发送">¶</a>3.1 使用管道进行邮件发送</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;hello&quot; | mail -s &quot;test&quot; XXXXX@qq.com</div></pre></td></tr></table></figure>
+<h3 id="3-2-使用文件进行邮件发送"><a class="header-anchor" href="#3-2-使用文件进行邮件发送">¶</a>3.2 使用文件进行邮件发送</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
+<h3 id="3-3-发送附件"><a class="header-anchor" href="#3-3-发送附件">¶</a>3.3 发送附件</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mail -s &quot;test&quot; -a /opt/b.txt XXXXX@qq.com &lt;/opt/a.txt</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。&lt;/p&gt;
+&lt;h2 id=&quot;1-安装mail&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-安装mail&quot;&gt;¶&lt;/a&gt;1. 安装mail&lt;/h
+    
+    </summary>
+    
+      <category term="centos" scheme="http://www.liyang.site/categories/centos/"/>
+    
+    
+      <category term="mail" scheme="http://www.liyang.site/tags/mail/"/>
+    
+      <category term="smtp" scheme="http://www.liyang.site/tags/smtp/"/>
+    
+      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
+    
+      <category term="邮件" scheme="http://www.liyang.site/tags/%E9%82%AE%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>archlinux的优化</title>
+    <link href="http://www.liyang.site/2017/07/13/20170713-archlinux%E7%9A%84%E4%BC%98%E5%8C%96/"/>
+    <id>http://www.liyang.site/2017/07/13/20170713-archlinux的优化/</id>
+    <published>2017-07-13T12:00:00.000Z</published>
+    <updated>2017-09-29T03:35:00.469Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="1-pacman-yaorut"><a class="header-anchor" href="#1-pacman-yaorut">¶</a>1、pacman/yaorut</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">-n 6:将生成6个最接近的源，运行rankmirrors -h可查看所有可用选项。</span></div><div class="line">rankmirrors -n 6 mirrorlist.backup &gt; mirrorlist</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">/etc/pacman.conf</span></div><div class="line">彩色输出：取消#Color中的#号。</div><div class="line">升级前对比版本：取消#VerbosePkgLists#号。</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">社区镜像  必须放在最后</span></div><div class="line">添加社区仓库：[archlinuxcn] Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">multilib  可以运行 编译32位  后面用wine需要</span></div><div class="line">添加multilib仓库：[archlinuxcn] Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</div><div class="line">pacman -R $(paclist multilib | cut -f1 -d' ')   # 恢复纯64位系统</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">archlinuxcn-keyring 包以导入 GPG key。</span></div><div class="line">pacman -S archlinuxcn-keyring</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">aur工具yaourt</span></div><div class="line">pacman -S yaourt</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">aur 评论工具</span></div><div class="line">pacman -S aurvote   #安装该工具</div><div class="line">aurvote --configure   #配置用户名密码</div></pre></td></tr></table></figure>
+<h5 id="2-系统"><a class="header-anchor" href="#2-系统">¶</a>2、系统</h5>
+<p>1、<br>
+解决办法：关掉系统蜂鸣声<br>
+移出蜂鸣系统模块：rmmod pcspkr<br>
+当你怀念它的时候：modprobe pcspkr</p>
+<p>2、tweak<br>
+优化工具  扩展 开启 window list</p>
+<h5 id="3-工具"><a class="header-anchor" href="#3-工具">¶</a>3、工具</h5>
+<p>1、终端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">guake         #下拉式终端</div><div class="line">tumx          # 分页 分窗口</div><div class="line">zsh           # 代替bash</div><div class="line"><span class="meta">#</span><span class="bash">配置oh-my-zsh</span></div><div class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</div><div class="line">chsh -s /usr/local/bin/zsh</div><div class="line">http://yijiebuyi.com/blog/b9b5e1ebb719f22475c38c4819ab8151.html</div><div class="line"></div><div class="line">alsa-utils    #声音管理</div><div class="line">screenfetch   #打印版本</div><div class="line">firefox       #火狐浏览器</div><div class="line">firefox-i18n-zh-cn  </div><div class="line">chromium </div><div class="line">flashplugin  </div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">火狐中文</span></div><div class="line">http://ftp.mozilla.org/pub/firefox/releases/54.0.1/linux-x86_64/xpi/zh-CN.xpi</div><div class="line"></div><div class="line">火狐插件：</div><div class="line">vimfx       #vim 操作浏览器</div><div class="line">lastpass    #密码管理</div><div class="line">eversync    #标签同步</div><div class="line"></div><div class="line">tor           #洋葱浏览器 匿名聊天</div><div class="line">mpv           #视频播放器</div><div class="line">wine          #可运行windows的底层工具</div><div class="line">fcitx-im      #输入法</div><div class="line">fcitx-googlepinyin  #谷歌输入法</div><div class="line">fcitx-configtool   #图形化管理fcitx</div><div class="line">wget          #下载</div><div class="line">axel          #多线程下载</div><div class="line">openssh       # ssh工具</div><div class="line">netease-cloud-music	#网易云音乐</div><div class="line">iotop	#io 监控</div><div class="line">iftop	#网络监控</div><div class="line">telegram-desktop	#聊天工具</div><div class="line">foxitreader		#福昕PDF阅读器</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">jq	# 检验json</div><div class="line"></div><div class="line">peek	#gif 录制</div><div class="line"></div><div class="line">https://www.zhihu.com/question/59227720</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> 基本命令替换</span></div><div class="line"></div><div class="line">htop &lt;- top  # 内存 cpu等进程信息</div><div class="line">advcp &lt;- cp mv # cp and mv </div><div class="line"></div><div class="line">proxychains-ng   # 终端代理 ftp https http  ping 不行</div><div class="line"></div><div class="line">you-get # 下载网站的视频</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;1-pacman-yaorut&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-pacman-yaorut&quot;&gt;¶&lt;/a&gt;1、pacman/yaorut&lt;/h5&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;
+    
+    </summary>
+    
+      <category term="archlinux" scheme="http://www.liyang.site/categories/archlinux/"/>
+    
+    
+      <category term="linux" scheme="http://www.liyang.site/tags/linux/"/>
+    
+      <category term="arch" scheme="http://www.liyang.site/tags/arch/"/>
+    
+      <category term="archlinux" scheme="http://www.liyang.site/tags/archlinux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>archlinux的安装</title>
+    <link href="http://www.liyang.site/2017/07/11/20170711-archlinux%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    <id>http://www.liyang.site/2017/07/11/20170711-archlinux的安装/</id>
+    <published>2017-07-11T03:00:00.000Z</published>
+    <updated>2017-08-17T05:22:24.770Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>一直以来都是笔记本用的archlinux,工作用的windows。最近公司要求在电脑上各种东西管控，一会企业360，一会windows的域。只有就一直打算切换arch但是怕各种不兼容，现在试试。<br>
+本文作为个人记录，不作为安装教程。所以到时候会缺少很多图片内容</p>
+</blockquote>
+<h4 id="一-准备工作"><a class="header-anchor" href="#一-准备工作">¶</a>一、 准备工作</h4>
+<p>1、制作u盘</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">  #</span><span class="bash"><span class="comment"># 注意这里of指向整个硬盘不带数字的</span></span></div><div class="line">  dd if=xxx.iso of=dev/sdb</div><div class="line">  ```   </div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"><span class="comment">### 二、 配置工作</span></span></div><div class="line">  1、分区方案：  </div><div class="line"></div><div class="line">  ```shell</div><div class="line">  /boot 500m  # 需要单独分区</div><div class="line">  /swap 8g  # 一般为内存 1倍</div><div class="line">  /var 20g #2</div><div class="line">  /tmp 10G</div><div class="line">  / 50G</div><div class="line">  /home all</div></pre></td></tr></table></figure>
+<p>2、操作命令</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1、 分区</div><div class="line">fdisk /dev/sda  </div><div class="line">n p 1 default +200M   #新建分区</div><div class="line">t 2 8e  #新建8e的逻辑卷分区</div><div class="line">reboot  #重启</div><div class="line"></div><div class="line">2、创建物理卷 卷组 逻辑卷</div><div class="line">pvcreate /dev/sdb2  #创建物理卷</div><div class="line">vgcreate vgname /dev/sdb2  /dev/sdc1 # 创建卷组</div><div class="line">lvcreate -L 5G vgname -n lvname #创建逻辑卷</div><div class="line">lvcreate -l 100%FREE vgname -n lvname #剩余所有空间分配到该逻辑卷</div><div class="line"></div><div class="line">3、格式化所有分区，不包括swap</div><div class="line">mkfs.ext4 /dev/sda1 # 格式化</div><div class="line"></div><div class="line">4、swap 分区</div><div class="line">mkswap /dev/xxx  #格式化swap</div><div class="line">swapon /dev/xxx  # 启用</div><div class="line">swapon -s #查看</div><div class="line">/dev/sda2 none swap defaults 0 0 #加入fstab 自启动</div></pre></td></tr></table></figure>
+<p>3、挂载</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mount /dev/vg/lv_root /mnt  # /</div><div class="line">mount /dev/vg/lv_home /mnt/home #/home</div><div class="line">mount /dev/vg/lv_boot /mnt/boot #/boot</div></pre></td></tr></table></figure>
+<p>4、查看网络<br>
+<code>ping www.baidu.com</code>  如果不通：<code>systemctl stop dhcpcd</code></p>
+<p>5、修改镜像<br>
+<code>/etc/pacman.d/mirrorlist</code>  选择一个国内的源</p>
+<h4 id="三-安装工作"><a class="header-anchor" href="#三-安装工作">¶</a>三、安装工作</h4>
+<p>1、安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pacstrap -i /mnt base base-devel # 安装 devel 可以使用aur</div></pre></td></tr></table></figure>
+<p>2、常规配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">1、生成fstab</div><div class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab   # U:ID  L:卷标</div><div class="line"></div><div class="line">2、进入系统</div><div class="line">arch-chroot /mnt</div><div class="line"></div><div class="line">3、时间</div><div class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div><div class="line"></div><div class="line">4、文本</div><div class="line">/etc/locale.gen   # 取消注释 us zh utf-8的</div><div class="line">locale-gen  #生效</div><div class="line"></div><div class="line">5、密码</div><div class="line">passwd root</div><div class="line"></div><div class="line">6、hostname  </div><div class="line">echo name &gt;&gt; /etc/hostname</div><div class="line"></div><div class="line">7、引导grub #  注意一定要挂载boot</div><div class="line">pacman -S grub</div><div class="line">grub-install --target=i386-pc /dev/sdx</div><div class="line">grub-mkconfig -o /boot/grub/grub.cfg</div><div class="line"></div><div class="line">8、重启</div><div class="line">exit</div><div class="line">umount -R /mnt</div><div class="line">reboot</div></pre></td></tr></table></figure>
+<h4 id="四-后期优化工作"><a class="header-anchor" href="#四-后期优化工作">¶</a>四、后期优化工作</h4>
+<p>1、网络<br>
+有线：<code>systemctl ensable dhcpcd</code></p>
+<p>2、ip<br>
+查看：<code>ip addr show</code></p>
+<p>3、建立日常使用账户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd -m name</div><div class="line">passwd name</div></pre></td></tr></table></figure>
+<p>4、sudo权限<br>
+修改<code>/etc/sudoers</code><br>
+name ALL=(ALL) NOPASSWD: ALL</p>
+<p>5、显卡驱动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">lspci | grep VGA # 查看</div><div class="line"></div><div class="line">pacman -S xf86-video-vesa    #通用显卡</div><div class="line">pacman -S xf86-video-intel    #intel集成显卡</div><div class="line">pacman -S xf86-video-ati    #amd/ati</div><div class="line">pacman -S nvidia    #nvidia</div><div class="line"><span class="meta">#</span><span class="bash"> 老式nvidia显卡（一般2010以前）如GeForce 8000/9000、ION、FGeForce 6000/7000等等</span></div><div class="line">pacman -S nvidia-304xx</div></pre></td></tr></table></figure>
+<p>6、图形化界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pacman -S plasma    #plasma(kde5)</div><div class="line">pacman -S gnome    #gnome3</div><div class="line">pacman -S xfce4    #xfce4</div><div class="line">pacman -S lxde    #lxde</div></pre></td></tr></table></figure>
+<p>7、字体<br>
+pacman -S wqy-microhei</p>
+<p><a href="http://www.liyang.site">更多点击这</a></p>
+<h4 id="五-错误集"><a class="header-anchor" href="#五-错误集">¶</a>五、错误集</h4>
+<p>1、warning failed to connect to lvmetad，falling back to device scanning<br>
+编辑/etc/lvm/lvm.conf这个文件，找到use_lvmetad = 1将1修改为0，保存，重新配置grub。</p>
+<p>2、无法进行引导<br>
+由于安装时，没有挂载boot。在boot目录没有该有的*.img文件。</p>
+<p>3、error: device ‘dev/maper/vg-lv_root’ skipping fsck mount you must specify the filesystem type<br>
+没有激活lvm2钩子。修改/etc/mkinitcpio.conf中：HOOKS=“base udev autodetect modconf block lvm2 filesystems keyboard fsck”   （添加 lvm2）</p>
+<p>4、vim : Error reading input, exiting<br>
+很奇怪的，莫名的语言配置就没了。执行以下： echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;一直以来都是笔记本用的archlinux,工作用的windows。最近公司要求在电脑上各种东西管控，一会企业360，一会windows的域。只有就一直打算切换arch但是怕各种不兼容，现在试试。&lt;br&gt;
+本文作为个人记录，不作为安装教程。所以到时候
+    
+    </summary>
+    
+      <category term="archlinux" scheme="http://www.liyang.site/categories/archlinux/"/>
+    
+    
+      <category term="linux" scheme="http://www.liyang.site/tags/linux/"/>
+    
+      <category term="arch" scheme="http://www.liyang.site/tags/arch/"/>
+    
+      <category term="archlinux" scheme="http://www.liyang.site/tags/archlinux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>.so文件缺失或大小为0</title>
     <link href="http://www.liyang.site/2017/05/08/20170508-so%E6%96%87%E4%BB%B6%E7%BC%BA%E5%A4%B1%E6%88%96%E5%A4%A7%E5%B0%8F%E4%B8%BA0/"/>
     <id>http://www.liyang.site/2017/05/08/20170508-so文件缺失或大小为0/</id>
     <published>2017-05-08T07:58:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.754Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-科普："><a class="header-anchor" href="#1-科普：">¶</a>1、科普：</h3>
 <p>Linux中的.so文件类似于Windows中的DLL，是动态链接库，也有人译作共享库（因so的全称为Shared Object）。当多个程序使用同一个动态链接库时，既能节约可执行文件的大小，也能减少运行时的内存占用。</p>
@@ -55,7 +371,7 @@
     <link href="http://www.liyang.site/2017/05/04/20170504-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/"/>
     <id>http://www.liyang.site/2017/05/04/20170504-博客迁移记录/</id>
     <published>2017-05-04T11:48:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.734Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-前言"><a class="header-anchor" href="#1-前言">¶</a>1、前言</h3>
 <p>博客已经一年多,生成网页的hexo一直放在工作的windows上面的.现在有了一台nas，将生成页面的hexo放在nas上面。在此记录一下一些安装步骤，方便迁移。</p>
@@ -113,7 +429,7 @@
     <link href="http://www.liyang.site/2017/04/27/20170427-%E5%8D%87%E7%BA%A7python2-7%E5%90%8Eeasy-install%E6%8A%A5%E9%94%99/"/>
     <id>http://www.liyang.site/2017/04/27/20170427-升级python2-7后easy-install报错/</id>
     <published>2017-04-27T11:20:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.734Z</updated>
     
     <content type="html"><![CDATA[<p>centos6升级后python2.7后执行<code>easy_install --h</code>会有以下错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ easy_install --h</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/easy_install&quot;, line 5, in &lt;module&gt;</div><div class="line">    from pkg_resources import load_entry_point</div><div class="line">ImportError: No module named pkg_resources</div></pre></td></tr></table></figure>
@@ -141,7 +457,7 @@
     <link href="http://www.liyang.site/2017/04/20/20170420-spark-error/"/>
     <id>http://www.liyang.site/2017/04/20/20170420-spark-error/</id>
     <published>2017-04-20T08:00:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.727Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-错误日志："><a class="header-anchor" href="#1-错误日志：">¶</a>1、错误日志：</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">error: not found: value StorageLevel</div></pre></td></tr></table></figure>
@@ -174,7 +490,7 @@
     <link href="http://www.liyang.site/2017/04/19/20170419-spark-error-01/"/>
     <id>http://www.liyang.site/2017/04/19/20170419-spark-error-01/</id>
     <published>2017-04-19T08:02:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.724Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>记录一下遇到过的错误。</p>
@@ -213,7 +529,7 @@
     <link href="http://www.liyang.site/2017/04/19/20170419-spark-error-02/"/>
     <id>http://www.liyang.site/2017/04/19/20170419-spark-error-02/</id>
     <published>2017-04-19T08:00:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.714Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-错误日志："><a class="header-anchor" href="#1-错误日志：">¶</a>1、错误日志：</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Address already in use</div><div class="line"></div><div class="line">or</div><div class="line"></div><div class="line">Utils: Service &apos;SparkUI&apos; could not bind on port 4040. Attempting port 4041.</div></pre></td></tr></table></figure>
@@ -250,7 +566,7 @@
     <link href="http://www.liyang.site/2017/04/13/20170413-hbase-error/"/>
     <id>http://www.liyang.site/2017/04/13/20170413-hbase-error/</id>
     <published>2017-04-13T07:35:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.704Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-错误日志："><a class="header-anchor" href="#1-错误日志：">¶</a>1、错误日志：</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Caught throwable while processing event M_SERVER_SHUTDOWN</div></pre></td></tr></table></figure>
@@ -281,7 +597,7 @@
     <link href="http://www.liyang.site/2017/03/31/20170331-arch%E5%9C%A864%E4%BD%8D%E7%B3%BB%E7%BB%9F%E4%B8%8A%E8%BF%90%E8%A1%8C%E5%92%8C%E7%BC%96%E8%AF%9132%E4%BD%8D%E7%A8%8B%E5%BA%8F/"/>
     <id>http://www.liyang.site/2017/03/31/20170331-arch在64位系统上运行和编译32位程序/</id>
     <published>2017-03-31T10:35:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.700Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-问题"><a class="header-anchor" href="#1-问题">¶</a>1、问题</h3>
 <p>由于一些情况，需要使用wine。而wine又是32位程序，如果直接用yaourt会报错一些错误：lib target not found （各种lib32-xxx等等）</p>
@@ -317,7 +633,7 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
     <link href="http://www.liyang.site/2017/03/30/20170330-%E5%88%9D%E8%AF%86arch/"/>
     <id>http://www.liyang.site/2017/03/30/20170330-初识arch/</id>
     <published>2017-03-30T10:35:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.690Z</updated>
     
     <content type="html"><![CDATA[<p>之前一直用centos系统，由于与服务器一致。后面发现日常用还是不够理想，后面来换arch。发现一个作者的几篇文章不错，收藏一下。由于作者谢绝转载。<br>
 以下为访问地址：</p>
@@ -348,7 +664,7 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
     <link href="http://www.liyang.site/2017/02/27/20170227-Cloudera-Manager%E4%BF%AE%E6%94%B9%E9%9B%86%E7%BE%A4%E7%9A%84IP/"/>
     <id>http://www.liyang.site/2017/02/27/20170227-Cloudera-Manager修改集群的IP/</id>
     <published>2017-02-27T11:35:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.690Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>测试机器没有放在机房，跟着我走的。由于一些情况，搬位置了，ip也随之变化。不过也好，正好学习下。<br>
@@ -406,9 +722,9 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
       <category term="hadoop" scheme="http://www.liyang.site/categories/hadoop/"/>
     
     
-      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
-    
       <category term="hadoop" scheme="http://www.liyang.site/tags/hadoop/"/>
+    
+      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
     
       <category term="cloudera-manger" scheme="http://www.liyang.site/tags/cloudera-manger/"/>
     
@@ -419,7 +735,7 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
     <link href="http://www.liyang.site/2017/02/21/20170221-hiveserver2-join%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://www.liyang.site/2017/02/21/20170221-hiveserver2-join的问题/</id>
     <published>2017-02-21T11:49:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.674Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>很奇怪的一天，hive命令行执行就正常,hive-server2执行就报错。以下是我的问题记录以及谷歌到的解决办法。</p>
@@ -470,7 +786,7 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
     <link href="http://www.liyang.site/2017/02/15/20170215-python-lxml%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/"/>
     <id>http://www.liyang.site/2017/02/15/20170215-python-lxml安装报错/</id>
     <published>2017-02-15T06:26:25.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.660Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-安装lxml时报错"><a class="header-anchor" href="#1-安装lxml时报错">¶</a>1、安装lxml时报错</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install lsml</div></pre></td></tr></table></figure>
@@ -512,7 +828,7 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
     <link href="http://www.liyang.site/2017/01/23/20170123-CentOS%E5%BD%BB%E5%BA%95%E5%8D%B8%E8%BD%BDwine/"/>
     <id>http://www.liyang.site/2017/01/23/20170123-CentOS彻底卸载wine/</id>
     <published>2017-01-23T05:36:25.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.657Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>报错了：wine: ‘/root/.wine’ is a 64-bit installation, it cannot be used with a 32-bit wineserver.<br>
@@ -548,7 +864,7 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
     <link href="http://www.liyang.site/2017/01/18/20170118-2016%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB-2017%E6%AD%A3%E5%9C%A8%E8%BF%9B%E8%A1%8C/"/>
     <id>http://www.liyang.site/2017/01/18/20170118-2016已经过去-2017正在进行/</id>
     <published>2017-01-18T14:22:22.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.650Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-开头语"><a class="header-anchor" href="#1-开头语">¶</a>1、开头语</h3>
 <p>  沉醉在代码的世界里面，日子总是过的很快，一不留神就到了2017。一直想着写点什么，又一直没有停下来好好得思考一下。</p>
@@ -582,7 +898,7 @@ sdf</p>
     <link href="http://www.liyang.site/2017/01/18/20170118-OmniMarkupPreviewer%E7%9A%84%E5%AE%9E%E6%97%B6%E9%A2%84%E8%A7%88%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/"/>
     <id>http://www.liyang.site/2017/01/18/20170118-OmniMarkupPreviewer的实时预览无法使用/</id>
     <published>2017-01-18T12:57:13.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
+    <updated>2017-08-17T05:22:24.654Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>突然就不行了，重装也不行。后面谷歌到了,记录一下。懒的截图，图片也借用下</p>
@@ -621,226 +937,6 @@ sdf</p>
       <category term="OmniMarkupPreviewer" scheme="http://www.liyang.site/tags/OmniMarkupPreviewer/"/>
     
       <category term="sublime text" scheme="http://www.liyang.site/tags/sublime-text/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos无线网连接问题</title>
-    <link href="http://www.liyang.site/2017/01/10/20170110-centos%E6%97%A0%E7%BA%BF%E7%BD%91%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.liyang.site/2017/01/10/20170110-centos无线网连接问题/</id>
-    <published>2017-01-10T12:47:47.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>最近电脑越来越卡，正好想彻底的学习一下centos.就把笔记本的系统换成centos了。由于笔记本嘛，肯定用无线网了方便、简洁。</p>
-</blockquote>
-<h3 id="1-问题描述"><a class="header-anchor" href="#1-问题描述">¶</a>1、问题描述</h3>
-<p>  因为是日常娱乐使用，安装的时候选择的是桌面版。安装后有网卡驱动。但是在使用的是网络偶尔能连上，一直断。</p>
-<h3 id="2-问题原因"><a class="header-anchor" href="#2-问题原因">¶</a>2、问题原因</h3>
-<p>  网上找了一些资料，一些说是没有安装驱动，一些说没有安装正确对应的无线网卡驱动。</p>
-<h4 id="1-2-基本参数"><a class="header-anchor" href="#1-2-基本参数">¶</a>1.2 基本参数</h4>
-<p><code>iwconfig</code>可以查看无线网卡的具体型号,<code>lspci |grep -i network</code>  查看网卡具体型号</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;最近电脑越来越卡，正好想彻底的学习一下centos.就把笔记本的系统换成centos了。由于笔记本嘛，肯定用无线网了方便、简洁。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;1-问题描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; 
-    
-    </summary>
-    
-      <category term="centos" scheme="http://www.liyang.site/categories/centos/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>centos设置ntp服务器和客户端</title>
-    <link href="http://www.liyang.site/2016/12/07/20161207-centos%E8%AE%BE%E7%BD%AEntp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
-    <id>http://www.liyang.site/2016/12/07/20161207-centos设置ntp服务器和客户端/</id>
-    <published>2016-12-07T01:49:01.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与指定的NTP服务器的时间保持一致。从而保证了多台服务器的时间同步。</p>
-</blockquote>
-<h2 id="1-安装ntp和修改时区"><a class="header-anchor" href="#1-安装ntp和修改时区">¶</a>1、安装ntp和修改时区</h2>
-<p>简单点之间用yum安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y install ntp</div><div class="line"></div><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
-<h2 id="2-设置服务端192-168-0-25"><a class="header-anchor" href="#2-设置服务端192-168-0-25">¶</a>2、设置服务端192.168.0.25</h2>
-<p>修改<code>/etc/ntp.cnf</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#限定了哪些主机可以从本NTP服务器同步时间，默认的配置文件里是没有这句话的。加入这句话后，表明，只有192.168.0 这个网段的主机可以从本NTP服务器同步时间。nomodify  表明客户端不可以修改服务器的地址</span></div><div class="line">restrict 192.168.0.1/24 mask 255.255.255.0 nomodify   </div><div class="line"></div><div class="line"><span class="comment">#远程服务器地址</span></div><div class="line">server time-b.nist.gov</div><div class="line"></div><div class="line"><span class="comment">#默认的配置文件里这两个是被注释掉的。如果第二部配置的server time-b.nist.gov无效时，则NTP服务器会根据这里的配置，把自己的时间做为NTP服务器的时间，即和自己同步。考虑到有的局域网里不可以访问外网，所有这里需要把这个配置项用上，即把前面的注释符#号去掉就可以了。</span></div><div class="line"></div><div class="line">server  127.127.1.0     <span class="comment"># local clock  </span></div><div class="line">fudge   127.127.1.0 stratum 10</div></pre></td></tr></table></figure>
-<p>记着关闭防火墙或者开放123端口</p>
-<p>重启服务<code>servcice ntpd resatrt</code><br>
-NTP服务启动后大约需要3～5分钟的时间才会进行一次时间同步。可以通过命令ntpstat查看同步情况，</p>
-<h2 id="3-设置客户端"><a class="header-anchor" href="#3-设置客户端">¶</a>3、设置客户端</h2>
-<p>修改<code>/etc/ntp.cnf</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server 192.168.0.25</div></pre></td></tr></table></figure>
-<p>然后重启服务<code>service ntpd resatrt</code></p>
-<h2 id="4-相关命令"><a class="header-anchor" href="#4-相关命令">¶</a>4、相关命令</h2>
-<ul>
-<li>查看系统时间：date</li>
-<li>查看与上层ntp服务器的关系：ntpq -p</li>
-<li>查看是否更新了自己的时间：ntpstat</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;NTP（Network Time Protocol）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正。本例讲解如何在CentOS6.3上配置NTP服务器和NTP客户端，可使多台客户机的时间与
-    
-    </summary>
-    
-      <category term="centos" scheme="http://www.liyang.site/categories/centos/"/>
-    
-    
-      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
-    
-      <category term="ntp" scheme="http://www.liyang.site/tags/ntp/"/>
-    
-      <category term="服务端" scheme="http://www.liyang.site/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/"/>
-    
-      <category term="客户端" scheme="http://www.liyang.site/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cdh搭建hadoop集群-hive错误集</title>
-    <link href="http://www.liyang.site/2016/12/06/20161206-cdh%E6%90%AD%E5%BB%BAhadoop%E9%9B%86%E7%BE%A4-hive%E9%94%99%E8%AF%AF%E9%9B%86/"/>
-    <id>http://www.liyang.site/2016/12/06/20161206-cdh搭建hadoop集群-hive错误集/</id>
-    <published>2016-12-06T11:47:47.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-specified-key-was-too-long-max-key-length-is-767-bytes"><a class="header-anchor" href="#1-specified-key-was-too-long-max-key-length-is-767-bytes">¶</a>1、Specified key was too long; max key length is 767 bytes</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create database hive DEFAULT CHARSET latin1;</div></pre></td></tr></table></figure>
-<p>这里由于mysql的最大索引长度导致，MySQL的varchar主键只支持不超过768个字节 或者 768/2=384个双字节 或者 768/3=256个三字节的字段 而 GBK是双字节的，UTF-8是三字节的<br>
-解决办法：数据库的字符集除了system为utf8，其他最好为latin1，否则可能出现如上异常，在mysql机器的上运行:</p>
-<h3 id="2-javax-jdo-jdodatastoreexception-error-executing-sql-query-select-db-id-from-dbs"><a class="header-anchor" href="#2-javax-jdo-jdodatastoreexception-error-executing-sql-query-select-db-id-from-dbs">¶</a>2、javax.jdo.JDODataStoreException: Error executing SQL query “select “DB_ID” from “DBS””</h3>
-<p>原因：很简单，就是没有创建存放hive元数据的表。在CDH页面找了很久，发现配置也正确也能正常连接上但是就是不能自动创建<br>
-解决办法：/opt/cloudera/parcels/CDH-5.4.2-1.cdh5.4.2.p0.2/lib/hive/scripts/metastore/upgrade/mysql/ 里面是mysql的相关的sql脚本，直接拿到mysql执行。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-specified-key-was-too-long-max-key-length-is-767-bytes&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-specified-key-was-too-long-max-key-lengt
-    
-    </summary>
-    
-      <category term="hive" scheme="http://www.liyang.site/categories/hive/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>centos更改国内阿里的yum源</title>
-    <link href="http://www.liyang.site/2016/12/01/20161201-centos%E6%9B%B4%E6%94%B9%E5%9B%BD%E5%86%85%E9%98%BF%E9%87%8C%E7%9A%84yum%E6%BA%90/"/>
-    <id>http://www.liyang.site/2016/12/01/20161201-centos更改国内阿里的yum源/</id>
-    <published>2016-12-01T12:09:06.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。<br>
-阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/<br>
-CentOS系统更换软件安装源</p>
-</blockquote>
-<h2 id="第一步：备份你的原镜像文件-以免出错后可以恢复"><a class="header-anchor" href="#第一步：备份你的原镜像文件-以免出错后可以恢复">¶</a>第一步：备份你的原镜像文件，以免出错后可以恢复。</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div></pre></td></tr></table></figure>
-<h2 id="第二步：下载新的centos-base-repo-到-etc-yum-repos-d"><a class="header-anchor" href="#第二步：下载新的centos-base-repo-到-etc-yum-repos-d">¶</a>第二步：下载新的CentOS-Base.repo 到/etc/yum.repos.d/</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CentOS 5</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</div><div class="line">CentOS 6</div><div class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</div></pre></td></tr></table></figure>
-<h2 id="第三步：运行yum-makecache生成缓存"><a class="header-anchor" href="#第三步：运行yum-makecache生成缓存">¶</a>第三步：运行yum makecache生成缓存</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;阿里云是最近新出的一个镜像源。得益与阿里云的高速发展，这么大的需求，肯定会推出自己的镜像源。&lt;br&gt;
-阿里云Linux安装镜像源地址：http://mirrors.aliyun.com/&lt;br&gt;
-CentOS系统更换软件安装源&lt;/p&gt;
-&lt;/bloc
-    
-    </summary>
-    
-      <category term="centos" scheme="http://www.liyang.site/categories/centos/"/>
-    
-    
-      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
-    
-      <category term="国内" scheme="http://www.liyang.site/tags/%E5%9B%BD%E5%86%85/"/>
-    
-      <category term="阿里" scheme="http://www.liyang.site/tags/%E9%98%BF%E9%87%8C/"/>
-    
-      <category term="yum" scheme="http://www.liyang.site/tags/yum/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用工具大集合(突发奇想更新中...)</title>
-    <link href="http://www.liyang.site/2016/11/21/20161121-%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%A4%A7%E9%9B%86%E5%90%88-%E7%AA%81%E5%8F%91%E5%A5%87%E6%83%B3%E6%9B%B4%E6%96%B0%E4%B8%AD/"/>
-    <id>http://www.liyang.site/2016/11/21/20161121-常用工具大集合-突发奇想更新中/</id>
-    <published>2016-11-21T12:20:17.000Z</published>
-    <updated>2017-07-18T13:35:07.143Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>由于有的时候会忘记，先记录下。方便以后好查</p>
-</blockquote>
-<h3 id="1-效率"><a class="header-anchor" href="#1-效率">¶</a>1、效率</h3>
-<h4 id="1-1-日常"><a class="header-anchor" href="#1-1-日常">¶</a>1.1 日常</h4>
-<ul>
-<li>小Q书桌：快捷方式管理</li>
-<li>LICEcap：快速录像并生产gif</li>
-<li>Everything：文件快速搜索、查找</li>
-<li>sublime：文件编辑器</li>
-<li>BCompare：文件比对，文件夹比对</li>
-<li>SpaceSniffer：查询硬盘占用比例</li>
-<li>filezilla：ftp工具</li>
-<li>SecureCRT：虚拟终端工具</li>
-</ul>
-<h4 id="1-2-gtd"><a class="header-anchor" href="#1-2-gtd">¶</a>1.2 GTD</h4>
-<ul>
-<li>滴答清单：事件清单。记录待办事件</li>
-</ul>
-<h4 id="1-3-插件"><a class="header-anchor" href="#1-3-插件">¶</a>1.3 插件</h4>
-<ul>
-<li>vimium：浏览器控制插件，代替鼠标</li>
-<li>lastpass: 密码管理器</li>
-</ul>
-<h3 id="2-网络"><a class="header-anchor" href="#2-网络">¶</a>2、 网络</h3>
-<ul>
-<li>净网大师：拦截、劫持广告</li>
-<li>Shadowsocks：翻墙梯子</li>
-<li>非凡vpn：每天免费1小时</li>
-</ul>
-<h3 id="3-工作"><a class="header-anchor" href="#3-工作">¶</a>3、工作</h3>
-<h4 id="3-1-数据库"><a class="header-anchor" href="#3-1-数据库">¶</a>3.1 数据库</h4>
-<ul>
-<li>filezilla：ftp工具</li>
-<li>Dbvisualizer: 关系型数据库sql客户端</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;由于有的时候会忘记，先记录下。方便以后好查&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;1-效率&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-效率&quot;&gt;¶&lt;/a&gt;1、效率&lt;/h3&gt;
-&lt;h4 id=&quot;1-1-日常&quot;&gt;&lt;
-    
-    </summary>
-    
-      <category term="常用" scheme="http://www.liyang.site/categories/%E5%B8%B8%E7%94%A8/"/>
-    
-    
-      <category term="常用" scheme="http://www.liyang.site/tags/%E5%B8%B8%E7%94%A8/"/>
-    
-      <category term="常用工具" scheme="http://www.liyang.site/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="集合" scheme="http://www.liyang.site/tags/%E9%9B%86%E5%90%88/"/>
-    
-      <category term="大集合" scheme="http://www.liyang.site/tags/%E5%A4%A7%E9%9B%86%E5%90%88/"/>
     
   </entry>
   
