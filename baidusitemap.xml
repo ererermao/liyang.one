@@ -627,9 +627,9 @@
         <title>给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）</title>
         <pubTime>2016-11-17T11:05:05.000Z</pubTime>
         
-        <tag>vm</tag>
-         
         <tag>centos</tag>
+         
+        <tag>vm</tag>
          
         <tag>lvm</tag>
          
