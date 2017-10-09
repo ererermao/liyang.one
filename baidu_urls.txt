@@ -1,3 +1,4 @@
+http://www.liyang.site/2017/09/29/20171009-配置spark和spark-on-yarn/
 http://www.liyang.site/2017/09/29/20170929-spark2-x编译/
 http://www.liyang.site/2017/08/10/20170810-未归类的问题集/
 http://www.liyang.site/2017/07/13/20170713-archlinux的优化/
@@ -17,4 +18,3 @@ http://www.liyang.site/2017/02/15/20170215-python-lxml安装报错/
 http://www.liyang.site/2017/01/23/20170123-CentOS彻底卸载wine/
 http://www.liyang.site/2017/01/18/20170118-2016已经过去-2017正在进行/
 http://www.liyang.site/2017/01/18/20170118-OmniMarkupPreviewer的实时预览无法使用/
-http://www.liyang.site/2017/01/10/20170110-centos无线网连接问题/

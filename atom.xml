@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.liyang.site/"/>
-  <updated>2017-10-09T02:04:33.277Z</updated>
+  <updated>2017-10-09T02:50:11.861Z</updated>
   <id>http://www.liyang.site/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spark2.x编译</title>
+    <link href="http://www.liyang.site/2017/09/29/20171009-%E9%85%8D%E7%BD%AEspark%E5%92%8Cspark-on-yarn/"/>
+    <id>http://www.liyang.site/2017/09/29/20171009-配置spark和spark-on-yarn/</id>
+    <published>2017-09-29T12:00:00.000Z</published>
+    <updated>2017-10-09T02:50:11.861Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="spark" scheme="http://www.liyang.site/categories/spark/"/>
+    
+    
+      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
+    
+      <category term="spark" scheme="http://www.liyang.site/tags/spark/"/>
+    
+      <category term="spark2.x" scheme="http://www.liyang.site/tags/spark2-x/"/>
+    
+  </entry>
   
   <entry>
     <title>spark2.x编译</title>
@@ -670,9 +692,9 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
       <category term="hadoop" scheme="http://www.liyang.site/categories/hadoop/"/>
     
     
-      <category term="hadoop" scheme="http://www.liyang.site/tags/hadoop/"/>
-    
       <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
+    
+      <category term="hadoop" scheme="http://www.liyang.site/tags/hadoop/"/>
     
       <category term="cloudera-manger" scheme="http://www.liyang.site/tags/cloudera-manger/"/>
     
@@ -885,38 +907,6 @@ sdf</p>
       <category term="OmniMarkupPreviewer" scheme="http://www.liyang.site/tags/OmniMarkupPreviewer/"/>
     
       <category term="sublime text" scheme="http://www.liyang.site/tags/sublime-text/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos无线网连接问题</title>
-    <link href="http://www.liyang.site/2017/01/10/20170110-centos%E6%97%A0%E7%BA%BF%E7%BD%91%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.liyang.site/2017/01/10/20170110-centos无线网连接问题/</id>
-    <published>2017-01-10T12:47:47.000Z</published>
-    <updated>2017-08-17T05:22:24.634Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>最近电脑越来越卡，正好想彻底的学习一下centos.就把笔记本的系统换成centos了。由于笔记本嘛，肯定用无线网了方便、简洁。</p>
-</blockquote>
-<h3 id="1-问题描述"><a class="header-anchor" href="#1-问题描述">¶</a>1、问题描述</h3>
-<p>  因为是日常娱乐使用，安装的时候选择的是桌面版。安装后有网卡驱动。但是在使用的是网络偶尔能连上，一直断。</p>
-<h3 id="2-问题原因"><a class="header-anchor" href="#2-问题原因">¶</a>2、问题原因</h3>
-<p>  网上找了一些资料，一些说是没有安装驱动，一些说没有安装正确对应的无线网卡驱动。</p>
-<h4 id="1-2-基本参数"><a class="header-anchor" href="#1-2-基本参数">¶</a>1.2 基本参数</h4>
-<p><code>iwconfig</code>可以查看无线网卡的具体型号,<code>lspci |grep -i network</code>  查看网卡具体型号</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;最近电脑越来越卡，正好想彻底的学习一下centos.就把笔记本的系统换成centos了。由于笔记本嘛，肯定用无线网了方便、简洁。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;1-问题描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; 
-    
-    </summary>
-    
-      <category term="centos" scheme="http://www.liyang.site/categories/centos/"/>
-    
     
   </entry>
   
