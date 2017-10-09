@@ -14,20 +14,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[centos使用外部smtp发送邮件]]></title>
-    <url>%2F2017%2F08%2F17%2F20161110-centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。 ¶1. 安装mail 1yum install mailx -y # -y 默认yes ¶2. 配置外部smtp发送邮件 1234567vi /etc/mail.rc## 新增以下set from=xxxxx@qq.comset smtp=smtp.qq.comset smtp-auth-user=xxxxx@qq.comset smtp-auth-password=XXXXXXXXset smtp-auth=login ¶3. 发送邮件 ¶3.1 使用管道进行邮件发送 1echo &quot;hello&quot; | mail -s &quot;test&quot; XXXXX@qq.com ¶3.2 使用文件进行邮件发送 1mail -s &quot;test&quot; XXXXX@qq.com &lt;/opt/a.txt ¶3.3 发送附件 1mail -s &quot;test&quot; -a /opt/b.txt XXXXX@qq.com &lt;/opt/a.txt]]></content>
-      <categories>
-        <category>centos</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-        <tag>mail</tag>
-        <tag>smtp</tag>
-        <tag>邮件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[未归类的问题集]]></title>
     <url>%2F2017%2F08%2F10%2F20170810-%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98%E9%9B%86%2F</url>
     <content type="text"><![CDATA[未归类的一些问题集 ¶1、ss.panel/vendor/autoload.php: No such file or directory 需要执行：php composer.phar install ¶2、php版本 大于5.6 ¶3、php -n xcat createAdmin Fatal error: Interface ‘JsonSerializable’ not found in /home/ss/ss.panel/vendor/sendgrid/sendgrid/lib/helpers/mail/Mail.php on line 16 去掉 -n ¶20170607 ¶4、error: not found: value hiveCtx import org.apache.spark.sql.hive.HiveContext val hiveCtx = new HiveContext(sc) ¶5、http://liuyq1991.iteye.com/blog/2270678 Error in configuring object ¶6、 问题4：java.sql.SQLException: Failed to start database ‘metastore_db’ with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@5a0039e7, see the next exception for details 只是要注意一点：在运行程序之前，千万不要运行脚本sbin/start-thriftserver.sh,否则自己写的程序是无法运行的 情形一：已经有一个hive连接在访问Derby创建的metastore_db文件夹，由于Derby数据库自身的缺点–仅支持一个链接对其进行访问，所以这时，如果再有一个终端调用hive，就有第二个链接访问Derby数据库了，就会抛出这个异常。 解决方法很简单。用mysql作为元数据仓库，mysql支持多链接访问，这个问题就不存在了。 情形二：突然离线，易造成hive没能来得及删除自动创建的metastore_db文件夹(~home/bin/metastore_db),这时再次用hive命令进入，则会产生如下报错。 解决这一问题很简单。将metastore_db文件夹改名或者干脆删除，然后重新运行hive命令启动即可。 spark_home 将metastore_db文件夹改名或者干脆删除 ¶7、spark 动态资源分配 http://lxw1234.com/archives/2015/12/593.htm ¶9、unread block data 17/06/28 11:14:35 INFO spark.SparkContext: Running Spark version 1.6.0 17/06/28 11:14:35 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform… using builtin-java classes where applicable 17/06/28 11:14:36 WARN spark.SparkConf: SPARK_CLASSPATH was detected (set to ‘:/usr/lib/spark-1.6.0-bin-hadoop2.6/lib/hbase/*::/usr/lib/spark-1.6.0-bin-hadoop2.6/conf’). This is deprecated in Spark 1.0+. Please instead use: ./spark-submit with --driver-class-path to augment the driver classpath spark.executor.extraClassPath to augment the executor classpath 17/06/28 11:14:36 WARN spark.SparkConf: Setting ‘spark.executor.extraClassPath’ to ‘:/usr/lib/spark-1.6.0-bin-hadoop2.6/lib/hbase/::/usr/lib/spark-1.6.0-bin-hadoop2.6/conf’ as a work-around. 17/06/28 11:14:36 WARN spark.SparkConf: Setting ‘spark.driver.extraClassPath’ to ':/usr/lib/spark-1.6.0-bin-hadoop2.6/lib/hbase/::/usr/lib/spark-1.6.0-bin-hadoop2.6/conf’ as a work-around. 解决办法：–jars ¶10、had a not serializable result 1234567891011121314151617181920212223242526272829303132333435363738394017/06/28 14:36:12 ERROR scheduler.TaskSetManager: Task 0.0 in stage 1.0 (TID 1) had a not serializable result: org.apache.hadoop.hbase.io.ImmutableBytesWritableSerialization stack: - object not serializable (class: org.apache.hadoop.hbase.io.ImmutableBytesWritable, value: 72 6f 77 33) - field (class: scala.Tuple2, name: _1, type: class java.lang.Object) - object (class scala.Tuple2, (72 6f 77 33,keyvalues=&#123;row1/info:age/1498564460423/Put/vlen=2/seqid=0, row1/info:mail/1498564470928/Put/vlen=15/seqid=0, row1/info:name/1498564445991/Put/vlen=8/seqid=0&#125;)) - element of array (index: 0) - array (class [Lscala.Tuple2;, size 3); not retryingException in thread "main" org.apache.spark.SparkException: Job aborted due to stage failure: Task 0.0 in stage 1.0 (TID 1) had a not serializable result: org.apache.hadoop.hbase.io.ImmutableBytesWritableSerialization stack: - object not serializable (class: org.apache.hadoop.hbase.io.ImmutableBytesWritable, value: 72 6f 77 33) - field (class: scala.Tuple2, name: _1, type: class java.lang.Object) - object (class scala.Tuple2, (72 6f 77 33,keyvalues=&#123;row1/info:age/1498564460423/Put/vlen=2/seqid=0, row1/info:mail/1498564470928/Put/vlen=15/seqid=0, row1/info:name/1498564445991/Put/vlen=8/seqid=0&#125;)) - element of array (index: 0) - array (class [Lscala.Tuple2;, size 3) at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1431) at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1419) at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1418) at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1418) at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.a在使用Spark操作Hbase的时候，其返回的数据类型是RDD[ImmutableBytesWritable,Result]，我们可能会对这个结果进行其他的操作，比如join等，但是因为org.apache.hadoop.hbase.io.ImmutableBytesWritable 和 org.apache.hadoop.hbase.client.Result 并没有实现 java.io.Serializable 接口，程序在运行的过程中可能发生以下的异常 stuRDD.foreach(&#123; case (_,result) =&gt; val key = Bytes.toString(result.getRow) val name = Bytes.toString(result.getValue("info".getBytes,"name".getBytes)) val gender = Bytes.toString(result.getValue("info".getBytes,"mail".getBytes)) val age = Bytes.toString(result.getValue("info".getBytes,"age".getBytes)) println("Row key:"+key+" Name:"+name+" Gender:"+gender+" Age:"+age) &#125;)val sc = new SparkContext(new SparkConf().set("spark.serializer", "org.apache.spark.serializer.KryoSerializer"))val stuRDD = sc.newAPIHadoopRDD(conf, classOf[TableInputFormat],classOf[ImmutableBytesWritable],classOf[Result]) ¶11、Could not load native gpl library no gplcompression in java.library.path 测试是没有问题的hdfs dfs -text /home/bi/shaoyu/11.txt.lzo ¶12、 json scala json4s http://kubicode.me/2015/05/24/Scala/Study-And-User-JSON4S/ lift-json https://gxnotes.com/article/72792.html ¶13 、 12Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError: net/liftweb/json/package$Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError: org/json4s/native/JsonMethods$ 估计是版本问题 升级jdk版本 和scala版本 jdk1.8 scala 2.11.11 jar 3.0 官方文档： 1Spark runs on Java 7+, Python 2.6+ and R 3.1+. For the Scala API, Spark 1.6.0 uses Scala 2.10. You will need to use a compatible Scala version (2.10.x). 最终答案： 到目前为止，都很happy，因为都能顺利通过，因为你依赖的spark库，在spark master和worker上面都有。但是如果依赖mysql的jdbc这些第三方库, 只使用sbt的 package 命令打包，是不会把这些第三方库打包进去的。 ¶14、 Modules were resolved with conflicting cross-version suffixes in sbt 版本配置文件，版本冲突 ¶15、 ./sbt/sbt assembly 编译spark报错 需要安装git java 需要配置同名的过滤条件 ¶16、json 单引号 双引号 标准为双引号 可以通过第三方工具来使用 ¶18、Not a host:port pair: PBUF hive 整合hbase的时候，hbase包的版本不一致 ¶17、Connection reset by peer 在执行hbase put的过程中报出的 ¶18 、 http://www.haowt.info/archives/205.html ¶19 kettle 加载不了资源库， 在设置里面关闭了一些加载，就好了。至于什么忘记了下]]></content>
@@ -304,19 +290,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ss用一段时间卡？vps定时重启试试]]></title>
-    <url>%2F2016%2F11%2F21%2F20161121-ss%E7%94%A8%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%8D%A1%EF%BC%9Fvps%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF%E8%AF%95%E8%AF%95%2F</url>
-    <content type="text"><![CDATA[用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。 ¶1. 添加定时重启vps 1234crontab -e #编辑任务列表#新增：注意用root用户添加 01 21 * * * /sbin/roboot #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动 chkconfig supervisord on# 锐速开机启动 chkconfig serverSpeeder on# net-speeder的开机启动 echo 'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;' &gt;&gt; /etc/rc.local ¶3.补充：Crontab基本格式： 12* * * * * command分 时 日 月 周 命令]]></content>
-      <categories>
-        <category>ss</category>
-      </categories>
-      <tags>
-        <tag>vps</tag>
-        <tag>ss</tag>
-        <tag>shadowsocks</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[亚马逊aws更改linux为root权限密码登陆]]></title>
     <url>%2F2016%2F11%2F21%2F20161121-%E4%BA%9A%E9%A9%AC%E9%80%8Aaws%E6%9B%B4%E6%94%B9linux%E4%B8%BAroot%E6%9D%83%E9%99%90%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%2F</url>
     <content type="text"><![CDATA[我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录. ¶1、修改ROOT密码 1sudo passwd root ¶2、修改sshd_config文件 12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes ¶3、重启ssh就可以使用root正常登陆了 1/sbin/service sshd restart ¶4、登录工具 pc可以使用：SecureCRT 手机可以使用：Serverauditor]]></content>
@@ -329,6 +302,19 @@
         <tag>aws</tag>
         <tag>亚马逊</tag>
         <tag>root登录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ss用一段时间卡？vps定时重启试试]]></title>
+    <url>%2F2016%2F11%2F21%2F20161121-ss%E7%94%A8%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%8D%A1%EF%BC%9Fvps%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF%E8%AF%95%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。 ¶1. 添加定时重启vps 1234crontab -e #编辑任务列表#新增：注意用root用户添加 01 21 * * * /sbin/roboot #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动 chkconfig supervisord on# 锐速开机启动 chkconfig serverSpeeder on# net-speeder的开机启动 echo 'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;' &gt;&gt; /etc/rc.local ¶3.补充：Crontab基本格式： 12* * * * * command分 时 日 月 周 命令]]></content>
+      <categories>
+        <category>ss</category>
+      </categories>
+      <tags>
+        <tag>vps</tag>
+        <tag>ss</tag>
+        <tag>shadowsocks</tag>
       </tags>
   </entry>
   <entry>
@@ -394,6 +380,20 @@
       <tags>
         <tag>selinux</tag>
         <tag>cenots</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[centos使用外部smtp发送邮件]]></title>
+    <url>%2F2016%2F11%2F10%2F20161110-centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[在一些小的调度里面，用shell+crontab。这样比较简单和方便，但是没有通知机制。那就用mail来顶上。 ¶1. 安装mail 1yum install mailx -y # -y 默认yes ¶2. 配置外部smtp发送邮件 1234567vi /etc/mail.rc## 新增以下set from=xxxxx@qq.comset smtp=smtp.qq.comset smtp-auth-user=xxxxx@qq.comset smtp-auth-password=XXXXXXXXset smtp-auth=login ¶3. 发送邮件 ¶3.1 使用管道进行邮件发送 1echo &quot;hello&quot; | mail -s &quot;test&quot; XXXXX@qq.com ¶3.2 使用文件进行邮件发送 1mail -s &quot;test&quot; XXXXX@qq.com &lt;/opt/a.txt ¶3.3 发送附件 1mail -s &quot;test&quot; -a /opt/b.txt XXXXX@qq.com &lt;/opt/a.txt]]></content>
+      <categories>
+        <category>centos</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>mail</tag>
+        <tag>smtp</tag>
+        <tag>邮件</tag>
       </tags>
   </entry>
   <entry>

@@ -4,8 +4,34 @@
 
     
   <url>
+    <loc>http://www.liyang.site/2016/11/10/20161110-centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</loc>
+    <lastmod>2017-10-09T02:04:35.547Z</lastmod>
+    <data>
+        <display>
+        <title>centos使用外部smtp发送邮件</title>
+        <pubTime>2016-11-10T12:20:20.000Z</pubTime>
+        
+        <tag>centos</tag>
+         
+        <tag>mail</tag>
+         
+        <tag>smtp</tag>
+         
+        <tag>邮件</tag>
+         
+         
+           
+             
+              <breadCrumb title="centos" url="http://www.liyang.site/categories/centos/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.liyang.site/2017/09/29/20170929-spark2-x%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2017-09-30T02:51:46.202Z</lastmod>
+    <lastmod>2017-10-09T02:04:33.277Z</lastmod>
     <data>
         <display>
         <title>spark2.x编译</title>
@@ -729,32 +755,6 @@
            
              
               <breadCrumb title="git" url="http://www.liyang.site/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.liyang.site/2017/08/17/20161110-centos%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8smtp%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</loc>
-    <lastmod>2017-08-17T05:22:24.560Z</lastmod>
-    <data>
-        <display>
-        <title>centos使用外部smtp发送邮件</title>
-        <pubTime>2017-08-17T05:22:24.560Z</pubTime>
-        
-        <tag>centos</tag>
-         
-        <tag>mail</tag>
-         
-        <tag>smtp</tag>
-         
-        <tag>邮件</tag>
-         
-         
-           
-             
-              <breadCrumb title="centos" url="http://www.liyang.site/categories/centos/"/>
           
         </display>
     </data>
