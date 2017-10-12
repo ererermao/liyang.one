@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.liyang.site/2017/07/13/20170713-archlinux%E7%9A%84%E4%BC%98%E5%8C%96/</loc>
+    
+    <lastmod>2017-10-10T09:35:11.548Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.liyang.site/2017/09/29/20171009-%E9%85%8D%E7%BD%AEspark%E5%92%8Cspark-on-yarn/</loc>
     
     <lastmod>2017-10-09T06:40:06.769Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://www.liyang.site/2017/08/10/20170810-%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98%E9%9B%86/</loc>
     
     <lastmod>2017-09-30T02:37:07.482Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.liyang.site/2017/07/13/20170713-archlinux%E7%9A%84%E4%BC%98%E5%8C%96/</loc>
-    
-    <lastmod>2017-09-29T03:35:00.469Z</lastmod>
     
   </url>
   
