@@ -59,11 +59,11 @@
         <title>centos使用外部smtp发送邮件</title>
         <pubTime>2016-11-10T12:20:20.000Z</pubTime>
         
-        <tag>centos</tag>
-         
         <tag>mail</tag>
          
         <tag>smtp</tag>
+         
+        <tag>centos</tag>
          
         <tag>邮件</tag>
          
@@ -651,9 +651,9 @@
         <title>centos下mysqld的service服务</title>
         <pubTime>2016-11-16T06:27:25.000Z</pubTime>
         
-        <tag>mysql</tag>
-         
         <tag>centos</tag>
+         
+        <tag>mysql</tag>
          
         <tag>mysqld</tag>
          
@@ -725,11 +725,11 @@
         <title>centos源码安装mysql5.1.28</title>
         <pubTime>2016-11-14T12:00:49.045Z</pubTime>
         
+        <tag>centos</tag>
+         
         <tag>mysql</tag>
          
         <tag>源码</tag>
-         
-        <tag>centos</tag>
          
          
            

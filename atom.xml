@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.liyang.site/"/>
-  <updated>2017-10-09T02:04:33.277Z</updated>
+  <updated>2017-10-09T06:40:06.769Z</updated>
   <id>http://www.liyang.site/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spark2.x编译</title>
+    <link href="http://www.liyang.site/2017/09/29/20171009-%E9%85%8D%E7%BD%AEspark%E5%92%8Cspark-on-yarn/"/>
+    <id>http://www.liyang.site/2017/09/29/20171009-配置spark和spark-on-yarn/</id>
+    <published>2017-09-29T12:00:00.000Z</published>
+    <updated>2017-10-09T06:40:06.769Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-one"><a class="header-anchor" href="#1-one">¶</a>1、 one</h4>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;1-one&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-one&quot;&gt;¶&lt;/a&gt;1、 one&lt;/h4&gt;
+
+    
+    </summary>
+    
+      <category term="spark" scheme="http://www.liyang.site/categories/spark/"/>
+    
+    
+      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
+    
+      <category term="spark" scheme="http://www.liyang.site/tags/spark/"/>
+    
+      <category term="spark2.x" scheme="http://www.liyang.site/tags/spark2-x/"/>
+    
+  </entry>
   
   <entry>
     <title>spark2.x编译</title>
@@ -54,34 +82,6 @@
 &lt;h3 id=&quot;1-基础环境-忽略&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-基础环境-忽略&quot;&gt;¶&lt;/a&gt;1、基础环境（忽略）&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;maven&lt;/li
-    
-    </summary>
-    
-      <category term="spark" scheme="http://www.liyang.site/categories/spark/"/>
-    
-    
-      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
-    
-      <category term="spark" scheme="http://www.liyang.site/tags/spark/"/>
-    
-      <category term="spark2.x" scheme="http://www.liyang.site/tags/spark2-x/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>spark2.x编译</title>
-    <link href="http://www.liyang.site/2017/09/29/20171009-%E9%85%8D%E7%BD%AEspark%E5%92%8Cspark-on-yarn/"/>
-    <id>http://www.liyang.site/2017/09/29/20171009-配置spark和spark-on-yarn/</id>
-    <published>2017-09-29T12:00:00.000Z</published>
-    <updated>2017-10-09T06:40:06.769Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="1-one"><a class="header-anchor" href="#1-one">¶</a>1、 one</h4>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;1-one&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-one&quot;&gt;¶&lt;/a&gt;1、 one&lt;/h4&gt;
-
     
     </summary>
     
