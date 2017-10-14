@@ -1,4 +1,4 @@
-http://www.liyang.site/2017/09/29/20171009-配置spark和spark-on-yarn/
+http://www.liyang.site/2017/10/01/20171013-centos7编译mysql5-7-18-camke/
 http://www.liyang.site/2017/09/29/20170929-spark2-x编译/
 http://www.liyang.site/2017/08/10/20170810-未归类的问题集/
 http://www.liyang.site/2017/07/13/20170713-archlinux的优化/

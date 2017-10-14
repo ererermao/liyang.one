@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.liyang.site/"/>
-  <updated>2017-10-09T06:40:06.769Z</updated>
+  <updated>2017-10-13T14:19:40.792Z</updated>
   <id>http://www.liyang.site/</id>
   
   <author>
@@ -16,30 +16,68 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>spark2.x编译</title>
-    <link href="http://www.liyang.site/2017/09/29/20171009-%E9%85%8D%E7%BD%AEspark%E5%92%8Cspark-on-yarn/"/>
-    <id>http://www.liyang.site/2017/09/29/20171009-配置spark和spark-on-yarn/</id>
-    <published>2017-09-29T12:00:00.000Z</published>
-    <updated>2017-10-09T06:40:06.769Z</updated>
+    <title>20171013-centos7编译mysql5.7.18(camke)</title>
+    <link href="http://www.liyang.site/2017/10/01/20171013-centos7%E7%BC%96%E8%AF%91mysql5-7-18-camke/"/>
+    <id>http://www.liyang.site/2017/10/01/20171013-centos7编译mysql5-7-18-camke/</id>
+    <published>2017-10-01T12:00:00.000Z</published>
+    <updated>2017-10-13T14:19:40.792Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="1-one"><a class="header-anchor" href="#1-one">¶</a>1、 one</h4>
+    <content type="html"><![CDATA[<blockquote>
+<p>最近有需求安装高版本的mysql做测试，学习并记录一下camke的安装方式</p>
+</blockquote>
+<h3 id="1-前提准备"><a class="header-anchor" href="#1-前提准备">¶</a>1、前提准备</h3>
+<h4 id="1-1-需要用到的工具包"><a class="header-anchor" href="#1-1-需要用到的工具包">¶</a>1.1 需要用到的工具包</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo um -y install gcc gcc-c++ ncurses ncurses-devel cmake bison</div></pre></td></tr></table></figure>
+<h4 id="1-2-下载源码-建议去官方下载"><a class="header-anchor" href="#1-2-下载源码-建议去官方下载">¶</a>1.2 下载源码（建议去官方下载）</h4>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## mysql源代码 如果下载慢，可以用代理</span></div><div class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.18.tar.gz</div><div class="line"><span class="comment">## boost 库，5.7.5开始需要</span></div><div class="line">wget http://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.gz</div></pre></td></tr></table></figure>
+<h4 id="1-3-创建mysql-用户和目录"><a class="header-anchor" href="#1-3-创建mysql-用户和目录">¶</a>1.3 创建mysql 用户和目录</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 创建用户 禁止登录</span></div><div class="line">sudo groupadd -r mysql</div><div class="line">sudo useradd -r -M -g mysql -s /sbin/nologin mysql </div><div class="line"></div><div class="line"><span class="comment">## 创建目录，自己定义路径</span></div><div class="line">sudo mkdir /opt/mysql</div></pre></td></tr></table></figure>
+<h3 id="2-编译-安装"><a class="header-anchor" href="#2-编译-安装">¶</a>2、编译 安装</h3>
+<h4 id="2-1-预编译"><a class="header-anchor" href="#2-1-预编译">¶</a>2.1 预编译</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解压</span></div><div class="line">tar -zxvf boost_1_59_0.tar.gz -C ../build </div><div class="line">tar -zxvf mysql-5.7.18.tar.gz -C ../build/</div><div class="line"><span class="built_in">cd</span> ../build/mysql-5.7.18</div><div class="line"></div><div class="line"><span class="comment"># 预编译 文末有配置说明</span></div><div class="line">cmake -DCMAKE_INSTALL_PREFIX=/opt/mysql \</div><div class="line">-DMYSQL_DATADIR=/opt/mysql/data \</div><div class="line">-DMYSQL_UNIX_ADDR=/opt/mysql/mysql.sock \</div><div class="line">-DWITH_BOOST=../boost_1_59_0 \</div><div class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \</div><div class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</div><div class="line">-DWITH_FEDERATED_STORAGE_ENGINE=1 \</div><div class="line">-DWITH_BLACKHOLE_STORAGE_ENGINE=1 \</div><div class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \</div><div class="line">-DENABLED_LOCAL_INFILE=1 \</div><div class="line">-DENABLE_DTRACE=0 \</div><div class="line">-DDEFAULT_CHARSET=utf8mb4 \</div><div class="line">-DDEFAULT_COLLATION=utf8mb4_general_ci \</div><div class="line">-DWITH_EMBEDDED_SERVER=1</div><div class="line"></div><div class="line"><span class="comment"># 编译并安装</span></div><div class="line">make </div><div class="line">make install </div><div class="line">make clean</div></pre></td></tr></table></figure>
+<h3 id="3-配置"><a class="header-anchor" href="#3-配置">¶</a>3、配置</h3>
+<h4 id="3-1-设置启动脚本以及开启启动"><a class="header-anchor" href="#3-1-设置启动脚本以及开启启动">¶</a>3.1 设置启动脚本以及开启启动</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#拷贝可执行文件到指定的目录下，并修改名字为mysqld</span></div><div class="line">sudo cp /opt/mysql/support-files/mysql.server /etc/init.d/mysqld</div><div class="line"><span class="comment">#授予可执行的权限</span></div><div class="line">sudo chmod +x /etc/init.d/mysqld</div><div class="line"><span class="comment">#设置为开机启动 </span></div><div class="line">sudo systemctl <span class="built_in">enable</span> mysqld</div></pre></td></tr></table></figure>
+<h4 id="3-2-权限"><a class="header-anchor" href="#3-2-权限">¶</a>3.2 权限</h4>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chown -R mysql:mysql /opt/mysql</div></pre></td></tr></table></figure>
+<h4 id="3-3-环境变量"><a class="header-anchor" href="#3-3-环境变量">¶</a>3.3 环境变量</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## sudo vim /etc/profile.d/mysql.sh   并加入下面2句话</span></div><div class="line"><span class="built_in">export</span> MYSQL_HOME=/opt/msyql</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:MYSQL_HOME/bin</div></pre></td></tr></table></figure>
+<h3 id="4-初始化并启动"><a class="header-anchor" href="#4-初始化并启动">¶</a>4、初始化并启动</h3>
+<h4 id="4-1-初始化mysql"><a class="header-anchor" href="#4-1-初始化mysql">¶</a>4.1 初始化mysql</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mysqld –initialize --user=mysql --datadir=/opt/mysql/data/</div><div class="line"></div><div class="line">### mysql5.7会生成一个初始化密码</div><div class="line">在用户的～/.mysql_secret</div></pre></td></tr></table></figure>
+<h4 id="4-2-启动-并修改root密码"><a class="header-anchor" href="#4-2-启动-并修改root密码">¶</a>4.2  启动，并修改root密码</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 启动</div><div class="line">systemctl start mysqld</div><div class="line"></div><div class="line"># 登录</div><div class="line">mysql -uroot -p*****   #**** 在用户的 ～/.mysql_secret</div><div class="line"></div><div class="line"># 修改密码</div><div class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;********&apos;</div></pre></td></tr></table></figure>
+<h3 id="后续"><a class="header-anchor" href="#后续">¶</a>后续</h3>
+<h4 id="4-配置解释"><a class="header-anchor" href="#4-配置解释">¶</a>4、配置解释</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">### 配置大致解释</span></div><div class="line">配置解释：</div><div class="line"></div><div class="line">-DCMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span>/mysql	//设置安装目录</div><div class="line">-DMYSQL_DATADIR=/home/mysql/data	//设置数据库存放目录             </div><div class="line">-DMYSQL_UNIX_ADDR=/usr/<span class="built_in">local</span>/mysql/mysql.sock	//设置UNIX socket目录</div><div class="line">-DDEFAULT_CHARSET=utf8mb4	//设置默认字符集</div><div class="line">-DDEFAULT_COLLATION=utf8mb4_general_ci	//设置默认校对规则</div><div class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1	//添加InnoDB引擎支持</div><div class="line">-DSYSCONFDIR=/etc	//设置my.cnf配置文件的所在目录，默认为安装目录</div></pre></td></tr></table></figure>
+<h4 id="5-问题集"><a class="header-anchor" href="#5-问题集">¶</a>5、问题集</h4>
+<h5 id="5-1-too-many-arguments-first-extra-is-start"><a class="header-anchor" href="#5-1-too-many-arguments-first-extra-is-start">¶</a>5.1 Too many arguments (first extra is ‘start’).</h5>
+<p>删除profile的配置，</p>
+<h5 id="5-2-execstart-etc-rc-d-init-d-mysqld-start-code-exited-status-1-failure"><a class="header-anchor" href="#5-2-execstart-etc-rc-d-init-d-mysqld-start-code-exited-status-1-failure">¶</a>5.2 ExecStart=/etc/rc.d/init.d/mysqld start (code=exited, status=1/FAILURE)</h5>
+<p>直接用命令执行，可以看到更详细的日志</p>
+<h5 id="5-3-mysqld-safe-error-log-error-set-to-var-log-mariadb-mariadb-log-however-file-don-t-exists-create-writable-for-user-mysql"><a class="header-anchor" href="#5-3-mysqld-safe-error-log-error-set-to-var-log-mariadb-mariadb-log-however-file-don-t-exists-create-writable-for-user-mysql">¶</a>5.3 mysqld_safe error: log-error set to ‘/var/log/mariadb/mariadb.log’, however file don’t exists. Create writable for user ‘mysql’.</h5>
+<p>touch /var/log/mariadb/mariadb.log &amp;&amp; chmod 777 /var/log/mariadb/mariadb.log</p>
+<h5 id="5-4-os-file-get-status-failed-on-ibdata1-can-t-determine-file-permissions-or-innodb-ib-logfile0-can-t-be-opened-in-read-write-mode"><a class="header-anchor" href="#5-4-os-file-get-status-failed-on-ibdata1-can-t-determine-file-permissions-or-innodb-ib-logfile0-can-t-be-opened-in-read-write-mode">¶</a>5.4 os_file_get_status() failed on ‘./ibdata1’. Can’t determine file permissions or InnoDB: ./ib_logfile0 can’t be opened in read-write mode</h5>
+<p>目录的权限问题，就先简单粗暴解决吧，chwon -R 777 /opt/mysql</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;1-one&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-one&quot;&gt;¶&lt;/a&gt;1、 one&lt;/h4&gt;
-
+      &lt;blockquote&gt;
+&lt;p&gt;最近有需求安装高版本的mysql做测试，学习并记录一下camke的安装方式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1-前提准备&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-前提准备&quot;&gt;¶&lt;/a&gt;1、前提准备&lt;
     
     </summary>
     
-      <category term="spark" scheme="http://www.liyang.site/categories/spark/"/>
+      <category term="mysql" scheme="http://www.liyang.site/categories/mysql/"/>
     
     
-      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
+      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
     
-      <category term="spark" scheme="http://www.liyang.site/tags/spark/"/>
+      <category term="mysql" scheme="http://www.liyang.site/tags/mysql/"/>
     
-      <category term="spark2.x" scheme="http://www.liyang.site/tags/spark2-x/"/>
+      <category term="cmake" scheme="http://www.liyang.site/tags/cmake/"/>
     
   </entry>
   
@@ -698,9 +736,9 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
       <category term="hadoop" scheme="http://www.liyang.site/categories/hadoop/"/>
     
     
-      <category term="hadoop" scheme="http://www.liyang.site/tags/hadoop/"/>
-    
       <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
+    
+      <category term="hadoop" scheme="http://www.liyang.site/tags/hadoop/"/>
     
       <category term="cloudera-manger" scheme="http://www.liyang.site/tags/cloudera-manger/"/>
     

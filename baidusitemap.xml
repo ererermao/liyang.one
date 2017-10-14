@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://www.liyang.site/2017/10/01/20171013-centos7%E7%BC%96%E8%AF%91mysql5-7-18-camke/</loc>
+    <lastmod>2017-10-13T14:19:40.792Z</lastmod>
+    <data>
+        <display>
+        <title>20171013-centos7编译mysql5.7.18(camke)</title>
+        <pubTime>2017-10-01T12:00:00.000Z</pubTime>
+        
+        <tag>centos</tag>
+         
+        <tag>mysql</tag>
+         
+        <tag>cmake</tag>
+         
+         
+           
+             
+              <breadCrumb title="mysql" url="http://www.liyang.site/categories/mysql/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.liyang.site/2017/07/13/20170713-archlinux%E7%9A%84%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2017-10-10T09:35:11.548Z</lastmod>
     <data>
@@ -21,30 +45,6 @@
            
              
               <breadCrumb title="archlinux" url="http://www.liyang.site/categories/archlinux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.liyang.site/2017/09/29/20171009-%E9%85%8D%E7%BD%AEspark%E5%92%8Cspark-on-yarn/</loc>
-    <lastmod>2017-10-09T06:40:06.769Z</lastmod>
-    <data>
-        <display>
-        <title>spark2.x编译</title>
-        <pubTime>2017-09-29T12:00:00.000Z</pubTime>
-        
-        <tag>cdh</tag>
-         
-        <tag>spark</tag>
-         
-        <tag>spark2.x</tag>
-         
-         
-           
-             
-              <breadCrumb title="spark" url="http://www.liyang.site/categories/spark/"/>
           
         </display>
     </data>
@@ -168,28 +168,6 @@
 
     
   <url>
-    <loc>http://www.liyang.site/2017/05/04/20170504-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2017-08-17T05:22:24.734Z</lastmod>
-    <data>
-        <display>
-        <title>hexo博客迁移记录</title>
-        <pubTime>2017-05-04T11:48:01.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://www.liyang.site/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.liyang.site/2017/04/27/20170427-%E5%8D%87%E7%BA%A7python2-7%E5%90%8Eeasy-install%E6%8A%A5%E9%94%99/</loc>
     <lastmod>2017-08-17T05:22:24.734Z</lastmod>
     <data>
@@ -205,6 +183,28 @@
            
              
               <breadCrumb title="python" url="http://www.liyang.site/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.liyang.site/2017/05/04/20170504-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2017-08-17T05:22:24.734Z</lastmod>
+    <data>
+        <display>
+        <title>hexo博客迁移记录</title>
+        <pubTime>2017-05-04T11:48:01.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>博客</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://www.liyang.site/categories/hexo/"/>
           
         </display>
     </data>
@@ -320,6 +320,30 @@
 
     
   <url>
+    <loc>http://www.liyang.site/2017/02/27/20170227-Cloudera-Manager%E4%BF%AE%E6%94%B9%E9%9B%86%E7%BE%A4%E7%9A%84IP/</loc>
+    <lastmod>2017-08-17T05:22:24.690Z</lastmod>
+    <data>
+        <display>
+        <title>cdh修改hadoop集群的IP</title>
+        <pubTime>2017-02-27T11:35:01.000Z</pubTime>
+        
+        <tag>cdh</tag>
+         
+        <tag>hadoop</tag>
+         
+        <tag>cloudera-manger</tag>
+         
+         
+           
+             
+              <breadCrumb title="hadoop" url="http://www.liyang.site/categories/hadoop/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.liyang.site/2017/03/30/20170330-%E5%88%9D%E8%AF%86arch/</loc>
     <lastmod>2017-08-17T05:22:24.690Z</lastmod>
     <data>
@@ -333,30 +357,6 @@
            
              
               <breadCrumb title="arch" url="http://www.liyang.site/categories/arch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.liyang.site/2017/02/27/20170227-Cloudera-Manager%E4%BF%AE%E6%94%B9%E9%9B%86%E7%BE%A4%E7%9A%84IP/</loc>
-    <lastmod>2017-08-17T05:22:24.690Z</lastmod>
-    <data>
-        <display>
-        <title>cdh修改hadoop集群的IP</title>
-        <pubTime>2017-02-27T11:35:01.000Z</pubTime>
-        
-        <tag>hadoop</tag>
-         
-        <tag>cdh</tag>
-         
-        <tag>cloudera-manger</tag>
-         
-         
-           
-             
-              <breadCrumb title="hadoop" url="http://www.liyang.site/categories/hadoop/"/>
           
         </display>
     </data>
@@ -677,9 +677,9 @@
         <title>给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）</title>
         <pubTime>2016-11-17T11:05:05.000Z</pubTime>
         
-        <tag>vm</tag>
-         
         <tag>centos</tag>
+         
+        <tag>vm</tag>
          
         <tag>lvm</tag>
          
