@@ -11,9 +11,9 @@
         <title>centos7编译mysql5.7.18(camke)</title>
         <pubTime>2017-10-01T12:00:00.000Z</pubTime>
         
-        <tag>mysql</tag>
-         
         <tag>centos</tag>
+         
+        <tag>mysql</tag>
          
         <tag>cmake</tag>
          
@@ -59,11 +59,11 @@
         <title>centos使用外部smtp发送邮件</title>
         <pubTime>2016-11-10T12:20:20.000Z</pubTime>
         
-        <tag>centos</tag>
-         
         <tag>mail</tag>
          
         <tag>smtp</tag>
+         
+        <tag>centos</tag>
          
         <tag>邮件</tag>
          
@@ -168,28 +168,6 @@
 
     
   <url>
-    <loc>http://www.liyang.site/2017/05/04/20170504-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2017-08-17T05:22:24.734Z</lastmod>
-    <data>
-        <display>
-        <title>hexo博客迁移记录</title>
-        <pubTime>2017-05-04T11:48:01.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://www.liyang.site/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.liyang.site/2017/04/27/20170427-%E5%8D%87%E7%BA%A7python2-7%E5%90%8Eeasy-install%E6%8A%A5%E9%94%99/</loc>
     <lastmod>2017-08-17T05:22:24.734Z</lastmod>
     <data>
@@ -205,6 +183,28 @@
            
              
               <breadCrumb title="python" url="http://www.liyang.site/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.liyang.site/2017/05/04/20170504-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2017-08-17T05:22:24.734Z</lastmod>
+    <data>
+        <display>
+        <title>hexo博客迁移记录</title>
+        <pubTime>2017-05-04T11:48:01.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>博客</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://www.liyang.site/categories/hexo/"/>
           
         </display>
     </data>
@@ -347,9 +347,9 @@
         <title>cdh修改hadoop集群的IP</title>
         <pubTime>2017-02-27T11:35:01.000Z</pubTime>
         
-        <tag>hadoop</tag>
-         
         <tag>cdh</tag>
+         
+        <tag>hadoop</tag>
          
         <tag>cloudera-manger</tag>
          
@@ -651,9 +651,9 @@
         <title>centos下mysqld的service服务</title>
         <pubTime>2016-11-16T06:27:25.000Z</pubTime>
         
-        <tag>mysql</tag>
-         
         <tag>centos</tag>
+         
+        <tag>mysql</tag>
          
         <tag>mysqld</tag>
          
@@ -677,9 +677,9 @@
         <title>给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）</title>
         <pubTime>2016-11-17T11:05:05.000Z</pubTime>
         
-        <tag>vm</tag>
-         
         <tag>centos</tag>
+         
+        <tag>vm</tag>
          
         <tag>lvm</tag>
          
@@ -725,11 +725,11 @@
         <title>centos源码安装mysql5.1.28</title>
         <pubTime>2016-11-14T12:00:49.045Z</pubTime>
         
+        <tag>centos</tag>
+         
         <tag>mysql</tag>
          
         <tag>源码</tag>
-         
-        <tag>centos</tag>
          
          
            
@@ -793,11 +793,11 @@
         <title>CDH安装hadoop集群（目前更新到一半，待续）</title>
         <pubTime>2016-11-07T01:49:01.000Z</pubTime>
         
+        <tag>vm</tag>
+         
         <tag>chd</tag>
          
         <tag>hadoop</tag>
-         
-        <tag>vm</tag>
          
         <tag>hadoop集群安装</tag>
          
