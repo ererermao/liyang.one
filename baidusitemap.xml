@@ -347,9 +347,9 @@
         <title>cdh修改hadoop集群的IP</title>
         <pubTime>2017-02-27T11:35:01.000Z</pubTime>
         
-        <tag>cdh</tag>
-         
         <tag>hadoop</tag>
+         
+        <tag>cdh</tag>
          
         <tag>cloudera-manger</tag>
          
@@ -677,9 +677,9 @@
         <title>给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）</title>
         <pubTime>2016-11-17T11:05:05.000Z</pubTime>
         
-        <tag>centos</tag>
-         
         <tag>vm</tag>
+         
+        <tag>centos</tag>
          
         <tag>lvm</tag>
          
@@ -793,11 +793,11 @@
         <title>CDH安装hadoop集群（目前更新到一半，待续）</title>
         <pubTime>2016-11-07T01:49:01.000Z</pubTime>
         
-        <tag>vm</tag>
-         
         <tag>chd</tag>
          
         <tag>hadoop</tag>
+         
+        <tag>vm</tag>
          
         <tag>hadoop集群安装</tag>
          
