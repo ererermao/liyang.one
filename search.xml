@@ -16,7 +16,7 @@
   <entry>
     <title><![CDATA[spark2.x编译]]></title>
     <url>%2F2017%2F09%2F29%2F20170929-spark2-x%E7%BC%96%E8%AF%91%2F</url>
-    <content type="text"><![CDATA[编译随记 ¶1、基础环境（忽略） maven scala2.11+ ¶2、下载源码 先下载源码，可以去 http://archive.apache.org/dist/spark http://archive.apache.org/dist/spark/ ¶3、添加源 在根目录的pom.xml里面添加下面这一句 12345&lt;repository&gt; &lt;id&gt;cloudera&lt;/id&gt; &lt;name&gt;cloudera Repository&lt;/name&gt; &lt;url&gt;https://repository.cloudera.com/artifactory/cloudera-repos&lt;/url&gt;&lt;/repository&gt; ¶4、编译 123456## 官方建议用make-distribution.sh 编译./dev/make-distribution.sh --name custom-spark --tgz -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver ./dev/make-distribution.sh --name custom-spark --tgz -Dhadoop.version=2.6.0-CDH5.11.2 -Dhbase.version=1.2.0-CDH5.11.2 -Phadoop-2.6 -Phbase-1.2 -Pyarn -Phive -Phive-thriftserver ## maven 编译命令mvn -e -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver -Pyarn -DskipTests clean package ¶5、可能遇到的问题 ¶5.1 Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.4.0:exec (sparkr-pkg) on project spark-core_2.10: Command execution failed. Process exited with an error: 127 (Exit value: 127) -&gt; [Help 1] 解决： 在编译命令去掉 -Pyarnr 这个参数]]></content>
+    <content type="text"><![CDATA[编译随记 ¶1、基础环境（忽略） maven scala2.11+ ¶2、下载源码 先下载源码，可以去 http://archive.apache.org/dist/spark http://archive.apache.org/dist/spark/ ¶3、添加源 在根目录的pom.xml里面添加下面这一句 12345&lt;repository&gt; &lt;id&gt;cloudera&lt;/id&gt; &lt;name&gt;cloudera Repository&lt;/name&gt; &lt;url&gt;https://repository.cloudera.com/artifactory/cloudera-repos&lt;/url&gt;&lt;/repository&gt; ¶4、编译 12345678910## 调整jvm大小export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"## 官方建议用make-distribution.sh 编译./dev/make-distribution.sh --name custom-spark --tgz -Pyarn -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver ./dev/make-distribution.sh --name custom-spark --tgz -Dhadoop.version=2.6.0-CDH5.11.2 -Dhbase.version=1.2.0-CDH5.11.2 -Phadoop-2.6 -Phbase-1.2 -Pyarn -Phive -Phive-thriftserver ## maven 编译命令mvn -e -Phadoop-2.6 -Dhadoop.version=2.6.0-CDH5.11.2 -Phive -Phive-thriftserver -Pyarn -DskipTests clean package ¶5、可能遇到的问题 ¶5.1 Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.4.0:exec (sparkr-pkg) on project spark-core_2.10: Command execution failed. Process exited with an error: 127 (Exit value: 127) -&gt; [Help 1] 解决： 在编译命令去掉 -Pyarnr 这个参数]]></content>
       <categories>
         <category>spark</category>
       </categories>
@@ -338,8 +338,8 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>vm</tag>
         <tag>centos</tag>
+        <tag>vm</tag>
         <tag>lvm</tag>
       </tags>
   </entry>
