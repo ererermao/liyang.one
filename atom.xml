@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.liyang.site/"/>
-  <updated>2017-10-14T04:28:38.488Z</updated>
+  <updated>2017-11-06T06:37:57.868Z</updated>
   <id>http://www.liyang.site/</id>
   
   <author>
@@ -16,11 +16,57 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>spark2.x中一个NoSuchMethodError错误</title>
+    <link href="http://www.liyang.site/2017/11/06/20171106-spark2-x%E4%B8%AD%E4%B8%80%E4%B8%AANoSuchMethodError%E9%94%99%E8%AF%AF/"/>
+    <id>http://www.liyang.site/2017/11/06/20171106-spark2-x中一个NoSuchMethodError错误/</id>
+    <published>2017-11-06T12:00:00.000Z</published>
+    <updated>2017-11-06T06:37:57.868Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>使用spark_shuffle的时候遇到的.之前编译1.6的时候没有问题.</p>
+</blockquote>
+<h4 id="1-背景"><a class="header-anchor" href="#1-背景">¶</a>1. 背景:</h4>
+<p>cdh5.11.2 版本的hadoop yarn hbase<br>
+spark 版本为apache 2.0.2<br>
+自己编译spark on cdh<br>
+com.fasterxml.jackson.core 版本为:2.6.5</p>
+<h4 id="2-操作"><a class="header-anchor" href="#2-操作">¶</a>2. 操作:</h4>
+<p>按照 http://blog.csdn.net/windyqcf/article/details/70140404 这个教程,使用yarn动态资源分配<br>
+其中使用到的这个 org.apache.spark.network.yarn.YarnShuffleService  来源 spark-2.0.2-yarn-shuffle.jar</p>
+<h4 id="3-问题-在重启yarn的时候报错-java-lang-nosuchmethoderror-org-spark-project-com-fasterxml-jackson-core-jsonfactory-requirespropertyordering-z"><a class="header-anchor" href="#3-问题-在重启yarn的时候报错-java-lang-nosuchmethoderror-org-spark-project-com-fasterxml-jackson-core-jsonfactory-requirespropertyordering-z">¶</a>3. 问题: 在重启yarn的时候报错:java.lang.NoSuchMethodError: org.spark_project.com.fasterxml.jackson.core.JsonFactory.requiresPropertyOrdering()Z</h4>
+<h4 id="4-自我分析-nosuchmethoderror-一般就2种情况-1-没有这个类这个方法-2-有多个类名冲突"><a class="header-anchor" href="#4-自我分析-nosuchmethoderror-一般就2种情况-1-没有这个类这个方法-2-有多个类名冲突">¶</a>4. 自我分析: NoSuchMethodError 一般就2种情况:1. 没有这个类这个方法    2. 有多个类名冲突</h4>
+<p>jar -tvf spark-2.0.2-yarn-shuffle.jar | grep “org.spark_project.com.fasterxml.jackson.core.JsonFactory” : 是有这方法的<br>
+查看编译的pom.xml 发现用的 jackson.core2.6.5 ,通过源码 发现有这个类:https://github.com/FasterXML/jackson-core/blob/2.6/src/main/java/com/fasterxml/jackson/core/JsonFactory.java<br>
+grep -rni “org.spark_project.com.fasterxml.jackson.core.JsonFactory.requiresPropertyOrdering()Z” /usr/lib/  (hadoop 所有相关lib全在这个目录下) : 没有类名冲突</p>
+<h4 id="5-尝试解决"><a class="header-anchor" href="#5-尝试解决">¶</a>5. 尝试解决</h4>
+<p>网上发现有可能是 jackson 版本问题,修改为2.8.5 , 还是这个错</p>
+<h4 id="6-求解决"><a class="header-anchor" href="#6-求解决">¶</a>6. 求解决</h4>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;使用spark_shuffle的时候遇到的.之前编译1.6的时候没有问题.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;1-背景&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-背景&quot;&gt;¶&lt;/a&gt;1. 背景:&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="spark" scheme="http://www.liyang.site/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://www.liyang.site/tags/spark/"/>
+    
+      <category term="NoSuchMethodError" scheme="http://www.liyang.site/tags/NoSuchMethodError/"/>
+    
+  </entry>
+  
+  <entry>
     <title>centos7编译mysql5.7.18(camke)</title>
-    <link href="http://www.liyang.site/2017/10/01/20171013-centos7%E7%BC%96%E8%AF%91mysql5-7-18-camke/"/>
-    <id>http://www.liyang.site/2017/10/01/20171013-centos7编译mysql5-7-18-camke/</id>
-    <published>2017-10-01T12:00:00.000Z</published>
-    <updated>2017-10-14T04:28:38.488Z</updated>
+    <link href="http://www.liyang.site/2017/10/20/20171013-centos7%E7%BC%96%E8%AF%91mysql5-7-18-camke/"/>
+    <id>http://www.liyang.site/2017/10/20/20171013-centos7编译mysql5-7-18-camke/</id>
+    <published>2017-10-20T12:00:00.000Z</published>
+    <updated>2017-11-06T06:29:42.978Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>最近有需求安装高版本的mysql做测试，学习并记录一下camke的安装方式</p>
@@ -904,53 +950,6 @@ sdf</p>
       <category term="随想" scheme="http://www.liyang.site/tags/%E9%9A%8F%E6%83%B3/"/>
     
       <category term="总结" scheme="http://www.liyang.site/tags/%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OmniMarkupPreviewer的实时预览无法使用问题的解决</title>
-    <link href="http://www.liyang.site/2017/01/18/20170118-OmniMarkupPreviewer%E7%9A%84%E5%AE%9E%E6%97%B6%E9%A2%84%E8%A7%88%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/"/>
-    <id>http://www.liyang.site/2017/01/18/20170118-OmniMarkupPreviewer的实时预览无法使用/</id>
-    <published>2017-01-18T12:57:13.000Z</published>
-    <updated>2017-08-17T05:22:24.654Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>突然就不行了，重装也不行。后面谷歌到了,记录一下。懒的截图，图片也借用下</p>
-</blockquote>
-<h3 id="1-问题描述"><a class="header-anchor" href="#1-问题描述">¶</a>1、问题描述</h3>
-<p>  Sublime下采用Package Control安装好OmniMarkupPreviewer，使用一段时间后，突然无法实现Markdown文件实时预览功能。<br>
-  谷歌访问效果如下：<br>
-<img src="http://og20qmy78.bkt.clouddn.com/image/2017011802.png" alt="image"></p>
-<h3 id="2-原因"><a class="header-anchor" href="#2-原因">¶</a>2、原因</h3>
-<p>  <code>Ctrl+</code> 打开控制台，查看日志信息，下面是我的日志信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;code&gt;&lt;code&gt;OmniMarkupPreviewer: [INFO] Launching web browser for http://127.0.0.1:51004/view/29</div><div class="line">UnicodeEncodeError(&apos;latin-1&apos;, &apos;夏至&apos;, 0, 2, &apos;ordinal not in range(256)&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1035, in communicate</div><div class="line">    req.respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 831, in respond</div><div class="line">    self.server.gateway(self).respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1868, in respond</div><div class="line">    self.write(chunk)</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1934, in write</div><div class="line">    self.req.send_headers()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 941, in send_headers</div><div class="line">    (b&quot;Server&quot;, self.server.server_name.encode(&apos;ISO-8859-1&apos;)))</div><div class="line">UnicodeEncodeError: &apos;latin-1&apos; codec can&apos;t encode characters in position 0-1: ordinal not in range(256)</div><div class="line">UnicodeEncodeError(&apos;latin-1&apos;, &apos;夏至&apos;, 0, 2, &apos;ordinal not in range(256)&apos;)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1035, in communicate</div><div class="line">    req.respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 831, in respond</div><div class="line">    self.server.gateway(self).respond()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1868, in respond</div><div class="line">    self.write(chunk)</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 1934, in write</div><div class="line">    self.req.send_headers()</div><div class="line">  File &quot;C:\Users\xiazhi\AppData\Roaming\Sublime Text 3\Packages\OmniMarkupPreviewer\OmniMarkupLib\libs\cherrypy\wsgiserver\wsgiserver3.py&quot;, line 941, in send_headers</div><div class="line">    (b&quot;Server&quot;, self.server.server_name.encode(&apos;ISO-8859-1&apos;)))</div><div class="line">&lt;/code&gt;&lt;/code&gt;</div></pre></td></tr></table></figure>
-<p>   其中 <code>UnicodeEncodeError('latin-1', '夏至', 0, 2, 'ordinal not in range(256)')</code>为报错信息。<code>夏至</code>是计算机名。<br>
-  <img src="http://og20qmy78.bkt.clouddn.com/image/2017011803.png" alt="image"></p>
-<h3 id="3-解决"><a class="header-anchor" href="#3-解决">¶</a>3、解决</h3>
-<p>  修改一下计算机名字</p>
-<p><img src="http://og20qmy78.bkt.clouddn.com/image/2017011804.png" alt="image"></p>
-<p>  最终结果，可以正常显示了。<br>
-<img src="http://og20qmy78.bkt.clouddn.com/image/2017011805.png" alt="image"></p>
-<blockquote>
-<p>转载出处：<a href="http://www.2cto.com/kf/201608/535703.html" target="_blank" rel="external">点击前往</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;突然就不行了，重装也不行。后面谷歌到了,记录一下。懒的截图，图片也借用下&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;1-问题描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-问题描述&quot;&gt;¶&lt;/a&gt;1、问题描述&lt;/
-    
-    </summary>
-    
-      <category term="ide" scheme="http://www.liyang.site/categories/ide/"/>
-    
-    
-      <category term="OmniMarkupPreviewer" scheme="http://www.liyang.site/tags/OmniMarkupPreviewer/"/>
-    
-      <category term="sublime text" scheme="http://www.liyang.site/tags/sublime-text/"/>
     
   </entry>
   

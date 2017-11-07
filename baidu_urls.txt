@@ -1,4 +1,5 @@
-http://www.liyang.site/2017/10/01/20171013-centos7编译mysql5-7-18-camke/
+http://www.liyang.site/2017/11/06/20171106-spark2-x中一个NoSuchMethodError错误/
+http://www.liyang.site/2017/10/20/20171013-centos7编译mysql5-7-18-camke/
 http://www.liyang.site/2017/09/29/20170929-spark2-x编译/
 http://www.liyang.site/2017/08/10/20170810-未归类的问题集/
 http://www.liyang.site/2017/07/13/20170713-archlinux的优化/
@@ -17,4 +18,3 @@ http://www.liyang.site/2017/02/21/20170221-hiveserver2-join的问题/
 http://www.liyang.site/2017/02/15/20170215-python-lxml安装报错/
 http://www.liyang.site/2017/01/23/20170123-CentOS彻底卸载wine/
 http://www.liyang.site/2017/01/18/20170118-2016已经过去-2017正在进行/
-http://www.liyang.site/2017/01/18/20170118-OmniMarkupPreviewer的实时预览无法使用/
