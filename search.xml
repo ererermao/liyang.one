@@ -189,8 +189,8 @@
         <category>hadoop</category>
       </categories>
       <tags>
-        <tag>hadoop</tag>
         <tag>cdh</tag>
+        <tag>hadoop</tag>
         <tag>cloudera-manger</tag>
       </tags>
   </entry>
@@ -350,8 +350,8 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>vm</tag>
         <tag>centos</tag>
+        <tag>vm</tag>
         <tag>lvm</tag>
       </tags>
   </entry>
@@ -453,9 +453,9 @@
         <category>hadoop</category>
       </categories>
       <tags>
-        <tag>chd</tag>
-        <tag>hadoop</tag>
         <tag>vm</tag>
+        <tag>hadoop</tag>
+        <tag>chd</tag>
         <tag>hadoop集群安装</tag>
       </tags>
   </entry>
