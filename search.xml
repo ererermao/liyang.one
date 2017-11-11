@@ -20,8 +20,8 @@
         <category>mysql</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>centos</tag>
+        <tag>mysql</tag>
         <tag>cmake</tag>
       </tags>
   </entry>
@@ -189,8 +189,8 @@
         <category>hadoop</category>
       </categories>
       <tags>
-        <tag>cdh</tag>
         <tag>hadoop</tag>
+        <tag>cdh</tag>
         <tag>cloudera-manger</tag>
       </tags>
   </entry>
@@ -350,8 +350,8 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>vm</tag>
+        <tag>centos</tag>
         <tag>lvm</tag>
       </tags>
   </entry>
@@ -363,8 +363,8 @@
         <category>mysql</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>centos</tag>
+        <tag>mysql</tag>
         <tag>mysqld</tag>
         <tag>service</tag>
       </tags>
@@ -390,9 +390,9 @@
         <category>mysql</category>
       </categories>
       <tags>
+        <tag>centos</tag>
         <tag>mysql</tag>
         <tag>源码</tag>
-        <tag>centos</tag>
       </tags>
   </entry>
   <entry>
@@ -415,9 +415,9 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>mail</tag>
         <tag>smtp</tag>
+        <tag>centos</tag>
         <tag>邮件</tag>
       </tags>
   </entry>
@@ -453,9 +453,9 @@
         <category>hadoop</category>
       </categories>
       <tags>
-        <tag>vm</tag>
-        <tag>hadoop</tag>
         <tag>chd</tag>
+        <tag>hadoop</tag>
+        <tag>vm</tag>
         <tag>hadoop集群安装</tag>
       </tags>
   </entry>
@@ -481,9 +481,9 @@
       </categories>
       <tags>
         <tag>随想</tag>
+        <tag>hexo</tag>
         <tag>迁移</tag>
         <tag>typecho</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
