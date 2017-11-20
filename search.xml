@@ -20,8 +20,8 @@
         <category>mysql</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>centos</tag>
+        <tag>mysql</tag>
         <tag>cmake</tag>
       </tags>
   </entry>
@@ -363,8 +363,8 @@
         <category>mysql</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>centos</tag>
+        <tag>mysql</tag>
         <tag>mysqld</tag>
         <tag>service</tag>
       </tags>
@@ -390,9 +390,9 @@
         <category>mysql</category>
       </categories>
       <tags>
+        <tag>centos</tag>
         <tag>mysql</tag>
         <tag>源码</tag>
-        <tag>centos</tag>
       </tags>
   </entry>
   <entry>
@@ -415,9 +415,9 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>mail</tag>
         <tag>smtp</tag>
+        <tag>centos</tag>
         <tag>邮件</tag>
       </tags>
   </entry>
