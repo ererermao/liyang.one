@@ -415,9 +415,9 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>mail</tag>
         <tag>smtp</tag>
+        <tag>centos</tag>
         <tag>邮件</tag>
       </tags>
   </entry>
@@ -481,9 +481,9 @@
       </categories>
       <tags>
         <tag>随想</tag>
-        <tag>hexo</tag>
         <tag>迁移</tag>
         <tag>typecho</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
