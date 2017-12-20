@@ -316,7 +316,7 @@ pre .javascript .function,pre .keyword{color:#8959a8}
 .feed-link a:hover{color:#fff;background:#fc6423}
 .feed-link a:hover i{color:#fff}
 .links-of-author a{display:inline-block;vertical-align:middle;margin-right:10px;margin-bottom:10px;border-bottom-color:#555;font-size:13px}
-.links-of-author a:before{display:inline-block;vertical-align:middle;margin-right:3px;content:" ";width:4px;height:4px;border-radius:50%;background:#6277ff}
+.links-of-author a:before{display:inline-block;vertical-align:middle;margin-right:3px;content:" ";width:4px;height:4px;border-radius:50%;background:#7fffd7}
 .links-of-blogroll{font-size:13px}
 .links-of-blogroll-title{margin-top:20px;font-size:14px;font-weight:600}
 .search-keyword,a.search-result-title{font-weight:700}
