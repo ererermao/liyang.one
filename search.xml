@@ -350,8 +350,8 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>vm</tag>
         <tag>centos</tag>
+        <tag>vm</tag>
         <tag>lvm</tag>
       </tags>
   </entry>
