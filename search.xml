@@ -20,8 +20,8 @@
         <category>mysql</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>mysql</tag>
+        <tag>centos</tag>
         <tag>cmake</tag>
       </tags>
   </entry>
@@ -315,6 +315,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[ss用一段时间卡？vps定时重启试试]]></title>
+    <url>%2F2016%2F11%2F21%2F20161121-ss%E7%94%A8%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%8D%A1%EF%BC%9Fvps%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF%E8%AF%95%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。 ¶1. 添加定时重启vps 1234crontab -e #编辑任务列表#新增：注意用root用户添加 01 21 * * * /sbin/roboot #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动 chkconfig supervisord on# 锐速开机启动 chkconfig serverSpeeder on# net-speeder的开机启动 echo 'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;' &gt;&gt; /etc/rc.local ¶3.补充：Crontab基本格式： 12* * * * * command分 时 日 月 周 命令]]></content>
+      <categories>
+        <category>ss</category>
+      </categories>
+      <tags>
+        <tag>vps</tag>
+        <tag>ss</tag>
+        <tag>shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[亚马逊aws更改linux为root权限密码登陆]]></title>
     <url>%2F2016%2F11%2F21%2F20161121-%E4%BA%9A%E9%A9%AC%E9%80%8Aaws%E6%9B%B4%E6%94%B9linux%E4%B8%BAroot%E6%9D%83%E9%99%90%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%2F</url>
     <content type="text"><![CDATA[我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录. ¶1、修改ROOT密码 1sudo passwd root ¶2、修改sshd_config文件 12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes ¶3、重启ssh就可以使用root正常登陆了 1/sbin/service sshd restart ¶4、登录工具 pc可以使用：SecureCRT 手机可以使用：Serverauditor]]></content>
@@ -330,19 +343,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ss用一段时间卡？vps定时重启试试]]></title>
-    <url>%2F2016%2F11%2F21%2F20161121-ss%E7%94%A8%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%8D%A1%EF%BC%9Fvps%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF%E8%AF%95%E8%AF%95%2F</url>
-    <content type="text"><![CDATA[用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。 ¶1. 添加定时重启vps 1234crontab -e #编辑任务列表#新增：注意用root用户添加 01 21 * * * /sbin/roboot #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动 chkconfig supervisord on# 锐速开机启动 chkconfig serverSpeeder on# net-speeder的开机启动 echo 'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;' &gt;&gt; /etc/rc.local ¶3.补充：Crontab基本格式： 12* * * * * command分 时 日 月 周 命令]]></content>
-      <categories>
-        <category>ss</category>
-      </categories>
-      <tags>
-        <tag>vps</tag>
-        <tag>ss</tag>
-        <tag>shadowsocks</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[给VMware下的Linux扩展磁盘空间（以CentOS6.3为例）]]></title>
     <url>%2F2016%2F11%2F17%2F20161117-%E7%BB%99VMware%E4%B8%8B%E7%9A%84Linux%E6%89%A9%E5%B1%95%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%2F</url>
     <content type="text"><![CDATA[前提是使用的lvm逻辑卷分区，才能这样扩展。 查看挂载点： 1234567df -h#显示： 文件系统 容量 已用 可用 已用%% 挂载点 /dev/mapper/vg_dc01-lv_root 47G 12G 34G 25% /tmpfs 504M 88K 504M 1% /dev/shm/dev/sda1 485M 31M 429M 7% /boot ¶一、扩展VMWare硬盘空间 关闭Vmware 的 Linux系统，这样，才能在VMWare菜单中设置： 1 VM -&gt; Settings... -&gt; Hardware -&gt; Hard Disk -&gt; Utilities -&gt; Expand 输入你想要扩展到多少G。本文假设你新增加了 30G ¶二、对新增加的硬盘进行分区、格式化 这里进行一个极简化的介绍，非常简化，但很全面，上面已经知道增加了空间的硬盘是 /dev/sda。 12345678910111213141516#分区：fdisk /dev/sda #操作 /dev/sda 的分区表p #查看已分区数量（我看到有两个 /dev/sda1 /dev/sda2）n #新增加一个分区p #分区类型我们选择为主分区3 #分区号选3（因为1,2已经用过了，见上）回车 #默认（起始扇区）回车 #默认（结束扇区）t #修改分区类型3 #选分区8e #修改为LVM（8e就是LVM）w #写分区表q #完成，退出fdisk命令#系统提示你重启，重启吧.#开机后，格式化：mkfs.ext3 /dev/sda3 ##三、添加新LVM到已有的LVM组，实现扩容 123456lvm 进入lvm管理lvm&gt; pvcreate /dev/sda3 这是初始化刚才的分区，必须的lvm&gt; vgextend vg_dc01 /dev/sda3 将初始化过的分区加入到虚拟卷组vg_dc01lvm&gt;lvextend -L +29.9G /dev/vg_dc01/lv_root 扩展已有卷的容量（29.9G这个数字在后面解释）lvm&gt;pvdisplay 查看卷容量，这时你会看到一个很大的卷了lvm&gt;quit 退出 上面那个 29.9G 怎么来的呢？因为你在VMWare新增加了30G，但这些空间不能全被LVM用了，你可以在上面的lvextend操作中一个一个的试探，比如 29.9G, 29.8G … 直到不报错为止，这样你就可以充分使用新增加的硬盘空间了，当然这是因为我不懂才用的笨办法，高手笑笑就过了吧。（我更不懂啊，原作者，我直接上了29.9G，结果就OK了） 以上只是卷扩容了，下面是文件系统的真正扩容，输入以下命令： 1234resize2fs /dev/vg_dc01/lv_root#再运行下：df -h 查看下我们机器性感的硬盘吧。]]></content>
@@ -350,8 +350,8 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>vm</tag>
+        <tag>centos</tag>
         <tag>lvm</tag>
       </tags>
   </entry>
@@ -363,8 +363,8 @@
         <category>mysql</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>mysql</tag>
+        <tag>centos</tag>
         <tag>mysqld</tag>
         <tag>service</tag>
       </tags>
@@ -390,9 +390,9 @@
         <category>mysql</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>mysql</tag>
         <tag>源码</tag>
+        <tag>centos</tag>
       </tags>
   </entry>
   <entry>
@@ -415,9 +415,9 @@
         <category>centos</category>
       </categories>
       <tags>
+        <tag>centos</tag>
         <tag>mail</tag>
         <tag>smtp</tag>
-        <tag>centos</tag>
         <tag>邮件</tag>
       </tags>
   </entry>
