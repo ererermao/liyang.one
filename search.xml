@@ -315,6 +315,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[ss用一段时间卡？vps定时重启试试]]></title>
+    <url>%2F2016%2F11%2F21%2F20161121-ss%E7%94%A8%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%8D%A1%EF%BC%9Fvps%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF%E8%AF%95%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。 ¶1. 添加定时重启vps 1234crontab -e #编辑任务列表#新增：注意用root用户添加 01 21 * * * /sbin/roboot #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动 chkconfig supervisord on# 锐速开机启动 chkconfig serverSpeeder on# net-speeder的开机启动 echo 'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;' &gt;&gt; /etc/rc.local ¶3.补充：Crontab基本格式： 12* * * * * command分 时 日 月 周 命令]]></content>
+      <categories>
+        <category>ss</category>
+      </categories>
+      <tags>
+        <tag>vps</tag>
+        <tag>ss</tag>
+        <tag>shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[亚马逊aws更改linux为root权限密码登陆]]></title>
     <url>%2F2016%2F11%2F21%2F20161121-%E4%BA%9A%E9%A9%AC%E9%80%8Aaws%E6%9B%B4%E6%94%B9linux%E4%B8%BAroot%E6%9D%83%E9%99%90%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%2F</url>
     <content type="text"><![CDATA[我的AWS VPS的LINUX版本是centos6.5 ，首先用AWS证书验证的账户登录. ¶1、修改ROOT密码 1sudo passwd root ¶2、修改sshd_config文件 12345sudo vi /etc/ssh/sshd_config#修改这2行PermitRootLogin yesPasswordAuthentication yes ¶3、重启ssh就可以使用root正常登陆了 1/sbin/service sshd restart ¶4、登录工具 pc可以使用：SecureCRT 手机可以使用：Serverauditor]]></content>
@@ -327,19 +340,6 @@
         <tag>aws</tag>
         <tag>亚马逊</tag>
         <tag>root登录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[ss用一段时间卡？vps定时重启试试]]></title>
-    <url>%2F2016%2F11%2F21%2F20161121-ss%E7%94%A8%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%8D%A1%EF%BC%9Fvps%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF%E8%AF%95%E8%AF%95%2F</url>
-    <content type="text"><![CDATA[用了半个月的ss后，速度变的相当慢。找了各种办法，无解。后来重启后速度又杠杠的跑了起来。 ¶1. 添加定时重启vps 1234crontab -e #编辑任务列表#新增：注意用root用户添加 01 21 * * * /sbin/roboot #由于vps的时间要晚8个小时，又懒得去修改时间就这样吧。 ¶2. 开机自动启动ss服务等 123456# ss的开机启动 chkconfig supervisord on# 锐速开机启动 chkconfig serverSpeeder on# net-speeder的开机启动 echo 'nohup /usr/local/net_speeder/net_speeder eth0 "ip" &gt;/var/log/net_speeder 2&gt;&amp;1 &amp;' &gt;&gt; /etc/rc.local ¶3.补充：Crontab基本格式： 12* * * * * command分 时 日 月 周 命令]]></content>
-      <categories>
-        <category>ss</category>
-      </categories>
-      <tags>
-        <tag>vps</tag>
-        <tag>ss</tag>
-        <tag>shadowsocks</tag>
       </tags>
   </entry>
   <entry>
