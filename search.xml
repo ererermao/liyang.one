@@ -189,8 +189,8 @@
         <category>hadoop</category>
       </categories>
       <tags>
-        <tag>hadoop</tag>
         <tag>cdh</tag>
+        <tag>hadoop</tag>
         <tag>cloudera-manger</tag>
       </tags>
   </entry>
