@@ -189,8 +189,8 @@
         <category>hadoop</category>
       </categories>
       <tags>
-        <tag>cdh</tag>
         <tag>hadoop</tag>
+        <tag>cdh</tag>
         <tag>cloudera-manger</tag>
       </tags>
   </entry>
@@ -350,8 +350,8 @@
         <category>centos</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>vm</tag>
+        <tag>centos</tag>
         <tag>lvm</tag>
       </tags>
   </entry>
