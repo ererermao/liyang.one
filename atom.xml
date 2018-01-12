@@ -119,9 +119,9 @@ grep -rni “org.spark_project.com.fasterxml.jackson.core.JsonFactory.requiresPr
       <category term="mysql" scheme="http://www.liyang.site/categories/mysql/"/>
     
     
-      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
-    
       <category term="mysql" scheme="http://www.liyang.site/tags/mysql/"/>
+    
+      <category term="centos" scheme="http://www.liyang.site/tags/centos/"/>
     
       <category term="cmake" scheme="http://www.liyang.site/tags/cmake/"/>
     
@@ -782,9 +782,9 @@ multilib 仓库让用户可以在 64 位 Arch Linux 系统上运行和编译 32 
       <category term="hadoop" scheme="http://www.liyang.site/categories/hadoop/"/>
     
     
-      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
-    
       <category term="hadoop" scheme="http://www.liyang.site/tags/hadoop/"/>
+    
+      <category term="cdh" scheme="http://www.liyang.site/tags/cdh/"/>
     
       <category term="cloudera-manger" scheme="http://www.liyang.site/tags/cloudera-manger/"/>
     
